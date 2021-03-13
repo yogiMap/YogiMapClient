@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, Link } from 'umi';
-import img1 from '@/pages/pages/homePage/images/homePageIllustration1.png';
-import img2 from '@/pages/pages/homePage/images/homePageIllustration2.png';
+import rishikesh from '@/pages/pages/homePage/images/rishikesh2.png';
+import yogigirl from '@/pages/pages/homePage/images/yogigirl.png';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
@@ -13,79 +13,50 @@ function HomePage(props: IProps) {
   const isUserAuth = get(props, 'Account._id');
 
   return (
+
+    <>
+
+      <img src={rishikesh} className="align-content-center w-100" alt="YogiMap" title="YogiMap" />
+
+
     <div className="container mt-5 mb-5">
       <div className="row">
         <div className="col-lg-6">
-          <img src={img1} className="align-content-center w-100" alt="YogiMap" title="YogiMap" />
+          <h3>All you need to know about yoga:</h3>
+
+          <ul className="benefits">
+            <li>Recommendations and ratings of teachers and studios.</li>
+            <li>Description of different yoga schools and trainings.</li>
+            <li>List, dates and raiting of yoga retreats.</li>
+            <li>Resource of yoga knowledge (online library of yogic ancient work).
+            </li>
+            <li>Online school with freelancers - teaching Sanskrit, reading and
+              explanation of ancient books (Bhagavat Gita, Ramayana…), studding and understanding different
+              religions and mystical practices (Hinduism, Buddhism, Cabala, Dhaosism… ).
+            </li>
+            <li>Ayurvedic resource (library, lectures).</li>
+          </ul>
+
+          <a href="#contact">Discover More</a>
         </div>
 
         <div className="col-lg-6">
-          <h1 className="mb-4">ERP for small business</h1>
-
-          <p>
-            YogiMap is ready to go, accessible from anywhere, easy to use and offers great value to any kind of small
-            business.
-          </p>
-
-          <p className="mt-4">
-            Stop juggling multiple tools. With YogiMap you can manage clientele, accounting and communication - in a
-            single solution.
-          </p>
-
-          {!isUserAuth && (
-            <div className="mt-5">
-              <Link className="ant-btn ant-btn-primary login-form-button" to="/user/register">
-                Sign up for free
-              </Link>
-            </div>
-          )}
+          <img src={yogigirl} className="align-content-center w-100" alt="YogiMap " title="YogiMap " />
         </div>
       </div>
 
       <div className="row">
-        <div className="row mt-5">
           <div className="col-lg-7">
-            <div className="mt-5 mb-5">
-              <h3>Clients</h3>
-              <p>Organize your client and vendor lists and keep a single accurate version for each contact.</p>
+
             </div>
 
-            <div className="mt-5 mb-5">
-              <h3>Estimates, Invoices, Payments</h3>
-              <p>
-                No more wasting your time filling out the same information. Turn estimates into invoices, invoices into
-                payments with a click of a button. Create more revenue by working efficiently.
-              </p>
-            </div>
-
-            <div className="mt-5 mb-5">
-              <h3>Calls and Messages</h3>
-              <p>
-                Messages and calls between your team and the client are logged in an integrated chat, so everyone is
-                instantly updated. No miscommunication, no extra phone calls.
-              </p>
-            </div>
-
-            <div className="mt-5 mb-5">
-              <h3>Schedule Tasks</h3>
-              <p>Make scheduling a breeze, never miss a meeting.</p>
-            </div>
-
-            {!isUserAuth && (
-              <div className="mt-4 mb-5">
-                <Link className="ant-btn ant-btn-primary login-form-button" to="/user/register">
-                  Start today
-                </Link>
-              </div>
-            )}
-          </div>
 
           <div className="col-lg-5">
-            <img src={img2} className="align-content-center w-100" alt="YogiMap " title="YogiMap " />
+            {/*<img src={img2} className="align-content-center w-100" alt="YogiMap " title="YogiMap " />*/}
           </div>
         </div>
-      </div>
     </div>
+    </>
   );
 }
 
