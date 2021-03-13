@@ -57,7 +57,6 @@ function HomePage(props: IProps) {
 
             <div className="col-lg-5 p-2">
               <p>
-                {' '}
                 We are the group of human beings who are totally in love with yoga gathering here to help you in your
                 spiritual journey. We had yoga studios in India (Mumbai, New Delhi, Haridvar). Our teachers had got the
                 yoga education in ashrams also some of them studied yoga here in US in such places as Loyola Marymount

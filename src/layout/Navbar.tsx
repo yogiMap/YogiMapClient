@@ -6,7 +6,7 @@ import UserInfo from '@/pages/user/topInfo/UserInfo';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light-">
+    <nav className="navbar navbar-expand-lg bg-light-">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           YogiMap
