@@ -83,6 +83,14 @@ footer {
       display: inline;
       border-radius: 0.3em;
       background: #ebeef0;
+
+      a {
+        //color: $primary-color;
+      }
+    }
+
+    a {
+      color: #4ba74b;
     }
   }
 }
@@ -133,7 +141,7 @@ footer {
 }
 
 a:not([href]) {
-  color: #3f51b5;
+  color: #26155f;
 }
 
 .register-button {
