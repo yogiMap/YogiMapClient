@@ -5,6 +5,6 @@ import theme from './src/theme';
 export default defineConfig({
   routes,
   theme,
-  favicon: 'favicon2.ico',
+  favicon: 'favicon_orig.ico',
   sass: {},
 });
