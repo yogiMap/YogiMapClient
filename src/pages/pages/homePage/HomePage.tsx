@@ -17,10 +17,10 @@ function HomePage(props: IProps) {
       <section id="product-overview">
         <div className="main-header">
           <h1>Here you will find your yoga teacher, studio and yoga society.</h1>
-          <h2 className="m-5">Descriptions, schedules, information, education in yoga.</h2>
+          <h2 className="m-3">Descriptions, schedules, information, education in yoga.</h2>
 
           {!isUserAuth && (
-            <div className="mt-4 mb-5 text-center">
+            <div className="mt-3 mb-3 text-center">
               <a href="/user/register" className="btn btn-primary fs-5 fw-bold text-white px-5 m-5 shadow-sm">Get Started</a>
             </div>
           )}

@@ -9,7 +9,7 @@ interface IProps {
   // close: () => void;
 }
 
-const HoverCard = (props: IProps) => {
+const ProfileHoverCard = (props: IProps) => {
   const name = get(props, 'name');
   const id = get(props, 'id');
 
@@ -21,7 +21,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // close: () => dispatch({ type: 'HoverCard/close' }),
+  // close: () => dispatch({ type: 'ProfileHoverCard/close' }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HoverCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileHoverCard);
