@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, Link } from 'umi';
+import { connect } from 'umi';
 import yogigirl from '@/pages/pages/homePage/images/yogigirl.png';
 import crystals from '@/pages/pages/homePage/images/crystals.png';
 import { get } from 'lodash';
@@ -17,13 +17,11 @@ function HomePage(props: IProps) {
       <section id="product-overview">
         <div className="main-header">
           <h1>Here you will find your yoga teacher, studio and yoga society.</h1>
-          <h2>Descriptions, schedules, information, education in yoga.</h2>
+          <h2 className="m-5">Descriptions, schedules, information, education in yoga.</h2>
 
           {!isUserAuth && (
             <div className="mt-4 mb-5 text-center">
-              <Link className="ant-btn ant-btn-primary login-form-button" to="/user/register">
-                Get Started
-              </Link>
+              <a href="/user/register" className="btn btn-primary fs-5 fw-bold text-white px-5 m-5 shadow-sm">Get Started</a>
             </div>
           )}
         </div>
@@ -51,7 +49,7 @@ function HomePage(props: IProps) {
           <div className="col-lg-6 p-2">
             <img
               src={yogigirl}
-              className="align-content-center img-fluid img-thumbnail"
+              className="align-content-center img-fluid img-thumbnail rounded"
               alt="YogiMap "
               title="YogiMap "
             />
@@ -62,7 +60,7 @@ function HomePage(props: IProps) {
           <div className="col-lg-7 p-2">
             <img
               src={crystals}
-              className="align-content-center img-fluid img-thumbnail"
+              className="align-content-center img-fluid img-thumbnail rounded"
               alt="YogiMap "
               title="YogiMap "
             />

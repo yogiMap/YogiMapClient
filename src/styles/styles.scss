@@ -86,11 +86,17 @@ footer {
 
       a {
         //color: $primary-color;
+          color: #4ba74b;
+          :hover, :active {
+            color: #7486df;
+          }
       }
-    }
-
-    a {
-      color: #4ba74b;
+      //a {
+      //  color: #4ba74b;
+      //  :hover, :active {
+      //    color: #7486df;
+      //  }
+      //}
     }
   }
 }

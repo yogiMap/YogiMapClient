@@ -71,7 +71,7 @@ const UserInfo = (props: IProps) => {
           Login
         </Link>
 
-        <Link to={'/user/register'} className="register-button p-3" data-qa="register">
+        <Link to={'/user/register'} className="ms-5 p-3" data-qa="register">
           <strong>Get started</strong> — it's free
         </Link>
       </div>
