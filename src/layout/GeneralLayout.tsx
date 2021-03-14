@@ -17,7 +17,7 @@ const isFooterVisible = (location: string) => {
 
 export default (props: IProps) => {
   return (
-    <div className="container">
+    <div>
       <Navbar />
 
       <div>{props.children}</div>
