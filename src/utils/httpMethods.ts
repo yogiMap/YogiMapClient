@@ -4,7 +4,10 @@ import { notification } from 'antd';
 // @ts-ignore
 import { loadProgressBar } from 'axios-progress-bar';
 
-const server = process.env.API_SERVER;
+// const server = process.env.API_SERVER;
+let server: string | undefined = 'http://localhost:5000';
+if (process.env.UMI_ENV === 'stage') server = process.env.API_SERVER_STAGE;
+if (process.env.UMI_ENV === 'prod') server = process.env.API_SERVER_PROD;
 
 function getHeaders(type: string) {
   const token = localStorage.getItem('token');
