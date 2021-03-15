@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "stage": "UMI_ENV=stage umi dev",
     "local": "umi dev",
-    "prod": "UMI_ENV=prod umi dev",
+    "start": "umi dev",
+    "stage": "API_SERVER=stage umi dev",
     "build": "umi build",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
