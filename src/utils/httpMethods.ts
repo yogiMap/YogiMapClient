@@ -4,8 +4,7 @@ import { notification } from 'antd';
 // @ts-ignore
 import { loadProgressBar } from 'axios-progress-bar';
 
-// const server = process.env.API_SERVER;
- const server: string | undefined = process.env.API_SERVER || 'http://localhost:5000';
+const server = process.env.API_SERVER;
 
 function getHeaders(type: string) {
   const token = localStorage.getItem('token');
