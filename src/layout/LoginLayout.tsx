@@ -10,7 +10,7 @@ export default ({ children }: IProps) => {
   return (
     <>
       <Row align="middle">
-        <Link to="/" className="site-name">
+        <Link to="/vendor" className="site-name">
           YogiMap
         </Link>
       </Row>
