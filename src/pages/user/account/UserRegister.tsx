@@ -60,7 +60,7 @@ const UserRegister = (props: IProps) => {
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>
-          I have read <a onClick={showTerms}>Terms and agreements</a>
+          I have read <a onClick={showTerms}>terms and conditions</a>
         </Checkbox>
       </Form.Item>
 

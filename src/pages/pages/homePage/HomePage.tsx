@@ -16,7 +16,7 @@ function HomePage(props: IProps) {
     <>
       <section id="product-overview">
         <div className="main-header">
-          <h1>Here you will find your yoga teacher, studio and yoga society.</h1>
+          <h1>Here you will find your yoga teacher, studio and your yoga community.</h1>
           <h2 className="m-3">Descriptions, schedules, information, education in yoga.</h2>
 
           {!isUserAuth && (

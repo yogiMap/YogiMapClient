@@ -10,7 +10,7 @@ interface IProps {
 const VendorDashboardControls = (props: IProps) => {
   const vendorCreate = () => {
     props.open({
-      title: 'Create new Vendor',
+      title: 'Choose the Type of Profile to Create',
       component: 'VendorFormCreate',
       place: 'VendorDashboard',
       width: 800,
@@ -19,7 +19,7 @@ const VendorDashboardControls = (props: IProps) => {
 
   return (
     <Button type="primary" onClick={vendorCreate}>
-      Create Vendor
+      Choose the Type of Profile to Create
     </Button>
   );
 };

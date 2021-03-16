@@ -39,11 +39,7 @@ const VendorFilterForm = (props: IProps) => {
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
       <Form.Item name="vendorSearchParam1">
-        <Input placeholder="vendorSearchParam1" />
-      </Form.Item>
-
-      <Form.Item name="vendorSearchParam2">
-        <Input placeholder="vendorSearchParam2" />
+        <Input placeholder="Find your Teacher or Studio" />
       </Form.Item>
 
       <Form.Item>
