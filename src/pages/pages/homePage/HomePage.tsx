@@ -21,7 +21,8 @@ function HomePage(props: IProps) {
 
           {!isUserAuth && (
             <div className="mt-3 mb-3 text-center">
-              <a href="/user/register" className="btn btn-primary fs-5 fw-bold text-white px-5 m-5 shadow-sm">Get Started</a>
+              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-5">I am Teacher </a>
+              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-5">I am Student</a>
             </div>
           )}
         </div>
