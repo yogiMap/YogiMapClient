@@ -21,14 +21,14 @@ function HomePage(props: IProps) {
 
           {!isUserAuth && (
             <div className="mt-3 mb-3 text-center">
-              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-5">I am Teacher </a>
-              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-5">I am Student</a>
+              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-2 ">I am Teacher </a>
+              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-2">I am Student</a>
             </div>
           )}
         </div>
       </section>
 
-      <div className="container mt-5 mb-5 mx-auto">
+      <section id="product-description" className="container mt-5 mb-5 mx-auto">
         <div className="row">
           <div className="col-lg-6 p-2">
             <h3>All you need to know about yoga:</h3>
@@ -85,7 +85,7 @@ function HomePage(props: IProps) {
             </p>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

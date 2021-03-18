@@ -205,7 +205,7 @@ h1,h2,h3 {
   background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 5%, transparent),
     url('../pages/pages/homePage/images/rishikesh2.png') left center/cover no-repeat border-box, fixed, #8f5d06;
   width: 100vw;
-  height: 60vh;
+  height: 80vh;
   position: relative;
 
   .main-header {
@@ -235,13 +235,14 @@ h1,h2,h3 {
 }
 
 #product-description {
-  position: absolute;
-  left: 50%;
+p, ul{
+  color: #858585;
+}
 }
 
 @media screen and (min-width: 640px) {
   #product-overview {
-    height: 100vh;
+    height: 70vh;
     background-position: 50% 25%;
 
     h1 {
@@ -256,10 +257,7 @@ h1,h2,h3 {
     }
   }
   #product-description {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
   }
 }
 
