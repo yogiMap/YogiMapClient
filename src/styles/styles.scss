@@ -12,8 +12,8 @@
 @import '~@fullcalendar/resource-timeline/main.css';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
+@import url('http://fonts.googleapis.com/css?family=Russo+One' );
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-@import url('https://fonts.googleapis.com/css?family=Anton');
 @import url('https://fonts.googleapis.com/css2?family=Merienda');
 
 //@primary-color: #3f51b5;
@@ -194,66 +194,54 @@ span.edit-pen-icon {
 }
 
 h1,h2,h3 {
-  color: #26155f;
+  font-family: 'Russo One', sans-serif;
+  text-align: center;
+  color: #f4e4ba;
+  -webkit-text-stroke-color: #13075f;
+  text-shadow: 4px 2px 4px #13075f ;
 }
+
+.button-home
 
 /* ========================================================== */
 /* 			                       HOME                           */
 /* ========================================================== */
+.button-home {
+  border: 1px solid #4b8b64;
+  margin: 20rem;
+  border-radius: 30px 5px 30px 5px;
+
+}
+
 #product-overview {
   margin-left: 0 !important;
-  background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 5%, transparent),
-    url('../pages/pages/homePage/images/rishikesh2.png') left center/cover no-repeat border-box, fixed, #8f5d06;
-  width: 100vw;
-  height: 80vh;
+  background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight.png') left center/cover no-repeat, fixed;
+  //width: 100vw;
+  height: 100vh;
   position: relative;
 
   .main-header {
     position: absolute;
     top: 20%;
-
     left: 5%;
     right: 5%;
     margin: auto;
-
-    text-shadow: 2px 2px 2px #454545;
-  }
-
-  h1,
-  h2 {
-    color: white;
-    font-family: Roboto, sans-serif;
-    text-align: center;
-  }
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 1rem;
   }
 }
 
 #product-description {
-p, ul{
-  color: #858585;
-}
 }
 
 @media screen and (min-width: 640px) {
   #product-overview {
-    height: 70vh;
-    background-position: 50% 25%;
+    height: 100vh;
+    background-position: 0 85%;
 
     h1 {
       font-size: 4rem;
-      align-content: center;
-      justify-content: center;
     }
     h2 {
       font-size: 2rem;
-      align-content: center;
-      justify-content: center;
     }
   }
   #product-description {
