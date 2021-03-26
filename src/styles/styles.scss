@@ -13,6 +13,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
 @import url('http://fonts.googleapis.com/css?family=Amaranth:700');
+@import url('http://fonts.googleapis.com/css?family=Russo+One');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Merienda');
 
@@ -199,6 +200,7 @@ h1,h2,h3 {
 /* ========================================================== */
 .button-home {
   font-family: 'Amaranth', sans-serif;
+  font-weight: bold;
   font-size: 0.7rem;
   text-align: center;
   background: rgba(244, 228, 186, 0.5);
