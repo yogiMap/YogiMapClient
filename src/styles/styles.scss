@@ -196,30 +196,23 @@ span.edit-pen-icon {
 h1,h2,h3 {
   font-family: 'Russo One', sans-serif;
   text-align: center;
-  color: #f4e4ba;
-  -webkit-text-stroke-color: #13075f;
-  text-shadow: 4px 2px 4px #13075f ;
+  color: #13075f;
 }
+
+
 /* ========================================================== */
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
   font-family: 'Russo One', sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
   text-align: center;
   color: #13075f;
   background: #d7d8cd;
   opacity:0.6;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   border: 1px solid #4b8b64;
   border-radius: 30px 5px 30px 5px;
-
-  //a {
-  //  color: #13075f;
-  //  :hover, :active {
-  //    color: #4b8b64;
-  //  }
-  //}
 }
 
 #product-overview {
@@ -229,26 +222,43 @@ h1,h2,h3 {
 
   .main-header {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 5%;
     right: 5%;
     margin: auto;
+  }
+
+  h1,h2,h3 {
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    color: #f4e4ba;
+    text-shadow: 4px 2px 4px #13075f ;
   }
 }
 
 #product-description {
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1000px) {
   #product-overview {
     height: 100vh;
     background-position: 0 85%;
 
+    .main-header {
+      position: absolute;
+      top: 20%;
+    }
+
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     h2 {
       font-size: 2rem;
+    }
+    .button-home {
+      font-size: 1.5rem;
+      padding: 1rem 3rem;
+      border: 2px solid #4b8b64;
     }
   }
   #product-description {

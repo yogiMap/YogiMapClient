@@ -24,27 +24,28 @@ function HomePage(props: IProps) {
               <div className="col-lg-4">
                 <h2 className="m-2">education</h2>
               </div>
+
               <div className="col-lg-4">
                 <h2 className="m-2">information</h2>
               </div>
+
               <div className="col-lg-4">
                 <h2 className="m-2">community</h2>
               </div>
             </div>
 
             {!isUserAuth && (
-              <div className="container">
-                <div className="row d-flex justify-content-center">
-                  <div className="col-lg-5 my-5">
-                    <a href="/user/register" className="button-home">
-                      I‘M A TEACHER
-                    </a>
-                  </div>
-                  <div className="col-lg-5 my-5">
-                    <a href="/user/register" className="button-home">
-                      I’M A STUDENT
-                    </a>
-                  </div>
+              <div className="row">
+                <div className="col-lg-5 my-4 ">
+                  <a href="/user/register" className="button-home m-2">
+                    I‘M A TEACHER
+                  </a>
+                </div>
+
+                <div className="col-lg-5 my-4">
+                  <a href="/user/register" className="button-home m-2">
+                    I’M A STUDENT
+                  </a>
                 </div>
               </div>
             )}
