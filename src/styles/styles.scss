@@ -16,7 +16,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Merienda');
 
-//@primary-color: #3f51b5;
+//@primary-color: #4b8b64;
 
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
@@ -91,12 +91,6 @@ footer {
             color: #7486df;
           }
       }
-      //a {
-      //  color: #4ba74b;
-      //  :hover, :active {
-      //    color: #7486df;
-      //  }
-      //}
     }
   }
 }
@@ -205,28 +199,19 @@ h1,h2,h3 {
 /* ========================================================== */
 .button-home {
   font-family: 'Russo One', sans-serif;
-  font-size: 1rem;
+  font-size: 0.7rem;
   text-align: center;
+  background: rgba(244, 228, 186, 0.5);
   color: #13075f;
-  background: #d7d8cd;
-  opacity:0.6;
-  padding: 1rem 2rem;
+  padding: 0.7rem 1.4rem;
   border: 1px solid #4b8b64;
   border-radius: 30px 5px 30px 5px;
 }
 
 #product-overview {
-  background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight.png') left center/cover no-repeat, fixed;
+  background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat, fixed;
   height: 100vh;
   position: relative;
-
-  .main-header {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    right: 5%;
-    margin: auto;
-  }
 
   h1,h2,h3 {
     font-family: 'Russo One', sans-serif;
@@ -236,18 +221,15 @@ h1,h2,h3 {
   }
 }
 
-#product-description {
-}
-
 @media screen and (min-width: 1000px) {
   #product-overview {
     height: 100vh;
     background-position: 0 85%;
 
-    .main-header {
-      position: absolute;
-      top: 20%;
-    }
+    //.main-header {
+    //  position: absolute;
+    //  top: 20%;
+    //}
 
     h1 {
       font-size: 3rem;
@@ -256,8 +238,8 @@ h1,h2,h3 {
       font-size: 2rem;
     }
     .button-home {
-      font-size: 1.5rem;
-      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      padding: 0.9rem 2rem;
       border: 2px solid #4b8b64;
     }
   }

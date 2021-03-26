@@ -13,51 +13,55 @@ function HomePage(props: IProps) {
   return (
     <>
       <section id="product-overview">
-        <div className="main-header">
-          <h1>
-            DISCOVER YOGA <br />
-            THE JOURNEY STARTS HERE{' '}
+          <h1 className="pt-5">DISCOVER YOGA
+             <br />
+            THE JOURNEY STARTS HERE
           </h1>
 
           <div className="container">
+
             <div className="row d-flex justify-content-center">
-              <div className="col-lg-4">
+
+              <div className="col-lg-3">
                 <h2 className="m-2">education</h2>
               </div>
 
-              <div className="col-lg-4">
+              <div className="col-lg-3">
                 <h2 className="m-2">information</h2>
               </div>
 
-              <div className="col-lg-4">
+              <div className="col-lg-3">
                 <h2 className="m-2">community</h2>
               </div>
+
             </div>
 
             {!isUserAuth && (
-              <div className="row">
-                <div className="col-lg-5 my-4 ">
+              <div className="row d-flex justify-content-center">
+
+                <div className="col-lg-5 my-lg-4 my-2 d-flex justify-content-lg-start justify-content-center">
                   <a href="/user/register" className="button-home m-2">
                     I‘M A TEACHER
                   </a>
                 </div>
 
-                <div className="col-lg-5 my-4">
+                <div className="col-lg-5 my-lg-4 d-flex justify-content-lg-end justify-content-center">
                   <a href="/user/register" className="button-home m-2">
                     I’M A STUDENT
                   </a>
                 </div>
+
               </div>
             )}
           </div>
-        </div>
+
       </section>
 
       <section id="product-description" className="container mt-5 mb-5 mx-auto">
-        <div className="row">
-          <div className="col-md-4 p-2"> </div>
-          <div className="col-md-4 p-2"> </div>
-          <div className="col-md-4 p-2"> </div>
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-3 p-2"> </div>
+          <div className="col-lg-3 p-2"> </div>
+          <div className="col-lg-3 p-2"> </div>
         </div>
       </section>
     </>
