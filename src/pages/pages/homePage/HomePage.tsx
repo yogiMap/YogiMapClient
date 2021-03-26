@@ -20,28 +20,32 @@ function HomePage(props: IProps) {
           </h1>
           <div className="container">
             <div className="row d-flex justify-content-center">
-              <div className="col-md-3">
-                <h2 className="m-2">education</h2>
+              <div className="col-md-4">
+                <h2 className="m-3">education</h2>
               </div>
-              <div className="col-md-3">
-                <h2 className="m-2">information</h2>
+              <div className="col-md-4">
+                <h2 className="m-3">information</h2>
               </div>
-              <div className="col-md-3">
-                <h2 className="m-2">community</h2>
+              <div className="col-md-4">
+                <h2 className="m-3">community</h2>
               </div>
             </div>
-          </div>
 
-          {!isUserAuth && (
-            <div className="mt-3 mb-3 text-center">
-              <a href="/user/register" className="button-home">
-                <h3>I‘M A TEACHER</h3>
-              </a>
-              <a href="/user/register" className="btn btn-outline-primary fs-3 fw-bold text-white px-5 m-2">
-                <h3>I’M A STUDENT</h3>
-              </a>
-            </div>
-          )}
+            {!isUserAuth && (
+              <div className="row d-flex justify-content-center mt-5">
+                <div className="col-md-6 m-5">
+                  <a href="/user/register" className="button-home">
+                    I‘M A TEACHER
+                  </a>
+                </div>
+                <div className="col-md-6 m-5">
+                  <a href="/user/register" className="button-home">
+                    I’M A STUDENT
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

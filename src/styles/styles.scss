@@ -200,17 +200,26 @@ h1,h2,h3 {
   -webkit-text-stroke-color: #13075f;
   text-shadow: 4px 2px 4px #13075f ;
 }
-
-.button-home
-
 /* ========================================================== */
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
+  font-family: 'Russo One', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #13075f;
+  background: #d7d8cd;
+  opacity:0.6;
+  padding: 1rem 3rem;
   border: 1px solid #4b8b64;
-  margin: 20rem;
   border-radius: 30px 5px 30px 5px;
 
+  a {
+    color: #13075f;
+    :hover, :active {
+      color: #4b8b64;
+    }
+  }
 }
 
 #product-overview {
