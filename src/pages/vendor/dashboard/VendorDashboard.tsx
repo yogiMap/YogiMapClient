@@ -66,7 +66,7 @@ const VendorDashboard = (props: IProps) => {
     <>
       <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
         <div>
-          <div className="h4 mr-4">Vendor dashboard</div>
+          <h3 >Find Your Teacher</h3>
           <VendorFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
         </div>
 

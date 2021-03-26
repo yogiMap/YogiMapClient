@@ -11,7 +11,6 @@ import { IState } from '@/pages/vendorType/dashboard/model';
 
 const initialSearchForm = {
   vendorTypeSearchParam1: '',
-  vendorTypeSearchParam2: '',
 };
 
 const initialSearchQuery = {
@@ -66,7 +65,7 @@ const VendorTypeDashboard = (props: IProps) => {
     <>
       <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
         <div>
-          <div className="h4 mr-4">VendorType dashboard</div>
+          <h3>Types of Yoga</h3>
           <VendorTypeFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
         </div>
 

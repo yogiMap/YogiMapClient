@@ -10,7 +10,7 @@ interface IProps {
 const VendorTypeDashboardControls = (props: IProps) => {
   const vendorTypeCreate = () => {
     props.open({
-      title: 'Create new VendorType',
+      title: 'What Type of Yoga do you Teach?',
       component: 'VendorTypeFormCreate',
       place: 'VendorTypeDashboard',
       width: 800,
@@ -19,7 +19,7 @@ const VendorTypeDashboardControls = (props: IProps) => {
 
   return (
     <Button type="primary" onClick={vendorTypeCreate}>
-      Create VendorType
+      What Type of Yoga do you Teach?
     </Button>
   );
 };

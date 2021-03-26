@@ -7,6 +7,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { IVendorType } from '@/pages/vendorType/types';
 import ActionMenu from '@/pages/vendorType/dashboard/search/ActionMenu';
+import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
 
 interface IProps extends RouteComponentProps {
   items: IVendorType[];
@@ -49,15 +50,22 @@ const VendorTypeSearchList = (props: IProps) => {
       width: 80,
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
+    {
+      title: 'owner',
+      key: 'owner',
+      render: (row) => {
+        return <ProfileHoverCard id={get(row, 'owner._id')} name={get(row, 'owner.name')} />;
+      },
+    },
   ];
 
   return (
     <Table
-      rowKey="_id"
+      rowKey='_id'
       columns={columns}
       dataSource={items}
-      size="middle"
-      className="table-middle"
+      size='middle'
+      className='table-middle'
       pagination={false}
     />
   );

@@ -20,5 +20,4 @@ export interface IVendorQueryParams {
   limit?: number | string;
   page?: number | string;
   vendorSearchParam1?: string;
-  vendorSearchParam2?: string;
 }

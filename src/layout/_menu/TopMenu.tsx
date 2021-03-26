@@ -13,9 +13,9 @@ const TopMenu = (props: IProps) => {
   const acl = get(props, 'Account.acl', []);
 
   const mainMenu = [
-    { path: '/base', name: 'Base', perm: 'base.get.own' },
-    { path: '/vendor', name: 'Vendor', perm: 'vendor.get.own' },
-    { path: '/vendorType', name: 'VendorType', perm: 'vendorType.get.own' },
+    // { path: '/base', name: 'Base', perm: 'base.get.own' },
+    { path: '/vendor', name: 'Yoga Teacher', perm: 'vendor.get.own' },
+    { path: '/vendorType', name: 'Type of Yoga', perm: 'vendorType.get.own' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),

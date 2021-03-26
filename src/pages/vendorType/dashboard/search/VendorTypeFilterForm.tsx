@@ -42,10 +42,6 @@ const VendorTypeFilterForm = (props: IProps) => {
         <Input placeholder="vendorTypeSearchParam1" />
       </Form.Item>
 
-      <Form.Item name="vendorTypeSearchParam2">
-        <Input placeholder="vendorTypeSearchParam2" />
-      </Form.Item>
-
       <Form.Item>
         <Button onClick={reset}>Reset</Button>
       </Form.Item>

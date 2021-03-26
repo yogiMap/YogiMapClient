@@ -17,7 +17,7 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'Sidepanel',
+  namespace: 'HoverCard',
 
   state: {
     open: false,
