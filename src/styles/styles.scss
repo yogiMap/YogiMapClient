@@ -12,7 +12,8 @@
 @import '~@fullcalendar/resource-timeline/main.css';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
-@import url('http://fonts.googleapis.com/css?family=Russo+One' );
+//@import url('http://fonts.googleapis.com/css?family=Russo+One');
+@import url('http://fonts.googleapis.com/css2?family=Ramabhadra');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Merienda');
 
@@ -188,7 +189,7 @@ span.edit-pen-icon {
 }
 
 h1,h2,h3 {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Ramabhadra', sans-serif;
   text-align: center;
   color: #13075f;
 }
@@ -198,7 +199,7 @@ h1,h2,h3 {
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Ramabhadra', sans-serif;
   font-size: 0.7rem;
   text-align: center;
   background: rgba(244, 228, 186, 0.5);
@@ -215,7 +216,7 @@ h1,h2,h3 {
   position: relative;
 
   h1,h2,h3 {
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Ramabhadra', sans-serif;
     text-align: center;
     color: #f4e4ba;
     text-shadow: 4px 2px 4px #13075f ;
