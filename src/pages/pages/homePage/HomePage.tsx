@@ -18,30 +18,33 @@ function HomePage(props: IProps) {
             DISCOVER YOGA <br />
             THE JOURNEY STARTS HERE{' '}
           </h1>
+
           <div className="container">
             <div className="row d-flex justify-content-center">
-              <div className="col-md-4">
-                <h2 className="m-3">education</h2>
+              <div className="col-lg-4">
+                <h2 className="m-2">education</h2>
               </div>
-              <div className="col-md-4">
-                <h2 className="m-3">information</h2>
+              <div className="col-lg-4">
+                <h2 className="m-2">information</h2>
               </div>
-              <div className="col-md-4">
-                <h2 className="m-3">community</h2>
+              <div className="col-lg-4">
+                <h2 className="m-2">community</h2>
               </div>
             </div>
 
             {!isUserAuth && (
-              <div className="row d-flex justify-content-center mt-5">
-                <div className="col-md-6 m-5">
-                  <a href="/user/register" className="button-home">
-                    I‘M A TEACHER
-                  </a>
-                </div>
-                <div className="col-md-6 m-5">
-                  <a href="/user/register" className="button-home">
-                    I’M A STUDENT
-                  </a>
+              <div className="container">
+                <div className="row d-flex justify-content-center">
+                  <div className="col-lg-5 my-5">
+                    <a href="/user/register" className="button-home">
+                      I‘M A TEACHER
+                    </a>
+                  </div>
+                  <div className="col-lg-5 my-5">
+                    <a href="/user/register" className="button-home">
+                      I’M A STUDENT
+                    </a>
+                  </div>
                 </div>
               </div>
             )}

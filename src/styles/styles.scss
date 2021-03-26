@@ -214,18 +214,16 @@ h1,h2,h3 {
   border: 1px solid #4b8b64;
   border-radius: 30px 5px 30px 5px;
 
-  a {
-    color: #13075f;
-    :hover, :active {
-      color: #4b8b64;
-    }
-  }
+  //a {
+  //  color: #13075f;
+  //  :hover, :active {
+  //    color: #4b8b64;
+  //  }
+  //}
 }
 
 #product-overview {
-  margin-left: 0 !important;
   background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight.png') left center/cover no-repeat, fixed;
-  //width: 100vw;
   height: 100vh;
   position: relative;
 
