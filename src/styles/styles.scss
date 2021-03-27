@@ -192,15 +192,15 @@ span.edit-pen-icon {
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
-  font-weight: bold;
   font-size: 0.7rem;
+  font-weight: bold;
   text-align: center;
-  background: rgba(244, 228, 186, 0.5);
+  background: rgba(244, 228, 186, 0.2);
   color: #13075f;
   padding: 0.7rem 1.4rem;
   border: 1px solid #4b8b64;
   border-radius: 30px 5px 30px 5px;
-  box-shadow: 4px 2px 4px #13075f ;
+  box-shadow: 3px 2px 4px #13075f ;
 }
 
 #product-overview {
@@ -211,7 +211,7 @@ span.edit-pen-icon {
   h1,h2,h3 {
     text-align: center;
     color: #f4e4ba;
-    text-shadow: 4px 2px 4px #13075f ;
+    text-shadow: 3px 2px 4px #13075f ;
   }
 }
 
