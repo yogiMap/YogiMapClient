@@ -192,7 +192,6 @@ span.edit-pen-icon {
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
-  //font-family: 'Amaranth', sans-serif;
   font-weight: bold;
   font-size: 0.7rem;
   text-align: center;
@@ -216,9 +215,10 @@ span.edit-pen-icon {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 998px) {
   #product-overview {
     height: 100vh;
+    min-height: 420px;
     background-position: 0 85%;
 
     h1 {
@@ -236,7 +236,7 @@ span.edit-pen-icon {
   #product-description {
     .button-home {
       font-size: 1.2rem;
-      padding: 0.9rem 2rem;
+      padding: 0.8rem 1.8rem;
       border: 2px solid #4b8b64;
     }
   }
