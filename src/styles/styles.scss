@@ -11,10 +11,10 @@
 @import '~@fullcalendar/timeline/main.css';
 @import '~@fullcalendar/resource-timeline/main.css';
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
-@import url('http://fonts.googleapis.com/css?family=Amaranth:700');
-@import url('http://fonts.googleapis.com/css?family=Russo+One');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:400');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda');
 
 //@primary-color: #4b8b64;
@@ -188,18 +188,11 @@ span.edit-pen-icon {
   color: #82817f;
 }
 
-h1,h2,h3 {
-  font-family: 'Amaranth', sans-serif;
-  text-align: center;
-  color: #13075f;
-}
-
-
 /* ========================================================== */
 /* 			                       HOME                           */
 /* ========================================================== */
 .button-home {
-  font-family: 'Amaranth', sans-serif;
+  //font-family: 'Amaranth', sans-serif;
   font-weight: bold;
   font-size: 0.7rem;
   text-align: center;
@@ -217,7 +210,6 @@ h1,h2,h3 {
   position: relative;
 
   h1,h2,h3 {
-    font-family: 'Amaranth', sans-serif;
     text-align: center;
     color: #f4e4ba;
     text-shadow: 4px 2px 4px #13075f ;
