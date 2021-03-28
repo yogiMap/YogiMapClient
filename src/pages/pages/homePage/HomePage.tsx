@@ -51,7 +51,7 @@ function HomePage(props: IProps) {
 
       <div className="home-description">
 
-        <h4 className="pt-5 pb-3 px-5 text-center">directory for independent yoga teacher`s</h4>
+        <h4 className="pt-5 pb-3 px-5">directory for independent yoga teacher`s</h4>
 
         <div className="container mb-5 mx-auto">
           <div className="row d-flex justify-content-center">
