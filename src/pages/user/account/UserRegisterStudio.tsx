@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
+import { Button, Checkbox, Form, Input, Select} from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
@@ -15,7 +15,7 @@ interface IProps {
   userRegister: (values: IRegisterForm) => void;
 }
 
-const UserRegisterTeacher = (props: IProps) => {
+const UserRegisterStudio = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
 
   const onFinish = (values: any) => {
@@ -32,23 +32,33 @@ const UserRegisterTeacher = (props: IProps) => {
     console.log('showTerms');
   };
 
+  const { Option } = Select;
+
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-        <h2>CREATE A TEACHER`S PROFILE</h2>
+      <h2>CREATE A STUDIO`S PROFILE</h2>
+      <p>
+        A Studio`s Profile must describe a real organisation with regular yoga classes that are open to the public.
+        Creation of Studio Profile is only for managers or owners of a Studio.
+      </p>
 
-      <Row gutter={6}>
-        <Col span={12}>
-          <Form.Item name="firstName" rules={[validator.require]} hasFeedback>
-            <Input placeholder="First Name" />
-          </Form.Item>
-        </Col>
+      <Form.Item name="Name of Studio" rules={[validator.require]} hasFeedback>
+        <Input placeholder="Name of Studio" />
+      </Form.Item>
 
-        <Col span={12}>
-          <Form.Item name="lastName" rules={[validator.require]} hasFeedback>
-            <Input placeholder="Last Name" />
-          </Form.Item>
-        </Col>
-      </Row>
+      <Form.Item name="lastName" rules={[validator.require]} hasFeedback>
+        <Input placeholder="Last Name" />
+      </Form.Item>
+
+      <Form.Item name="select" label="Select" hasFeedback rules={[{ required: true, message: 'Please select your country!' }]}
+      >
+        <Select placeholder="Please select a country">
+          <Option value="usa">USA</Option>
+          <Option value="usa">Canada</Option>
+          <Option value="usa">Russia</Option>
+          <Option value="china">China</Option>
+        </Select>
+      </Form.Item>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>
         <Input placeholder="Email" />
@@ -82,7 +92,7 @@ const UserRegisterTeacher = (props: IProps) => {
 const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/registerTeacher', payload }),
+  userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/registerStudio', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterTeacher);
+export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterStudio);

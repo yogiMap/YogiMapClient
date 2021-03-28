@@ -8,30 +8,27 @@ interface IProps {
 }
 
 function TypeOfProfileForTeacher(props: IProps) {
-
   return (
     <>
       <div className="bg-profile">
-
         <h1>Choose the Type of Profile to Create</h1>
 
         <div className="row d-flex justify-content-center my-5">
-
           <div className="col-lg-3 d-flex justify-content-center my-lg-5">
             <a href="" className="home-button m-2">
-              Teacher
+              TEACHER
             </a>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center my-lg-5">
             <a href="" className="home-button m-2 ">
-              Studio
+              STUDIO
             </a>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center my-lg-5">
             <a href="" className="home-button m-2 ">
-              Retreat
+              RETREAT
             </a>
           </div>
         </div>
