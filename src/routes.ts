@@ -67,6 +67,7 @@ export default [
           },
 
           { path: '/', component: '@/pages/pages/homePage/HomePage' },
+          { path: '/typeOfProfileForTeacher', component: '@/pages/pages/typeOfProfileForTeacher/TypeOfProfileForTeacher' },
         ],
       },
     ],

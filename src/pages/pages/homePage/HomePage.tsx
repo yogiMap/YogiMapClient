@@ -12,7 +12,7 @@ function HomePage(props: IProps) {
 
   return (
     <>
-      <section id="product-overview">
+      <div className="home-bg">
         <h1 className="pt-5">DISCOVER YOGA</h1>
         <h1 className="my-3">THE JOURNEY STARTS HERE</h1>
 
@@ -34,42 +34,42 @@ function HomePage(props: IProps) {
           {!isUserAuth && (
             <div className="row d-flex justify-content-center">
               <div className="col-lg-4 my-lg-4 my-2 d-flex justify-content-lg-start justify-content-center">
-                <a href="/user/register" className="button-home m-2">
+                <a href="/typeOfProfileForTeacher" className="home-button m-2">
                   I‘M A TEACHER
                 </a>
               </div>
 
               <div className="col-lg-4 my-lg-4 d-flex justify-content-lg-end justify-content-center">
-                <a href="/user/register" className="button-home m-2">
+                <a href="/user/register" className="home-button m-2">
                   I’M A STUDENT
                 </a>
               </div>
             </div>
           )}
         </div>
-      </section>
+      </div>
 
-      <section id="product-description" className="container mt-5 mb-5 mx-auto">
+      <div className="home-description container mt-5 mb-5 mx-auto">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="button-home m-2">
+            <a href="" className="home-button m-2">
               FIND YOUR TEACHER
             </a>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="button-home m-2">
+            <a href="" className="home-button m-2">
               FIND YOUR STUDIO
             </a>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="button-home m-2 ">
+            <a href="" className="home-button m-2 ">
               FIND YOUR RETREAT
             </a>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }
