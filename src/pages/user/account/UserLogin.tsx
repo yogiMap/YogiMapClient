@@ -32,7 +32,7 @@ const UserLogin = (props: IProps) => {
 
   return (
     <Form size="large" name="normal_login" className="login-form" onFieldsChange={onFieldsChange} onFinish={onFinish}>
-      <h1>Welcome back!</h1>
+      <h1 className="py-5">Welcome back!</h1>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
         <Input addonBefore={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />

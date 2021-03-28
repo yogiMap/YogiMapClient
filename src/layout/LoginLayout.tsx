@@ -10,7 +10,7 @@ export default ({ children }: IProps) => {
   return (
     <div className="container">
       <div className="row d-flex justify-content-center">
-        <Link to="/vendor" className="site-name">
+        <Link to="/" className="site-name">
           YogiMap
         </Link>
       </div>
