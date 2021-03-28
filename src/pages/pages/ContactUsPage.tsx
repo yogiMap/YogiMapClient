@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 
-const ContactPage = () => {
+const ContactUsPage = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -48,4 +48,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ContactUsPage;

@@ -13,11 +13,8 @@ function HomePage(props: IProps) {
   return (
     <>
       <section id="product-overview">
-        <h1 className="pt-5">
-          DISCOVER YOGA
-          <br />
-          THE JOURNEY STARTS HERE
-        </h1>
+        <h1 className="pt-5">DISCOVER YOGA</h1>
+        <h1 className="my-3">THE JOURNEY STARTS HERE</h1>
 
         <div className="container">
           <div className="row d-flex justify-content-center">
@@ -53,9 +50,7 @@ function HomePage(props: IProps) {
       </section>
 
       <section id="product-description" className="container mt-5 mb-5 mx-auto">
-
         <div className="row d-flex justify-content-center">
-
           <div className="col-lg-3 d-flex justify-content-center">
             <a href="" className="button-home m-2">
               FIND YOUR TEACHER
@@ -64,8 +59,8 @@ function HomePage(props: IProps) {
 
           <div className="col-lg-3 d-flex justify-content-center">
             <a href="" className="button-home m-2">
-            FIND YOUR STUDIO
-          </a>
+              FIND YOUR STUDIO
+            </a>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center">

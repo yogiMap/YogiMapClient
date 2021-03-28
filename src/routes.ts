@@ -33,7 +33,7 @@ export default [
 
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
-          { path: '/contact', component: '@/pages/pages/ContactPage' },
+          { path: '/contact', component: '@/pages/pages/ContactUsPage' },
           { path: '/pricing', component: '@/pages/pages/PricingPage' },
           { path: '/industries', component: '@/pages/pages/IndustriesPage' },
           { path: '/support', component: '@/pages/pages/supportPage/Support' },
