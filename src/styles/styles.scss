@@ -213,7 +213,7 @@ span.edit-pen-icon {
   h1,h2,h3 {
     text-align: center;
     color: #f4e4ba;
-    text-shadow: 3px 2px 4px #13075f ;
+    text-shadow: 3px 2px 4px #13075f;
   }
 }
 
@@ -247,24 +247,3 @@ span.edit-pen-icon {
 /* 		                  TYPE OF PROFILE                       */
 /* ========================================================== */
 
-.bg-profile{
-  background: url('../pages/pages/typeOfProfileForTeacher/images/sky.jpg') left center/cover no-repeat, fixed;
-  height: 100vh;
-  position: relative;
-  min-height: 440px;
-
-  h1,h2,h3 {
-    text-align: center;
-    color: #f4e4ba;
-    text-shadow: 3px 2px 4px #13075f ;
-    padding-top: 100px;
-  }
-}
-
-@media screen and (min-width: 998px) {
-  .home-button {
-    font-size: 1.8rem;
-    padding: 1rem 2.5rem;
-    border: 2px solid #4b8b64;
-  }
-}

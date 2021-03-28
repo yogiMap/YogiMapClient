@@ -34,7 +34,7 @@ function HomePage(props: IProps) {
           {!isUserAuth && (
             <div className="row d-flex justify-content-center">
               <div className="col-lg-4 my-lg-4 my-2 d-flex justify-content-lg-start justify-content-center">
-                <a href="/typeOfProfileForTeacher" className="home-button m-2">
+                <a href="/user/register/teacher" className="home-button m-2">
                   I‘M A TEACHER
                 </a>
               </div>
@@ -49,24 +49,29 @@ function HomePage(props: IProps) {
         </div>
       </div>
 
-      <div className="home-description container mt-5 mb-5 mx-auto">
-        <div className="row d-flex justify-content-center">
-          <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="home-button m-2">
-              FIND YOUR TEACHER
-            </a>
-          </div>
+      <div className="home-description">
 
-          <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="home-button m-2">
-              FIND YOUR STUDIO
-            </a>
-          </div>
+        <h4 className="pt-5 pb-3 px-5 text-center">directory for independent yoga teacher`s</h4>
 
-          <div className="col-lg-3 d-flex justify-content-center">
-            <a href="" className="home-button m-2 ">
-              FIND YOUR RETREAT
-            </a>
+        <div className="container mb-5 mx-auto">
+          <div className="row d-flex justify-content-center">
+            <div className="col-lg-3 d-flex justify-content-center">
+              <a href="" className="home-button m-2">
+                MIND
+              </a>
+            </div>
+
+            <div className="col-lg-3 d-flex justify-content-center">
+              <a href="" className="home-button m-2">
+                BODY
+              </a>
+            </div>
+
+            <div className="col-lg-3 d-flex justify-content-center">
+              <a href="" className="home-button m-2 ">
+                SOUL
+              </a>
+            </div>
           </div>
         </div>
       </div>

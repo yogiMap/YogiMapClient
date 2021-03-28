@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
+import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
@@ -32,9 +32,20 @@ const UserRegisterTeacher = (props: IProps) => {
     console.log('showTerms');
   };
 
+  const { Option } = Select;
+
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-        <h2>CREATE A TEACHER`S PROFILE</h2>
+      <h3 className="py-5">CREATE A TEACHER`S ACCOUNT</h3>
+      <p>Teacher Pages are only for actively teaching professionals.</p>
+
+      <Form.Item name="select" hasFeedback rules={[{ required: true, message: 'Please Select Category!' }]}>
+        <Select placeholder="Please Select Category">
+          <Option value="body">Body</Option>
+          <Option value="mind">Mind</Option>
+          <Option value="soul">Soul</Option>
+        </Select>
+      </Form.Item>
 
       <Row gutter={6}>
         <Col span={12}>
@@ -82,7 +93,7 @@ const UserRegisterTeacher = (props: IProps) => {
 const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/registerTeacher', payload }),
+  userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/register', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterTeacher);

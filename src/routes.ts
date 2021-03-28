@@ -14,6 +14,7 @@ export default [
           { path: '/user/password/reset/:userId/:hash', component: '@/pages/user/account/UserPasswordResetNew' },
           { path: '/user/login', component: '@/pages/user/account/UserLogin' },
           { path: '/user/register', component: '@/pages/user/account/UserRegister' },
+          { path: '/user/register/teacher', component: '@/pages/user/account/UserRegisterTeacher' },
           { path: '/user/verify/email/:userId/:hash', component: '@/pages/user/account/UserEmailVerify' },
         ],
       },
@@ -67,7 +68,6 @@ export default [
           },
 
           { path: '/', component: '@/pages/pages/homePage/HomePage' },
-          { path: '/typeOfProfileForTeacher', component: '@/pages/pages/typeOfProfileForTeacher/TypeOfProfileForTeacher' },
         ],
       },
     ],
