@@ -53,8 +53,18 @@
   }
 }
 
-footer {
-  color: #d7d8cd;
+.footer {
+ background: rgba(215, 216, 205, 0.5);
+
+  .info {
+    text-align: center;
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 8px;
+    padding-top: 1rem;
+  }
 }
 
 .list-group {
