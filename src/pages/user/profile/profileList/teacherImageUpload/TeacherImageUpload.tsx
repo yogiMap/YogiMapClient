@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { get } from 'lodash';
 import { connect } from 'umi';
 
+import { Avatar, Image } from 'antd';
+import lotus from '@/pages/user/profile/profileList/teacherImageUpload/images/lotus_yellow.png';
+
 const TeacherImageUpload = (props: any) => {
   // const userImage= get(props, 'userImage', []);
 
@@ -29,6 +32,8 @@ const TeacherImageUpload = (props: any) => {
     return (
       <div className="profile-block">
         <p className="profile-name">Picture</p>
+
+        <Avatar size="large" src={<Image src={lotus} />} />
 
         {loading ? (
           <div className="spinner-border text-success" role="status">

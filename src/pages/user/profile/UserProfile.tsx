@@ -3,7 +3,7 @@ import { connect } from 'umi';
 import { get, isEmpty } from 'lodash';
 import { Col, Row } from 'antd';
 import UserRoles from '@/pages/user/profile/UserRoles';
-import TeacherImageUpload from '@/pages/user/profile/profileList/TeacherImageUpload';
+import TeacherImageUpload from '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload';
 import TeacherYogaStyle from '@/pages/user/profile/profileList/TeacherYogaStyle';
 import TeacherDescription from './profileList/TeacherDescription';
 import TeacherLocation from '@/pages/user/profile/profileList/TeacherLocation';
