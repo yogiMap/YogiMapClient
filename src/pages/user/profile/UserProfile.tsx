@@ -30,7 +30,7 @@ const UserProfile = (props: any) => {
 
   return (
     <div className="profile-bg">
-      <h1>Profile {userName}</h1>
+      <h5>Profile {userName}</h5>
 
       <div className="container">
         <div className="row d-flex justify-content-center">
