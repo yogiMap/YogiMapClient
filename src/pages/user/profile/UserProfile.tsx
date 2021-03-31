@@ -12,6 +12,7 @@ import TeacherYouTube from '@/pages/user/profile/profileList/TeacherYouTube';
 import TeacherInstagram from '@/pages/user/profile/profileList/TeacherInstagram';
 import TeacherFacebook from '@/pages/user/profile/profileList/TeacherFacebook';
 import TeacherResetPassword from '@/pages/user/profile/profileList/TeacherResetPassword';
+import UserProfileSidePanel from '@/pages/user/profile/UserProfileSidePanel';
 
 const UserProfile = (props: any) => {
   const userId = get(props, 'match.params.userId', '');
@@ -31,69 +32,34 @@ const UserProfile = (props: any) => {
   return (
     <div className="profile-bg">
       <h1>Profile {userName}</h1>
+
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-9">
             <p className="profile-greetings text-center">
-              Welcome {userName}! Yogimap empowers yoga teachers to manage & grow their business - let`s get you set up:
+              Welcome {userName}! YogiMap empowers yoga teachers to manage & grow their business - let`s get you set up:
             </p>
           </div>
         </div>
 
         <div className="row d-flex justify-content-center">
           <div className="col-lg-3">
-            <div className="profile-side-panel">
-              <h5> {name} </h5>
-              <h6> Teacher of your </h6>
-              <h6> Edit Profile </h6>
-              <hr />
-              <p>
-                Picture <br />
-                Styles of Yoga
-                <br />
-                Description
-                <br />
-                Location
-                <br />
-                Contacts
-                <br />
-                YouTube
-                <br />
-                Instagram
-                <br />
-                Facebook
-                <br />
-                Reset Password
-                <br />
-              </p>
-            </div>
+            <UserProfileSidePanel />
           </div>
 
           <div className="col-lg-6">
-              <TeacherImageUpload/>
-              <TeacherYogaStyle/>
-              <TeacherDescription/>
-              <TeacherLocation/>
-              <TeacherContact/>
-              <TeacherYouTube/>
-              <TeacherInstagram/>
-              <TeacherFacebook/>
-              <TeacherResetPassword/>
-
+            <TeacherImageUpload />
+            <TeacherYogaStyle />
+            <TeacherDescription />
+            <TeacherLocation />
+            <TeacherContact />
+            <TeacherYouTube />
+            <TeacherInstagram />
+            <TeacherFacebook />
+            <TeacherResetPassword />
           </div>
         </div>
       </div>
-
-      {/*<Row>{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</Row>*/}
-
-      {/*<Row>*/}
-      {/*  {about ? (*/}
-      {/*    <Col span={12}>*/}
-      {/*      <h3>About</h3>*/}
-      {/*      <div>{about}</div>*/}
-      {/*    </Col>*/}
-      {/*  ) : null}*/}
-      {/*</Row>*/}
     </div>
   );
 };

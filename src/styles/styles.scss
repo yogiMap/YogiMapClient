@@ -288,7 +288,7 @@ span.edit-pen-icon {
   .profile-side-panel {
     background: white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 50px;
     margin: 20px;
   }
 
@@ -312,6 +312,14 @@ span.edit-pen-icon {
    width: 10rem;
    height: 10rem;
    border-radius: 10rem;
+  }
+  a{
+    display: block;
+  }
+
+  .profile-avatar-bg {
+    background: rgba(216, 229, 248, 0.3);
+    padding: 20px;
   }
 
 }

@@ -25,6 +25,11 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
+          { path: '/profile/image/upload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
+
+
+
+
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
           { path: '/vendor', component: '@/pages/vendor/dashboard/VendorDashboard' },
