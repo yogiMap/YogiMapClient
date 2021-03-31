@@ -26,8 +26,8 @@ const UserProfileSidePanel = (props: any) => {
       <Avatar size="small" src={<Image src={lotus}/>} />
       </div>
 
-      <h5> {name} </h5>
-      <h6 > Teacher of your </h6 >
+      <h5 className="text-center mt-4"> {name} </h5>
+      <p className="profile-name text-center"> Teacher of your </p >
       <hr />
       <p className="profile-name"> Edit Profile </p>
       <hr />
