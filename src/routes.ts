@@ -25,7 +25,7 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
-          { path: '/profile/image/upload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
+          // { path: '/profile/image/upload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
 
 
 
