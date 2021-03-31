@@ -28,7 +28,6 @@ const UserProfile = (props: any) => {
     props.userGetById(userId);
   }, []);
 
-  // @ts-ignore
   return (
     <div className="profile-bg">
       <h1>Profile {userName}</h1>
