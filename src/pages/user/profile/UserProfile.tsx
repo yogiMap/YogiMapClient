@@ -3,6 +3,15 @@ import { connect } from 'umi';
 import { get, isEmpty } from 'lodash';
 import { Col, Row } from 'antd';
 import UserRoles from '@/pages/user/profile/UserRoles';
+import TeacherImageUpload from '@/pages/user/profile/profileList/TeacherImageUpload';
+import TeacherYogaStyle from '@/pages/user/profile/profileList/TeacherYogaStyle';
+import TeacherDescription from './profileList/TeacherDescription';
+import TeacherLocation from '@/pages/user/profile/profileList/TeacherLocation';
+import TeacherContact from '@/pages/user/profile/profileList/TeacherContact';
+import TeacherYouTube from '@/pages/user/profile/profileList/TeacherYouTube';
+import TeacherInstagram from '@/pages/user/profile/profileList/TeacherInstagram';
+import TeacherFacebook from '@/pages/user/profile/profileList/TeacherFacebook';
+import TeacherResetPassword from '@/pages/user/profile/profileList/TeacherResetPassword';
 
 const UserProfile = (props: any) => {
   const userId = get(props, 'match.params.userId', '');
@@ -18,6 +27,7 @@ const UserProfile = (props: any) => {
     props.userGetById(userId);
   }, []);
 
+  // @ts-ignore
   return (
     <div className="profile-bg">
       <h1>Profile {userName}</h1>
@@ -39,7 +49,7 @@ const UserProfile = (props: any) => {
               <hr />
               <p>
                 Picture <br />
-                Styles of Yoga and Lineages
+                Styles of Yoga
                 <br />
                 Description
                 <br />
@@ -60,50 +70,15 @@ const UserProfile = (props: any) => {
           </div>
 
           <div className="col-lg-6">
-            <div className="profile-main">
-              Picture
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Styles of Yoga and Lineages
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Description
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Location
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Contacts
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              YouTube
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Instagram
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Facebook
-              <button className="button-primary float-end">Save</button>
-            </div>
-
-            <div className="profile-main">
-              Reset Password
-              <button className="button-primary float-end">Save</button>
-            </div>
+              <TeacherImageUpload/>
+              <TeacherYogaStyle/>
+              <TeacherDescription/>
+              <TeacherLocation/>
+              <TeacherContact/>
+              <TeacherYouTube/>
+              <TeacherInstagram/>
+              <TeacherFacebook/>
+              <TeacherResetPassword/>
 
           </div>
         </div>
