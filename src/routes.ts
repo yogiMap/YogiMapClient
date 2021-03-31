@@ -25,7 +25,15 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
-          // { path: '/profile/image/upload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
+          { path: '/teacherImageUpload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
+          { path: '/teacherContact', component: '@/pages/user/profile/profileList/TeacherContact' },
+          { path: '/teacherDescription', component: '@/pages/user/profile/profileList/TeacherDescription' },
+          { path: '/teacherFacebook', component: '@/pages/user/profile/profileList/TeacherFacebook' },
+          { path: '/teacherInstagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
+          { path: '/teacherLocation', component: '@/pages/user/profile/profileList/TeacherLocation' },
+          { path: '/teacherResetPassword', component: '@/pages/user/profile/profileList/TeacherResetPassword' },
+          { path: '/teacherYogaStyle', component: '@/pages/user/profile/profileList/TeacherYogaStyle' },
+          { path: '/teacherYouTube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
 
 
 
