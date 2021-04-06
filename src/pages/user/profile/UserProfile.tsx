@@ -4,7 +4,6 @@ import { get, isEmpty } from 'lodash';
 import { Col, Row } from 'antd';
 import UserRoles from '@/pages/user/profile/UserRoles';
 import TeacherImageUpload from '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload';
-import TeacherYogaStyle from '@/pages/user/profile/profileList/TeacherYogaStyle';
 import TeacherDescription from './profileList/TeacherDescription';
 import TeacherLocation from '@/pages/user/profile/profileList/TeacherLocation';
 import TeacherContact from '@/pages/user/profile/profileList/TeacherContact';
@@ -12,6 +11,7 @@ import TeacherYouTube from '@/pages/user/profile/profileList/TeacherYouTube';
 import TeacherInstagram from '@/pages/user/profile/profileList/TeacherInstagram';
 import TeacherFacebook from '@/pages/user/profile/profileList/TeacherFacebook';
 import TeacherResetPassword from '@/pages/user/profile/profileList/TeacherResetPassword';
+import TeacherYogaStyle from '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle';
 import UserProfileSidePanel from '@/pages/user/profile/UserProfileSidePanel';
 
 const UserProfile = (props: any) => {

@@ -32,7 +32,7 @@ export default [
           { path: '/teacherInstagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
           { path: '/teacherLocation', component: '@/pages/user/profile/profileList/TeacherLocation' },
           { path: '/teacherResetPassword', component: '@/pages/user/profile/profileList/TeacherResetPassword' },
-          { path: '/teacherYogaStyle', component: '@/pages/user/profile/profileList/TeacherYogaStyle' },
+          { path: '/teacherYogaStyle', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
           { path: '/teacherYouTube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
 
 

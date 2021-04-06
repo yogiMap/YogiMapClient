@@ -9,6 +9,8 @@ import VendorCreateWrapper from '@/pages/vendor/form/VendorCreateWrapper';
 import VendorEditWrapper from '@/pages/vendor/form/VendorEditWrapper';
 import VendorTypeCreateWrapper from '@/pages/vendorType/form/VendorTypeCreateWrapper';
 import VendorTypeEditWrapper from '@/pages/vendorType/form/VendorTypeEditWrapper';
+import ClassesCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
+import ClassesEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
   close: () => void;
@@ -26,6 +28,9 @@ const Sidepanel = (props: IProps) => {
 
     VendorFormCreate: <VendorCreateWrapper />,
     VendorFormEdit: <VendorEditWrapper />,
+
+    ClassesFormCreate: <ClassesCreateWrapper />,
+    ClassesFormEdit: <ClassesEditWrapper />,
 
     VendorTypeFormCreate: <VendorTypeCreateWrapper />,
     VendorTypeFormEdit: <VendorTypeEditWrapper />,
