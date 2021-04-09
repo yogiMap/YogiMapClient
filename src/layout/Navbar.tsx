@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Logo from '../images/logo_512x512.png';
 import { Link } from 'umi';
 
 const { JSDOM } = require('jsdom');
