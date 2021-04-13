@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'umi';
-
-const { JSDOM } = require('jsdom');
-const { window } = new JSDOM('');
-const $ = require('jquery')(window);
-
 import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
 import UserInfo from '@/pages/user/topInfo/UserInfo';
@@ -33,9 +28,9 @@ const Navbar = () => {
 
         <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id='navbarsExample09'>
           <div className='d-flex justify-content-end'>
-            <UserInfo />
-            <TopMenu />
             <AdminMenu />
+            <TopMenu />
+            <UserInfo />
           </div>
         </div>
 
