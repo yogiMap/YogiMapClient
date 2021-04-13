@@ -30,7 +30,7 @@ const UserPasswordReset = (props: IProps) => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button" disabled={disableSubmit}>
+        <Button type="primary" shape="round" htmlType="submit" className="login-form-button" disabled={disableSubmit}>
           Send password reset link
         </Button>
       </Form.Item>

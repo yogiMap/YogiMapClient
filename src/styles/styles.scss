@@ -38,7 +38,7 @@
   font-size: 2rem;
   line-height: 60px;
   margin-left: 5px;
-  color: #4ba74b;
+  color: #9abd00;
 }
 
 .navbar-brand {
@@ -53,7 +53,8 @@
 }
 
 .footer {
-  background: rgba(215, 216, 205, 0.5);
+  background: white;
+  border-top: 7px solid #f4e4ba;
 
   .info {
     text-align: center;
@@ -200,13 +201,16 @@ span.edit-pen-icon {
 
 .button-primary {
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
   font-size: 1rem;
   text-align: center;
   background: #9abd00;
-  color: #fff0a1;
-  padding: 0.2rem 1rem;
-  border-radius: 30px 5px 30px 5px;
-  //box-shadow: 1px 1px 2px #fff0a1;
+  color: #ffffff;
+  padding: 0.3rem 1.3rem;
+  border-radius: 20px;
+  outline: none;
+  border: 2px solid #b8d441;
+  //box-shadow: 1px 1px 2px #14075f;
 }
 
 /* ========================================================== */
@@ -270,7 +274,7 @@ span.edit-pen-icon {
     .home-button {
       font-size: 1.2rem;
       padding: 0.8rem 1.8rem;
-      border: 2px solid #4b8b64;
+      border: 2px solid #9abd00;;
     }
   }
 }

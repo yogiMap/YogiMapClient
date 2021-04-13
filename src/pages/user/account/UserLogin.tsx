@@ -47,6 +47,7 @@ const UserLogin = (props: IProps) => {
           type="primary"
           htmlType="submit"
           className="login-form-button"
+          shape="round"
           disabled={disableSubmit}
           loading={isLoading}
         >

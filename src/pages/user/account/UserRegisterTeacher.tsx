@@ -76,7 +76,7 @@ const UserRegisterTeacher = (props: IProps) => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" disabled={disableSubmit}>
+        <Button type="primary" shape="round" htmlType="submit" disabled={disableSubmit}>
           Register
         </Button>
       </Form.Item>
