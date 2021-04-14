@@ -25,25 +25,25 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
-          { path: '/teacherImageUpload', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
-          { path: '/teacherContact', component: '@/pages/user/profile/profileList/TeacherContact' },
-          { path: '/teacherDescription', component: '@/pages/user/profile/profileList/TeacherDescription' },
-          { path: '/teacherFacebook', component: '@/pages/user/profile/profileList/TeacherFacebook' },
-          { path: '/teacherInstagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
-          { path: '/teacherLocation', component: '@/pages/user/profile/profileList/TeacherLocation' },
-          { path: '/teacherResetPassword', component: '@/pages/user/profile/profileList/TeacherResetPassword' },
-          { path: '/teacherYogaStyle', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
-          { path: '/teacherYouTube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
+          { path: '/teacher/yogaStyle', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
+          { path: '/teacher/description', component: '@/pages/user/profile/profileList/TeacherDescription' },
+          { path: '/teacher/contact', component: '@/pages/user/profile/profileList/TeacherContact' },
+          { path: '/teacher/location', component: '@/pages/user/profile/profileList/TeacherLocation' },
+          { path: '/teacher/resetPassword', component: '@/pages/user/profile/profileList/TeacherResetPassword' },
+          { path: '/teacher/img', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
+          { path: '/teacher/youTube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
+          { path: '/teacher/facebook', component: '@/pages/user/profile/profileList/TeacherFacebook' },
+          { path: '/teacher/instagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
 
 
 
 
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
-          { path: '/vendor', component: '@/pages/vendor/dashboard/VendorDashboard' },
-          { path: '/vendor/:vendorId', component: '@/pages/vendor/view/VendorView' },
-          { path: '/vendorType', component: '@/pages/vendorType/dashboard/VendorTypeDashboard' },
-          { path: '/vendorType/:vendorTypeId', component: '@/pages/vendorType/view/VendorTypeView' },
+          { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
+          { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
+          { path: '/teacherType', component: '@/pages/teacherType/dashboard/TeacherTypeDashboard' },
+          { path: '/teacherType/:teacherTypeId', component: '@/pages/teacherType/view/TeacherTypeView' },
 
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },

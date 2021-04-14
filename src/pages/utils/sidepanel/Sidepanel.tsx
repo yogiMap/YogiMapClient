@@ -5,10 +5,10 @@ import { Drawer } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import BaseFormCreateWrapper from '@/pages/base/form/BaseFormCreateWrapper';
 import BaseFormEditWrapper from '@/pages/base/form/BaseFormEditWrapper';
-import VendorCreateWrapper from '@/pages/vendor/form/VendorCreateWrapper';
-import VendorEditWrapper from '@/pages/vendor/form/VendorEditWrapper';
-import VendorTypeCreateWrapper from '@/pages/vendorType/form/VendorTypeCreateWrapper';
-import VendorTypeEditWrapper from '@/pages/vendorType/form/VendorTypeEditWrapper';
+import VendorCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
+import VendorEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
+import VendorTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
+import VendorTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
 import ClassesCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
 import ClassesEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
 interface IProps extends ISidepanel {

@@ -47,15 +47,15 @@ const UserProfile = (props: any) => {
           </div>
 
           <div className="col-lg-6">
-            <TeacherImageUpload />
             <TeacherYogaStyle />
             <TeacherDescription />
             <TeacherLocation />
             <TeacherContact />
+            <TeacherResetPassword />
+            <TeacherImageUpload />
             <TeacherYouTube />
             <TeacherInstagram />
             <TeacherFacebook />
-            <TeacherResetPassword />
           </div>
         </div>
       </div>
