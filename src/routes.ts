@@ -25,13 +25,13 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
-          { path: '/teacher/yogaStyle', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
+          { path: 'teacher/style', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
           { path: '/teacher/description', component: '@/pages/user/profile/profileList/TeacherDescription' },
           { path: '/teacher/contact', component: '@/pages/user/profile/profileList/TeacherContact' },
           { path: '/teacher/location', component: '@/pages/user/profile/profileList/TeacherLocation' },
-          { path: '/teacher/resetPassword', component: '@/pages/user/profile/profileList/TeacherResetPassword' },
+          { path: '/user/password/reset/request', component: '@/pages/user/account/UserPasswordReset' },
           { path: '/teacher/img', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
-          { path: '/teacher/youTube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
+          { path: '/teacher/youtube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
           { path: '/teacher/facebook', component: '@/pages/user/profile/profileList/TeacherFacebook' },
           { path: '/teacher/instagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
 

@@ -33,15 +33,15 @@ const UserProfileSidePanel = (props: any) => {
       <hr />
 
       <div>
-        <Link to={'/teacherImageUpload'}>Picture</Link>
-        <Link to={'/teacherYogaStyle'}>Yoga Style</Link>
+        <Link to={'/teacher/style'}>Yoga Style</Link>
         <Link to={'/teacherDescription'}>Description</Link>
-        <Link to={'/teacherLocation'}>Location</Link>
-        <Link to={'/teacherContact'}>Contacts</Link>
-        <Link to={'/teacherYouTube'}>YouTube</Link>
-        <Link to={'/teacherInstagram'}>Instagram</Link>
+        <Link to={'/teacher/location'}>Location</Link>
+        <Link to={'/teacher/contact'}>Contacts</Link>
+        <Link to={'/user/password/reset/request'}>Reset Password</Link>
+        <Link to={'/teacher/img'}>Picture</Link>
+        <Link to={'/teacher/youtube'}>YouTube</Link>
+        <Link to={'/teacher/instagram'}>Instagram</Link>
         <Link to={'/teacherFacebook'}>Facebook</Link>
-        <Link to={'/teacherResetPassword'}>Reset Password</Link>
       </div>
     </div>
   );
