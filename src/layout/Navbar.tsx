@@ -4,6 +4,8 @@ import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
 import UserInfo from '@/pages/user/topInfo/UserInfo';
 import logo from '@/icons/logo_yogimap.svg';
+import UserInfoNavCollapse from '@/pages/user/topInfo/UserInfoNavCollapse';
+import TopMenuDropdown from '@/pages/pages/TopMenuDropdown';
 
 const Navbar = () => {
   // const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -14,13 +16,12 @@ const Navbar = () => {
       <div className="container flex-nowrap">
         <Link to="/" className="site-name text-nowrap">
           <img src={logo} alt="Yogi Map Logo" height={40} className="logo mr-2" />
-          YogiMap
         </Link>
 
         <div className="navbar-toggler">
           <div className="d-flex align-items-center">
-            {/*<TopMenuDropdown />*/}
-            {/*<UserInfoNavCollapse />*/}
+            <TopMenuDropdown />
+            <UserInfoNavCollapse />
           </div>
         </div>
 
