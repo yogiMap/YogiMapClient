@@ -11,7 +11,7 @@ interface IProps {
   loadingEffects: ILoadingEffects;
 }
 
-const TeacherFormCreateWrapper = (props: IProps) => {
+const TeacherCreateWrapper = (props: IProps) => {
   const onFinish = (values: ITeacher) => {
     props.create(values);
   };
@@ -36,4 +36,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeacherFormCreateWrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherCreateWrapper);

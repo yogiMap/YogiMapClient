@@ -15,7 +15,7 @@ const SupportUserTypes = {
       name: 'Company Owner',
       helpWith: [
         'Getting Started',
-        'Clients, Vendors,Products',
+        'Clients, Teachers,Products',
         'Messaging and Calling',
         'Payments',
         'Scheduling',
@@ -23,14 +23,14 @@ const SupportUserTypes = {
       ],
     },
     {
-      name: 'Vendor',
+      name: 'Teacher',
       helpWith: ['Getting in touch with a company owner', 'Shipping', 'Orders', 'Payments', 'Scheduling', 'Other'],
     },
     {
       name: 'User',
       helpWith: [
         'Getting Started',
-        'Clients, Vendors,Products',
+        'Clients, Teachers,Products',
         'Messaging and Calling',
         'Payments',
         'Scheduling',

@@ -1,4 +1,4 @@
 export default {
-  'primary-color': '#9abd00',
+  'primary-color': '#d2791e',
   'font-size-base': '16px',
 };

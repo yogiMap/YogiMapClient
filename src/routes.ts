@@ -25,19 +25,6 @@ export default [
         routes: [
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
-          { path: 'teacher/style', component: '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle' },
-          { path: '/teacher/description', component: '@/pages/user/profile/profileList/TeacherDescription' },
-          { path: '/teacher/contact', component: '@/pages/user/profile/profileList/TeacherContact' },
-          { path: '/teacher/location', component: '@/pages/user/profile/profileList/TeacherLocation' },
-          { path: '/user/password/reset/request', component: '@/pages/user/account/UserPasswordReset' },
-          { path: '/teacher/img', component: '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload' },
-          { path: '/teacher/youtube', component: '@/pages/user/profile/profileList/TeacherYouTube' },
-          { path: '/teacher/facebook', component: '@/pages/user/profile/profileList/TeacherFacebook' },
-          { path: '/teacher/instagram', component: '@/pages/user/profile/profileList/TeacherInstagram' },
-
-
-
-
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
           { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },

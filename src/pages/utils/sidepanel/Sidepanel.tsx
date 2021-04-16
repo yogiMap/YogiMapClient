@@ -5,12 +5,13 @@ import { Drawer } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import BaseFormCreateWrapper from '@/pages/base/form/BaseFormCreateWrapper';
 import BaseFormEditWrapper from '@/pages/base/form/BaseFormEditWrapper';
-import VendorCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
-import VendorEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
-import VendorTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
-import VendorTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
+import TeacherCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
+import TeacherEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
+import TeacherTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
+import TeacherTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
 import ClassesCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
 import ClassesEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
+
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
   close: () => void;
@@ -26,14 +27,14 @@ const Sidepanel = (props: IProps) => {
     BaseFormCreate: <BaseFormCreateWrapper />,
     BaseFormEdit: <BaseFormEditWrapper />,
 
-    VendorFormCreate: <VendorCreateWrapper />,
-    VendorFormEdit: <VendorEditWrapper />,
+    TeacherFormCreate: <TeacherCreateWrapper />,
+    TeacherFormEdit: <TeacherEditWrapper />,
 
     ClassesFormCreate: <ClassesCreateWrapper />,
     ClassesFormEdit: <ClassesEditWrapper />,
 
-    VendorTypeFormCreate: <VendorTypeCreateWrapper />,
-    VendorTypeFormEdit: <VendorTypeEditWrapper />,
+    TeacherTypeFormCreate: <TeacherTypeCreateWrapper />,
+    TeacherTypeFormEdit: <TeacherTypeEditWrapper />,
   };
 
   const mapping = (c: string): any => {
