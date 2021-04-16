@@ -1,86 +1,152 @@
-.home-button {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 0.8rem;
-  text-align: center;
-  background: rgba(244, 228, 186, 0);
-  color: #13075f;
-  padding: 0.8rem 1.6rem;
-  border: 1px solid #f4e4ba;
-  border-radius: 30px 5px 30px 5px;
-  box-shadow: 3px 2px 4px #13075f;
-}
-
 .home-bg {
   background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat,
-  fixed;
+    fixed;
   height: 100vh;
   position: relative;
   min-height: 440px;
 
+  .home-bg-headers {
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    height: 200px;
+    border-radius: 5px;
+  }
+
   h1,
   h2,
   h3 {
-    font-family: 'Russo One', 'Montserrat', sans-serif;
-    text-align: center;
-    color: #f4e4ba;
-    text-shadow: 3px 2px 4px #13075f;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #353535;
+    padding-left: 30px;
   }
 }
 
-.home-description {
-  h4 {
+.home-stripe-under-bg {
+  background-color: #5c494d;
+  height: 150px;
+
+  .home-button {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
     text-align: center;
-    color: #9abd00;
-  }
+    background: rgba(244, 228, 186, 0);
+    color: #f4e4ba;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid #f4e4ba;
+    border-radius: 5px;
 
-  .home-description__image {
-    background: url('../pages/pages/homePage/images/sky2.jpg') left center/cover no-repeat, fixed;
-    width: 128px;
-    height: 128px;
-    border: 3px solid #f4e4ba;
-    border-radius: 70px;
-    margin: auto;
-    position: relative;
-
-    .home-description-button {
-      font-family: 'Montserrat', sans-serif;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #f4e4ba;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    &:hover,
+    &:active {
+      color: #d2791e;
     }
   }
 }
 
-@media screen and (min-width: 998px) {
+.home-description {
+  position: relative;
+  margin-top: 150px;
+
+  .home-bg-header-secondary {
+    background-color: rgba(92, 73, 77, 0.2);
+    height: 150px;
+    h2 {
+      color: #5c494d;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+  }
+}
+
+.home-yoga-type {
+  .img-container {
+    width: 200px;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      vertical-align: top;
+    }
+  }
+
+  .button-body-mind-soul {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-align: left;
+    transform: translate(-50%, -50%);
+    padding: 2rem 3rem;
+    border-radius: 5px;
+  }
+
+  .home-stripe-body {
+    background-color: #18a38e;
+    height: 35px;
+    .button-body-mind-soul {
+      color: #18a38e;
+      text-align: center;
+    }
+  }
+
+  .home-stripe-mind {
+    background-color: #5c494d;
+    height: 35px;
+    .button-body-mind-soul {
+      color: #5c494d;
+    }
+  }
+
+  .home-stripe-soul {
+    background-color: #375769;
+    height: 35px;
+    .button-body-mind-soul {
+      color: #375769;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
   .home-bg {
     height: 100vh;
     background-position: 0 85%;
 
+    .home-bg-headers {
+      background-color: rgba(255, 255, 255, 0.4);
+      position: absolute;
+      top: 100px;
+      left: 50px;
+      width: 600px;
+      height: 250px;
+    }
+
     h1 {
       font-size: 3rem;
+      padding-left: 50px;
     }
 
     h2 {
       font-size: 2rem;
     }
-
-    .home-button {
-      font-size: 1.2rem;
-      padding: 0.9rem 2rem;
-      border: 2px solid #f4e4ba;
-    }
   }
-  .home-description {
-    .home-button {
-      font-size: 1.2rem;
-      padding: 0.8rem 1.8rem;
-      border: 2px solid #9abd00;;
-    }
+
+  .home-button {
+    font-size: 1.2rem;
+    padding: 0.9rem 2rem;
+    border: 2px solid #f4e4ba;
+  }
+}
+
+.home-description {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .home-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid #9abd00;
   }
 }

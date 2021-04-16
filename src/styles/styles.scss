@@ -1,9 +1,9 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'microrules';
 @import 'overrides';
 @import 'nprogress';
 @import 'landing';
 @import 'profile';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // you must include each plugins' css
 // paths prefixed with ~ signify node_modules
