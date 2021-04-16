@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import '../theme';
 import '@/styles/styles.scss';
-import '@/styles/nprogress.css';
+import '@/styles/nprogress.scss';
 
 interface IProps {
   children: any;

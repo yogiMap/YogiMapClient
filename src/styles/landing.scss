@@ -1,0 +1,86 @@
+.home-button {
+  font-family: 'Russo One', 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(244, 228, 186, 0);
+  color: #13075f;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid #f4e4ba;
+  border-radius: 30px 5px 30px 5px;
+  box-shadow: 3px 2px 4px #13075f;
+}
+
+.home-bg {
+  background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat,
+  fixed;
+  height: 100vh;
+  position: relative;
+  min-height: 440px;
+
+  h1,
+  h2,
+  h3 {
+    font-family: 'Russo One', 'Montserrat', sans-serif;
+    text-align: center;
+    color: #f4e4ba;
+    text-shadow: 3px 2px 4px #13075f;
+  }
+}
+
+.home-description {
+  h4 {
+    text-align: center;
+    color: #9abd00;
+  }
+
+  .home-description__image {
+    background: url('../pages/pages/homePage/images/sky2.jpg') left center/cover no-repeat, fixed;
+    width: 128px;
+    height: 128px;
+    border: 3px solid #f4e4ba;
+    border-radius: 70px;
+    margin: auto;
+    position: relative;
+
+    .home-description-button {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f4e4ba;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media screen and (min-width: 998px) {
+  .home-bg {
+    height: 100vh;
+    background-position: 0 85%;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .home-button {
+      font-size: 1.2rem;
+      padding: 0.9rem 2rem;
+      border: 2px solid #f4e4ba;
+    }
+  }
+  .home-description {
+    .home-button {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.8rem;
+      border: 2px solid #9abd00;;
+    }
+  }
+}
