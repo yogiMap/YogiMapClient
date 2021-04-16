@@ -22,6 +22,14 @@
 
 //@primary-color:  #4c4c4c;
 
+a {
+  color: #4c4c4c;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: #d2791e;
+  }
+}
 
 .site-name {
   font-family: 'Oswald', sans-serif;
@@ -29,7 +37,7 @@
   font-size: 2rem;
   line-height: 60px;
   margin-left: 5px;
-  color:  #4c4c4c;
+  color: #4c4c4c;
 }
 
 .navbar-brand {
@@ -90,16 +98,6 @@
         //color: $primary-color;
       }
     }
-
-    a {
-      color: #4c4c4c;
-    }
-    //&.hover {
-    //  color: #d2791e;
-    //}
-    //&.active {
-    //  color: #d2791e;
-    //}
   }
 }
 
