@@ -48,61 +48,59 @@ function HomePage(props: IProps) {
         </div>
       </div>
 
-      <div className="home-yoga-type container m-5">
+      <div className="home-yoga-type">
         <div className="row d-flex justify-content-center">
 
-          <div className="col-lg-3 p-5">
+          <div className="col-lg-4 home-yoga-type-body">
             <div className="img-container">
               <img src={body} alt="body" />
-
-              <div className="home-stripe-body"></div>
-              <Link to="" className="button-body-mind-soul">
-                BODY
-              </Link>
-
+              <div className="home-stripe-body-mind-soul"></div>
             </div>
-            </div>
+            <Link to="" className="button-body-mind-soul">
+              BODY
+            </Link>
+          </div>
 
-
-          <div className="col-lg-3 p-5">
+          <div className="col-lg-4 home-yoga-type-mind">
             <div className="img-container">
               <img src={mind} alt="mind" />
-
-              <div className="home-stripe-mind"></div>
-              <Link to="" className="button-body-mind-soul">
-                MIND
-              </Link>
+              <div className="home-stripe-body-mind-soul"></div>
             </div>
+            <Link to="" className="button-body-mind-soul">
+              MIND
+            </Link>
           </div>
 
-          <div className="col-lg-3 p-5">
+          <div className="col-lg-4 home-yoga-type-soul">
             <div className="img-container">
               <img src={soul} alt="soul" />
-
-              <div className="home-stripe-soul"></div>
-              <Link to="" className="button-body-mind-soul">
-                SOUL
-              </Link>
+              <div className="home-stripe-body-mind-soul"></div>
             </div>
+            <Link to="" className="button-body-mind-soul">
+              SOUL
+            </Link>
           </div>
+
         </div>
+      </div>
+
+        <div className="blue-stripe"></div>
 
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-lg-3">
+            <div className="col-lg-3 d-flex justify-content-center">
               <h2 className="m-3">education</h2>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 d-flex justify-content-center">
               <h2 className="m-3">information</h2>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 d-flex justify-content-center">
               <h2 className="m-3">community</h2>
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }
