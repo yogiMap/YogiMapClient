@@ -48,17 +48,20 @@ function HomePage(props: IProps) {
         </div>
       </div>
 
-      <div className="home-yoga-type">
+      <div className="container m-5">
         <div className="row d-flex justify-content-center">
-
-          <div className="col-lg-4 home-yoga-type-body">
-            <div className="img-container">
-              <img src={body} alt="body" />
-              <div className="home-stripe-body-mind-soul"></div>
+          <div className="col-lg-4">
+            <div className="home-yoga-type-body">
+              <div className="img-container">
+                <img src={body} alt="body" />
+                <div className="home-stripe-body-mind-soul"></div>
+              </div>
+              <div>
+                <Link to="" className="button-body-mind-soul">
+                  BODY
+                </Link>
+              </div>
             </div>
-            <Link to="" className="button-body-mind-soul">
-              BODY
-            </Link>
           </div>
 
           <div className="col-lg-4 home-yoga-type-mind">
@@ -80,27 +83,26 @@ function HomePage(props: IProps) {
               SOUL
             </Link>
           </div>
-
         </div>
       </div>
 
-        <div className="blue-stripe"></div>
+      <div className="blue-stripe"></div>
 
-        <div className="container">
-          <div className="row d-flex justify-content-center">
-            <div className="col-lg-3 d-flex justify-content-center">
-              <h2 className="m-3">education</h2>
-            </div>
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-3 d-flex justify-content-center">
+            <h2 className="m-3">education</h2>
+          </div>
 
-            <div className="col-lg-3 d-flex justify-content-center">
-              <h2 className="m-3">information</h2>
-            </div>
+          <div className="col-lg-3 d-flex justify-content-center">
+            <h2 className="m-3">information</h2>
+          </div>
 
-            <div className="col-lg-3 d-flex justify-content-center">
-              <h2 className="m-3">community</h2>
-            </div>
+          <div className="col-lg-3 d-flex justify-content-center">
+            <h2 className="m-3">community</h2>
           </div>
         </div>
+      </div>
     </>
   );
 }

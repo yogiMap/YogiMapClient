@@ -9,18 +9,18 @@
     background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
     top: 100px;
-    width: 500px;
+    width: 400px;
     height: 200px;
     border-radius: 5px;
-  }
 
-  h1,
-  h2,
-  h3 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    color: #353535;
-    padding-left: 30px;
+    h1,
+    h2,
+    h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      color: #353535;
+      padding-left: 30px;
+    }
   }
 }
 
@@ -35,8 +35,6 @@
     background: rgba(244, 228, 186, 0);
     color: #f4e4ba;
     padding: 0.8rem 1.6rem;
-    border: 1px solid #f4e4ba;
-    border-radius: 5px;
 
     &:hover,
     &:active {
@@ -49,43 +47,32 @@
 /* 		                       BODY-MIND-SOUL                   */
 /* ========================================================== */
 .home-description {
-  position: relative;
-  margin-top: 150px;
-
+  margin-top: 80px;
+  margin-bottom: 80px;
   .home-bg-header-secondary {
-    background-color: rgba(92, 73, 77, 0.2);
-    height: 150px;
+    background-color: rgba(92, 73, 77, 0.1);
+    height: 120px;
+    position: relative;
     h2 {
       font-family: 'Oswald', sans-serif;
       font-weight: 400;
       color: #5c494d;
       position: absolute;
-      top: 50px;
+      top: 30px;
       left: 50px;
     }
   }
 }
 
-.home-yoga-type {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  //align-items: center;
-
   .img-container {
-    width: 200px;
+    width: 300px;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-
     img {
       width: 100%;
       vertical-align: top;
     }
   }
-
 
   .button-body-mind-soul {
     font-family: 'Oswald', sans-serif;
@@ -143,16 +130,15 @@
       }
     }
   }
-}
+
 /* ========================================================== */
 /* 		         EDUCATION-INFORMATION-COMMUNITY                */
 /* ========================================================== */
 
-.blue-stripe{
+.blue-stripe {
   background-color: #375769;
   height: 150px;
 }
-
 
 @media screen and (min-width: 768px) {
   .home-bg {
@@ -176,16 +162,15 @@
     }
   }
 
-  //.home-button {
-  //  font-size: 1.2rem;
-  //  padding: 0.9rem 2rem;
-  //  border: 2px solid #f4e4ba;
-  //}
+  .home-button {
+    font-size: 1.2rem;
+    border: 1px solid #f4e4ba;
+    border-radius: 5px;
+  }
 }
 
 .home-description {
   h2 {
     font-size: 2.5rem;
   }
-
 }
