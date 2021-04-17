@@ -1,7 +1,7 @@
 .home-bg {
   background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat,
     fixed;
-  height: 100vh;
+  height: 70vh;
   position: relative;
   min-height: 440px;
 
@@ -154,12 +154,10 @@
 
 @media screen and (min-width: 768px) {
   .home-bg {
-    height: 100vh;
+    height: 70vh;
     background-position: 0 85%;
 
     .home-bg-headers {
-      background-color: rgba(255, 255, 255, 0.4);
-      position: absolute;
       top: 100px;
       left: 50px;
       width: 600px;
