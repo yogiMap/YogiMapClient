@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .home-bg {
   background: url('../pages/pages/homePage/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat,
     fixed;
@@ -36,6 +40,8 @@
     background: rgba(244, 228, 186, 0);
     color: #f4e4ba;
     padding: 0.8rem 1.6rem;
+    border: 1px solid #f4e4ba;
+    border-radius: 5px;
 
     &:hover,
     &:active {
@@ -65,72 +71,59 @@
   }
 }
 
-  .img-container {
-    width: 300px;
-    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    img {
-      width: 100%;
-      vertical-align: top;
-    }
+.img-container {
+  width: 414px;
+  margin: 15px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  img {
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .home-stripe-body {
+    height: 70px;
+    background-color: #18a38e;
+    position: relative;
+  }
+
+  .home-stripe-mind {
+    height: 70px;
+    background-color: #5c494d;
+    position: relative;
+  }
+
+  .home-stripe-soul {
+    height: 70px;
+    background-color: #375769;
+    position: relative;
   }
 
   .button-body-mind-soul {
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     transform: translate(-50%, -50%);
-    padding: 2rem 4rem;
-    border-radius: 5px;
-    text-align: center;
-    margin: 5px;
-  }
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
 
-  .home-stripe-body-mind-soul {
-    height: 35px;
-  }
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  .home-yoga-type-body {
-    .home-stripe-body-mind-soul {
-      background-color: #18a38e;
-    }
-    .button-body-mind-soul {
-      color: #18a38e;
-      //border: 1px solid #18a38e;
-      &:hover,
-      &:active {
-        color: #d2791e;
-      }
+    //padding: 2rem 4rem;
+    //border-radius: 5px;
+    //text-align: center;
+    //margin: 5px;
+    color: white;
+    &:hover,
+    &:active {
+      color: #d2791e;
     }
   }
-
-  .home-yoga-type-mind {
-    .home-stripe-body-mind-soul {
-      background-color: #5c494d;
-    }
-    .button-body-mind-soul {
-      color: #5c494d;
-      //border: 1px solid #5c494d;
-      &:hover,
-      &:active {
-        color: #d2791e;
-      }
-    }
-  }
-
-  .home-yoga-type-soul {
-    .home-stripe-body-mind-soul {
-      background-color: #375769;
-    }
-    .button-body-mind-soul {
-      color: #375769;
-      //border: 1px solid #375769;
-      &:hover,
-      &:active {
-        color: #d2791e;
-      }
-    }
-  }
+}
 
 /* ========================================================== */
 /* 		         EDUCATION-INFORMATION-COMMUNITY                */
@@ -165,13 +158,16 @@
 
   .home-button {
     font-size: 1.2rem;
-    border: 1px solid #f4e4ba;
-    border-radius: 5px;
   }
-}
 
-.home-description {
-  h2 {
-    font-size: 2.5rem;
+  .home-description {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .img-container {
+    box-sizing: border-box;
+    width: 320px;
   }
 }

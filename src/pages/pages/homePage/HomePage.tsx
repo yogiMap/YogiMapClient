@@ -48,40 +48,45 @@ function HomePage(props: IProps) {
         </div>
       </div>
 
-      <div className="container m-5">
+      <div className="my-5">
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-4">
+          <div className="col-lg-4 d-flex justify-content-center">
             <div className="home-yoga-type-body">
               <div className="img-container">
                 <img src={body} alt="body" />
-                <div className="home-stripe-body-mind-soul"></div>
-              </div>
-              <div>
-                <Link to="" className="button-body-mind-soul">
-                  BODY
-                </Link>
+                <div className="home-stripe-body">
+                  <Link to="" className="button-body-mind-soul">
+                    BODY
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="col-lg-4 home-yoga-type-mind">
-            <div className="img-container">
-              <img src={mind} alt="mind" />
-              <div className="home-stripe-body-mind-soul"></div>
+          <div className="col-lg-4 d-flex justify-content-center">
+            <div className=" home-yoga-type-mind">
+              <div className="img-container">
+                <img src={mind} alt="mind" />
+                <div className="home-stripe-mind">
+                  <Link to="" className="button-body-mind-soul">
+                    MIND
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link to="" className="button-body-mind-soul">
-              MIND
-            </Link>
           </div>
 
-          <div className="col-lg-4 home-yoga-type-soul">
-            <div className="img-container">
-              <img src={soul} alt="soul" />
-              <div className="home-stripe-body-mind-soul"></div>
+          <div className="col-lg-4 d-flex justify-content-center">
+            <div className="home-yoga-type-soul">
+              <div className="img-container">
+                <img src={soul} alt="soul" />
+                <div className="home-stripe-soul">
+                  <Link to="" className="button-body-mind-soul">
+                    SOUL
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link to="" className="button-body-mind-soul">
-              SOUL
-            </Link>
           </div>
         </div>
       </div>
