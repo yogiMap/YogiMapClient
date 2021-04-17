@@ -93,21 +93,42 @@ function HomePage(props: IProps) {
 
       <div className="blue-stripe"></div>
 
-      <div className="container">
+      <div className="home-bg-informational-block">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-3 d-flex justify-content-center">
-            <h2 className="m-3">education</h2>
+            <div className="my-lg-5 px-5 home-informational-block">
+              <h2 className="mt-5 mb-lg-5">EDUCATION</h2>
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti atque corrupti quos dolores et quas molestias excepturi
+              </p>
+            </div>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center">
-            <h2 className="m-3">information</h2>
+            <div className="my-lg-5 px-5 home-informational-block">
+              <h2 className="my-lg-5">INFORMATION</h2>
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti atque corrupti quos dolores et quas molestias excepturi
+              </p>
+            </div>
           </div>
 
           <div className="col-lg-3 d-flex justify-content-center">
-            <h2 className="m-3">community</h2>
+            <div className="my-lg-5 px-5 home-informational-block">
+              <h2 className="my-lg-5">COMMUNITY</h2>
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti atque corrupti quos dolores et quas molestias excepturi
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="green-stripe"></div>
+
     </>
   );
 }
