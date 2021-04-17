@@ -27,13 +27,13 @@ function HomePage(props: IProps) {
           {!isUserAuth && (
             <div className="row d-flex justify-content-center">
               <div className="col-lg-4 my-lg-5 my-2 d-flex justify-content-lg-start justify-content-center">
-                <Link to="/user/register/teacher" className="home-button m-2">
+                <Link to="/user/register/teacher" className="home-button my-2">
                   I‘M A TEACHER
                 </Link>
               </div>
 
               <div className="col-lg-4 my-lg-5 d-flex justify-content-lg-end justify-content-center">
-                <Link to="/user/register" className="home-button m-2">
+                <Link to="/user/register" className="home-button my-2">
                   I’M A STUDENT
                 </Link>
               </div>
