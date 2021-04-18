@@ -200,14 +200,16 @@ span.edit-pen-icon {
   text-align: center;
   background: #d2791e;
   color: #ffffff;
-  padding: 0.4rem 3rem;
+  width: 200px;
+  height: 50px;
   border-radius: 30px;
   outline: none;
   border: 2px solid rgba(210, 121, 30, 0.5);
-  //box-shadow: 1px 1px 2px #14075f;
 
   &:hover{
-    padding: 0.4rem 3.2rem;
+    width: 220px;
+    height: 55px;
     font-size: 1.3rem;
+    transition-delay: 0.5s;
   }
 }
