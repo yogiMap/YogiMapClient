@@ -72,9 +72,13 @@
   margin: 15px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  img {
+  .img-body-mind-soul {
     width: 100%;
     vertical-align: top;
+
+    &:hover {
+      animation: flip-yoga-type 1s ease-out forwards;
+    }
   }
 
   .home-stripe-body {
@@ -126,19 +130,19 @@
   margin-bottom: 80px;
 }
 
-  .home-bg-informational-block {
-    background: url('../pages/pages/homePage/images/rishikesh2.jpg') left center/cover no-repeat, fixed;
-    position: relative;
-    height: 85vh;
-    min-height: 500px;
-    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.7);
+.home-bg-informational-block {
+  background: url('../pages/pages/homePage/images/rishikesh2.jpg') left center/cover no-repeat, fixed;
+  position: relative;
+  height: 85vh;
+  min-height: 500px;
+  box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.7);
 
-    h2 {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 400;
-      color: #464547;
-    }
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #464547;
   }
+}
 
 .green-stripe {
   background-color: #18a38e;
@@ -160,15 +164,15 @@
       width: 600px;
       height: 250px;
       left: 4%;
-    }
 
-    h1 {
-      font-size: 3rem;
-      padding-left: 50px;
-    }
+      h1 {
+        font-size: 3rem;
+        padding-left: 50px;
+      }
 
-    h2 {
-      font-size: 2rem;
+      h2 {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -183,14 +187,23 @@
   .home-description {
     .home-bg-header-secondary {
       height: 120px;
-    h2 {
-      font-size: 2.5rem;
-    }
+      h2 {
+        font-size: 2.5rem;
+      }
     }
   }
 
   .img-container {
     box-sizing: border-box;
     width: 320px;
+  }
+}
+
+@keyframes flip-yoga-type {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(160deg);
   }
 }
