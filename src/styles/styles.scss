@@ -195,13 +195,19 @@ span.edit-pen-icon {
 
 .button-primary {
   font-family: 'Oswald', 'OpenSans', sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
   text-align: center;
   background: #d2791e;
   color: #ffffff;
-  padding: 0.3rem 1.3rem;
-  border-radius: 20px;
+  padding: 0.4rem 2.8rem;
+  border-radius: 30px;
   outline: none;
+  border: 2px solid rgba(210, 121, 30, 0.5);
   //box-shadow: 1px 1px 2px #14075f;
+
+  &:hover{
+    padding: 0.5rem 3.2rem;
+    font-size: 1.5rem;
+  }
 }

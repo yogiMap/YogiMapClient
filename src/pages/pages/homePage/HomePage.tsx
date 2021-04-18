@@ -96,8 +96,8 @@ function HomePage(props: IProps) {
       <div className="home-bg-informational-block">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-3 d-flex justify-content-center">
-            <div className="my-lg-5 px-5 home-informational-block">
-              <h2 className="mt-5 mb-lg-5">EDUCATION</h2>
+            <div className="mt-5 mb-lg-5 px-5 home-informational-block">
+              <h2 className="mb-lg-4">EDUCATION</h2>
               <p>
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                 deleniti atque corrupti quos dolores et quas molestias excepturi
@@ -107,7 +107,7 @@ function HomePage(props: IProps) {
 
           <div className="col-lg-3 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
-              <h2 className="my-lg-5">INFORMATION</h2>
+              <h2 className="mb-lg-4">INFORMATION</h2>
               <p>
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                 deleniti atque corrupti quos dolores et quas molestias excepturi
@@ -117,12 +117,17 @@ function HomePage(props: IProps) {
 
           <div className="col-lg-3 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
-              <h2 className="my-lg-5">COMMUNITY</h2>
+              <h2 className="mb-lg-4">COMMUNITY</h2>
               <p>
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                 deleniti atque corrupti quos dolores et quas molestias excepturi
               </p>
             </div>
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-6 d-flex justify-content-center">
+          <button className="button-primary">LEARN MORE</button>
           </div>
         </div>
       </div>
