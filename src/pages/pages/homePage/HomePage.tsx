@@ -51,7 +51,7 @@ function HomePage(props: IProps) {
       <div className="my-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-4 d-flex justify-content-center">
-            <div className="home-yoga-type-body">
+            <div>
               <div className="img-container">
                 <img src={body} alt="body" className="img-body-mind-soul" />
                 <div className="home-stripe-body">
@@ -64,7 +64,7 @@ function HomePage(props: IProps) {
           </div>
 
           <div className="col-lg-4 d-flex justify-content-center">
-            <div className=" home-yoga-type-mind">
+            <div>
               <div className="img-container">
                 <img src={mind} alt="mind" className="img-body-mind-soul"/>
                 <div className="home-stripe-mind">
@@ -77,7 +77,7 @@ function HomePage(props: IProps) {
           </div>
 
           <div className="col-lg-4 d-flex justify-content-center">
-            <div className="home-yoga-type-soul">
+            <div>
               <div className="img-container">
                 <img src={soul} alt="soul" className="img-body-mind-soul" />
                 <div className="home-stripe-soul">
