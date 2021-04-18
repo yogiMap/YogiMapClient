@@ -9,8 +9,7 @@
     background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
     top: 20%;
-    left: 5%;
-    width: 380px;
+    width: 420px;
     height: 190px;
     border-radius: 5px;
 
@@ -19,15 +18,16 @@
     h3 {
       font-family: 'Oswald', sans-serif;
       font-weight: 400;
+      font-size: 2.1rem;
       color: #353535;
-      padding-left: 30px;
+      padding-left: 15px;
     }
   }
 }
 
 .home-stripe-under-bg {
   background-color: #5c494d;
-  height: 150px;
+  height: 170px;
 
   .home-button {
     font-family: 'Oswald', sans-serif;
@@ -159,6 +159,7 @@
     .home-bg-headers {
       width: 600px;
       height: 250px;
+      left: 4%;
     }
 
     h1 {
@@ -169,6 +170,10 @@
     h2 {
       font-size: 2rem;
     }
+  }
+
+  .home-stripe-under-bg {
+    height: 150px;
   }
 
   .home-button {
