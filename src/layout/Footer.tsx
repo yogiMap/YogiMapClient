@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="row d-flex justify-content-center">
 
           <div className="col-lg-3 info">
-            <h6>YOGIMAP INFO</h6>
+            <h6 className="footer-headings">YOGIMAP INFO</h6>
             <footer className="small pb-3">
               {menu1.map((el) => (
                 <div key={el.link} className="m-2">
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-3  info">
-            <h6>YOGIMAP CATEGORIES</h6>
+            <h6 className="footer-headings">YOGIMAP CATEGORIES</h6>
             <footer className="small pb-3">
               {menu2.map((el) => (
              <div key={el.link} className="m-2">
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-3  info">
-            <h6>YOGIMAP RESOURCES</h6>
+            <h6 className="footer-headings">YOGIMAP RESOURCES</h6>
             <footer className="small">
               {menu3.map((el) => (
                 <div key={el.link} className="m-2">

@@ -51,9 +51,25 @@ a {
   }
 }
 
+.nav-box{
+  height: 70px;
+  background-color: rgba(255,255,255,0.9);
+}
+
 .footer {
   background: white;
   border-top: 50px solid #c4c4c4;
+
+  .footer-headings {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #d2791e;
+
+    &:hover {
+      color: #464547;
+    }
+  }
 
   .info {
     text-align: center;
@@ -206,7 +222,7 @@ span.edit-pen-icon {
   outline: none;
   border: 2px solid rgba(210, 121, 30, 0.5);
 
-  &:hover{
+  &:hover {
     width: 220px;
     height: 55px;
     font-size: 1.3rem;
