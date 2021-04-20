@@ -38,8 +38,8 @@ const BaseFilterForm = (props: IProps) => {
 
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="baseSearchParam1">
-        <Input placeholder="baseSearchParam1" />
+      <Form.Item name="name">
+        <Input placeholder="name" />
       </Form.Item>
 
       <Form.Item name="baseSearchParam2">

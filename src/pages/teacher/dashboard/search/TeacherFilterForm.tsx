@@ -38,8 +38,12 @@ const TeacherFilterForm = (props: IProps) => {
 
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="teacherSearchParam1">
-        <Input placeholder="Find your Teacher or Studio" />
+      <Form.Item name="name">
+        <Input placeholder="name" />
+      </Form.Item>
+
+      <Form.Item name="yogaStyle">
+        <Input placeholder="yogaStyle" />
       </Form.Item>
 
       <Form.Item>
