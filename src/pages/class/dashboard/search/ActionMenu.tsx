@@ -5,6 +5,7 @@ import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
+import { IEvent } from '@/pages/event/types';
 
 interface IClassDeleteById {
   classId: string;
@@ -41,7 +42,7 @@ const ActionMenu = (props: IProps) => {
       editHandler(row._id);
     }
     if (handler === 'delete') {
-      deletePrompt(row);
+      // deletePrompt(row);
     }
   };
 
@@ -55,14 +56,14 @@ const ActionMenu = (props: IProps) => {
     });
   };
 
-  const deletePrompt = (class: IClass) => {
-    Modal.confirm({
-      title: `Do you want to delete?`,
-      content: `${class.name}`,
-      okType: 'danger',
-      onOk: () => props.classDeleteById({ classId: class._id, queryParams }),
-    });
-  };
+  // const deletePrompt = (class: ШclasШs) => {
+  //   Modal.confirm({
+  //     title: `Do you want to delete?`,
+  //     content: `${class.name}`,
+  //     okType: 'danger',
+  //     onOk: () => props.classDeleteById({ classId: class._id, queryParams }),
+  //   });
+  // };
 
   return (
     <span>
