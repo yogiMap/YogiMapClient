@@ -14,6 +14,7 @@ const TopMenu = (props: IProps) => {
 
   const mainMenu = [
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
+    { path: '/', name: 'HOME' },
     { path: '/teacher', name: 'TEACHER', perm: 'teacher.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/events', name: 'EVENTS', perm: 'events.get.own' },
@@ -24,14 +25,13 @@ const TopMenu = (props: IProps) => {
   }));
 
   return (
-    <div id="top-menu" role="menu" className="top-menu-font">
-      {mainMenu.map(
-        (el) => (
-            <div className={classNames('item', { active: el.isActive })} key={el.path}>
-              <Link to={el.path}>{el.name}</Link>
-            </div>
-          ),
-      )}
+    <div id="top-menu" role="menu" className="d-flex d-print-none">
+
+      {mainMenu.map((el) => (
+        <div className={classNames('item', { active: el.isActive })} key={el.path}>
+          <Link to={el.path}>{el.name}</Link>
+        </div>
+      ))}
     </div>
   );
 };
