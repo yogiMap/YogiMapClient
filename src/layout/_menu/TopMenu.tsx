@@ -14,20 +14,19 @@ const TopMenu = (props: IProps) => {
 
   const mainMenu = [
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
-    { path: '/teacher', name: 'Yoga Teacher', perm: 'teacher.get.own' },
-    { path: '/classes', name: 'Classes', perm: 'classes.get.own' },
-    { path: '/teacherType', name: 'Type of Yoga', perm: 'teacherType.get.own' },
+    { path: '/teacher', name: 'TEACHER', perm: 'teacher.get.own' },
+    { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
+    { path: '/events', name: 'EVENTS', perm: 'events.get.own' },
+    { path: '/teacherType', name: 'TYPE O YOGA', perm: 'teacherType.get.own' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
-    isVisible: acl.includes(el.perm),
   }));
 
   return (
-    <div id="top-menu" role="menu" className="d-flex d-print-none">
+    <div id="top-menu" role="menu" className="top-menu-font">
       {mainMenu.map(
-        (el) =>
-          el.isVisible && (
+        (el) => (
             <div className={classNames('item', { active: el.isActive })} key={el.path}>
               <Link to={el.path}>{el.name}</Link>
             </div>

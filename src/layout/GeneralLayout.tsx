@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const isFooterVisible = (location: string) => {
-  const allowedPaths = ['/', '/pricing', '/industries'];
+  const allowedPaths = ['/'];
   return allowedPaths.includes(location);
 };
 

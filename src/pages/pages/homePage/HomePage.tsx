@@ -3,7 +3,9 @@ import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import body from '@/pages/pages/homePage/images/yogigirl.png';
+// @ts-ignore
 import mind from '@/pages/pages/homePage/images/crystals.jpeg';
+// @ts-ignore
 import soul from '@/pages/pages/homePage/images/monks.jpg';
 
 interface IProps {
