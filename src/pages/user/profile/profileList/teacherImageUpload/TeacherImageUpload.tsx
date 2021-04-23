@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { get } from 'lodash';
 import { connect } from 'umi';
 
-import { Avatar, Image } from 'antd';
+import { Avatar, Button, Form, Image } from 'antd';
 import lotus from '@/pages/user/profile/profileList/teacherImageUpload/images/lotus_yellow.png';
 
 const TeacherImageUpload = (props: any) => {
@@ -47,7 +47,16 @@ const TeacherImageUpload = (props: any) => {
           <input type="file" name="image" onChange={uploadImage} />
         </div>
 
-        <button className="button-primary float-end">Save</button>
+        <Button
+          type='primary'
+          htmlType='submit'
+          className='login-form-button float-end'
+          shape='round'
+          // disabled={disableSubmit}
+          // loading={isLoading}
+        >
+          Save
+        </Button>
       </div>
     );
   };

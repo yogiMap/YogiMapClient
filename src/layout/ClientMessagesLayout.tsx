@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import ClientMessagesMenu from '../pages/client/messages/ClientMessagesMenu';
 
 const ClientMessagesLayout = ({ children }: any) => {

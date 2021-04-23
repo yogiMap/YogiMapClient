@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { get } from 'lodash';
 import { connect } from 'umi';
+import { Button, Form } from 'antd';
 
 const TeacherDescription = (props: any) => {
 
@@ -10,7 +11,16 @@ const TeacherDescription = (props: any) => {
       <div className="profile-block">
         <p className="profile-name">Description</p>
 
-        <button className="button-primary float-end">Save</button>
+        <Button
+          type='primary'
+          htmlType='submit'
+          className='login-form-button float-end'
+          shape='round'
+          // disabled={disableSubmit}
+          // loading={isLoading}
+        >
+          Save
+        </Button>
 
       </div>
     );
