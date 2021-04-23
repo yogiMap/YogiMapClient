@@ -9,7 +9,7 @@ const menu1 = [
 
 const menu2 = [
   { link: '/teachers', text: 'Find Your Teacher' },
-  { link: '/classes', text: 'Find Your Classes' },
+  { link: '/class', text: 'Find Your Classes' },
 ];
 
 const menu3 = [

@@ -29,6 +29,10 @@ export default [
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
           { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
           { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
+          { path: '/class', component: '@/pages/class/dashboard/ClassDashboard' },
+          { path: '/class/:classId', component: '@/pages/class/view/ClassView' },
+          { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
+          { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
           { path: '/teacherType', component: '@/pages/teacherType/dashboard/TeacherTypeDashboard' },
           { path: '/teacherType/:teacherTypeId', component: '@/pages/teacherType/view/TeacherTypeView' },
 

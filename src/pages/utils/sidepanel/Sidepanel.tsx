@@ -9,8 +9,10 @@ import TeacherCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
 import TeacherEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
 import TeacherTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
 import TeacherTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
-import ClassesCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
-import ClassesEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
+import ClassCreateWrapper from '@/pages/class/form/ClassFormCreateWrapper';
+import ClassEditWrapper from '@/pages/class/form/ClassFormEditWrapper';
+import EventCreateWrapper from '@/pages/event/form/EventFormCreateWrapper';
+import EventEditWrapper from '@/pages/event/form/EventFormEditWrapper';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -30,8 +32,11 @@ const Sidepanel = (props: IProps) => {
     TeacherFormCreate: <TeacherCreateWrapper />,
     TeacherFormEdit: <TeacherEditWrapper />,
 
-    ClassesFormCreate: <ClassesCreateWrapper />,
-    ClassesFormEdit: <ClassesEditWrapper />,
+    ClassesFormCreate: <ClassCreateWrapper />,
+    ClassesFormEdit: <ClassEditWrapper />,
+
+    EventFormCreate: <EventCreateWrapper />,
+    EventFormEdit: <EventEditWrapper />,
 
     TeacherTypeFormCreate: <TeacherTypeCreateWrapper />,
     TeacherTypeFormEdit: <TeacherTypeEditWrapper />,
