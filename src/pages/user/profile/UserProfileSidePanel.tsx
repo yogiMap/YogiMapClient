@@ -21,27 +21,28 @@ const UserProfileSidePanel = (props: any) => {
 
   return (
     <div className="profile-side-panel">
-
-      <div className="profile-avatar-bg d-flex justify-content-center">
-      <Avatar size="small" src={<Image src={lotus}/>} />
+      <div className="profile-avatar-bg d-flex justify-content-center align-items-end">
+        <Avatar size="large" src={<Image src={lotus} />} />
       </div>
 
-      <h5 className="text-center mt-4"> {name} </h5>
-      <p className="profile-name text-center"> Teacher of your </p >
-      <hr />
-      <p className="profile-name"> Edit Profile </p>
-      <hr />
+      <div className="profile-side-panel-information">
+        <h5 className="text-center mt-4"> {name} </h5>
+        <p className="profile-name text-center"> Teacher of your </p>
+        <hr />
+        <p className="profile-name"> Edit Profile </p>
+        <hr />
 
-      <div>
-        <Link to={'/teacher/style'}>Yoga Style</Link>
-        <Link to={'/teacherDescription'}>Description</Link>
-        <Link to={'/teacher/location'}>Location</Link>
-        <Link to={'/teacher/contact'}>Contacts</Link>
-        <Link to={'/user/password/reset/request'}>Reset Password</Link>
-        <Link to={'/teacher/img'}>Picture</Link>
-        <Link to={'/teacher/youtube'}>YouTube</Link>
-        <Link to={'/teacher/instagram'}>Instagram</Link>
-        <Link to={'/teacherFacebook'}>Facebook</Link>
+        <div>
+          <Link to={'/teacher/style'}>Yoga Style</Link>
+          <Link to={'/teacherDescription'}>Description</Link>
+          <Link to={'/teacher/location'}>Location</Link>
+          <Link to={'/teacher/contact'}>Contacts</Link>
+          <Link to={'/user/password/reset/request'}>Reset Password</Link>
+          <Link to={'/teacher/img'}>Picture</Link>
+          <Link to={'/teacher/youtube'}>YouTube</Link>
+          <Link to={'/teacher/instagram'}>Instagram</Link>
+          <Link to={'/teacherFacebook'}>Facebook</Link>
+        </div>
       </div>
     </div>
   );
@@ -54,6 +55,5 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   userGetById: (payload: any) => dispatch({ type: 'Profile/userGetById', payload }),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileSidePanel);

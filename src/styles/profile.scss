@@ -1,63 +1,67 @@
-/* ========================================================== */
-/* 		                         PROFILE                        */
-/* ========================================================== */
-
 .profile-bg {
-  background: rgba(215, 216, 205, 0.5);
+  background: #efeded;
   background-size: 100vh;
   font-family: 'Lato', sans-serif;
+}
 
-  .profile-greetings {
-    background: #eef5ff;
-    align-content: center;
-    padding: 5px;
-    border-radius: 20px;
-  }
+.profile-greetings {
+  color: #375769;
+  font-size: 18px;
+}
 
-  .profile-side-panel {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 1px 1px 2px #6cb7d0;
-  }
+/* ========================================================== */
+/* 		                      profile-side-panel                   */
+/* ========================================================== */
 
-  .profile-block {
-    background: white;
-    padding: 50px;
-    margin: 10px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 2px #9b8ee7;
-  }
-
-  .profile-name {
-    color: rgba(19, 7, 95, 0.4);
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  .profile-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 10rem;
-  }
-
-  a {
-    display: block;
-    color: #13075f;
-  }
-
-  a:hover,
-  a:active {
-    color: #4b8b64 !important;
-    cursor: pointer;
-  }
+.profile-side-panel {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 
   .profile-avatar-bg {
-    background: rgba(216, 229, 248, 0.3);
-    padding: 20px;
-    border-radius: 10px;
+    background: #375769;
+    height: 70px;
+    //padding: 20px;
+    border-radius: 20px 20px 0 0;
   }
+
+  .profile-side-panel-information {
+    padding: 0 30px 30px 30px;
+
+    h5 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      color: #d2791e;
+    }
+
+    a {
+      display: block;
+    }
+  }
+}
+
+/* ========================================================== */
+/* 		                      profile-block                  */
+/* ========================================================== */
+
+.profile-block {
+  background: white;
+  padding: 50px;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.profile-name {
+  font-size: 12px;
+  color: #898989;
+}
+
+.profile-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10rem;
 }
