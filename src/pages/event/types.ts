@@ -1,4 +1,4 @@
-export interface Ievent {
+export interface IEvent {
   _id: string;
   name: string;
   owner: {
@@ -9,14 +9,14 @@ export interface Ievent {
   updatedAt: string;
 }
 
-export interface IeventStats {
-  totalevent: number;
-  todayevent: number;
-  monthevent: number;
-  averageevent: number;
+export interface IEventStats {
+  totalEvent: number;
+  todayEvent: number;
+  monthEvent: number;
+  averageEvent: number;
 }
 
-export interface IeventQueryParams {
+export interface IEventQueryParams {
   limit?: number | string;
   page?: number | string;
   eventSearchParam1?: string;

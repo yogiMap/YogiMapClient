@@ -5,18 +5,18 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { Ievent } from '@/pages/event/types';
+import { IEvent } from '@/pages/event/types';
 import ActionMenu from '@/pages/event/dashboard/search/ActionMenu';
 
 interface IProps extends RouteComponentProps {
-  items: Ievent[];
+  items: IEvent[];
 }
 
-const eventSearchList = (props: IProps) => {
+const EventSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<Ievent>[] = [
+  const columns: ColumnProps<IEvent>[] = [
     {
       title: 'Name',
       key: 'name',
@@ -54,4 +54,4 @@ const mapStateToProps = () => ({});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(eventSearchList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventSearchList));

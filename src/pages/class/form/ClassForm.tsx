@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
-import { Iclass } from '@/pages/class/types';
+import { IClass } from '@/pages/class/types';
 import { get } from 'lodash';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
-  initialValues?: Iclass;
+  initialValues?: IClass;
 }
 
-const classForm = (props: IProps) => {
+const ClassForm = (props: IProps) => {
   //  const { Option } = Select;
 
   const isLoading = get(props, 'isLoading', false);
@@ -19,11 +19,11 @@ const classForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
       <Form.Item name="name" rules={[validator.require]}>
-        <Input placeholder="class Name" />
+        <Input placeholder="Class Name" />
       </Form.Item>
 
       <Form.Item name="description">
-        <Input.TextArea placeholder="class Description" autoSize={{ minRows: 3, maxRows: 6 }} />
+        <Input.TextArea placeholder="Class Description" autoSize={{ minRows: 3, maxRows: 6 }} />
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
@@ -42,4 +42,4 @@ const classForm = (props: IProps) => {
   );
 };
 
-export default classForm;
+export default ClassForm;

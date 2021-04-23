@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { IclassQueryParams } from '@/pages/class/types';
+import { IClassQueryParams } from '@/pages/class/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | IclassQueryParams) => void;
-  filters: IclassQueryParams;
+  onChange: (values: null | IClassQueryParams) => void;
+  filters: IClassQueryParams;
 }
 
-const classFilterForm = (props: IProps) => {
+const ClassFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -42,8 +42,8 @@ const classFilterForm = (props: IProps) => {
         <Input placeholder="name" />
       </Form.Item>
 
-      <Form.Item name="yogaStyle">
-        <Input placeholder="yogaStyle" />
+      <Form.Item name="classSearchParam2">
+        <Input placeholder="classSearchParam2" />
       </Form.Item>
 
       <Form.Item>
@@ -53,4 +53,4 @@ const classFilterForm = (props: IProps) => {
   );
 };
 
-export default classFilterForm;
+export default ClassFilterForm;

@@ -8,9 +8,9 @@ interface IProps {
   eventGetById: (id: string) => void;
 }
 
-const eventView = (props: IProps) => {
+const EventView = (props: IProps) => {
   const eventId = get(props, 'match.params.eventId');
-  const name = get(props, 'eventView.name', '');
+  const name = get(props, 'EventView.name', '');
 
   console.log(props);
 
@@ -26,11 +26,11 @@ const eventView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  eventView: state.eventView,
+  EventView: state.EventView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  eventGetById: (payload: string) => dispatch({ type: 'eventView/eventGetById', payload }),
+  eventGetById: (payload: string) => dispatch({ type: 'EventView/eventGetById', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(eventView);
+export default connect(mapStateToProps, mapDispatchToProps)(EventView);

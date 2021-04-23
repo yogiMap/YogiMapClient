@@ -1,14 +1,14 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-import { queryclassDeleteById, queryclassGetStats, queryclassSearch } from '@/pages/class/queries';
-import { Iclass, IclassStats } from '@/pages/class/types';
+import { queryClassDeleteById, queryClassGetStats, queryClassSearch } from '@/pages/class/queries';
+import { IClass, IClassStats } from '@/pages/class/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {
-  classList?: Iclass[];
-  classStats?: IclassStats;
+  classList?: IClass[];
+  classStats?: IClassStats;
   classPager?: IPager;
 }
 
@@ -28,13 +28,13 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'classDashboard',
+  namespace: 'ClassDashboard',
 
   state: {},
 
   effects: {
     *classSearch({ payload }, { call, put }) {
-      const data = yield call(queryclassSearch, payload);
+      const data = yield call(queryClassSearch, payload);
       yield put({
         type: 'save',
         payload: {
@@ -45,7 +45,7 @@ const Model: IModel = {
     },
 
     *classGetStats(_, { call, put }) {
-      const data = yield call(queryclassGetStats);
+      const data = yield call(queryClassGetStats);
       yield put({
         type: 'save',
         payload: { classStats: data.payload },
@@ -53,7 +53,7 @@ const Model: IModel = {
     },
 
     *classDeleteById({ payload }, { call, put }) {
-      yield call(queryclassDeleteById, payload.classId);
+      yield call(queryClassDeleteById, payload.classId);
       yield put({ type: 'classSearch', payload: payload.queryParams });
     },
 

@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryeventGetById } from '@/pages/event/queries';
+import { queryEventGetById } from '@/pages/event/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
@@ -17,20 +17,20 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'eventView',
+  namespace: 'EventView',
 
   state: {},
 
   effects: {
     *eventGetById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
-      const data = yield call(queryeventGetById, payload);
+      const data = yield call(queryEventGetById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
     },
 
     // *eventDeleteById({ payload }, { call, put }) {
     //   console.log(payload);
-    //   yield call(queryeventDeleteById, payload.eventId);
+    //   yield call(queryEventDeleteById, payload.eventId);
     //   yield put({ type: 'eventSearch', payload: payload.queryParams });
     // },
   },

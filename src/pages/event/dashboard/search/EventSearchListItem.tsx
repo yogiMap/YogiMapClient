@@ -3,13 +3,13 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { Ievent } from '@/pages/event/types';
+import { IEvent } from '@/pages/event/types';
 
-interface IProps extends Ievent {
+interface IProps extends IEvent {
   eventDelete: (id: String) => void;
 }
 
-const eventSearchListItem = (props: IProps) => {
+const EventSearchListItem = (props: IProps) => {
   const { eventDelete } = props;
 
   const owner = get(props, 'item.owner', '');
@@ -40,7 +40,7 @@ const eventSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  eventDelete: (payload: any) => dispatch({ type: 'eventDashboard/eventDelete', payload }),
+  eventDelete: (payload: any) => dispatch({ type: 'EventDashboard/eventDelete', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(eventSearchListItem);
+export default connect(null, mapDispatchToProps)(EventSearchListItem);

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get, omitBy } from 'lodash';
-import classStats from '@/pages/class/dashboard/stats/classStats';
-import classFilterForm from '@/pages/class/dashboard/search/classFilterForm';
+import ClassStats from '@/pages/class/dashboard/stats/ClassStats';
+import ClassFilterForm from '@/pages/class/dashboard/search/ClassFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
-import { IclassQueryParams } from '@/pages/class/types';
-import classSearchList from '@/pages/class/dashboard/search/classSearchList';
-import classDashboardControls from '@/pages/class/dashboard/controls/classDashboardControls';
+import { IClassQueryParams } from '@/pages/class/types';
+import ClassSearchList from '@/pages/class/dashboard/search/ClassSearchList';
+import ClassDashboardControls from '@/pages/class/dashboard/controls/ClassDashboardControls';
 import { IState } from '@/pages/class/dashboard/model';
 
 const initialSearchForm = {
@@ -22,15 +22,15 @@ const initialSearchQuery = {
 
 interface IProps {
   classGetStats: () => void;
-  classSearch: (arg: IclassQueryParams) => void;
+  classSearch: (arg: IClassQueryParams) => void;
   classReset: () => void;
-  classDashboard: IState;
+  ClassDashboard: IState;
 }
 
-const classDashboard = (props: IProps) => {
-  const classStats = get(props, 'classDashboard.classStats', {});
-  const classList = get(props, 'classDashboard.classList', []);
-  const classPager = get(props, 'classDashboard.classPager', {});
+const ClassDashboard = (props: IProps) => {
+  const classStats = get(props, 'ClassDashboard.classStats', {});
+  const classList = get(props, 'ClassDashboard.classList', []);
+  const classPager = get(props, 'ClassDashboard.classPager', {});
   const queryParams = get(props, 'location.query', {});
 
   const getSearchQuery = (mixin = {}) => {
@@ -51,7 +51,7 @@ const classDashboard = (props: IProps) => {
     props.classSearch(getSearchQuery());
   }, [queryParams]);
 
-  const onFiltersChange = (values: null | IclassQueryParams) => {
+  const onFiltersChange = (values: null | IClassQueryParams) => {
     // обнулять pager при каждом новом поиске
     const query = getSearchQuery({ ...values, page: 1 });
     history.push({ query });
@@ -66,31 +66,31 @@ const classDashboard = (props: IProps) => {
     <>
       <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
         <div>
-          <div className="h4 mr-4">class dashboard</div>
-          <classFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+          <div className="h4 mr-4">Class dashboard</div>
+          <ClassFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
         </div>
 
-        <classStats stats={classStats} />
+        <ClassStats stats={classStats} />
 
         <div>
-          <classDashboardControls />
+          <ClassDashboardControls />
         </div>
       </div>
 
-      <classSearchList items={classList} />
+      <ClassSearchList items={classList} />
       <Pager pager={classPager} onChange={onPagerChange} />
     </>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  classDashboard: state.classDashboard,
+  ClassDashboard: state.ClassDashboard,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  classSearch: (payload: IclassQueryParams) => dispatch({ type: 'classDashboard/classSearch', payload }),
-  classGetStats: () => dispatch({ type: 'classDashboard/classGetStats' }),
-  classReset: () => dispatch({ type: 'classDashboard/reset' }),
+  classSearch: (payload: IClassQueryParams) => dispatch({ type: 'ClassDashboard/classSearch', payload }),
+  classGetStats: () => dispatch({ type: 'ClassDashboard/classGetStats' }),
+  classReset: () => dispatch({ type: 'ClassDashboard/reset' }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(classDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassDashboard);

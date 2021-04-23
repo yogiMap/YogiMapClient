@@ -3,38 +3,38 @@ import { connect, withRouter } from 'umi';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { get, isEmpty } from 'lodash';
-import eventForm from '@/pages/event/form/eventForm';
-import { Ievent } from '@/pages/event/types';
+import EventForm from '@/pages/event/form/EventForm';
+import { IEvent } from '@/pages/event/types';
 import { ILoadingEffects } from '@/types';
 
 interface IProps {
   getById: (eventId: string) => void;
   reset: () => void;
   updateById: any;
-  eventInfo: Ievent;
+  eventInfo: IEvent;
   loadingEffects: ILoadingEffects;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
-const eventFormEditWrapper = (props: IProps) => {
+const EventFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const eventId: string = get(props, 'sidepanel.eventId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.eventForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.eventForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.EventForm/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.EventForm/updateById', false);
 
   useEffect(() => {
     props.getById(eventId);
   }, []);
 
-  const onFinish = (values: Ievent) => {
+  const onFinish = (values: IEvent) => {
     props.updateById({ values, eventId, queryParams });
   };
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
 
   return (
-    <eventForm
+    <EventForm
       onFinish={onFinish}
       initialValues={props.eventInfo}
       submitButtonText="Update"
@@ -45,14 +45,14 @@ const eventFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
-  eventInfo: state.eventForm.eventInfo,
+  eventInfo: state.EventForm.eventInfo,
   loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'eventForm/reset' }),
-  updateById: (payload: Ievent) => dispatch({ type: 'eventForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'eventForm/getById', payload }),
+  reset: () => dispatch({ type: 'EventForm/reset' }),
+  updateById: (payload: IEvent) => dispatch({ type: 'EventForm/updateById', payload }),
+  getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(eventFormEditWrapper));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventFormEditWrapper));

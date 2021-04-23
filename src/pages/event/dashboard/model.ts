@@ -1,14 +1,14 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-import { queryeventDeleteById, queryeventGetStats, queryeventSearch } from '@/pages/event/queries';
-import { Ievent, IeventStats } from '@/pages/event/types';
+import { queryEventDeleteById, queryEventGetStats, queryEventSearch } from '@/pages/event/queries';
+import { IEvent, IEventStats } from '@/pages/event/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {
-  eventList?: Ievent[];
-  eventStats?: IeventStats;
+  eventList?: IEvent[];
+  eventStats?: IEventStats;
   eventPager?: IPager;
 }
 
@@ -28,13 +28,13 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'eventDashboard',
+  namespace: 'EventDashboard',
 
   state: {},
 
   effects: {
     *eventSearch({ payload }, { call, put }) {
-      const data = yield call(queryeventSearch, payload);
+      const data = yield call(queryEventSearch, payload);
       yield put({
         type: 'save',
         payload: {
@@ -45,7 +45,7 @@ const Model: IModel = {
     },
 
     *eventGetStats(_, { call, put }) {
-      const data = yield call(queryeventGetStats);
+      const data = yield call(queryEventGetStats);
       yield put({
         type: 'save',
         payload: { eventStats: data.payload },
@@ -53,7 +53,7 @@ const Model: IModel = {
     },
 
     *eventDeleteById({ payload }, { call, put }) {
-      yield call(queryeventDeleteById, payload.eventId);
+      yield call(queryEventDeleteById, payload.eventId);
       yield put({ type: 'eventSearch', payload: payload.queryParams });
     },
 

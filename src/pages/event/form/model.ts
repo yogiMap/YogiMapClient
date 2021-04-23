@@ -1,11 +1,11 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryeventCreate, queryeventGetById, queryeventUpdateById } from '@/pages/event/queries';
+import { queryEventCreate, queryEventGetById, queryEventUpdateById } from '@/pages/event/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
 
-export interface eventModelType {
+export interface EventModelType {
   namespace: string;
   state: IState;
   effects: {
@@ -21,29 +21,29 @@ export interface eventModelType {
 
 const initialState = {};
 
-const eventModel: eventModelType = {
-  namespace: 'eventForm',
+const EventModel: EventModelType = {
+  namespace: 'EventForm',
 
   state: initialState,
 
   effects: {
     *create({ payload }, { call, put }) {
-      yield call(queryeventCreate, payload);
-      yield put({ type: 'eventDashboard/eventSearch' });
+      yield call(queryEventCreate, payload);
+      yield put({ type: 'EventDashboard/eventSearch' });
       yield put({ type: 'Sidepanel/close' });
       history.push('/event');
     },
 
     *getById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: { eventInfo: {} } });
-      const data = yield call(queryeventGetById, payload);
+      const data = yield call(queryEventGetById, payload);
       yield put({ type: 'save', payload: { eventInfo: data.payload } });
     },
 
     *updateById({ payload }, { call, put }) {
-      yield call(queryeventUpdateById, payload);
+      yield call(queryEventUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
-      yield put({ type: 'eventDashboard/eventSearch', payload: payload.queryParams });
+      yield put({ type: 'EventDashboard/eventSearch', payload: payload.queryParams });
     },
 
     *reset(_, { put }) {
@@ -56,4 +56,4 @@ const eventModel: eventModelType = {
   },
 };
 
-export default eventModel;
+export default EventModel;

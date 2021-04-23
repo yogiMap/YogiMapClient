@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { IeventQueryParams } from '@/pages/event/types';
+import { IEventQueryParams } from '@/pages/event/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | IeventQueryParams) => void;
-  filters: IeventQueryParams;
+  onChange: (values: null | IEventQueryParams) => void;
+  filters: IEventQueryParams;
 }
 
-const eventFilterForm = (props: IProps) => {
+const EventFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -53,4 +53,4 @@ const eventFilterForm = (props: IProps) => {
   );
 };
 
-export default eventFilterForm;
+export default EventFilterForm;

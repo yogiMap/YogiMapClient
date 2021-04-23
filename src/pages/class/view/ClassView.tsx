@@ -8,9 +8,9 @@ interface IProps {
   classGetById: (id: string) => void;
 }
 
-const classView = (props: IProps) => {
+const ClassView = (props: IProps) => {
   const classId = get(props, 'match.params.classId');
-  const name = get(props, 'classView.name', '');
+  const name = get(props, 'ClassView.name', '');
 
   console.log(props);
 
@@ -26,11 +26,11 @@ const classView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  classView: state.classView,
+  ClassView: state.ClassView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  classGetById: (payload: string) => dispatch({ type: 'classView/classGetById', payload }),
+  classGetById: (payload: string) => dispatch({ type: 'ClassView/classGetById', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(classView);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassView);

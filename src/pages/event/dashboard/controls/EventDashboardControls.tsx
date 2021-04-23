@@ -7,19 +7,19 @@ interface IProps {
   open: (arg: ISidepanel) => void;
 }
 
-const eventDashboardControls = (props: IProps) => {
+const EventDashboardControls = (props: IProps) => {
   const eventCreate = () => {
     props.open({
-      title: 'Create new event',
-      component: 'eventFormCreate',
-      place: 'eventDashboard',
+      title: 'Create new Event',
+      component: 'EventFormCreate',
+      place: 'EventDashboard',
       width: 800,
     });
   };
 
   return (
     <Button type="primary" onClick={eventCreate}>
-      Create event
+      Create Event
     </Button>
   );
 };
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(eventDashboardControls);
+export default connect(null, mapDispatchToProps)(EventDashboardControls);

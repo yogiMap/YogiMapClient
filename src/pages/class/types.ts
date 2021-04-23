@@ -1,4 +1,4 @@
-export interface Iclass {
+export interface IClass {
   _id: string;
   name: string;
   owner: {
@@ -9,14 +9,14 @@ export interface Iclass {
   updatedAt: string;
 }
 
-export interface IclassStats {
-  totalclass: number;
-  todayclass: number;
-  monthclass: number;
-  averageclass: number;
+export interface IClassStats {
+  totalClass: number;
+  todayClass: number;
+  monthClass: number;
+  averageClass: number;
 }
 
-export interface IclassQueryParams {
+export interface IClassQueryParams {
   limit?: number | string;
   page?: number | string;
   classSearchParam1?: string;

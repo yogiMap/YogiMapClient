@@ -1,4 +1,4 @@
-import { Ievent, IeventQueryParams } from '@/pages/event/types';
+import { IEvent, IEventQueryParams } from '@/pages/event/types';
 import { Button, Dropdown, Menu, Modal } from 'antd';
 import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
@@ -6,16 +6,16 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
 
-interface IeventDeleteById {
+interface IEventDeleteById {
   eventId: string;
-  queryParams: IeventQueryParams;
+  queryParams: IEventQueryParams;
 }
 
 interface IProps {
-  row: Ievent;
+  row: IEvent;
   open: (arg: ISidepanel) => void;
-  eventDeleteById: (arg: IeventDeleteById) => void;
-  queryParams: IeventQueryParams;
+  eventDeleteById: (arg: IEventDeleteById) => void;
+  queryParams: IEventQueryParams;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -26,7 +26,7 @@ const ActionMenu = (props: IProps) => {
     { key: 'delete', handler: 'delete', name: 'Delete', danger: true },
   ];
 
-  const menu = (row: Ievent) => (
+  const menu = (row: IEvent) => (
     <Menu>
       {menuItems.map((el) => (
         <Menu.Item key={el.key} danger={el.danger} onClick={() => contextMenuClick(el.handler, row)}>
@@ -36,7 +36,7 @@ const ActionMenu = (props: IProps) => {
     </Menu>
   );
 
-  const contextMenuClick = (handler: any, row: Ievent) => {
+  const contextMenuClick = (handler: any, row: IEvent) => {
     if (handler === 'edit') {
       editHandler(row._id);
     }
@@ -47,15 +47,15 @@ const ActionMenu = (props: IProps) => {
 
   const editHandler = (eventId: string) => {
     props.open({
-      title: 'Edit event',
-      component: 'eventFormEdit',
-      place: 'eventDashboard',
+      title: 'Edit Event',
+      component: 'EventFormEdit',
+      place: 'EventDashboard',
       width: 800,
       eventId,
     });
   };
 
-  const deletePrompt = (event: Ievent) => {
+  const deletePrompt = (event: IEvent) => {
     Modal.confirm({
       title: `Do you want to delete?`,
       content: `${event.name}`,
@@ -83,7 +83,7 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  eventDeleteById: (payload: IeventDeleteById) => dispatch({ type: 'eventDashboard/eventDeleteById', payload }),
+  eventDeleteById: (payload: IEventDeleteById) => dispatch({ type: 'EventDashboard/eventDeleteById', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

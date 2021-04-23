@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'umi';
-import eventForm from '@/pages/event/form/eventForm';
-import { Ievent } from '@/pages/event/types';
+import EventForm from '@/pages/event/form/EventForm';
+import { IEvent } from '@/pages/event/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 
 interface IProps {
-  create: (arg: Ievent) => void;
+  create: (arg: IEvent) => void;
   loadingEffects: ILoadingEffects;
 }
 
-const eventFormCreateWrapper = (props: IProps) => {
-  const onFinish = (values: Ievent) => {
+const EventFormCreateWrapper = (props: IProps) => {
+  const onFinish = (values: IEvent) => {
     props.create(values);
   };
 
-  const isLoading = get(props, 'loadingEffects.eventForm/create', false);
+  const isLoading = get(props, 'loadingEffects.EventForm/create', false);
 
-  return <eventForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
+  return <EventForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
 };
 
 const mapStateToProps = (state: any) => ({
@@ -25,7 +25,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: Ievent) => dispatch({ type: 'eventForm/create', payload }),
+  create: (payload: IEvent) => dispatch({ type: 'EventForm/create', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(eventFormCreateWrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(EventFormCreateWrapper);

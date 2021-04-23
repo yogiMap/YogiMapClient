@@ -1,4 +1,4 @@
-import { Iclass, IclassQueryParams } from '@/pages/class/types';
+import { IClass, IClassQueryParams } from '@/pages/class/types';
 import { Button, Dropdown, Menu, Modal } from 'antd';
 import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
@@ -6,16 +6,16 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
 
-interface IclassDeleteById {
+interface IClassDeleteById {
   classId: string;
-  queryParams: IclassQueryParams;
+  queryParams: IClassQueryParams;
 }
 
 interface IProps {
-  row: Iclass;
+  row: IClass;
   open: (arg: ISidepanel) => void;
-  classDeleteById: (arg: IclassDeleteById) => void;
-  queryParams: IclassQueryParams;
+  classDeleteById: (arg: IClassDeleteById) => void;
+  queryParams: IClassQueryParams;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -26,7 +26,7 @@ const ActionMenu = (props: IProps) => {
     { key: 'delete', handler: 'delete', name: 'Delete', danger: true },
   ];
 
-  const menu = (row: Iclass) => (
+  const menu = (row: IClass) => (
     <Menu>
       {menuItems.map((el) => (
         <Menu.Item key={el.key} danger={el.danger} onClick={() => contextMenuClick(el.handler, row)}>
@@ -36,7 +36,7 @@ const ActionMenu = (props: IProps) => {
     </Menu>
   );
 
-  const contextMenuClick = (handler: any, row: Iclass) => {
+  const contextMenuClick = (handler: any, row: IClass) => {
     if (handler === 'edit') {
       editHandler(row._id);
     }
@@ -47,15 +47,15 @@ const ActionMenu = (props: IProps) => {
 
   const editHandler = (classId: string) => {
     props.open({
-      title: 'Edit class',
-      component: 'classFormEdit',
-      place: 'classDashboard',
+      title: 'Edit Class',
+      component: 'ClassFormEdit',
+      place: 'ClassDashboard',
       width: 800,
       classId,
     });
   };
 
-  const deletePrompt = (class: Iclass) => {
+  const deletePrompt = (class: IClass) => {
     Modal.confirm({
       title: `Do you want to delete?`,
       content: `${class.name}`,
@@ -83,7 +83,7 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  classDeleteById: (payload: IclassDeleteById) => dispatch({ type: 'classDashboard/classDeleteById', payload }),
+  classDeleteById: (payload: IClassDeleteById) => dispatch({ type: 'ClassDashboard/classDeleteById', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

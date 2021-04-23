@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
-import { Ievent } from '@/pages/event/types';
+import { IEvent } from '@/pages/event/types';
 import { get } from 'lodash';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
-  initialValues?: Ievent;
+  initialValues?: IEvent;
 }
 
-const eventForm = (props: IProps) => {
+const EventForm = (props: IProps) => {
   //  const { Option } = Select;
 
   const isLoading = get(props, 'isLoading', false);
@@ -19,11 +19,11 @@ const eventForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
       <Form.Item name="name" rules={[validator.require]}>
-        <Input placeholder="event Name" />
+        <Input placeholder="Event Name" />
       </Form.Item>
 
       <Form.Item name="description">
-        <Input.TextArea placeholder="event Description" autoSize={{ minRows: 3, maxRows: 6 }} />
+        <Input.TextArea placeholder="Event Description" autoSize={{ minRows: 3, maxRows: 6 }} />
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
@@ -42,4 +42,4 @@ const eventForm = (props: IProps) => {
   );
 };
 
-export default eventForm;
+export default EventForm;

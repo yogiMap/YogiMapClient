@@ -1,13 +1,13 @@
 import React from 'react';
 import { get, isEmpty } from 'lodash';
 import { Col, Row, Statistic, Card } from 'antd';
-import { IclassStats } from '@/pages/class/types';
+import { IClassStats } from '@/pages/class/types';
 
 interface IProps {
-  stats: IclassStats;
+  stats: IClassStats;
 }
 
-const classStats = (props: IProps) => {
+const ClassStats = (props: IProps) => {
   const classStats = get(props, 'stats', '');
 
   // if (isEmpty(classStats)) return null;
@@ -38,4 +38,4 @@ const classStats = (props: IProps) => {
   );
 };
 
-export default classStats;
+export default ClassStats;

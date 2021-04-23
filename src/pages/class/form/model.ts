@@ -1,11 +1,11 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryclassCreate, queryclassGetById, queryclassUpdateById } from '@/pages/class/queries';
+import { queryClassCreate, queryClassGetById, queryClassUpdateById } from '@/pages/class/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
 
-export interface classModelType {
+export interface ClassModelType {
   namespace: string;
   state: IState;
   effects: {
@@ -21,29 +21,29 @@ export interface classModelType {
 
 const initialState = {};
 
-const classModel: classModelType = {
-  namespace: 'classForm',
+const ClassModel: ClassModelType = {
+  namespace: 'ClassForm',
 
   state: initialState,
 
   effects: {
     *create({ payload }, { call, put }) {
-      yield call(queryclassCreate, payload);
-      yield put({ type: 'classDashboard/classSearch' });
+      yield call(queryClassCreate, payload);
+      yield put({ type: 'ClassDashboard/classSearch' });
       yield put({ type: 'Sidepanel/close' });
       history.push('/class');
     },
 
     *getById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: { classInfo: {} } });
-      const data = yield call(queryclassGetById, payload);
+      const data = yield call(queryClassGetById, payload);
       yield put({ type: 'save', payload: { classInfo: data.payload } });
     },
 
     *updateById({ payload }, { call, put }) {
-      yield call(queryclassUpdateById, payload);
+      yield call(queryClassUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
-      yield put({ type: 'classDashboard/classSearch', payload: payload.queryParams });
+      yield put({ type: 'ClassDashboard/classSearch', payload: payload.queryParams });
     },
 
     *reset(_, { put }) {
@@ -56,4 +56,4 @@ const classModel: classModelType = {
   },
 };
 
-export default classModel;
+export default ClassModel;

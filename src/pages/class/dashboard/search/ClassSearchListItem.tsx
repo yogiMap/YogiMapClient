@@ -3,13 +3,13 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { Iclass } from '@/pages/class/types';
+import { IClass } from '@/pages/class/types';
 
-interface IProps extends Iclass {
+interface IProps extends IClass {
   classDelete: (id: String) => void;
 }
 
-const classSearchListItem = (props: IProps) => {
+const ClassSearchListItem = (props: IProps) => {
   const { classDelete } = props;
 
   const owner = get(props, 'item.owner', '');
@@ -40,7 +40,7 @@ const classSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  classDelete: (payload: any) => dispatch({ type: 'classDashboard/classDelete', payload }),
+  classDelete: (payload: any) => dispatch({ type: 'ClassDashboard/classDelete', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(classSearchListItem);
+export default connect(null, mapDispatchToProps)(ClassSearchListItem);
