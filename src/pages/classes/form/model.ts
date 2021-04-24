@@ -1,11 +1,11 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryClassCreate, queryClassGetById, queryClassUpdateById } from '@/pages/class/queries';
+import { queryClassesCreate, queryClassesGetById, queryClassesUpdateById } from '@/pages/classes/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
 
-export interface ClassModelType {
+export interface ClassesModelType {
   namespace: string;
   state: IState;
   effects: {
@@ -21,29 +21,29 @@ export interface ClassModelType {
 
 const initialState = {};
 
-const ClassModel: ClassModelType = {
-  namespace: 'ClassForm',
+const ClassesModel: ClassesModelType = {
+  namespace: 'ClassesForm',
 
   state: initialState,
 
   effects: {
     *create({ payload }, { call, put }) {
-      yield call(queryClassCreate, payload);
-      yield put({ type: 'ClassDashboard/classSearch' });
+      yield call(queryClassesCreate, payload);
+      yield put({ type: 'ClassesDashboard/classesSearch' });
       yield put({ type: 'Sidepanel/close' });
-      history.push('/class');
+      history.push('/classes');
     },
 
     *getById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { classInfo: {} } });
-      const data = yield call(queryClassGetById, payload);
-      yield put({ type: 'save', payload: { classInfo: data.payload } });
+      yield put({ type: 'save', payload: { classesInfo: {} } });
+      const data = yield call(queryClassesGetById, payload);
+      yield put({ type: 'save', payload: { classesInfo: data.payload } });
     },
 
     *updateById({ payload }, { call, put }) {
-      yield call(queryClassUpdateById, payload);
+      yield call(queryClassesUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
-      yield put({ type: 'ClassDashboard/classSearch', payload: payload.queryParams });
+      yield put({ type: 'ClassesDashboard/classesSearch', payload: payload.queryParams });
     },
 
     *reset(_, { put }) {
@@ -56,4 +56,4 @@ const ClassModel: ClassModelType = {
   },
 };
 
-export default ClassModel;
+export default ClassesModel;

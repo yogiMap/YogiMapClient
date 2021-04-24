@@ -1,21 +1,21 @@
 import React from 'react';
 import { get, isEmpty } from 'lodash';
 import { Col, Row, Statistic, Card } from 'antd';
-import { IClassStats } from '@/pages/class/types';
+import { IClassesStats } from '@/pages/classes/types';
 
 interface IProps {
-  stats: IClassStats;
+  stats: IClassesStats;
 }
 
-const ClassStats = (props: IProps) => {
-  const classStats = get(props, 'stats', '');
+const ClassesStats = (props: IProps) => {
+  const classesStats = get(props, 'stats', '');
 
-  // if (isEmpty(classStats)) return null;
+  // if (isEmpty(classesStats)) return null;
 
-  const totalCount = get(classStats, 'totalCount', '...');
-  const totalCountDouble = get(classStats, 'totalCountDouble', '...');
-  const totalCountTriple = get(classStats, 'totalCountTriple', '...');
-  const totalCountTen = get(classStats, 'totalCountTen', '...');
+  const totalCount = get(classesStats, 'totalCount', '...');
+  const totalCountDouble = get(classesStats, 'totalCountDouble', '...');
+  const totalCountTriple = get(classesStats, 'totalCountTriple', '...');
+  const totalCountTen = get(classesStats, 'totalCountTen', '...');
 
   return (
     <Row gutter={16}>
@@ -38,4 +38,4 @@ const ClassStats = (props: IProps) => {
   );
 };
 
-export default ClassStats;
+export default ClassesStats;

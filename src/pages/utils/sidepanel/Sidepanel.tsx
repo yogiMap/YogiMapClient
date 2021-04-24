@@ -9,8 +9,8 @@ import TeacherCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
 import TeacherEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
 import TeacherTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
 import TeacherTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
-import ClassCreateWrapper from '@/pages/class/form/ClassFormCreateWrapper';
-import ClassEditWrapper from '@/pages/class/form/ClassFormEditWrapper';
+import ClassCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
+import ClassEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
 import EventCreateWrapper from '@/pages/event/form/EventFormCreateWrapper';
 import EventEditWrapper from '@/pages/event/form/EventFormEditWrapper';
 

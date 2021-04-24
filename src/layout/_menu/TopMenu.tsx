@@ -16,7 +16,7 @@ const TopMenu = (props: IProps) => {
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
     { path: '/', name: 'HOME' },
     { path: '/teacher', name: 'TEACHER', perm: 'teacher.get.own' },
-    { path: '/class', name: 'CLASSES', perm: 'class.get.own' },
+    { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/events', name: 'EVENTS', perm: 'events.get.own' },
     { path: '/teacherType', name: 'TYPE O YOGA', perm: 'teacherType.get.own' },
   ].map((el) => ({

@@ -5,22 +5,22 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { IClass } from '@/pages/class/types';
-import ActionMenu from '@/pages/class/dashboard/search/ActionMenu';
+import { IClasses } from '@/pages/classes/types';
+import ActionMenu from '@/pages/classes/dashboard/search/ActionMenu';
 
 interface IProps extends RouteComponentProps {
-  items: IClass[];
+  items: IClasses[];
 }
 
-const ClassSearchList = (props: IProps) => {
+const ClassesSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<IClass>[] = [
+  const columns: ColumnProps<IClasses>[] = [
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/class/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Description',
@@ -54,4 +54,4 @@ const mapStateToProps = () => ({});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassSearchList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesSearchList));

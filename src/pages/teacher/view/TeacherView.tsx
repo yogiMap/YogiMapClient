@@ -12,7 +12,7 @@ interface IProps {
 const TeacherView = (props: IProps) => {
   const teacherId = get(props, 'match.params.teacherId');
   const name = get(props, 'TeacherView.name', '');
-  const classesObject = get(props, 'TeacherView.class', {});
+  const classesObject = get(props, 'TeacherView.classes', {});
   const classes = Object.keys(classesObject).map(el => ({name:el, value: classesObject[el]}) )
 
   console.log(props);
