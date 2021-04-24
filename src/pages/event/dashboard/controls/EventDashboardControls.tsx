@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'umi';
 import { Button } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
+import { IUserAccount } from '@/pages/user/userSearch/types';
+import { get } from 'lodash';
 
 interface IProps {
   open: (arg: ISidepanel) => void;
+  Account: IUserAccount;
 }
 
 const EventDashboardControls = (props: IProps) => {
@@ -17,10 +20,16 @@ const EventDashboardControls = (props: IProps) => {
     });
   };
 
+  const isUserAuth = get(props, 'Account._id');
+
   return (
-    <Button type="primary" onClick={eventCreate}>
-      Create Event
-    </Button>
+    <>
+      {isUserAuth && (
+        <Button type="primary" onClick={eventCreate}>
+          Create Event
+        </Button>
+      )}
+    </>
   );
 };
 

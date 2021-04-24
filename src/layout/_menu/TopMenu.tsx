@@ -17,12 +17,13 @@ const TopMenu = (props: IProps) => {
     { path: '/', name: 'HOME' },
     { path: '/teacher', name: 'TEACHER', perm: 'teacher.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
-    { path: '/events', name: 'EVENTS', perm: 'events.get.own' },
-    { path: '/teacherType', name: 'TYPE O YOGA', perm: 'teacherType.get.own' },
+    { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
+    { path: '/teacherType', name: 'TYPE OF YOGA', perm: 'teacherType.get.own' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
   }));
+
 
   return (
     <div id="top-menu" role="menu" className="d-flex d-print-none">
@@ -32,6 +33,7 @@ const TopMenu = (props: IProps) => {
           <Link to={el.path}>{el.name}</Link>
         </div>
       ))}
+
     </div>
   );
 };
