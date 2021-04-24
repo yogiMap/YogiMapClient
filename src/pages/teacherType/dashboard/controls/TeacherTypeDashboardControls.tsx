@@ -22,6 +22,7 @@ const TeacherTypeDashboardControls = (props: IProps) => {
 
   const isUserAuth = get(props, 'Account._id');
 
+
   return (
     <>
       {isUserAuth && (
@@ -33,8 +34,12 @@ const TeacherTypeDashboardControls = (props: IProps) => {
   );
 };
 
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(TeacherTypeDashboardControls);
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherTypeDashboardControls);

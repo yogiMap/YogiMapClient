@@ -33,8 +33,12 @@ const ClassesDashboardControls = (props: IProps) => {
   );
 };
 
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(ClassesDashboardControls);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassesDashboardControls);
