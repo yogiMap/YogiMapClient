@@ -34,7 +34,7 @@ const UserModel: IUserModel = {
       const response = yield call(queryUserGetById, payload);
       yield put({
         type: 'save',
-        payload: { userInfo: response },
+        payload: { userInfo: response.payload },
       });
     },
   },

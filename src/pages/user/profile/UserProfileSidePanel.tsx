@@ -8,9 +8,8 @@ import lotus from '@/pages/user/profile/profileList/teacherImageUpload/images/lo
 const UserProfileSidePanel = (props: any) => {
   const userId = get(props, 'match.params.userId', '');
 
-  const userInfo = get(props, 'userInfo.payload', '');
-  const userName = get(userInfo, 'firstName', '');
-  const name = get(userInfo, 'name', '');
+  const userInfo = get(props, 'userInfo', '');
+  const userName = get(userInfo, 'name', '');
   const roles = get(userInfo, 'roles', []);
   const about = get(userInfo, 'about', '');
   const email = get(userInfo, 'email', '');
@@ -26,7 +25,7 @@ const UserProfileSidePanel = (props: any) => {
       </div>
 
       <div className="profile-side-panel-information">
-        <h5 className="text-center mt-4"> {name} </h5>
+        <h5 className="text-center mt-4"> {userName} </h5>
         <p className="profile-name text-center"> Teacher of your </p>
         <hr />
         <p className="profile-name"> Edit Profile </p>

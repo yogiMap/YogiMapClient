@@ -17,9 +17,8 @@ import UserProfileSidePanel from '@/pages/user/profile/UserProfileSidePanel';
 const UserProfile = (props: any) => {
   const userId = get(props, 'match.params.userId', '');
 
-  const userInfo = get(props, 'userInfo.payload', '');
-  const userName = get(userInfo, 'firstName', '');
-  const name = get(userInfo, 'name', '');
+  const userInfo = get(props, 'userInfo', '');
+  const userName = get(userInfo, 'name', '');
   const roles = get(userInfo, 'roles', []);
   const about = get(userInfo, 'about', '');
   const email = get(userInfo, 'email', '');
