@@ -28,7 +28,7 @@ const TeacherDashboardControls = (props: IProps) => {
         <Button type="primary"
                 shape="round"
                 onClick={teacherCreate}>
-          Choose the Type of Profile to Create
+   Create a teacher
         </Button>
       )}
     </>

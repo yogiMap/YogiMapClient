@@ -66,7 +66,7 @@ const TeacherDashboard = (props: IProps) => {
     <div className="container">
       <div className="row my-5">
         <div className="col d-flex justify-content-center">
-          <h2>Find Your Teacher</h2>
+          <h1>Find Your Teacher</h1>
         </div>
       </div>
 
