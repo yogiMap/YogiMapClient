@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
-import { ITeacherType } from '@/pages/teacherType/types';
 import { get } from 'lodash';
 import { ITeacher } from '@/pages/teacher/types';
+import { ITeacherType } from '@/pages/teacherType/types';
+import { IClasses } from '@/pages/classes/types';
+import { IEvent } from '@/pages/event/types';
 
 interface IProps {
   isLoading: boolean;
@@ -11,6 +13,8 @@ interface IProps {
   submitButtonText: string;
   initialValues?: ITeacher;
   teacherTypeList: ITeacherType[];
+  classesList: IClasses[];
+  eventList: IEvent[];
 }
 
 const TeacherForm = (props: IProps) => {
@@ -23,16 +27,6 @@ const TeacherForm = (props: IProps) => {
 
       <Form.Item name="name" label="Name" rules={[validator.require, { required: true, message: 'Please input your name or name of Studio!' }]}>
         <Input.TextArea />
-      </Form.Item>
-
-      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
-        <Select>
-          {props.teacherTypeList.map((el) => (
-            <Option key={el._id} value={el._id}>
-              {el.name}
-            </Option>
-          ))}
-        </Select>
       </Form.Item>
 
       <Form.Item name="yogaStyle" label="yogaStyle">
@@ -51,6 +45,35 @@ const TeacherForm = (props: IProps) => {
         <Input.TextArea />
       </Form.Item>
 
+      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
+        <Select>
+          {props.teacherTypeList.map((el) => (
+            <Option key={el._id} value={el._id}>
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
+
+      {/*<Form.Item name="classes" label="classes" rules={[validator.require]}>*/}
+      {/*  <Select>*/}
+      {/*    {props.classesList.map((el) => (*/}
+      {/*      <Option key={el._id} value={el._id}>*/}
+      {/*        {el.name}*/}
+      {/*      </Option>*/}
+      {/*    ))}*/}
+      {/*  </Select>*/}
+      {/*</Form.Item>*/}
+
+      {/*<Form.Item name="event" label="event" rules={[validator.require]}>*/}
+      {/*  <Select>*/}
+      {/*    {props.eventList.map((el) => (*/}
+      {/*      <Option key={el._id} value={el._id}>*/}
+      {/*        {el.name}*/}
+      {/*      </Option>*/}
+      {/*    ))}*/}
+      {/*  </Select>*/}
+      {/*</Form.Item>*/}
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
