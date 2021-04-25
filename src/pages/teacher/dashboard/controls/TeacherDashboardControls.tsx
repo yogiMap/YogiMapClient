@@ -13,7 +13,7 @@ interface IProps {
 const TeacherDashboardControls = (props: IProps) => {
   const teacherCreate = () => {
     props.open({
-      title: 'Choose the Type of Profile to Create',
+      title: 'Create Teacher',
       component: 'TeacherFormCreate',
       place: 'TeacherDashboard',
       width: 800,
@@ -25,10 +25,8 @@ const TeacherDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-        <Button type="primary"
-                shape="round"
-                onClick={teacherCreate}>
-   Create a teacher
+        <Button type="primary" shape="round" onClick={teacherCreate}>
+          Create Teacher
         </Button>
       )}
     </>

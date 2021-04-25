@@ -25,7 +25,7 @@ const ClassesDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-        <Button type="primary" onClick={classesCreate}>
+        <Button type="primary" shape="round" onClick={classesCreate}>
           Create Classes
         </Button>
       )}

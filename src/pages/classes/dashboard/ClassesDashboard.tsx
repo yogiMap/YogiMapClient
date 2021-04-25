@@ -63,23 +63,34 @@ const ClassesDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
-          <div className="h4 mr-4">Classes dashboard</div>
-          <ClassesFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
-        </div>
-
-        <ClassesStats stats={classesStats} />
-
-        <div>
-          <ClassesDashboardControls />
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>Find Your Classes</h1>
         </div>
       </div>
 
-      <ClassesSearchList items={classesList} />
-      <Pager pager={classesPager} onChange={onPagerChange} />
-    </>
+      <div className="row my-5 d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <ClassesFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
+
+      {/*<ClassesStats stats={classesStats} />*/}
+
+      <div className="row my-3">
+        <div className="col-flex justify-content-center">
+          <ClassesSearchList items={classesList} />
+          <Pager pager={classesPager} onChange={onPagerChange} />
+        </div>
+      </div>
+
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <ClassesDashboardControls />
+        </div>
+      </div>
+    </div>
   );
 };
 

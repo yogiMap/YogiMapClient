@@ -23,9 +23,29 @@ const ClassesSearchList = (props: IProps) => {
       render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
     },
     {
+      title: 'YogaStyle',
+      key: 'yogaStyle',
+      dataIndex: 'yogaStyle',
+    },
+    {
+      title: 'ClassesType',
+      key: 'classesType',
+      dataIndex: 'classesType',
+    },
+    {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
+    },
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+    },
+    {
+      title: 'Teacher',
+      key: 'teacher',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.teacher}</Link>,
     },
     {
       title: 'Action',
