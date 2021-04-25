@@ -53,7 +53,7 @@ const TeacherForm = (props: IProps) => {
 
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
           {props.submitButtonText}
         </Button>
       </Form.Item>

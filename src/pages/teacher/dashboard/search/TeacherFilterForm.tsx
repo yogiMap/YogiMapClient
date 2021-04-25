@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Col, Form, Input, Row } from 'antd';
 import { debounce } from 'lodash';
 import { ITeacherQueryParams } from '@/pages/teacher/types';
 import { get } from 'lodash';
@@ -37,26 +37,39 @@ const TeacherFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline" >
-      <Form.Item name="name">
-        <Input placeholder="name" />
-      </Form.Item>
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters} className="row d-flex justify-content-center">
+      <div className="col-lg-2 d-flex justify-content-center">
+        <Form.Item name="name">
+          <Input placeholder="name" className="rounded-pill" />
+        </Form.Item>
+      </div>
 
-      <Form.Item name="yogaStyle" >
-        <Input placeholder="yogaStyle" />
-      </Form.Item>
+      <div className="col-lg-2 d-flex justify-content-center">
+        <Form.Item name="yogaStyle">
+          <Input placeholder="yogaStyle" className="rounded-pill" />
+        </Form.Item>
+      </div>
 
-      <Form.Item name="Class Type" >
-        <Input placeholder="classType" />
-      </Form.Item>
+      <div className="col-lg-2 d-flex justify-content-center">
+        <Form.Item name="Class Type">
+          <Input placeholder="classType" className="rounded-pill" />
+        </Form.Item>
+      </div>
 
-      <Form.Item name="Location" >
-        <Input placeholder="Location" />
-      </Form.Item>
+      <div className="col-lg-2 d-flex justify-content-center">
+        <Form.Item name="Location">
+          <Input placeholder="Location" className="rounded-pill" />
+        </Form.Item>
+      </div>
 
-      <Form.Item>
-        <Button onClick={reset}  shape="round">Reset</Button>
-      </Form.Item>
+      <div className="col-lg-2 d-flex justify-content-center">
+        <Form.Item>
+          <Button onClick={reset} shape="round">
+            Reset
+          </Button>
+        </Form.Item>
+      </div>
+
     </Form>
   );
 };

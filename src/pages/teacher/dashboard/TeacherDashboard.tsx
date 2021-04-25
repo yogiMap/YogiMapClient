@@ -64,32 +64,34 @@ const TeacherDashboard = (props: IProps) => {
 
   return (
     <div className="container">
-
-        <div className="row my-3">
-          <div className="column-lg-6 d-flex justify-content-center">
-          <h3 >Find Your Teacher</h3>
-          </div>
-        </div>
-
-      <div className="row my-3">
-        <div className="column-lg-4 d-flex align-items-lg-end justify-content-lg-between justify-content-sm-center">
-          <TeacherFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
-
-          <div className="column-lg-4 d-flex justify-content-center">
-          <TeacherDashboardControls />
-        </div>
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h2>Find Your Teacher</h2>
         </div>
       </div>
 
-        {/*<TeacherStats stats={teacherStats} />*/}
+      <div className="row my-5 d-flex justify-content-center" >
+        <div className="col d-flex justify-content-center">
+          <TeacherFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
 
-        {/*<div>*/}
+      {/*<TeacherStats stats={teacherStats} />*/}
 
+      {/*<div>*/}
 
+      <div className="row my-3">
+        <div className="col-flex justify-content-center">
+          <TeacherSearchList items={teacherList} />
+          <Pager pager={teacherPager} onChange={onPagerChange} />
+        </div>
+      </div>
 
-      <TeacherSearchList items={teacherList} />
-      <Pager pager={teacherPager} onChange={onPagerChange} />
-
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <TeacherDashboardControls />
+        </div>
+      </div>
     </div>
   );
 };
