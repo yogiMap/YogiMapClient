@@ -37,17 +37,25 @@ const TeacherFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline" >
       <Form.Item name="name">
         <Input placeholder="name" />
       </Form.Item>
 
-      <Form.Item name="yogaStyle">
+      <Form.Item name="yogaStyle" >
         <Input placeholder="yogaStyle" />
       </Form.Item>
 
+      <Form.Item name="Class Type" >
+        <Input placeholder="classType" />
+      </Form.Item>
+
+      <Form.Item name="Location" >
+        <Input placeholder="Location" />
+      </Form.Item>
+
       <Form.Item>
-        <Button onClick={reset}>Reset</Button>
+        <Button onClick={reset}  shape="round">Reset</Button>
       </Form.Item>
     </Form>
   );

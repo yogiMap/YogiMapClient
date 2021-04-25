@@ -63,23 +63,34 @@ const TeacherDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
+    <div className="container">
+
+        <div className="row my-3">
+          <div className="column-lg-6 d-flex justify-content-center">
           <h3 >Find Your Teacher</h3>
-          <TeacherFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+          </div>
         </div>
 
-        <TeacherStats stats={teacherStats} />
+      <div className="row my-3">
+        <div className="column-lg-4 d-flex align-items-lg-end justify-content-lg-between justify-content-sm-center">
+          <TeacherFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
 
-        <div>
+          <div className="column-lg-4 d-flex justify-content-center">
           <TeacherDashboardControls />
+        </div>
         </div>
       </div>
 
+        {/*<TeacherStats stats={teacherStats} />*/}
+
+        {/*<div>*/}
+
+
+
       <TeacherSearchList items={teacherList} />
       <Pager pager={teacherPager} onChange={onPagerChange} />
-    </>
+
+    </div>
   );
 };
 

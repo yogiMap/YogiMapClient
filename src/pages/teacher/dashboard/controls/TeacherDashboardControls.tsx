@@ -25,7 +25,9 @@ const TeacherDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-        <Button type="primary" onClick={teacherCreate}>
+        <Button type="primary"
+                shape="round"
+                onClick={teacherCreate}>
           Choose the Type of Profile to Create
         </Button>
       )}
