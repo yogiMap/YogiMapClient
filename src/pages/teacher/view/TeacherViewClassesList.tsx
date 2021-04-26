@@ -7,9 +7,11 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { ITeacher } from '@/pages/teacher/types';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
+import { IClasses } from '@/pages/classes/types';
 
 interface IProps extends RouteComponentProps {
-  items: ITeacher[];
+  items2: ITeacher[];
+  items: IClasses[];
 }
 
 const TeacherViewClassesList = (props: IProps) => {
@@ -20,7 +22,7 @@ const TeacherViewClassesList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/group/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/teacher/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'YogaStyle',

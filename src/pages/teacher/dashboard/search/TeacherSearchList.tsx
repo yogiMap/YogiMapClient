@@ -43,21 +43,6 @@ const TeacherSearchList = (props: IProps) => {
       key: 'phone',
     },
     {
-      title: 'TeacherType',
-      key: 'teacherType',
-      render: (row) => <Link to={`/teacher/${row._id}`}>{row.teacherType}</Link>,
-    },
-    {
-      title: 'Classes',
-      key: 'classes',
-      render: (row) => <Link to={`/teacher/${row._id}`}>{row.classes}</Link>,
-    },
-    {
-      title: 'Event',
-      key: 'event',
-      render: (row) => <Link to={`/teacher/${row._id}`}>{row.event}</Link>,
-    },
-    {
       title: 'Action',
       key: 'action',
       className: 'actions',
