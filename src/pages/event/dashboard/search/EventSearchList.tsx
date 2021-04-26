@@ -18,9 +18,24 @@ const EventSearchList = (props: IProps) => {
 
   const columns: ColumnProps<IEvent>[] = [
     {
+      title: '#',
+      key: 'code',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
+    },
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+    },
+    {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/event/${row._id}`}>{row.name}</Link>,
+    },
+    {
+      title: 'Teacher',
+      key: 'teacher',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.teacher}</Link>,
     },
     {
       title: 'Description',

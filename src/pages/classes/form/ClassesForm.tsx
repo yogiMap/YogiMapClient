@@ -4,12 +4,14 @@ import validator from '@/utils/validators';
 import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
 import moment from 'moment';
+import { ITeacher} from '@/pages/teacher/types';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: IClasses;
+  teacherList: ITeacher[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -51,6 +53,16 @@ const ClassesForm = (props: IProps) => {
       <Form.Item label="Date" name="date" initialValue={date}>
         <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
       </Form.Item>
+
+      {/*<Form.Item name="teacher" label="teacher" rules={[validator.require]} >*/}
+      {/*  <Select className="rounded-circle">*/}
+      {/*    {props.teacherList.map((el) => (*/}
+      {/*      <Option key={el._id} value={el._id} >*/}
+      {/*        {el.name}*/}
+      {/*      </Option>*/}
+      {/*    ))}*/}
+      {/*  </Select>*/}
+      {/*</Form.Item>*/}
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}

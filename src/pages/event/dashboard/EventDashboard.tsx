@@ -63,23 +63,34 @@ const EventDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
-          <div className="h4 mr-4">Event dashboard</div>
-          <EventFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
-        </div>
-
-        <EventStats stats={eventStats} />
-
-        <div>
-          <EventDashboardControls />
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>Find Event</h1>
         </div>
       </div>
 
-      <EventSearchList items={eventList} />
-      <Pager pager={eventPager} onChange={onPagerChange} />
-    </>
+      <div className="row my-5 d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <EventFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
+
+      {/*<EventStats stats={eventStats} />*/}
+
+      <div className="row my-3">
+        <div className="col-flex justify-content-center">
+          <EventSearchList items={eventList} />
+          <Pager pager={eventPager} onChange={onPagerChange} />
+        </div>
+      </div>
+
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <EventDashboardControls />
+        </div>
+      </div>
+    </div>
   );
 };
 

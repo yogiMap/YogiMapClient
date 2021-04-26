@@ -25,7 +25,7 @@ const EventDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-        <Button type="primary" onClick={eventCreate}>
+        <Button type="primary" shape="round" onClick={eventCreate}>
           Create Event
         </Button>
       )}

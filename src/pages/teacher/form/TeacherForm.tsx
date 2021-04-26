@@ -42,7 +42,7 @@ const TeacherForm = (props: IProps) => {
       </Form.Item>
 
       <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]} >
-        <Select className="rounded-pill">
+        <Select className="rounded-circle">
           {props.teacherTypeList.map((el) => (
             <Option key={el._id} value={el._id} >
               {el.name}

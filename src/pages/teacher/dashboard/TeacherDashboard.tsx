@@ -78,8 +78,6 @@ const TeacherDashboard = (props: IProps) => {
 
       {/*<TeacherStats stats={teacherStats} />*/}
 
-      {/*<div>*/}
-
       <div className="row my-3">
         <div className="col-flex justify-content-center">
           <TeacherSearchList items={teacherList} />
