@@ -5,17 +5,17 @@ import { ColumnProps } from 'antd/es/table';
 import { Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
-import { IClasses } from '@/pages/classes/types';
+import { IEvent } from '@/pages/event/types';
 
 interface IProps extends RouteComponentProps {
-  classes: IClasses[];
+  event: IEvent[];
 }
 
 const TeacherViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const classes = get(props, 'classes', []);
+  const event = get(props, 'event', []);
 
-  const columns: ColumnProps<IClasses>[] = [
+  const columns: ColumnProps<IEvent>[] = [
     {
       title: 'Name',
       key: 'name',
@@ -48,7 +48,7 @@ const TeacherViewClassesList = (props: IProps) => {
     <Table
       rowKey="_id"
       columns={columns}
-      dataSource={classes}
+      dataSource={event}
       size="middle"
       className="table-middle"
       pagination={false}
