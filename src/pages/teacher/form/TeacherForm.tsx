@@ -61,7 +61,7 @@ const TeacherForm = (props: IProps) => {
         </Select>
       </Form.Item>
 
-      <Form.Item name="event" label="event" rules={[validator.require]}>
+      <Form.Item name="event" label="event" >
         <Select>
           {props.eventList.map((el) => (
             <Option key={el._id} value={el._id}>
