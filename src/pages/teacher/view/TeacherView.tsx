@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
+import { ColumnProps } from 'antd/es/table';
 import TeacherViewClassesList from '@/pages/teacher/view/TeacherViewClassesList';
+import { ITeacher } from '@/pages/teacher/types';
+import { IClasses } from '@/pages/classes/types';
+import { Table } from 'antd';
 
 interface IProps {
   teacherId: string;
   name: string;
   teacherGetById: (id: string) => void;
+  classes: any;
 }
 
 const TeacherView = (props: IProps) => {
@@ -36,19 +41,8 @@ const TeacherView = (props: IProps) => {
 
 
       <h3 className="my-3">Classes</h3>
-      <div className="mb-5">
-      <div className="row">
-        <div className="col">Name</div>
-        <div className="col">YogaStyle</div>
-        <div className="col">Description</div>
-      </div>
-      {classes.map((el: any) => (
-        <div className="row">
-          <div className="col">{el.name}</div>
-          <div className="col">{el.yogaStyle}</div>
-          <div className="col">{el.description}</div>
-        </div>
-      ))}
+      <div>
+        <TeacherViewClassesList classes={classes}/>
       </div>
 
       <h3>Events</h3>
@@ -65,10 +59,6 @@ const TeacherView = (props: IProps) => {
         ))}
       </div>
 
-
-      {/*<ul>*/}
-      {/*  <TeacherViewClassesList items={classes}/>*/}
-      {/*</ul>*/}
     </div>
   );
 };
