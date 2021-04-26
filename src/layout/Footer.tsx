@@ -8,7 +8,7 @@ const menu1 = [
 ];
 
 const menu2 = [
-  { link: '/teachers', text: 'Find Your Teacher' },
+  { link: '/teacher', text: 'Find Your Teacher' },
   { link: '/classes', text: 'Find Your Classes' },
 ];
 
@@ -27,8 +27,10 @@ const Footer = () => {
             <h6 className="footer-headings">YOGIMAP INFO</h6>
             <footer className="small pb-3">
               {menu1.map((el) => (
-                <div key={el.link} className="m-2">
-                  <a href=''> {el.text}</a>
+                <div >
+                  <Link key={el.link} to={el.link} className="me-2 small">
+                    {el.text}
+                  </Link>
                 </div>
               ))}
             </footer>
@@ -38,9 +40,11 @@ const Footer = () => {
             <h6 className="footer-headings">YOGIMAP CATEGORIES</h6>
             <footer className="small pb-3">
               {menu2.map((el) => (
-             <div key={el.link} className="m-2">
-               <a href=''> {el.text}</a>
-             </div>
+                <div >
+                  <Link key={el.link} to={el.link} className="me-2 small">
+                    {el.text}
+                  </Link>
+                </div>
               ))}
             </footer>
           </div>

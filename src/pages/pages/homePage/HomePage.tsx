@@ -68,7 +68,7 @@ function HomePage(props: IProps) {
           <div className="col-lg-4 d-flex justify-content-center">
             <div>
               <div className="img-container">
-                <img src={mind} alt="mind" className="img-body-mind-soul"/>
+                <img src={mind} alt="mind" className="img-body-mind-soul" />
                 <div className="home-stripe-mind">
                   <Link to="" className="button-body-mind-soul">
                     MIND
@@ -97,45 +97,55 @@ function HomePage(props: IProps) {
 
       <div className="home-bg-informational-block">
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-3 d-flex justify-content-center">
+          <div className="col-lg-4 d-flex justify-content-center">
             <div className="mt-5 mb-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">EDUCATION</h2>
-              <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                deleniti atque corrupti quos dolores et quas molestias excepturi
-              </p>
+              <ul>
+                <li>Virtual professional development program delivered via 8 modules of content</li>
+                <li>Yoga + Mindfulness activity videos for students, staff and families</li>
+                <li>
+                  Support for adapting practices for different ages, learning environments and classroom or home-based
+                  needs
+                </li>
+                <li> Implementation guide</li>
+              </ul>
             </div>
           </div>
 
-          <div className="col-lg-3 d-flex justify-content-center">
+          <div className="col-lg-4 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">INFORMATION</h2>
-              <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                deleniti atque corrupti quos dolores et quas molestias excepturi
-              </p>
+              <ul>
+                <li> Livestream or recorded self-care practice videos</li>
+                <li>Well-being circles (virtual or in-person where possible)</li>
+                <li> Consultation</li>
+                <li> Webinars and online courses</li>
+              </ul>
             </div>
           </div>
 
-          <div className="col-lg-3 d-flex justify-content-center">
+          <div className="col-lg-4 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">COMMUNITY</h2>
-              <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                deleniti atque corrupti quos dolores et quas molestias excepturi
-              </p>
+              <ul>
+                <li>
+                  Community is when people begin to care about one another, and when they begin to share things that are
+                  important to one another. Yoga is one of those things
+                </li>
+                <li>Moving Outside of the Classroom</li>
+                <li> A Big Yoga Teachers Community </li>
+              </ul>
             </div>
           </div>
         </div>
         <div className="row d-flex justify-content-center">
           <div className="col-lg-6 d-flex justify-content-center">
-          <button className="button-primary">LEARN MORE</button>
+            <button className="button-primary">LEARN MORE</button>
           </div>
         </div>
       </div>
 
       <div className="green-stripe"></div>
-
     </>
   );
 }
