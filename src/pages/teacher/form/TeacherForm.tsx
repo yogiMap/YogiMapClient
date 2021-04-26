@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, Select } from 'antd';
+import { Button, DatePicker, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
 import { ITeacher } from '@/pages/teacher/types';
@@ -25,30 +25,26 @@ const TeacherForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
 
-      <Form.Item name="name" label="Name" rules={[validator.require, { required: true, message: 'Please input your name or name of Studio!' }]}>
-        <Input.TextArea />
+      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+        <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="yogaStyle" label="yogaStyle">
-        <Input.TextArea />
-      </Form.Item>
-
-      <Form.Item name="description" label="Description">
-        <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} />
+      <Form.Item name="yogaStyle" label="Yoga Style" >
+        <Input placeholder="yogaStyle" className="rounded-pill" />
       </Form.Item>
 
       <Form.Item name="location" label="Location">
-        <Input.TextArea />
+        <Input placeholder="Location" className="rounded-pill"/>
       </Form.Item>
 
       <Form.Item name="phone" label="Phone">
-        <Input.TextArea />
+        <Input placeholder="Phone" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
-        <Select>
+      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]} >
+        <Select className="rounded-pill">
           {props.teacherTypeList.map((el) => (
-            <Option key={el._id} value={el._id}>
+            <Option key={el._id} value={el._id} >
               {el.name}
             </Option>
           ))}
@@ -74,6 +70,10 @@ const TeacherForm = (props: IProps) => {
       {/*    ))}*/}
       {/*  </Select>*/}
       {/*</Form.Item>*/}
+
+      <Form.Item name="description" label="Description">
+        <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill"/>
+      </Form.Item>
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
