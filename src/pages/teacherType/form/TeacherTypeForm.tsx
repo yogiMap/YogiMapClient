@@ -19,33 +19,8 @@ const TeacherTypeForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
 
-      <Form.Item name="name" label="Name"
-        rules={[validator.require, { required: true, message: 'Please input your name or name of Studio!' }]}>
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }}/>
-      </Form.Item>
-
-      <Form.Item name="yogaStyle" label="yogaStyle">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} />
-      </Form.Item>
-
-      <Form.Item name="description" label="Description">
-        <Input.TextArea />
-      </Form.Item>
-
-      <Form.Item name="location" label="Location">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }}/>
-      </Form.Item>
-
-      <Form.Item name="phone" label="Phone">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} />
-      </Form.Item>
-
-      <Form.Item name="price" label="Price">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} />
-      </Form.Item>
-
-      <Form.Item name="rating" label="Rating">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }}/>
+      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+        <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
       {/*<TeacherTypeForm.Item name="accessType" rules={[validator.require]}>*/}
@@ -56,7 +31,7 @@ const TeacherTypeForm = (props: IProps) => {
       {/*</TeacherTypeForm.Item>*/}
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
           {props.submitButtonText}
         </Button>
       </Form.Item>
