@@ -39,11 +39,11 @@ export default [
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
-          { path: '/pricing', component: '@/pages/pages/PricingPage' },
-          { path: '/industries', component: '@/pages/pages/IndustriesPage' },
-          { path: '/support', component: '@/pages/pages/supportPage/Support' },
-          { path: '/faq', component: '@/pages/pages/Faq' },
-          { path: '/subscribe', component: '@/pages/pages/Subscribe' },
+          { path: '/styles', component: '@/pages/pages/YogaStylesGuide' },
+          // { path: '/industries', component: '@/pages/pages/IndustriesPage' },
+          // { path: '/support', component: '@/pages/pages/supportPage/Support' },
+          // { path: '/faq', component: '@/pages/pages/Faq' },
+          // { path: '/subscribe', component: '@/pages/pages/Subscribe' },
           {
             path: '/settings/:userId',
             component: '@/layout/UserSettingsLayout',

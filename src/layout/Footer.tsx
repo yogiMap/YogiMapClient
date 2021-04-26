@@ -14,7 +14,7 @@ const menu2 = [
 
 const menu3 = [
   { link: '/library', text: 'Our Library' },
-  { link: '/guide', text: 'Yoga Styles Guide' },
+  { link: '/styles', text: 'Yoga Styles Guide' },
 ];
 
 const Footer = () => {
@@ -49,8 +49,10 @@ const Footer = () => {
             <h6 className="footer-headings">YOGIMAP RESOURCES</h6>
             <footer className="small">
               {menu3.map((el) => (
-                <div key={el.link} className="m-2">
-                  <a href=''> {el.text}</a>
+                <div >
+                  <Link key={el.link} to={el.link} className="me-2 small">
+                    {el.text}
+                  </Link>
                 </div>
               ))}
             </footer>
