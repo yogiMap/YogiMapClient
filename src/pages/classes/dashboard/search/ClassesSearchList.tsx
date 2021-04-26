@@ -18,6 +18,16 @@ const ClassesSearchList = (props: IProps) => {
 
   const columns: ColumnProps<IClasses>[] = [
     {
+      title: '#',
+      key: 'code',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
+    },
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+    },
+    {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
@@ -33,19 +43,14 @@ const ClassesSearchList = (props: IProps) => {
       dataIndex: 'classesType',
     },
     {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
-    {
-      title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
-    },
-    {
       title: 'Teacher',
       key: 'teacher',
       render: (row) => <Link to={`/classes/${row._id}`}>{row.teacher}</Link>,
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
     },
     {
       title: 'Action',

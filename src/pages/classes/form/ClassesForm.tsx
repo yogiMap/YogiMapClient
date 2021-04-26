@@ -32,24 +32,24 @@ const ClassesForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
 
-      <Form.Item name="name" rules={[validator.require]}>
-        <Input placeholder="Classes Name" />
+      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+        <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="yogaStyle" label="yogaStyle">
-        <Input.TextArea />
+      <Form.Item name="yogaStyle" label="Yoga Style" >
+        <Input placeholder="yogaStyle" className="rounded-pill" />
       </Form.Item>
 
       <Form.Item name="classesType" label="Classes Type">
-        <Input.TextArea />
+        <Input placeholder="Classes Type" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="description">
-        <Input.TextArea placeholder="Classes Description" autoSize={{ minRows: 3, maxRows: 6 }} />
+      <Form.Item name="description" label="Description">
+        <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill"/>
       </Form.Item>
 
       <Form.Item label="Date" name="date" initialValue={date}>
-        <DatePicker value={date} onChange={onDateChange} />
+        <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
@@ -60,7 +60,7 @@ const ClassesForm = (props: IProps) => {
       {/*</TeacherForm.Item>*/}
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
           {props.submitButtonText}
         </Button>
       </Form.Item>

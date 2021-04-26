@@ -37,18 +37,28 @@ const ClassesFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="name">
-        <Input placeholder="name" />
-      </Form.Item>
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
+      <div className="row d-flex justify-content-center">
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item name="classes">
+            <Input placeholder="classes" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item name="classesSearchParam2">
-        <Input placeholder="classesSearchParam2" />
-      </Form.Item>
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item name="Class Type">
+            <Input placeholder="classType" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item>
-        <Button onClick={reset}>Reset</Button>
-      </Form.Item>
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item>
+            <Button onClick={reset} shape="round">
+              Reset
+            </Button>
+          </Form.Item>
+        </div>
+      </div>
     </Form>
   );
 };

@@ -52,12 +52,6 @@ const TeacherFilterForm = (props: IProps) => {
       </div>
 
       <div className="col-lg-2 d-flex justify-content-center">
-        <Form.Item name="Class Type">
-          <Input placeholder="classType" className="rounded-pill" />
-        </Form.Item>
-      </div>
-
-      <div className="col-lg-2 d-flex justify-content-center">
         <Form.Item name="Location">
           <Input placeholder="Location" className="rounded-pill" />
         </Form.Item>
