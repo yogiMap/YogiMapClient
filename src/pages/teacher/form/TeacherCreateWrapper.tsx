@@ -8,6 +8,7 @@ import { ILoadingEffects } from '@/types';
 interface IProps {
   create: (arg: ITeacher) => void;
   teacherTypeSearch: () => void;
+  classesSearch: () => void;
   loadingEffects: ILoadingEffects;
 }
 
@@ -18,22 +19,26 @@ const TeacherCreateWrapper = (props: IProps) => {
 
   useEffect(() => {
     props.teacherTypeSearch();
+    props.classesSearch();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.TeacherTypeForm/create', false);
+  const isLoading = get(props, 'loadingEffects.TeacherTypeForm/create loadingEffects.ClassesForm/create' , false);
   const teacherTypeList = get(props, 'teacherTypeList', []);
+  const classesList = get(props, 'classesList', []);
 
-  return <TeacherForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} teacherTypeList={teacherTypeList} />;
+  return <TeacherForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} teacherTypeList={teacherTypeList} classesList={classesList}/>;
 };
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   teacherTypeList: state.TeacherForm.teacherTypeList,
+  classesList: state.ClassesForm.classesList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: ITeacher) => dispatch({ type: 'TeacherTypeForm/create', payload }),
   teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
+  classesSearch: () => dispatch({type: 'ClassesForm/classesSearch'}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherCreateWrapper);

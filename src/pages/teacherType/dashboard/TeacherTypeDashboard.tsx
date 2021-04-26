@@ -62,23 +62,34 @@ const TeacherTypeDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
-          <h3>Types of Yoga</h3>
-          <TeacherTypeFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
-        </div>
-
-        <TeacherTypeStats stats={teacherTypeStats} />
-
-        <div>
-          <TeacherTypeDashboardControls />
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>Types of Yoga</h1>
         </div>
       </div>
 
-      <TeacherTypeSearchList items={teacherTypeList} />
-      <Pager pager={teacherTypePager} onChange={onPagerChange} />
-    </>
+      <div className="row my-5 d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <TeacherTypeFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
+
+      {/*<TeacherTypeStats stats={teacherTypeStats} />*/}
+
+      <div className="row my-3">
+        <div className="col-flex justify-content-center">
+          <TeacherTypeSearchList items={teacherTypeList} />
+          <Pager pager={teacherTypePager} onChange={onPagerChange} />
+        </div>
+      </div>
+
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <TeacherTypeDashboardControls />
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -87,7 +98,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherTypeSearch: (payload: ITeacherTypeQueryParams) => dispatch({ type: 'TeacherTypeDashboard/teacherTypeSearch', payload }),
+  teacherTypeSearch: (payload: ITeacherTypeQueryParams) =>
+    dispatch({ type: 'TeacherTypeDashboard/teacherTypeSearch', payload }),
   teacherTypeGetStats: () => dispatch({ type: 'TeacherTypeDashboard/teacherTypeGetStats' }),
   teacherTypeReset: () => dispatch({ type: 'TeacherTypeDashboard/reset' }),
 });

@@ -26,8 +26,8 @@ const TeacherTypeDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-    <Button type="primary" onClick={teacherTypeCreate}>
-      What Type of Yoga do you Teach?
+    <Button type="primary"  shape="round"  onClick={teacherTypeCreate}>
+      Teacher Type
     </Button>
       )}
     </>
