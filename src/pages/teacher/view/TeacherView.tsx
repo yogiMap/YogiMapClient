@@ -16,6 +16,8 @@ const TeacherView = (props: IProps) => {
   const classes = Object.values(classesObject);
   const eventObject = get(props, 'TeacherView.event', {});
   const event = Object.values(eventObject);
+  const teacherTypeObject = get(props, 'TeacherView.teacherType', {});
+  const teacherType = Object.values(teacherTypeObject);
   // const classes = Object.keys(classesObject).map(el => ({name:el, value: classesObject[el]}) )
 
   console.log(event);
@@ -28,6 +30,9 @@ const TeacherView = (props: IProps) => {
     <div className="container">
       <h1>{name}</h1>
       <h3>Teacher Type</h3>
+      {teacherType.map((el: any) => (
+        <div>{el.name}</div>
+      ))}
 
 
       <h3 className="my-3">Classes</h3>
