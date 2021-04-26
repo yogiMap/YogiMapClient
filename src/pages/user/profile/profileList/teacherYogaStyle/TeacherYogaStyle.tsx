@@ -31,7 +31,7 @@ const TeacherYogaStyle = (props: any) => {
   return (
     <div className='profile-block'>
       <Form size='large' name='normal_login' className='login-form' onFieldsChange={onFieldsChange}>
-        <p className='profile-name'>Yoga Styles & Lineages</p>
+        <p className='profile-name'>Yoga Style</p>
 
         <Form.Item>
           <Checkbox.Group options={options} defaultValue={['Body']} onChange={TeacherYogaStyle}/>

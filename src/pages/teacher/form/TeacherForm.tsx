@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import { ITeacher } from '@/pages/teacher/types';
 import { ITeacherType } from '@/pages/teacherType/types';
 import { IClasses } from '@/pages/classes/types';
-// import { IEvent } from '@/pages/event/types';
+import { IEvent } from '@/pages/event/types';
 
 interface IProps {
   isLoading: boolean;
@@ -14,7 +14,7 @@ interface IProps {
   initialValues?: ITeacher;
   teacherTypeList: ITeacherType[];
   classesList: IClasses[];
-  // eventList: IEvent[];
+  eventList: IEvent[];
 }
 
 const TeacherForm = (props: IProps) => {
@@ -61,15 +61,15 @@ const TeacherForm = (props: IProps) => {
         </Select>
       </Form.Item>
 
-      {/*<Form.Item name="event" label="event" rules={[validator.require]}>*/}
-      {/*  <Select>*/}
-      {/*    {props.eventList.map((el) => (*/}
-      {/*      <Option key={el._id} value={el._id}>*/}
-      {/*        {el.name}*/}
-      {/*      </Option>*/}
-      {/*    ))}*/}
-      {/*  </Select>*/}
-      {/*</Form.Item>*/}
+      <Form.Item name="event" label="event" rules={[validator.require]}>
+        <Select>
+          {props.eventList.map((el) => (
+            <Option key={el._id} value={el._id}>
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
 
       <Form.Item name="description" label="Description">
         <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill"/>
