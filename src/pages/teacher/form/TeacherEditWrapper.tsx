@@ -11,6 +11,8 @@ interface IProps {
   getById: (teacherId: string) => void;
   reset: () => void;
   teacherTypeSearch: () => void;
+  classesSearch: () => void;
+  eventSearch: () => void;
   updateById: any;
   teacherInfo: ITeacher;
   loadingEffects: ILoadingEffects;
@@ -24,11 +26,15 @@ const TeacherEditWrapper = (props: IProps) => {
   const isLoadingGet = get(props, 'loadingEffects.TeacherTypeForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.TeacherTypeForm/updateById', false);
   const teacherTypeList = get(props, "teacherTypeList", []);
+  const classesList = get(props, 'classesList', []);
+  const eventList = get(props, 'eventList', []);
 
 
   useEffect(() => {
     props.getById(teacherId);
     props.teacherTypeSearch();
+    props.classesSearch();
+    props.eventSearch();
   }, []);
 
   const onFinish = (values: ITeacher) => {
@@ -43,6 +49,8 @@ const TeacherEditWrapper = (props: IProps) => {
       initialValues={props.teacherInfo}
       submitButtonText="Update"
       teacherTypeList={teacherTypeList}
+      classesList={classesList}
+      eventList={eventList}
       isLoading={isLoadingUpdate}
     />
   );
@@ -53,13 +61,17 @@ const mapStateToProps = (state: any) => ({
   teacherInfo: state.TeacherForm.teacherInfo,
   loadingEffects: state.loading.effects,
   teacherTypeList: state.TeacherForm.teacherList,
+  classesList: state.ClassesForm.classesList,
+  eventList: state.EventForm.eventList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'TeacherTypeForm/reset' }),
   updateById: (payload: ITeacher) => dispatch({ type: 'TeacherTypeForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'TeacherTypeForm/getById', payload }),
-  teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'})
+  teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
+  classesSearch: () => dispatch({ type: 'ClassesForm/classesSearch' }),
+  eventSearch: () => dispatch({ type: 'EventForm/eventSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeacherEditWrapper));

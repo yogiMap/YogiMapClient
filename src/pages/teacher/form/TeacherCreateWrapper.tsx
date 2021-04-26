@@ -24,12 +24,21 @@ const TeacherCreateWrapper = (props: IProps) => {
     props.eventSearch();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.TeacherTypeForm/create loadingEffects.ClassesForm/create' , false);
+  const isLoading = get(props, 'loadingEffects.TeacherTypeForm/create loadingEffects.ClassesForm/create', false);
   const teacherTypeList = get(props, 'teacherTypeList', []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
 
-  return <TeacherForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} teacherTypeList={teacherTypeList} classesList={classesList} eventList={eventList} />;
+  return (
+    <TeacherForm
+      onFinish={onFinish}
+      submitButtonText="Create"
+      isLoading={isLoading}
+      teacherTypeList={teacherTypeList}
+      classesList={classesList}
+      eventList={eventList}
+    />
+  );
 };
 
 const mapStateToProps = (state: any) => ({
@@ -41,9 +50,9 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: ITeacher) => dispatch({ type: 'TeacherTypeForm/create', payload }),
-  teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
-  classesSearch: () => dispatch({type: 'ClassesForm/classesSearch'}),
-  eventSearch: () => dispatch({type: 'EventForm/eventSearch'}),
+  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
+  classesSearch: () => dispatch({ type: 'ClassesForm/classesSearch' }),
+  eventSearch: () => dispatch({ type: 'EventForm/eventSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherCreateWrapper);
