@@ -42,7 +42,7 @@ export default [
           { path: '/styles', component: '@/pages/pages/YogaStylesGuide' },
           { path: '/library', component: '@/pages/pages/Library' },
           { path: '/faq', component: '@/pages/pages/Faq' },
-          { path: '/contact', component: '@/pages/pages/ContactUs' },
+          { path: '/contact', component: '@/pages/pages/ContactUsPage' },
           { path: '/sitemap', component: '@/pages/pages/SiteMap' },
           { path: '/subscribe', component: '@/pages/pages/Subscribe' },
           {
