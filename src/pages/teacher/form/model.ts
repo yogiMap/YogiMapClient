@@ -3,6 +3,9 @@ import { Effect, history, Reducer } from 'umi';
 import { queryTeacherCreate, queryTeacherGetById, queryTeacherUpdateById } from '@/pages/teacher/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryTeacherTypeSearch } from '@/pages/teacherType/queries';
+import { queryClassesSearch } from '@/pages/classes/queries';
+import { queryEventSearch } from '@/pages/event/queries';
+import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
 
 export interface IState {}
@@ -15,6 +18,9 @@ export interface TeacherModelType {
     getById: Effect;
     updateById: Effect;
     teacherTypeSearch: Effect;
+    classesSearch: Effect;
+    eventSearch: Effect;
+    styleSearch: Effect;
     reset: Effect;
   };
   reducers: {
@@ -58,6 +64,37 @@ const TeacherModel: TeacherModelType = {
         },
       });
     },
+
+    *classesSearch(_, { call, put }) {
+      const data = yield call(queryClassesSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          classesList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *eventSearch(_, { call, put }) {
+      const data = yield call(queryEventSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          eventList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *styleSearch(_, { call, put }) {
+      const data = yield call(queryStyleSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          styleList: get(data, 'payload.items'),
+        },
+      });
+    },
+
 
     *reset(_, { put }) {
       yield put({ type: 'save', payload: initialState });

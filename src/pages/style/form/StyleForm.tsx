@@ -17,13 +17,10 @@ const StyleForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
 
   return (
-    <Form onFinish={props.onFinish} initialValues={props.initialValues}>
-      <Form.Item name="name" rules={[validator.require]}>
-        <Input placeholder="Style Name" />
-      </Form.Item>
+    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
 
-      <Form.Item name="description">
-        <Input.TextArea placeholder="Style Description" autoSize={{ minRows: 3, maxRows: 6 }} />
+      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+        <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
@@ -34,7 +31,7 @@ const StyleForm = (props: IProps) => {
       {/*</TeacherForm.Item>*/}
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
           {props.submitButtonText}
         </Button>
       </Form.Item>

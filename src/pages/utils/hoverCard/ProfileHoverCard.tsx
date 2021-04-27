@@ -30,7 +30,7 @@ const ProfileHoverCard = (props: IProps) => {
       <Popover content={content} title={name} trigger="hover" onVisibleChange={onVisibleChange}>
         <Link to={`/profile/${id}`}>
           {name}
-        </Link>;
+        </Link>
       </Popover>
     </div>
   );

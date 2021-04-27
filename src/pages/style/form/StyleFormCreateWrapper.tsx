@@ -17,7 +17,9 @@ const StyleFormCreateWrapper = (props: IProps) => {
 
   const isLoading = get(props, 'loadingEffects.StyleForm/create', false);
 
-  return <StyleForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
+  return <StyleForm onFinish={onFinish}
+                    submitButtonText="Create"
+                    isLoading={isLoading} />;
 };
 
 const mapStateToProps = (state: any) => ({

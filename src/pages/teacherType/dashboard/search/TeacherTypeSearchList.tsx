@@ -46,11 +46,11 @@ const TeacherTypeSearchList = (props: IProps) => {
 
   return (
     <Table
-      rowKey='_id'
+      rowKey="_id"
       columns={columns}
       dataSource={items}
-      size='middle'
-      className='table-middle'
+      size="middle"
+      className="table-middle"
       pagination={false}
     />
   );
