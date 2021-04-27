@@ -20,18 +20,14 @@ const StyleSearchList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
+      width: 250,
       render: (row) => <Link to={`/style/${row._id}`}>{row.name}</Link>,
-    },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
     },
     {
       title: 'Action',
       key: 'action',
       className: 'actions',
-      width: 80,
+      width: 100,
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];

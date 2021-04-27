@@ -70,7 +70,7 @@ function HomePage(props: IProps) {
               <div className="img-container">
                 <img src={mind} alt="mind" className="img-body-mind-soul" />
                 <div className="home-stripe-mind">
-                  <Link to="" className="button-body-mind-soul">
+                  <Link to="/teacherType/:teacherTypeId" className="button-body-mind-soul">
                     MIND
                   </Link>
                 </div>

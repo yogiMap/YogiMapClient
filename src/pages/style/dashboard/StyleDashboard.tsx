@@ -63,23 +63,34 @@ const StyleDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
-          <div className="h4 mr-4">Style dashboard</div>
-          <StyleFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
-        </div>
-
-        <StyleStats stats={styleStats} />
-
-        <div>
-          <StyleDashboardControls />
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>Find Yoga Style</h1>
         </div>
       </div>
 
-      <StyleSearchList items={styleList} />
-      <Pager pager={stylePager} onChange={onPagerChange} />
-    </>
+      <div className="row my-5 d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <StyleFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
+
+      {/*<StyleStats stats={styleStats} />*/}
+
+      <div className="row my-3">
+        <div className="col d-flex justify-content-between">
+          <StyleSearchList items={styleList} />
+          <Pager pager={stylePager} onChange={onPagerChange} />
+        </div>
+      </div>
+
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <StyleDashboardControls />
+        </div>
+      </div>
+    </div>
   );
 };
 

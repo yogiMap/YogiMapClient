@@ -18,7 +18,7 @@ const StyleDashboardControls = (props: IProps) => {
   };
 
   return (
-    <Button type="primary" onClick={styleCreate}>
+    <Button type="primary"  shape="round" onClick={styleCreate}>
       Create Style
     </Button>
   );
