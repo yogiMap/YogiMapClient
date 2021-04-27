@@ -27,12 +27,8 @@ const TeacherForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
 
-      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+      <Form.Item name="name" label="Teacher's Name" rules={[validator.require]}>
         <Input placeholder="Class Name" className="rounded-pill"/>
-      </Form.Item>
-
-      <Form.Item name="yogaStyle" label="Yoga Style" >
-        <Input placeholder="yogaStyle" className="rounded-pill" />
       </Form.Item>
 
       <Form.Item name="style" label="Yoga Style" >
@@ -53,8 +49,8 @@ const TeacherForm = (props: IProps) => {
         <Input placeholder="Phone" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]} >
-        <Select className="rounded-circle">
+      <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
+        <Select>
           {props.teacherTypeList.map((el) => (
             <Option key={el._id} value={el._id} >
               {el.name}

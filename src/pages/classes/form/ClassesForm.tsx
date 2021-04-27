@@ -79,10 +79,6 @@ const ClassesForm = (props: IProps) => {
       {/*  </Select>*/}
       {/*</TeacherForm.Item>*/}
 
-      <Form.Item name="price" label="Price">
-        <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} />
-      </Form.Item>
-
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">

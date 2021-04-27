@@ -38,14 +38,14 @@ const ClassesFormCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  styleList: state.StyleForm.styleList,
-  teacherList: state.TeacherForm.teacherList,
+  styleList: state.ClassesForm.styleList,
+  teacherList: state.ClassesForm.teacherList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IClasses) => dispatch({ type: 'ClassesForm/create', payload }),
-  styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
+  styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
+  teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassesFormCreateWrapper);
