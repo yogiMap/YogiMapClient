@@ -35,6 +35,8 @@ export default [
           { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
           { path: '/teacherType', component: '@/pages/teacherType/dashboard/TeacherTypeDashboard' },
           { path: '/teacherType/:teacherTypeId', component: '@/pages/teacherType/view/TeacherTypeView' },
+          { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
+          { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },
 
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
