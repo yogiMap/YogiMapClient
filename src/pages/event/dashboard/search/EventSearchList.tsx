@@ -38,10 +38,10 @@ const EventSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/teacher/${row.teacherId}`}>{row.name}</Link>,
-      // render: (row) => {
-      //   return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
-      // },
+      // render: (row) => <Link to={`/teacher/${row.teacherId}`}>{row.name}</Link>,
+      render: (row) => {
+        return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
+      },
     },
     {
       title: 'Description',
