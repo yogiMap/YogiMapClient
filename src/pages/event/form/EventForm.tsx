@@ -40,6 +40,15 @@ const EventForm = (props: IProps) => {
         <Input placeholder="Event Name" className="rounded-pill"/>
       </Form.Item>
 
+      <Form.Item name="teacher" label="Teacher" rules={[validator.require]} >
+        <Select className="rounded-circle">
+          {props.teacherList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
 
       <Form.Item name="style" label="Yoga Style" >
         <Select className="rounded-circle">
@@ -57,16 +66,6 @@ const EventForm = (props: IProps) => {
 
       <Form.Item label="Date" name="date" initialValue={date}>
         <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
-      </Form.Item>
-
-      <Form.Item name="teacher" label="teacher" rules={[validator.require]} >
-        <Select className="rounded-circle">
-          {props.teacherList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}

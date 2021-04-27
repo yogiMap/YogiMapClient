@@ -40,6 +40,10 @@ const ClassesForm = (props: IProps) => {
         <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
+      <Form.Item name="classesType" label="Classes Type">
+        <Input placeholder="Classes Type" className="rounded-pill"/>
+      </Form.Item>
+
       <Form.Item name="style" label="Yoga Style" >
         <Select className="rounded-circle">
           {props.styleList.map((el) => (
@@ -50,8 +54,14 @@ const ClassesForm = (props: IProps) => {
         </Select>
       </Form.Item>
 
-      <Form.Item name="classesType" label="Classes Type">
-        <Input placeholder="Classes Type" className="rounded-pill"/>
+      <Form.Item name="teacher" label="Teacher" rules={[validator.require]} >
+        <Select className="rounded-circle">
+          {props.teacherList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
       </Form.Item>
 
       <Form.Item name="description" label="Description">
@@ -60,16 +70,6 @@ const ClassesForm = (props: IProps) => {
 
       <Form.Item label="Date" name="date" initialValue={date}>
         <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
-      </Form.Item>
-
-      <Form.Item name="teacher" label="teacher" rules={[validator.require]} >
-        <Select className="rounded-circle">
-          {props.teacherList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
       </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
