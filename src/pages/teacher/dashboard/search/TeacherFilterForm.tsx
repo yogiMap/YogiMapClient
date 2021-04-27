@@ -39,25 +39,19 @@ const TeacherFilterForm = (props: IProps) => {
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters} >
      <div className="row d-flex justify-content-center">
-      <div className="col-lg-2 d-flex justify-content-center">
+      <div className="col-lg-4 d-flex justify-content-center">
         <Form.Item name="name">
-          <Input placeholder="name" className="rounded-pill" />
+          <Input placeholder="Name" className="rounded-pill" />
         </Form.Item>
       </div>
 
-      <div className="col-lg-2 d-flex justify-content-center">
-        <Form.Item name="yogaStyle">
-          <Input placeholder="yogaStyle" className="rounded-pill" />
-        </Form.Item>
-      </div>
-
-      <div className="col-lg-2 d-flex justify-content-center">
-        <Form.Item name="Location">
+      <div className="col-lg-4 d-flex justify-content-center">
+        <Form.Item name="location">
           <Input placeholder="Location" className="rounded-pill" />
         </Form.Item>
       </div>
 
-      <div className="col-lg-2 d-flex justify-content-center">
+      <div className="col-lg-4 d-flex justify-content-center">
         <Form.Item>
           <Button onClick={reset} shape="round">
             Reset

@@ -40,13 +40,13 @@ const ClassesFilterForm = (props: IProps) => {
     <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
       <div className="row d-flex justify-content-center">
         <div className="col-lg-4 d-flex justify-content-center">
-          <Form.Item name="classes">
+          <Form.Item name="name">
             <Input placeholder="classes" className="rounded-pill" />
           </Form.Item>
         </div>
 
         <div className="col-lg-4 d-flex justify-content-center">
-          <Form.Item name="Class Type">
+          <Form.Item name="classType">
             <Input placeholder="classType" className="rounded-pill" />
           </Form.Item>
         </div>

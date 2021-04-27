@@ -18,6 +18,11 @@ const StyleSearchList = (props: IProps) => {
 
   const columns: ColumnProps<IStyle>[] = [
     {
+      title: '#',
+      key: 'code',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
+    },
+    {
       title: 'Name',
       key: 'name',
       width: 250,

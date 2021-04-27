@@ -37,18 +37,22 @@ const StyleFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="name">
-        <Input placeholder="name" />
-      </Form.Item>
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
+      <div className="row d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <Form.Item name="style">
+            <Input placeholder="Yoga Style" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item name="styleSearchParam2">
-        <Input placeholder="styleSearchParam2" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button onClick={reset}>Reset</Button>
-      </Form.Item>
+        <div className="col d-flex justify-content-center">
+          <Form.Item>
+            <Button onClick={reset} shape="round">
+              Reset
+            </Button>
+          </Form.Item>
+        </div>
+      </div>
     </Form>
   );
 };
