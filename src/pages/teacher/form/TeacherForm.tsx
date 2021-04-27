@@ -6,6 +6,7 @@ import { ITeacher } from '@/pages/teacher/types';
 import { ITeacherType } from '@/pages/teacherType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
+import { IStyle } from '@/pages/style/types';
 
 interface IProps {
   isLoading: boolean;
@@ -15,6 +16,7 @@ interface IProps {
   teacherTypeList: ITeacherType[];
   classesList: IClasses[];
   eventList: IEvent[];
+  styleList: IStyle[];
 }
 
 const TeacherForm = (props: IProps) => {
@@ -33,15 +35,15 @@ const TeacherForm = (props: IProps) => {
         <Input placeholder="yogaStyle" className="rounded-pill" />
       </Form.Item>
 
-      {/*<Form.Item name="yogaStyle" label="Yoga Style" >*/}
-      {/*  <Select className="rounded-circle">*/}
-      {/*    {props.YogaStyleList.map((el) => (*/}
-      {/*      <Option key={el._id} value={el._id} >*/}
-      {/*        {el.name}*/}
-      {/*      </Option>*/}
-      {/*    ))}*/}
-      {/*  </Select>*/}
-      {/*</Form.Item>*/}
+      <Form.Item name="style" label="Yoga Style" >
+        <Select className="rounded-circle">
+          {props.styleList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
 
       <Form.Item name="location" label="Location">
         <Input placeholder="Location" className="rounded-pill"/>

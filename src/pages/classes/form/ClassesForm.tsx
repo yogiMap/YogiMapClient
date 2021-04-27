@@ -5,6 +5,7 @@ import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher} from '@/pages/teacher/types';
+import { IStyle } from '@/pages/style/types';
 
 interface IProps {
   isLoading: boolean;
@@ -12,6 +13,7 @@ interface IProps {
   submitButtonText: string;
   initialValues?: IClasses;
   teacherList: ITeacher[];
+  styleList: IStyle[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -38,8 +40,14 @@ const ClassesForm = (props: IProps) => {
         <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="yogaStyle" label="Yoga Style" >
-        <Input placeholder="yogaStyle" className="rounded-pill" />
+      <Form.Item name="style" label="Yoga Style" >
+        <Select className="rounded-circle">
+          {props.styleList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
       </Form.Item>
 
       <Form.Item name="classesType" label="Classes Type">
@@ -54,15 +62,15 @@ const ClassesForm = (props: IProps) => {
         <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
       </Form.Item>
 
-      {/*<Form.Item name="teacher" label="teacher" rules={[validator.require]} >*/}
-      {/*  <Select className="rounded-circle">*/}
-      {/*    {props.teacherList.map((el) => (*/}
-      {/*      <Option key={el._id} value={el._id} >*/}
-      {/*        {el.name}*/}
-      {/*      </Option>*/}
-      {/*    ))}*/}
-      {/*  </Select>*/}
-      {/*</Form.Item>*/}
+      <Form.Item name="teacher" label="teacher" rules={[validator.require]} >
+        <Select className="rounded-circle">
+          {props.teacherList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}

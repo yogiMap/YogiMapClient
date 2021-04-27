@@ -5,6 +5,7 @@ import { IEvent } from '@/pages/event/types';
 import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher} from '@/pages/teacher/types';
+import { IStyle } from '@/pages/style/types';
 
 interface IProps {
   isLoading: boolean;
@@ -12,6 +13,7 @@ interface IProps {
   submitButtonText: string;
   initialValues?: IEvent;
   teacherList: ITeacher[];
+  styleList: IStyle[];
 }
 
 const EventForm = (props: IProps) => {
@@ -34,8 +36,19 @@ const EventForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
 
-      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
-        <Input placeholder="Class Name" className="rounded-pill"/>
+      <Form.Item name="name" label="Event Name" rules={[validator.require]}>
+        <Input placeholder="Event Name" className="rounded-pill"/>
+      </Form.Item>
+
+
+      <Form.Item name="style" label="Yoga Style" >
+        <Select className="rounded-circle">
+          {props.styleList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
       </Form.Item>
 
       <Form.Item name="description" label="Description">
@@ -46,15 +59,15 @@ const EventForm = (props: IProps) => {
         <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
       </Form.Item>
 
-      {/*<Form.Item name="teacher" label="teacher" rules={[validator.require]} >*/}
-      {/*  <Select className="rounded-circle">*/}
-      {/*    {props.teacherList.map((el) => (*/}
-      {/*      <Option key={el._id} value={el._id} >*/}
-      {/*        {el.name}*/}
-      {/*      </Option>*/}
-      {/*    ))}*/}
-      {/*  </Select>*/}
-      {/*</Form.Item>*/}
+      <Form.Item name="teacher" label="teacher" rules={[validator.require]} >
+        <Select className="rounded-circle">
+          {props.teacherList.map((el) => (
+            <Option key={el._id} value={el._id} >
+              {el.name}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}

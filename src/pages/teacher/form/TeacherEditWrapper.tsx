@@ -13,6 +13,7 @@ interface IProps {
   teacherTypeSearch: () => void;
   classesSearch: () => void;
   eventSearch: () => void;
+  styleSearch: () => void;
   updateById: any;
   teacherInfo: ITeacher;
   loadingEffects: ILoadingEffects;
@@ -28,6 +29,7 @@ const TeacherEditWrapper = (props: IProps) => {
   const teacherTypeList = get(props, "teacherTypeList", []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
+  const styleList = get(props, 'styletList', []);
 
 
   useEffect(() => {
@@ -35,6 +37,7 @@ const TeacherEditWrapper = (props: IProps) => {
     props.teacherTypeSearch();
     props.classesSearch();
     props.eventSearch();
+    props.styleSearch();
   }, []);
 
   const onFinish = (values: ITeacher) => {
@@ -51,6 +54,7 @@ const TeacherEditWrapper = (props: IProps) => {
       teacherTypeList={teacherTypeList}
       classesList={classesList}
       eventList={eventList}
+      styleList={styleList}
       isLoading={isLoadingUpdate}
     />
   );
@@ -63,6 +67,7 @@ const mapStateToProps = (state: any) => ({
   teacherTypeList: state.TeacherForm.teacherList,
   classesList: state.ClassesForm.classesList,
   eventList: state.EventForm.eventList,
+  styleList: state.StyleForm.styleList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -72,6 +77,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
   classesSearch: () => dispatch({ type: 'ClassesForm/classesSearch' }),
   eventSearch: () => dispatch({ type: 'EventForm/eventSearch' }),
+  styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeacherEditWrapper));
