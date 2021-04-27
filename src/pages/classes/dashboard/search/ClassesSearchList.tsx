@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { get } from 'lodash';
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
+import { formatterDateFull, formatterDateTimeFull } from '@/utils/dateTime';
 
 import { IClasses } from '@/pages/classes/types';
 import ActionMenu from '@/pages/classes/dashboard/search/ActionMenu';
@@ -26,6 +27,9 @@ const ClassesSearchList = (props: IProps) => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
+      render: (row) => {
+        return formatterDateFull(row.date);
+      },
     },
     {
       title: 'Name',
@@ -45,7 +49,10 @@ const ClassesSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.teacher}</Link>,
+      render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
+      // render: (row) => {
+      //   return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
+      // },
     },
     {
       title: 'Description',
@@ -56,7 +63,7 @@ const ClassesSearchList = (props: IProps) => {
       title: 'Action',
       key: 'action',
       className: 'actions',
-      width: 80,
+      width: 100,
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];

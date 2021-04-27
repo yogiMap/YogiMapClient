@@ -3,10 +3,10 @@ import { get } from 'lodash';
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
-import { RouteComponentProps } from 'react-router-dom';
-
 import { IEvent } from '@/pages/event/types';
 import ActionMenu from '@/pages/event/dashboard/search/ActionMenu';
+import { formatterDateFull } from '@/utils/dateTime';
+import { RouteComponentProps } from 'react-router-dom';
 
 interface IProps extends RouteComponentProps {
   items: IEvent[];
@@ -26,6 +26,9 @@ const EventSearchList = (props: IProps) => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
+      render: (row) => {
+        return formatterDateFull(row.date);
+      },
     },
     {
       title: 'Name',
@@ -35,7 +38,10 @@ const EventSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.teacher}</Link>,
+      render: (row) => <Link to={`/teacher/${row.teacherId}`}>{row.name}</Link>,
+      // render: (row) => {
+      //   return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
+      // },
     },
     {
       title: 'Description',
