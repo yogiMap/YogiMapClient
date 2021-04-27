@@ -4,7 +4,7 @@ import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
-import { EditOutlined } from '@ant-design/icons';
+import { SmallDashOutlined } from '@ant-design/icons';
 
 interface IStyleDeleteById {
   styleId: string;
@@ -69,7 +69,8 @@ const ActionMenu = (props: IProps) => {
       <div id="top-menu" role="menu" className="d-flex align-items-end">
         <Dropdown overlay={menu(row)}>
           <span className="ant-dropdown-link">
-            <img src={dotsIcon} alt="" height="27" />
+            <SmallDashOutlined />
+            {/*<img src={dotsIcon} alt="" height="27" />*/}
           </span>
         </Dropdown>
       </div>

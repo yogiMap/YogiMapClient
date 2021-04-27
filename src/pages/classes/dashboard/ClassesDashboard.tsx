@@ -79,7 +79,7 @@ const ClassesDashboard = (props: IProps) => {
       {/*<ClassesStats stats={classesStats} />*/}
 
       <div className="row my-3">
-        <div className="col-flex justify-content-center">
+        <div className="col">
           <ClassesSearchList items={classesList} />
           <Pager pager={classesPager} onChange={onPagerChange} />
         </div>

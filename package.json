@@ -10,6 +10,7 @@
     "test:coverage": "umi-test --coverage"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@fullcalendar/core": "^5.4.0",
     "@fullcalendar/daygrid": "^5.4.0",
     "@fullcalendar/interaction": "^5.4.0",

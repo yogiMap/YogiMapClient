@@ -79,7 +79,7 @@ const TeacherDashboard = (props: IProps) => {
       {/*<TeacherStats stats={teacherStats} />*/}
 
       <div className="row my-3">
-        <div className="col-flex justify-content-center">
+        <div className="col">
           <TeacherSearchList items={teacherList} />
           <Pager pager={teacherPager} onChange={onPagerChange} />
         </div>

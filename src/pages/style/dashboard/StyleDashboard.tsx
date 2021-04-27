@@ -79,7 +79,7 @@ const StyleDashboard = (props: IProps) => {
       {/*<StyleStats stats={styleStats} />*/}
 
       <div className="row my-3">
-        <div className="col d-flex justify-content-between">
+        <div className="col">
           <StyleSearchList items={styleList} />
           <Pager pager={stylePager} onChange={onPagerChange} />
         </div>

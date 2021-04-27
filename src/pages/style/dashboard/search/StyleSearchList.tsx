@@ -17,22 +17,22 @@ const StyleSearchList = (props: IProps) => {
   const items = get(props, 'items', []);
 
   const columns: ColumnProps<IStyle>[] = [
-    {
-      title: '#',
-      key: 'code',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
-    },
+    // {
+    //   title: '#',
+    //   key: 'code',
+    //   width: 80,
+    //   render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
+    // },
     {
       title: 'Name',
       key: 'name',
-      width: 250,
       render: (row) => <Link to={`/style/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Action',
       key: 'action',
       className: 'actions',
-      width: 100,
+      width: 70,
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];
