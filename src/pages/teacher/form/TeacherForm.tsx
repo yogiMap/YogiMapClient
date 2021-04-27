@@ -31,6 +31,14 @@ const TeacherForm = (props: IProps) => {
         <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
 
+      <Form.Item name="location" label="Location">
+        <Input placeholder="Location" className="rounded-pill"/>
+      </Form.Item>
+
+      <Form.Item name="phone" label="Phone">
+        <Input placeholder="Phone" className="rounded-pill"/>
+      </Form.Item>
+
       <Form.Item name="style" label="Yoga Style" >
         <Select className="rounded-circle">
           {props.styleList.map((el) => (
@@ -39,14 +47,6 @@ const TeacherForm = (props: IProps) => {
             </Option>
           ))}
         </Select>
-      </Form.Item>
-
-      <Form.Item name="location" label="Location">
-        <Input placeholder="Location" className="rounded-pill"/>
-      </Form.Item>
-
-      <Form.Item name="phone" label="Phone">
-        <Input placeholder="Phone" className="rounded-pill"/>
       </Form.Item>
 
       <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
