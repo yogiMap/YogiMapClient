@@ -4,7 +4,7 @@ import validator from '@/utils/validators';
 import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
 import moment from 'moment';
-import { ITeacher} from '@/pages/teacher/types';
+import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
 
 interface IProps {
@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const ClassesForm = (props: IProps) => {
-   const { Option } = Select;
+  const { Option } = Select;
 
   const [form] = Form.useForm();
   const initialValues: any = get(props, 'initialValues', {});
@@ -35,44 +35,61 @@ const ClassesForm = (props: IProps) => {
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
-      <div className="row">
+      <div className="row my-3">
         <div className="col">
-      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
-        <Input placeholder="Class Name" className="rounded-pill"/>
-      </Form.Item>
+          <Form.Item name="name" label="Class Name" rules={[validator.require]}>
+            <Input placeholder="Class Name" className="rounded-pill" />
+          </Form.Item>
         </div>
 
-      <Form.Item name="classesType" label="Classes Type">
-        <Input placeholder="Classes Type" className="rounded-pill"/>
-      </Form.Item>
+        <div className="col">
+          <Form.Item name="classesType" label="Classes Type">
+            <Input placeholder="Classes Type" className="rounded-pill" />
+          </Form.Item>
+        </div>
+      </div>
 
-      <Form.Item name="style" label="Yoga Style" >
-        <Select className="rounded-circle">
-          {props.styleList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
+      <div className="row my-3">
+        <div className="col">
+          <Form.Item name="style" label="Yoga Style">
+            <Select className="rounded-circle">
+              {props.styleList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
 
-      <Form.Item name="teacher" label="Teacher" rules={[validator.require]} >
-        <Select className="rounded-circle">
-          {props.teacherList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
+        <div className="col">
+          <Form.Item name="teacher" label="Teacher" rules={[validator.require]}>
+            <Select className="rounded-circle">
+              {props.teacherList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
+      </div>
 
-      <Form.Item name="description" label="Description">
-        <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill"/>
-      </Form.Item>
+      <div className="row">
+        <div className="col">
+          <Form.Item name="description" label="Description">
+            <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill" />
+          </Form.Item>
+        </div>
+        </div>
+        <div className="row">
+          <div className="col">
+          <Form.Item label="Date" name="date" initialValue={date}>
+            <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+          </Form.Item>
+        </div>
+        </div>
 
-      <Form.Item label="Date" name="date" initialValue={date}>
-        <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
-      </Form.Item>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}
@@ -80,7 +97,6 @@ const ClassesForm = (props: IProps) => {
       {/*    <Option value="all">All</Option>*/}
       {/*  </Select>*/}
       {/*</TeacherForm.Item>*/}
-
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">

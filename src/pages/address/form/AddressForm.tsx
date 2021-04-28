@@ -3,12 +3,12 @@ import { Button, Form, Input } from 'antd';
 import validator from '@/utils/validators';
 import { IAddress } from '@/pages/address/types';
 import { get } from 'lodash';
-import ClientSearchInput from '@/pages/utils/searchInput/ClientSearchInput';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
 import Map from '@/pages/utils/googleUt/GoogleMap/Map';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useForm } from 'antd/es/form/Form';
-import JsApiLoaderOpts from '@/pages/utils/';
+import JsApiLoaderOpts from '@/pages/utils/googleUt/GoogleMap/JsApiLoaderOpts';
+import AddressSearchInput from '@/pages/utils/searchInput/AddressSearchInput';
 
 interface IProps {
   isLoading: boolean;
@@ -23,6 +23,7 @@ const AddressForm = (props: IProps) => {
   const [form] = useForm();
 
   const opts = JsApiLoaderOpts();
+  // @ts-ignore
   const { isLoaded, loadError } = useJsApiLoader(opts);
 
   const [center, setCenter] = useState();
@@ -39,7 +40,7 @@ const AddressForm = (props: IProps) => {
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" form={form}>
       {!props.clientId && (
         <Form.Item name="client" label="Client" rules={[validator.require]}>
-          <ClientSearchInput />
+          <AddressSearchInput />
         </Form.Item>
       )}
 

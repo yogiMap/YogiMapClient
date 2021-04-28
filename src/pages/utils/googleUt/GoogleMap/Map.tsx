@@ -18,6 +18,7 @@ const Map = (props: any) => {
 
   useEffect(() => handleScriptLoad(ref, center, zoom));
 
+  // @ts-ignore
   return (
     // ignore ref type (solution?)
     // @ts-ignore
