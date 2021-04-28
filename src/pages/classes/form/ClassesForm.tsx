@@ -35,10 +35,12 @@ const ClassesForm = (props: IProps) => {
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
-
+      <div className="row">
+        <div className="col">
       <Form.Item name="name" label="Class Name" rules={[validator.require]}>
         <Input placeholder="Class Name" className="rounded-pill"/>
       </Form.Item>
+        </div>
 
       <Form.Item name="classesType" label="Classes Type">
         <Input placeholder="Classes Type" className="rounded-pill"/>
