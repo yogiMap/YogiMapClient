@@ -24,12 +24,12 @@ const TeacherEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const teacherId: string = get(props, 'sidepanel.teacherId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.TeacherTypeForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.TeacherTypeForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.TeacherForm/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.TeacherForm/updateById', false);
   const teacherTypeList = get(props, "teacherTypeList", []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
-  const styleList = get(props, 'styletList', []);
+  const styleList = get(props, 'styleList', []);
 
 
   useEffect(() => {
@@ -71,9 +71,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'TeacherTypeForm/reset' }),
-  updateById: (payload: ITeacher) => dispatch({ type: 'TeacherTypeForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'TeacherTypeForm/getById', payload }),
+  reset: () => dispatch({ type: 'TeacherForm/reset' }),
+  updateById: (payload: ITeacher) => dispatch({ type: 'TeacherForm/updateById', payload }),
+  getById: (payload: string) => dispatch({ type: 'TeacherForm/getById', payload }),
   teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
   classesSearch: () => dispatch({ type: 'ClassesForm/classesSearch' }),
   eventSearch: () => dispatch({ type: 'EventForm/eventSearch' }),

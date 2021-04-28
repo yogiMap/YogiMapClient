@@ -26,7 +26,7 @@ const TeacherCreateWrapper = (props: IProps) => {
     props.styleSearch();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.TeacherTypeForm/create loadingEffects.ClassesForm/create', false);
+  const isLoading = get(props, 'loadingEffects.TeacherForm/create', false);
   const teacherTypeList = get(props, 'teacherTypeList', []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
@@ -54,7 +54,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: ITeacher) => dispatch({ type: 'TeacherTypeForm/create', payload }),
+  create: (payload: ITeacher) => dispatch({ type: 'TeacherForm/create', payload }),
   teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
   classesSearch: () => dispatch({ type: 'TeacherForm/classesSearch' }),
   eventSearch: () => dispatch({ type: 'TeacherForm/eventSearch' }),
