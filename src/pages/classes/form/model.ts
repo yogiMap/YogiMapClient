@@ -5,6 +5,7 @@ import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { queryTeacherSearch } from '@/pages/teacher/queries';
 import { get } from 'lodash';
+import { queryTeacherTypeSearch } from '@/pages/teacherType/queries';
 
 export interface IState {}
 
@@ -17,6 +18,7 @@ export interface ClassesModelType {
     updateById: Effect;
     styleSearch: Effect;
     teacherSearch: Effect;
+    teacherTypeSearch: Effect;
     reset: Effect;
   };
   reducers: {
@@ -70,6 +72,17 @@ const ClassesModel: ClassesModelType = {
         },
       });
     },
+
+    *teacherTypeSearch(_, { call, put }) {
+      const data = yield call(queryTeacherTypeSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          teacherTypeList: get(data, 'payload.items'),
+        },
+      });
+    },
+
     *reset(_, { put }) {
       yield put({ type: 'save', payload: initialState });
     },

@@ -6,6 +6,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
+import { ITeacherType } from '@/pages/teacherType/types';
 
 interface IProps {
   isLoading: boolean;
@@ -14,6 +15,7 @@ interface IProps {
   initialValues?: IClasses;
   teacherList: ITeacher[];
   styleList: IStyle[];
+  teacherTypeList: ITeacherType[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -41,11 +43,17 @@ const ClassesForm = (props: IProps) => {
             <Input placeholder="Class Name" className="rounded-pill" />
           </Form.Item>
         </div>
-          <div className="col">
-            <Form.Item name="teacherType" label="Teacher Type">
-              <Input placeholder="Teacher Type" className="rounded-pill" />
-            </Form.Item>
-          </div>
+        <div className="col">
+          <Form.Item name="teacherType" label="Teacher Type">
+            <Select className="rounded-circle">
+              {props.teacherTypeList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
       </div>
 
       <div className="row my-3">
@@ -80,14 +88,14 @@ const ClassesForm = (props: IProps) => {
             <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill" />
           </Form.Item>
         </div>
-        </div>
-        <div className="row">
-          <div className="col">
+      </div>
+      <div className="row">
+        <div className="col">
           <Form.Item label="Date" name="date" initialValue={date}>
             <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
           </Form.Item>
         </div>
-        </div>
+      </div>
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">

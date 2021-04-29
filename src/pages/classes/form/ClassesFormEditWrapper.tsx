@@ -15,6 +15,7 @@ interface IProps {
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
   teacherSearch: () => void;
+  teacherTypeSearch: () => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -26,11 +27,13 @@ const ClassesFormEditWrapper = (props: IProps) => {
   const isLoadingUpdate = get(props, 'loadingEffects.ClassesForm/updateById', false);
   const styleList = get(props, 'styleList', []);
   const teacherList = get(props, 'teacherList', []);
+  const teacherTypeList = get(props, 'teacherTypeList', []);
 
   useEffect(() => {
     props.getById(classesId);
     props.styleSearch();
     props.teacherSearch();
+    props.teacherTypeSearch();
   }, []);
 
   const onFinish = (values: IClasses) => {
@@ -47,6 +50,7 @@ const ClassesFormEditWrapper = (props: IProps) => {
       isLoading={isLoadingUpdate}
       styleList={styleList}
       teacherList={teacherList}
+      teacherTypeList={teacherTypeList}
     />
   );
 };
@@ -57,6 +61,7 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.StyleForm.styleList,
   teacherList: state.TeacherForm.teacherList,
+  teacherTypeList: state.TeacherForm.teacherTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -65,6 +70,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   getById: (payload: string) => dispatch({ type: 'ClassesForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
+  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesFormEditWrapper));
