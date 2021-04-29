@@ -11,6 +11,7 @@ import JsApiLoaderOpts from '@/pages/utils/googleUt/GoogleMap/JsApiLoaderOpts';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useForm } from 'antd/es/form/Form';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
+import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 
 interface IProps {
   isLoading: boolean;
@@ -66,7 +67,7 @@ const TeacherForm = (props: IProps) => {
       <div className="row">
         <div className="col">
           <Form.Item name="phone" label="Phone">
-            <Input placeholder="Phone" className="rounded-pill" />
+            <PhoneInput  name="phoneNumber" required={false} />
           </Form.Item>
         </div>
 
