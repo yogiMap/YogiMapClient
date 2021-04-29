@@ -59,18 +59,18 @@ const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
   classesInfo: state.ClassesForm.classesInfo,
   loadingEffects: state.loading.effects,
-  styleList: state.StyleForm.styleList,
-  teacherList: state.TeacherForm.teacherList,
-  teacherTypeList: state.TeacherForm.teacherTypeList,
+  styleList: state.ClassesForm.styleList,
+  teacherList: state.ClassesForm.teacherList,
+  teacherTypeList: state.ClassesForm.teacherTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'ClassesForm/reset' }),
   updateById: (payload: IClasses) => dispatch({ type: 'ClassesForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'ClassesForm/getById', payload }),
-  styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
-  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
+  styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
+  teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
+  teacherTypeSearch: () => dispatch({ type: 'ClassesForm/teacherTypeSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesFormEditWrapper));

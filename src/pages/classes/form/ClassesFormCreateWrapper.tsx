@@ -43,14 +43,14 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.ClassesForm.styleList,
   teacherList: state.ClassesForm.teacherList,
-  teacherTypeList: state.TeacherForm.teacherTypeList,
+  teacherTypeList: state.ClassesForm.teacherTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IClasses) => dispatch({ type: 'ClassesForm/create', payload }),
   styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
-  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
+  teacherTypeSearch: () => dispatch({ type: 'ClassesForm/teacherTypeSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassesFormCreateWrapper);

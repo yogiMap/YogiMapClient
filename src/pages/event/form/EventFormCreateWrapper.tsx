@@ -4,8 +4,6 @@ import EventForm from '@/pages/event/form/EventForm';
 import { IEvent } from '@/pages/event/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import ClassesForm from '@/pages/classes/form/ClassesForm';
-
 
 interface IProps {
   create: (arg: IEvent) => void;
@@ -43,16 +41,16 @@ const EventFormCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  styleList: state.StyleForm.styleList,
-  teacherList: state.TeacherForm.teacherList,
-  teacherTypeList: state.TeacherForm.teacherTypeList,
+  styleList: state.EventForm.styleList,
+  teacherList: state.EventForm.teacherList,
+  teacherTypeList: state.EventForm.teacherTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IEvent) => dispatch({ type: 'EventForm/create', payload }),
-  styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
-  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
+  styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
+  teacherSearch: () => dispatch({ type: 'EventForm/teacherSearch' }),
+  teacherTypeSearch: () => dispatch({ type: 'EventForm/teacherTypeSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventFormCreateWrapper);
