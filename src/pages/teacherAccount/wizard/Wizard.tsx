@@ -34,7 +34,7 @@ const Wizard = (props: IProps) => {
 
   const email = get(props, 'Account.email', '');
   const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const teacherAccount = get(props, 'Account.teacherAccount', false);
+  const teacherAccount = get(props, 'Account.account', false);
   const userId = get(props, 'Account._id', '');
 
   const [openResend, setOpenResend] = useState(false);

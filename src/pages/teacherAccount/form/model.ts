@@ -37,7 +37,7 @@ const TeacherAccountModel: TeacherAccountModelType = {
         yield put({ type: 'TeacherAccountDashboard/teacherAccountSearch' });
         yield put({ type: 'Sidepanel/close' });
         yield put({ type: 'Account/auth' });
-        history.push('/teacherAccount');
+        history.push('/account');
       }
     },
 

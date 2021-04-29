@@ -19,7 +19,7 @@ const TopMenu = (props: IProps) => {
   const menuItems = [
     { path: '/users', name: 'Users', perm: 'user.auth' },
     { path: '/lineItem', name: 'LineItem', perm: 'lineItem.get.own' },
-    { path: '/teacherAccount', name: 'Company Accounts', perm: 'teacherAccount.get.all' },
+    { path: '/account', name: 'Teacher Accounts', perm: 'account.get.all' },
     { path: '/telephony', name: 'Telephony', perm: 'user.delete.any' },
   ].map((el) => ({
     ...el,

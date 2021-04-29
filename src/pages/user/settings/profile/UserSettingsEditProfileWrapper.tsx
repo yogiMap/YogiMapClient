@@ -17,7 +17,7 @@ interface IProps {
 const UserSettingsEditProfileWrapper = (props: IProps) => {
   const userId = get(props, 'match.params.userId', '');
   const name = get(props, 'userInfo.name', '');
-  const userCompanyAccountId = get(props, 'companyAccount', '');
+  const userTeacherAccountId = get(props, 'teacherAccount', '');
   const firstName = get(props, 'userInfo.firstName', '');
   const lastName = get(props, 'userInfo.lastName', '');
   const email = get(props, 'userInfo.email', '');
@@ -68,7 +68,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   userInfo: state.Settings.userInfo,
-  companyAccount: state.Account.companyAccount,
+  teacherAccount: state.Account.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

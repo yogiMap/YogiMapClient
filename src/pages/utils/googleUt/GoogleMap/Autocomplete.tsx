@@ -22,7 +22,7 @@ const handlePlaceSelect = async (updLocation: any, autocomplete: any, updCenter:
   addressComponentTypes.forEach((type, i) => (addressComponents[type] = addressComponent[i]));
 
   const addressFields = {
-    company:
+    teacher:
       getPlaceResponse.name !== addressComponents.street_number + ' ' + addressComponents.route
         ? getPlaceResponse.name
         : '',
@@ -60,7 +60,7 @@ const Autocomplete = (props: any) => {
     <div>
       <Input
         id="autocomplete"
-        placeholder={'Start Typing Address or Company Name'}
+        placeholder={'Start Typing Address or Teacher`s Name'}
         onChange={onChange}
         value={location}
       />

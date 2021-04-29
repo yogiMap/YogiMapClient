@@ -1,7 +1,7 @@
 import React from 'react';
 import UserSettingsEditPersonalAddressForm from '@/pages/user/settings/personalAddress/UserSettingsEditPersonalAddressForm';
 
-const UserSettingsCreateCompanyAccountWrapper = () => {
+const UserSettingsCreateTeacherAccountWrapper = () => {
   const onFinish = () => {
     console.log('onFinish');
   };
@@ -9,4 +9,4 @@ const UserSettingsCreateCompanyAccountWrapper = () => {
   return <UserSettingsEditPersonalAddressForm onFinish={onFinish} />;
 };
 
-export default UserSettingsCreateCompanyAccountWrapper;
+export default UserSettingsCreateTeacherAccountWrapper;

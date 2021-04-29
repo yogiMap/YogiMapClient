@@ -39,7 +39,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
       <div className='row'>
         <div className='col'>
-          <Form.Item label='Phone Number' name='phone'>
+          <Form.Item label='Phone Number' name='phoneNumber'>
             <Input />
           </Form.Item>
         </div>

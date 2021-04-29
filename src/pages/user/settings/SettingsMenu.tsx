@@ -8,12 +8,12 @@ interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
-  const companyAccountId = get(props, 'Account.teacherAccount', '');
+  const teacherAccountId = get(props, 'Account.account', '');
 
   let menuItemName = '';
 
-  if (history.location.pathname.split('/')[2] === 'companyAccount') {
-    menuItemName = 'Company account';
+  if (history.location.pathname.split('/')[2] === 'teacherAccount') {
+    menuItemName = 'Teacher account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'Profile';
   } else if (history.location.pathname.split('/')[2] === 'security') {
@@ -22,9 +22,9 @@ const SettingsMenu = (props: IProps) => {
 
   const menu = [
     {
-      name: 'Company account',
+      name: 'Teacher account',
       icon: <UsergroupAddOutlined />,
-      link: `/settings/companyAccount/${ownerId}`,
+      link: `/settings/teacherAccount/${ownerId}`,
     },
     {
       name: 'Profile',
@@ -43,7 +43,7 @@ const SettingsMenu = (props: IProps) => {
   return (
     <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
       {menu.map((el) => (
-        <Menu.Item key={el.name} disabled={!companyAccountId && el.name !== 'Company account'}>
+        <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
           {el.icon}
           {el.name}
           <Link to={el.link} />
