@@ -7,6 +7,7 @@ import BaseFormCreateWrapper from '@/pages/base/form/BaseFormCreateWrapper';
 import BaseFormEditWrapper from '@/pages/base/form/BaseFormEditWrapper';
 import TeacherCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
 import TeacherEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
+import TeacherAccountEditWrapper from '@/pages/teacherAccount/form/TeacherAccountFormEditWrapper';
 import TeacherTypeCreateWrapper from '@/pages/teacherType/form/TeacherTypeCreateWrapper';
 import TeacherTypeEditWrapper from '@/pages/teacherType/form/TeacherTypeEditWrapper';
 import ClassCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
@@ -33,6 +34,8 @@ const Sidepanel = (props: IProps) => {
 
     TeacherFormCreate: <TeacherCreateWrapper />,
     TeacherFormEdit: <TeacherEditWrapper />,
+
+    TeacherAccountFormEdit: <TeacherAccountEditWrapper />,
 
     ClassesFormCreate: <ClassCreateWrapper />,
     ClassesFormEdit: <ClassEditWrapper />,

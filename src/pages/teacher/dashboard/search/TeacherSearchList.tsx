@@ -57,9 +57,9 @@ const TeacherSearchList = (props: IProps) => {
       key: 'description',
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
+      title: 'Phone Number',
+      dataIndex: 'phoneNumber',
+      key: 'phoneNumber',
     },
     {
       title: 'Action',
