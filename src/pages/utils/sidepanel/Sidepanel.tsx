@@ -13,6 +13,8 @@ import ClassCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
 import ClassEditWrapper from '@/pages/classes/form/ClassesFormEditWrapper';
 import EventCreateWrapper from '@/pages/event/form/EventFormCreateWrapper';
 import EventEditWrapper from '@/pages/event/form/EventFormEditWrapper';
+import StyleCreateWrapper from '@/pages/style/form/StyleFormCreateWrapper';
+import StyleEditWrapper from '@/pages/style/form/StyleFormEditWrapper';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -40,6 +42,9 @@ const Sidepanel = (props: IProps) => {
 
     TeacherTypeFormCreate: <TeacherTypeCreateWrapper />,
     TeacherTypeFormEdit: <TeacherTypeEditWrapper />,
+
+    StyleFormCreate: <StyleCreateWrapper />,
+    StyleFormEdit: <StyleEditWrapper />,
   };
 
   const mapping = (c: string): any => {

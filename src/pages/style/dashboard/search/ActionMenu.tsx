@@ -66,11 +66,14 @@ const ActionMenu = (props: IProps) => {
 
   return (
     <span>
-      <div id="top-menu" role="menu" className="d-flex align-items-end">
+      <div id="top-menu" role="menu" className="d-flex justify-content-center">
+        {/*<Button type="link" onClick={() => editHandler(row._id)}>*/}
+        {/*  <EditOutlined className="edit-pen-icon" />*/}
+        {/*</Button>*/}
+
         <Dropdown overlay={menu(row)}>
           <span className="ant-dropdown-link">
-            <SmallDashOutlined />
-            {/*<img src={dotsIcon} alt="" height="27" />*/}
+            <img src={dotsIcon} alt="" height="27" />
           </span>
         </Dropdown>
       </div>

@@ -13,7 +13,7 @@ interface IProps {
 const StyleDashboardControls = (props: IProps) => {
   const styleCreate = () => {
     props.open({
-      title: 'Create new Style',
+      title: 'Create New Yoga Style',
       component: 'StyleFormCreate',
       place: 'StyleDashboard',
       width: 800,
@@ -25,7 +25,7 @@ const StyleDashboardControls = (props: IProps) => {
     <>
     {isUserAuth && (
     <Button type="primary"  shape="round" onClick={styleCreate}>
-      Create Style
+      Create Yoga Style
     </Button>
     )}
     </>

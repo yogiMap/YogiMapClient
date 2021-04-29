@@ -84,11 +84,11 @@ const TeacherTypeDashboard = (props: IProps) => {
         </div>
       </div>
 
-      <div className="row my-3">
-        <div className="col d-flex justify-content-end">
-          <TeacherTypeDashboardControls />
-        </div>
-      </div>
+    {/*  <div className="row my-3">*/}
+    {/*    <div className="col d-flex justify-content-end">*/}
+    {/*      <TeacherTypeDashboardControls />*/}
+    {/*    </div>*/}
+    {/*  </div>*/}
     </div>
   );
 };

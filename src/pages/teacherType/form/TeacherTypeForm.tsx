@@ -19,8 +19,8 @@ const TeacherTypeForm = (props: IProps) => {
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
 
-      <Form.Item name="name" label="Class Name" rules={[validator.require]}>
-        <Input placeholder="Class Name" className="rounded-pill"/>
+      <Form.Item name="name" label="Type Of Yoga" rules={[validator.require]}>
+        <Input placeholder="Type Of Yoga" className="rounded-pill"/>
       </Form.Item>
 
       {/*<TeacherTypeForm.Item name="accessType" rules={[validator.require]}>*/}
