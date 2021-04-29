@@ -13,7 +13,7 @@ interface IProps {
 const ClassesDashboardControls = (props: IProps) => {
   const classesCreate = () => {
     props.open({
-      title: 'Create new Classes',
+      title: 'Create New Class',
       component: 'ClassesFormCreate',
       place: 'ClassesDashboard',
       width: 800,
@@ -26,7 +26,7 @@ const ClassesDashboardControls = (props: IProps) => {
     <>
       {isUserAuth && (
         <Button type="primary" shape="round" onClick={classesCreate}>
-          Create Classes
+          Create Class
         </Button>
       )}
     </>

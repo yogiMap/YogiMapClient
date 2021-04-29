@@ -1,19 +1,25 @@
 import React from 'react';
 import { get } from 'lodash';
-import { Table } from 'antd';
+import { Button, Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import { IClasses } from '@/pages/classes/types';
+import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
+import { ISidepanel } from '@/pages/utils/sidepanel/types';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
+  open: (arg: ISidepanel) => void;
+  Account: IUserAccount;
 }
 
 const TeacherViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const classes = get(props, 'classes', []);
+  const isUserAuth = get(props, 'Account._id');
 
   const columns: ColumnProps<IClasses>[] = [
     {
@@ -45,21 +51,32 @@ const TeacherViewClassesList = (props: IProps) => {
   ];
 
   return (
-    <Table
-      rowKey="_id"
-      columns={columns}
-      dataSource={classes}
-      size="middle"
-      className="table-middle"
-      pagination={false}
-    />
+    <div>
+      <Table
+        rowKey="_id"
+        columns={columns}
+        dataSource={classes}
+        size="middle"
+        className="table-middle"
+        pagination={false}
+      />
+      {/*{isUserAuth && (*/}
+      <div className="d-flex justify-content-end my-5">
+        <ClassesDashboardControls />
+      </div>
+      {/*)}*/}
+    </div>
   );
 };
 
-// state: any
-const mapStateToProps = () => ({});
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+  sidepanel: state.Sidepanel,
+});
 
-//dispatch: any
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+  open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
+
+});
 
 export default withRouter(TeacherViewClassesList);

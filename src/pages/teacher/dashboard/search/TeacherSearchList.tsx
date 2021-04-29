@@ -9,6 +9,7 @@ import { ITeacher } from '@/pages/teacher/types';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 
 interface IProps extends RouteComponentProps {
+  teacherId: string;
   items: ITeacher[];
 }
 
@@ -22,20 +23,38 @@ const TeacherSearchList = (props: IProps) => {
       key: 'name',
       render: (row) => <Link to={`/teacher/${row._id}`}>{row.name}</Link>,
     },
+    // {
+    //   title: 'TeacherType',
+    //   dataIndex: 'teacherType',
+    //   key: 'teacherType',
+    // },
+    // {
+    //   title: 'YogaStyle',
+    //   dataIndex: 'style',
+    //   key: 'style',
+    //   render: (row) => <Link to={`/teacher/${row._id}`}>{row.name}</Link>,
+    // },
+
+    {
+      title: 'TeacherType',
+      key: 'teacherType',
+      render: (row) => {
+        return <Link to={`/teacherType/${get(row, 'teacherType._id')}`}>{get(row, 'teacherType.name')}</Link>;
+      },
+    //   render: (row) => <Link to={`/teacherType/${row._id}`}>{row.name}</Link>,
+    },
+
     {
       title: 'YogaStyle',
-      dataIndex: 'yogaStyle',
-      key: 'yogaStyle',
+      key: 'style',
+      render: (row) => {
+        return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
+      },
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
-    },
-    {
-      title: 'Location',
-      dataIndex: 'location',
-      key: 'location',
     },
     {
       title: 'Phone',

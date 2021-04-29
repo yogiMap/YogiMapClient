@@ -13,7 +13,7 @@ interface IProps {
 const EventDashboardControls = (props: IProps) => {
   const eventCreate = () => {
     props.open({
-      title: 'Create new Event',
+      title: 'Create New Event',
       component: 'EventFormCreate',
       place: 'EventDashboard',
       width: 800,
