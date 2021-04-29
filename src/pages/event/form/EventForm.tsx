@@ -6,6 +6,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher} from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
+import { ITeacherType } from '@/pages/teacherType/types';
 
 interface IProps {
   isLoading: boolean;
@@ -14,6 +15,7 @@ interface IProps {
   initialValues?: IEvent;
   teacherList: ITeacher[];
   styleList: IStyle[];
+  teacherTypeList: ITeacherType[];
 }
 
 const EventForm = (props: IProps) => {
@@ -35,38 +37,66 @@ const EventForm = (props: IProps) => {
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}>
-
+      <div className="row my-3">
+        <div className="col">
       <Form.Item name="name" label="Event Name" rules={[validator.require]}>
         <Input placeholder="Event Name" className="rounded-pill"/>
       </Form.Item>
 
-      <Form.Item name="teacher" label="Teacher" rules={[validator.require]} >
-        <Select className="rounded-circle">
-          {props.teacherList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
+        </div>
+        <div className="col">
+          <Form.Item name="teacherType" label="Teacher Type">
+            <Select className="rounded-circle">
+              {props.teacherTypeList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
+      </div>
 
-      <Form.Item name="style" label="Yoga Style" >
-        <Select className="rounded-circle">
-          {props.styleList.map((el) => (
-            <Option key={el._id} value={el._id} >
-              {el.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
+      <div className="row my-3">
+        <div className="col">
+          <Form.Item name="style" label="Yoga Style">
+            <Select className="rounded-circle">
+              {props.styleList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
 
-      <Form.Item name="description" label="Description">
-        <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill"/>
-      </Form.Item>
+        <div className="col">
+          <Form.Item name="teacher" label="Teacher" rules={[validator.require]}>
+            <Select className="rounded-circle">
+              {props.teacherList.map((el) => (
+                <Option key={el._id} value={el._id}>
+                  {el.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </div>
+      </div>
 
-      <Form.Item label="Date" name="date" initialValue={date}>
-        <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
-      </Form.Item>
+      <div className="row">
+        <div className="col">
+          <Form.Item name="description" label="Description">
+            <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill" />
+          </Form.Item>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <Form.Item label="Date" name="date" initialValue={date}>
+            <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+          </Form.Item>
+        </div>
+      </div>
 
       {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}

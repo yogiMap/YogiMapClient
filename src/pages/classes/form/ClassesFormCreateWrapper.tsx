@@ -4,7 +4,6 @@ import ClassesForm from '@/pages/classes/form/ClassesForm';
 import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import TeacherForm from '@/pages/teacher/form/TeacherForm';
 
 interface IProps {
   create: (arg: IClasses) => void;

@@ -2,6 +2,10 @@ import { Effect, history, Reducer } from 'umi';
 
 import { queryEventCreate, queryEventGetById, queryEventUpdateById } from '@/pages/event/queries';
 import defaultReducers from '@/utils/defaultReducers';
+import { queryStyleSearch } from '@/pages/style/queries';
+import { get } from 'lodash';
+import { queryTeacherSearch } from '@/pages/teacher/queries';
+import { queryTeacherTypeSearch } from '@/pages/teacherType/queries';
 
 export interface IState {}
 
@@ -12,6 +16,9 @@ export interface EventModelType {
     create: Effect;
     getById: Effect;
     updateById: Effect;
+    styleSearch: Effect;
+    teacherSearch: Effect;
+    teacherTypeSearch: Effect;
     reset: Effect;
   };
   reducers: {
@@ -44,6 +51,36 @@ const EventModel: EventModelType = {
       yield call(queryEventUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
       yield put({ type: 'EventDashboard/eventSearch', payload: payload.queryParams });
+    },
+
+    *styleSearch(_, { call, put }) {
+      const data = yield call(queryStyleSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          styleList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *teacherSearch(_, { call, put }) {
+      const data = yield call(queryTeacherSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          teacherList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *teacherTypeSearch(_, { call, put }) {
+      const data = yield call(queryTeacherTypeSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          teacherTypeList: get(data, 'payload.items'),
+        },
+      });
     },
 
     *reset(_, { put }) {
