@@ -5,7 +5,6 @@ import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
-import { IEvent } from '@/pages/event/types';
 
 interface IClassesDeleteById {
   classesId: string;
@@ -67,13 +66,13 @@ const ActionMenu = (props: IProps) => {
 
   return (
     <span>
-      <div id="top-menu" role="menu" classesName="d-flex align-items-end">
-        <Button type="link" onClick={() => editHandler(row._id)}>
-          <EditOutlined classesName="edit-pen-icon" />
-        </Button>
+      <div id="top-menu" role="menu" className="d-flex justify-content-center">
+        {/*<Button type="link" onClick={() => editHandler(row._id)}>*/}
+        {/*  <EditOutlined className="edit-pen-icon" />*/}
+        {/*</Button>*/}
 
         <Dropdown overlay={menu(row)}>
-          <span classesName="ant-dropdown-link">
+          <span className="ant-dropdown-link">
             <img src={dotsIcon} alt="" height="27" />
           </span>
         </Dropdown>

@@ -28,20 +28,13 @@ const TeacherTypeSearchList = (props: IProps) => {
       key: 'teacher',
       render: (row) => <Link to={`/teacherType/${row._id}`}>{row.teacher}</Link>,
     },
-    {
-      title: 'owner',
-      key: 'owner',
-      render: (row) => {
-        return <ProfileHoverCard id={get(row, 'owner._id')} name={get(row, 'owner.name')} />;
-      },
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      className: 'actions',
-      width: 80,
-      render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
-    },
+    // {
+    //   title: 'Action',
+    //   key: 'action',
+    //   className: 'actions',
+    //   width: 80,
+    //   render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
+    // },
   ];
 
   return (
