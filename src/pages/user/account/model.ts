@@ -57,7 +57,7 @@ const UserModel: UserModelType = {
         }
 
         const emailConfirmed = get(userAuthResult, 'payload.emailConfirmation.confirmed');
-        const companyAccount = get(userAuthResult, 'payload.companyAccount');
+        const companyAccount = get(userAuthResult, 'payload.teacherAccount');
 
 
         if (userAuthResult) {

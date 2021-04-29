@@ -53,7 +53,7 @@ export default [
             routes: [
               {
                 path: '/settings/:userId',
-                redirect: '/settings/companyAccount/:userId',
+                redirect: '/settings/teacherAccount/:userId',
               },
               {
                 path: '/settings/profile/:userId',

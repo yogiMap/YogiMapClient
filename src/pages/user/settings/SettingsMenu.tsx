@@ -8,7 +8,7 @@ interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
-  const companyAccountId = get(props, 'Account.companyAccount', '');
+  const companyAccountId = get(props, 'Account.teacherAccount', '');
 
   let menuItemName = '';
 
