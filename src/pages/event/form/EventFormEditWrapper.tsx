@@ -59,8 +59,8 @@ const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
   eventInfo: state.EventForm.eventInfo,
   loadingEffects: state.loading.effects,
-  styleList: state.StyleForm.styleList,
-  teacherList: state.TeacherForm.teacherList,
+  styleList: state.EventForm.styleList,
+  teacherList: state.EventForm.teacherList,
   teacherTypeList: state.EventForm.teacherTypeList,
 });
 
@@ -68,8 +68,8 @@ const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'EventForm/reset' }),
   updateById: (payload: IEvent) => dispatch({ type: 'EventForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
-  styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
+  styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
+  teacherSearch: () => dispatch({ type: 'EventForm/teacherSearch' }),
   teacherTypeSearch: () => dispatch({ type: 'EventForm/teacherTypeSearch' }),
 });
 
