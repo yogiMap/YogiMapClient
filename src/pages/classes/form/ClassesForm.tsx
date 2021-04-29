@@ -41,12 +41,11 @@ const ClassesForm = (props: IProps) => {
             <Input placeholder="Class Name" className="rounded-pill" />
           </Form.Item>
         </div>
-
-        <div className="col">
-          <Form.Item name="classesType" label="Classes Type">
-            <Input placeholder="Classes Type" className="rounded-pill" />
-          </Form.Item>
-        </div>
+          <div className="col">
+            <Form.Item name="teacherType" label="Teacher Type">
+              <Input placeholder="Teacher Type" className="rounded-pill" />
+            </Form.Item>
+          </div>
       </div>
 
       <div className="row my-3">
@@ -89,14 +88,6 @@ const ClassesForm = (props: IProps) => {
           </Form.Item>
         </div>
         </div>
-
-
-      {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
-      {/*  <Select placeholder="Access type">*/}
-      {/*    <Option value="members">Members</Option>*/}
-      {/*    <Option value="all">All</Option>*/}
-      {/*  </Select>*/}
-      {/*</TeacherForm.Item>*/}
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">

@@ -40,7 +40,7 @@ const StyleFilterForm = (props: IProps) => {
     <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
       <div className="row d-flex justify-content-center">
         <div className="col d-flex justify-content-center">
-          <Form.Item name="style">
+          <Form.Item name="name">
             <Input placeholder="Yoga Style" className="rounded-pill" />
           </Form.Item>
         </div>

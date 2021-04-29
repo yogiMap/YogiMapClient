@@ -42,11 +42,6 @@ const ClassesSearchList = (props: IProps) => {
       dataIndex: 'yogaStyle',
     },
     {
-      title: 'ClassesType',
-      key: 'classesType',
-      dataIndex: 'classesType',
-    },
-    {
       title: 'Teacher',
       key: 'teacher',
       render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
