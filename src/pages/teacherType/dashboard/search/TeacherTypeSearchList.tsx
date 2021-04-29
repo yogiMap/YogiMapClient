@@ -28,13 +28,13 @@ const TeacherTypeSearchList = (props: IProps) => {
       key: 'teacher',
       render: (row) => <Link to={`/teacherType/${row._id}`}>{row.teacher}</Link>,
     },
-    // {
-    //   title: 'Action',
-    //   key: 'action',
-    //   className: 'actions',
-    //   width: 80,
-    //   render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
-    // },
+    {
+      title: 'Action',
+      key: 'action',
+      className: 'actions',
+      width: 80,
+      render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
+    },
   ];
 
   return (

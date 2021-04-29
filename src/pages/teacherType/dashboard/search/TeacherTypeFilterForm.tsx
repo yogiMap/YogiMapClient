@@ -40,7 +40,7 @@ const TeacherTypeFilterForm = (props: IProps) => {
     <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
       <div className="row d-flex justify-content-center">
         <div className="col d-flex justify-content-center">
-      <Form.Item name="teacherType">
+      <Form.Item name="name">
         <Input placeholder="teacherType"  className="rounded-pill"/>
       </Form.Item>
         </div>
