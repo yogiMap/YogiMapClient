@@ -6,7 +6,6 @@ import { get, isEmpty } from 'lodash';
 import EventForm from '@/pages/event/form/EventForm';
 import { IEvent } from '@/pages/event/types';
 import { ILoadingEffects } from '@/types';
-import ClassesForm from '@/pages/classes/form/ClassesForm';
 
 interface IProps {
   getById: (eventId: string) => void;
@@ -16,6 +15,7 @@ interface IProps {
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
   teacherSearch: () => void;
+  teacherTypeSearch: () => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -30,6 +30,7 @@ const EventFormEditWrapper = (props: IProps) => {
     props.getById(eventId);
     props.styleSearch();
     props.teacherSearch();
+    props.teacherTypeSearch();
   }, []);
 
   const onFinish = (values: IEvent) => {
@@ -39,6 +40,7 @@ const EventFormEditWrapper = (props: IProps) => {
   if (isLoadingGet) return <Spin indicator={antIcon} />;
   const styleList = get(props, 'styleList', []);
   const teacherList = get(props, 'teacherList', []);
+  const teacherTypeList = get(props, 'teacherTypeList', []);
 
   return (
     <EventForm
@@ -48,6 +50,7 @@ const EventFormEditWrapper = (props: IProps) => {
       isLoading={isLoadingUpdate}
       styleList={styleList}
       teacherList={teacherList}
+      teacherTypeList={teacherTypeList}
     />
   );
 };
@@ -58,6 +61,7 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.StyleForm.styleList,
   teacherList: state.TeacherForm.teacherList,
+  teacherTypeList: state.EventForm.teacherTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -66,6 +70,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'StyleForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'TeacherForm/teacherSearch' }),
+  teacherTypeSearch: () => dispatch({ type: 'EventForm/teacherTypeSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventFormEditWrapper));
