@@ -4,7 +4,7 @@ import { get, omitBy } from 'lodash';
 import TeacherStats from '@/pages/teacher/dashboard/stats/TeacherStats';
 import TeacherFilterForm from '@/pages/teacher/dashboard/search/TeacherFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
-import { ITeacherQueryParams } from '@/pages/teacher/types';
+import { ITeacher, ITeacherQueryParams } from '@/pages/teacher/types';
 import TeacherSearchList from '@/pages/teacher/dashboard/search/TeacherSearchList';
 import TeacherDashboardControls from '@/pages/teacher/dashboard/controls/TeacherDashboardControls';
 import { IState } from '@/pages/teacher/dashboard/model';
@@ -62,6 +62,9 @@ const TeacherDashboard = (props: IProps) => {
     history.push({ query });
   };
 
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div className="container">
       <div className="row my-5">

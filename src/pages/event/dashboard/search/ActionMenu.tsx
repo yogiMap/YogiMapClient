@@ -5,16 +5,19 @@ import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
+import { IUserAccount } from '@/pages/user/userSearch/types';
+import { get } from 'lodash';
 
 interface IEventDeleteById {
   eventId: string;
   queryParams: IEventQueryParams;
+  Account: IUserAccount;
 }
 
 interface IProps {
   row: IEvent;
   open: (arg: ISidepanel) => void;
-  eventDeleteById: (arg: IEventDeleteById) => void;
+  eventDeleteById: (arg: { eventId: string; queryParams: IEventQueryParams }) => void;
   queryParams: IEventQueryParams;
 }
 
@@ -64,6 +67,8 @@ const ActionMenu = (props: IProps) => {
     });
   };
 
+  const isUserAuth = get(props, 'Account._id');
+
   return (
     <span>
       <div id="top-menu" role="menu" className="d-flex justify-content-center">
@@ -71,19 +76,27 @@ const ActionMenu = (props: IProps) => {
         {/*  <EditOutlined className="edit-pen-icon" />*/}
         {/*</Button>*/}
 
+        {isUserAuth && (
         <Dropdown overlay={menu(row)}>
           <span className="ant-dropdown-link">
             <img src={dotsIcon} alt="" height="27" />
           </span>
         </Dropdown>
+        )}
       </div>
     </span>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   eventDeleteById: (payload: IEventDeleteById) => dispatch({ type: 'EventDashboard/eventDeleteById', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(ActionMenu);
+// @ts-ignore
+export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);

@@ -5,6 +5,8 @@ import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
+import { get } from 'lodash';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IClassesDeleteById {
   classesId: string;
@@ -16,6 +18,7 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   classesDeleteById: (arg: IClassesDeleteById) => void;
   queryParams: IClassesQueryParams;
+  Account: IUserAccount;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -41,7 +44,7 @@ const ActionMenu = (props: IProps) => {
       editHandler(row._id);
     }
     if (handler === 'delete') {
-      // deletePrompt(row);
+      deletePrompt(row);
     }
   };
 
@@ -55,14 +58,16 @@ const ActionMenu = (props: IProps) => {
     });
   };
 
-  // const deletePrompt = (classes: ШclasШs) => {
-  //   Modal.confirm({
-  //     title: `Do you want to delete?`,
-  //     content: `${classes.name}`,
-  //     okType: 'danger',
-  //     onOk: () => props.classesDeleteById({ classesId: classes._id, queryParams }),
-  //   });
-  // };
+  const deletePrompt = (classes: IClasses) => {
+    Modal.confirm({
+      title: `Do you want to delete?`,
+      content: `${classes.name}`,
+      okType: 'danger',
+      onOk: () => props.classesDeleteById({ classesId: classes._id, queryParams }),
+    });
+  };
+
+  const isUserAuth = get(props, 'Account._id');
 
   return (
     <span>
@@ -71,19 +76,25 @@ const ActionMenu = (props: IProps) => {
         {/*  <EditOutlined className="edit-pen-icon" />*/}
         {/*</Button>*/}
 
+        {isUserAuth && (
         <Dropdown overlay={menu(row)}>
           <span className="ant-dropdown-link">
             <img src={dotsIcon} alt="" height="27" />
           </span>
         </Dropdown>
+        )}
       </div>
     </span>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   classesDeleteById: (payload: IClassesDeleteById) => dispatch({ type: 'ClassesDashboard/classesDeleteById', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(ActionMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);

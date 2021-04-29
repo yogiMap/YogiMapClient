@@ -5,6 +5,8 @@ import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
+import { get } from 'lodash';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface ITeacherDeleteById {
   teacherId: string;
@@ -16,6 +18,7 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   teacherDeleteById: (arg: ITeacherDeleteById) => void;
   queryParams: ITeacherQueryParams;
+  Account: IUserAccount;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -64,26 +67,33 @@ const ActionMenu = (props: IProps) => {
     });
   };
 
+  const isUserAuth = get(props, 'Account._id');
+
   return (
     <span>
       <div id="top-menu" role="menu" className="d-flex justify-content-center">
         {/*<Button type="link" onClick={() => editHandler(row._id)}>*/}
         {/*  <EditOutlined className="edit-pen-icon" />*/}
         {/*</Button>*/}
-
+        {isUserAuth && (
         <Dropdown overlay={menu(row)}>
           <span className="ant-dropdown-link">
             <img src={dotsIcon} alt="" height="27" />
           </span>
         </Dropdown>
+        )}
       </div>
     </span>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   teacherDeleteById: (payload: ITeacherDeleteById) => dispatch({ type: 'TeacherDashboard/teacherDeleteById', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(ActionMenu);
+export default connect(mapStateToProps , mapDispatchToProps)(ActionMenu);

@@ -28,15 +28,9 @@ function HomePage(props: IProps) {
         <div className="container">
           {!isUserAuth && (
             <div className="row d-flex justify-content-center">
-              <div className="col-lg-4 my-lg-5 my-2 d-flex justify-content-lg-start justify-content-center">
-                <Link to="/user/register/teacher" className="home-button my-2">
-                  I‘M A TEACHER
-                </Link>
-              </div>
-
-              <div className="col-lg-4 my-lg-5 d-flex justify-content-lg-end justify-content-center">
+              <div className="col-lg-4 my-lg-5 d-flex justify-content-center">
                 <Link to="/user/register" className="home-button my-2">
-                  I’M A STUDENT
+                  JOIN US
                 </Link>
               </div>
             </div>
@@ -132,6 +126,7 @@ function HomePage(props: IProps) {
                   Community is when people begin to care about one another, and when they begin to share things that are
                   important to one another. Yoga is one of those things
                 </li>
+                <li>Find your Yoga Community here</li>
                 <li>Moving Outside of the Classroom</li>
                 <li> A Big Yoga Teachers Community </li>
               </ul>
