@@ -15,12 +15,13 @@ const TeacherView = (props: IProps) => {
   const teacherId = get(props, 'match.params.teacherId');
   const name = get(props, 'TeacherView.name', '');
   const classesObject = get(props, 'TeacherView.classes', {});
-  const classes = Object.values(classesObject);
+  const classes: any  = Object.values(classesObject);
   const eventObject = get(props, 'TeacherView.event', {});
-  const event = Object.values(eventObject);
+  const event: any  = Object.values(eventObject);
   const teacherTypeObject = get(props, 'TeacherView.teacherType', {});
   const teacherType = Object.values(teacherTypeObject);
   // const classes = Object.keys(classesObject).map(el => ({name:el, value: classesObject[el]}) )
+
   const addressId: string = get(props, 'match.params.addressId');
   const addressLine1: string = get(props, 'TeacherView.addressLine1', '');
   const addressLine2: string = get(props, 'TeacherView.addressLine2', '');

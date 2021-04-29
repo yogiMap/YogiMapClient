@@ -18,7 +18,7 @@ interface IProps extends RouteComponentProps {
 
 const TeacherViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const classes = get(props, 'classes', []);
+  const classes: any  = get(props, 'classes', []);
   const isUserAuth = get(props, 'Account._id');
 
   const columns: ColumnProps<IClasses>[] = [
