@@ -66,7 +66,7 @@ const ClassesSearchList = (props: IProps) => {
       title: 'Action',
       key: 'action',
       className: 'actions',
-      width: 100,
+      width: 80,
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];
