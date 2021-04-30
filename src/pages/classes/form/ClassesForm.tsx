@@ -36,7 +36,7 @@ const ClassesForm = (props: IProps) => {
   }, [date, dueDate]);
 
   return (
-    <Form onFinish={props.onFinish} initialValues={props.initialValues}>
+    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout='vertical' name='classes'>
       <div className="row my-3">
         <div className="col">
           <Form.Item name="name" label="Class Name" rules={[validator.require]}>
