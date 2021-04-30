@@ -2,6 +2,8 @@ import React from 'react';
 import { Avatar, Button, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { IUser } from '@/pages/user/userSearch/types';
+import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
+import validator from '@/utils/validators';
 
 const layout = {
   labelCol: { span: 2 },
@@ -37,30 +39,21 @@ const UserSettingsEditProfileForm = (props: IProps) => {
         </div>
       </div>
 
-      <div className='row'>
-        <div className='col'>
-          <Form.Item label='Phone Number' name='phoneNumber'>
-            <Input />
+      <div className="row mt-3">
+        <div className="col-md-6">
+          <Form.Item name="phoneNumber" label="Phone">
+            <PhoneInput />
           </Form.Item>
         </div>
 
-      </div>
-
-      <div className='row'>
-        <div className='col'>
-          <Form.Item label='Email address' name='email'>
-            <Input />
-          </Form.Item>
-        </div>
-
-        <div className='col'>
-          <Form.Item label='Fax' name='fax'>
+        <div className="col-md-6">
+          <Form.Item label="E-mail" name="email" rules={[validator.require]}>
             <Input />
           </Form.Item>
         </div>
       </div>
 
-      <h6 style={{ marginTop: '50px' }}>Personal Address</h6>
+      <h6 className="mt-3">Personal Address</h6>
       <Form.Item label='Address' name='address'>
         <Input placeholder='Please enter personal address' />
       </Form.Item>

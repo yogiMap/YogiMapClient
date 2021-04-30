@@ -51,14 +51,14 @@ const TeacherAccountForm = (props: IProps) => {
        </div>
       </div>
 
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-md-6">
-          <Form.Item name="phoneNumber1" label="Phone 1">
+          <Form.Item name="phoneNumber" label="Phone">
             <PhoneInput />
           </Form.Item>
         </div>
 
-        <div className="col-md-6 mt-4">
+        <div className="col-md-6">
         <Form.Item label="E-mail" name="email" rules={[validator.require]}>
           <Input />
         </Form.Item>
