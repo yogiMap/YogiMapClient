@@ -83,7 +83,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
       </div>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol }}>
-        <Button type='primary' htmlType='submit'>
+        <Button type='primary' shape="round" htmlType='submit'>
           Save
         </Button>
       </Form.Item>

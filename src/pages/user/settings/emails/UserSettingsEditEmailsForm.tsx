@@ -6,7 +6,7 @@ const layout = {
   wrapperCol: { span: 14 },
 };
 
-const UserSettingsEditSecurityForm = (props) => {
+const UserSettingsEditSecurityForm = (props: any) => {
   return (
     <Form {...layout} onFinish={props.onFinish}>
       <Form.Item name="oldEmail" label="Old email">
@@ -18,7 +18,7 @@ const UserSettingsEditSecurityForm = (props) => {
       </Form.Item>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" shape="round" htmlType="submit">
           Update Email
         </Button>
       </Form.Item>

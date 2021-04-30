@@ -65,7 +65,7 @@ const UserSettingsEditSecurityForm = (props: IProps) => {
       </Form.Item>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" shape="round"  htmlType="submit">
           Update Password
         </Button>
       </Form.Item>
