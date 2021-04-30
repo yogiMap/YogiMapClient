@@ -4,7 +4,7 @@ import validator from '@/utils/validators';
 import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
 import moment from 'moment';
-import { ITeacher, IYogaType } from '@/pages/teacher/types';
+import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
 import { ITeacherType } from '@/pages/teacherType/types';
 
@@ -16,7 +16,6 @@ interface IProps {
   teacherList: ITeacher[];
   styleList: IStyle[];
   teacherTypeList: ITeacherType[];
-  yogaType: IYogaType[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -55,18 +54,6 @@ const ClassesForm = (props: IProps) => {
             </Select>
           </Form.Item>
         </div>
-
-        {/*<div className="col">*/}
-        {/*  <Form.Item name="yogaType" label="Yoga Type">*/}
-        {/*    <Select className="rounded-circle">*/}
-        {/*      {props.yogaType.map((el) => (*/}
-        {/*        <Option key={el._id} value={el._id}>*/}
-        {/*          {el.name}*/}
-        {/*        </Option>*/}
-        {/*      ))}*/}
-        {/*    </Select>*/}
-        {/*  </Form.Item>*/}
-        {/*</div>*/}
       </div>
 
       <div className="row my-3">

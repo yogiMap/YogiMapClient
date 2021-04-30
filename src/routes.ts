@@ -80,6 +80,10 @@ export default [
                 component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
               },
               {
+                path: '/settings/classes/:userId',
+                component: '@/pages/user/settings/classes/ClassesFormCreateWrapper',
+              },
+              {
                 path: '/settings/emails/:userId',
                 component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
               },

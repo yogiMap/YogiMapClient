@@ -11,6 +11,7 @@ interface IProps {
   styleSearch: () => void;
   teacherSearch: () => void;
   teacherTypeSearch: () => void;
+  // yogaType: () => void;
 }
 
 const ClassesFormCreateWrapper = (props: IProps) => {
@@ -28,7 +29,9 @@ const ClassesFormCreateWrapper = (props: IProps) => {
   const styleList = get(props, 'styleList', []);
   const teacherList = get(props, 'teacherList', []);
   const teacherTypeList = get(props, 'teacherTypeList', []);
+  // const yogaType = get(props, 'yogaType', '');
 
+  // @ts-ignore
   return <ClassesForm
     onFinish={onFinish}
     submitButtonText="Create"
@@ -36,6 +39,7 @@ const ClassesFormCreateWrapper = (props: IProps) => {
     styleList={styleList}
     teacherList={teacherList}
     teacherTypeList={teacherTypeList}
+    // yogaType={yogaType}
   />;
 };
 
@@ -44,7 +48,7 @@ const mapStateToProps = (state: any) => ({
   styleList: state.ClassesForm.styleList,
   teacherList: state.ClassesForm.teacherList,
   teacherTypeList: state.ClassesForm.teacherTypeList,
-
+  // yogaType: state.Account.yogaType
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

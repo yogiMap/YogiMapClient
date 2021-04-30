@@ -11,9 +11,9 @@ import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
   isLoading: boolean;
-  onFinish: (values: IUser) => void;
+  onFinish: (values: ITeacherAccount) => void;
   submitButtonText: string;
-  initialValues?: IUser;
+  initialValues?:  ITeacherAccount;
 }
 
 const TeacherAccountForm = (props: IProps) => {
