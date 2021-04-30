@@ -7,30 +7,49 @@ import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
 import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
   isLoading: boolean;
-  onFinish: (values: ITeacherAccount) => void;
+  onFinish: (values: IUser) => void;
   submitButtonText: string;
-  initialValues?: ITeacherAccount;
+  initialValues?: IUser;
 }
 
 const TeacherAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
   const teacherCode = get(props, 'initialValues.code', 'n/a');
   const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
+  // const firstName =
 
   return (
-    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
+    <Form onFinish={props.onFinish} initialValues={props.initialValues}
+          layout='vertical' name='teacherAccount'>
+
       <div className="row">
         <div className="col-md-10">
           <h6>Teacher Information</h6>
         </div>
-        <div className="col-md-2">Account ID: {teacherCode}</div>
+
+        <div className="col-md-2">
+          Account ID: {teacherCode}
+        </div>
       </div>
-      <Form.Item label="Teacher Name" name="teacherName" rules={[validator.require]}>
-        <Input placeholder="Please enter Teacher Name" />
-      </Form.Item>
+
+
+      <div className="row">
+        <div className="col">
+          <Form.Item label='First Name' name='firstName'>
+            <Input />
+          </Form.Item>
+       </div>
+
+        <div className="col">
+          <Form.Item label='Last Name' name='lastName'>
+            <Input />
+          </Form.Item>
+       </div>
+      </div>
 
       <div className="row">
         <div className="col-md-6">
@@ -38,36 +57,12 @@ const TeacherAccountForm = (props: IProps) => {
             <PhoneInput />
           </Form.Item>
         </div>
-        <div className="col-md-6">
-          {!addAdditionalPhoneMode && (
-            <Button
-              className="pt-5"
-              type="link"
-              size="small"
-              onClick={() => setAddAdditionalPhoneMode(!addAdditionalPhoneMode)}
-            >
-              + Phone
-            </Button>
-          )}
-          {addAdditionalPhoneMode && (
-            <Form.Item name="phoneNumber2" label="Phone 2">
-              <PhoneInput />
-            </Form.Item>
-          )}
-        </div>
-      </div>
 
-      <div className="row">
-        <div className="col-md-6">
-          <Form.Item label="E-mail" name="email" rules={[validator.require]}>
-            <Input />
-          </Form.Item>
-        </div>
-        <div className="col-md-6">
-          <Form.Item label="Fax" name="fax">
-            <Input type="number" />
-          </Form.Item>
-        </div>
+        <div className="col-md-6 mt-4">
+        <Form.Item label="E-mail" name="email" rules={[validator.require]}>
+          <Input />
+        </Form.Item>
+      </div>
       </div>
 
       <div className="row">
@@ -77,13 +72,14 @@ const TeacherAccountForm = (props: IProps) => {
       </div>
 
       <div className="row">
-        <div className="col-md-11">
+        <div className="col-md-9">
           <Form.Item label="Teacher Address" name="address">
             <Input />
           </Form.Item>
         </div>
+
         <div className="col-md-1 pt-4">
-          <Button type="primary" className="mt-2">
+          <Button type="primary" shape="round" className="mt-2">
             Search
           </Button>
         </div>
@@ -109,6 +105,7 @@ const TeacherAccountForm = (props: IProps) => {
             <CountrySearchInput />
           </Form.Item>
         </div>
+
         <div className="col-md-6">
           <Form.Item label="City" name="city">
             <Input />
@@ -122,27 +119,25 @@ const TeacherAccountForm = (props: IProps) => {
             <CountryStateSearchInput />
           </Form.Item>
         </div>
+
         <div className="col-md-6">
           <Form.Item label="Zip Code" name="zipCode">
             <Input />
           </Form.Item>
         </div>
       </div>
+
       <div className="row">
-        <div className="col-md-6">
-          <Form.Item label="Currency" name="currency">
-            <Input disabled={true} defaultValue="USA" />
-          </Form.Item>
-        </div>
         <div className="col-md-6">
           <Form.Item label="Time Zone" name="timeZone">
             <TimeZoneSearchInput />
           </Form.Item>
         </div>
       </div>
+
       <div className="row">
         <Form.Item className="mx-3">
-          <Button type="primary" htmlType="submit" loading={isLoading}>
+          <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
             {props.submitButtonText}
           </Button>
         </Form.Item>
