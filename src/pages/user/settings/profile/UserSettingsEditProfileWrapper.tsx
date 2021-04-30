@@ -16,13 +16,12 @@ interface IProps {
 
 const UserSettingsEditProfileWrapper = (props: IProps) => {
   const userId = get(props, 'match.params.userId', '');
-  const name = get(props, 'userInfo.name', '');
+//  const name = get(props, 'userInfo.name', '');
   const userTeacherAccountId = get(props, 'teacherAccount', '');
   const firstName = get(props, 'userInfo.firstName', '');
   const lastName = get(props, 'userInfo.lastName', '');
   const email = get(props, 'userInfo.email', '');
   const phone = get(props, 'userInfo.phone', '');
-  const fax = get(props, 'userInfo.fax', '');
   const address = get(props, 'userInfo.personalAddress.address', '');
   const city = get(props, 'userInfo.personalAddress.city', '');
   const state = get(props, 'userInfo.personalAddress.state', '');
@@ -39,7 +38,6 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
     firstName,
     lastName,
     phone,
-    fax,
     address,
     city,
     state,

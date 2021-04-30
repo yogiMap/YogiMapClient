@@ -21,3 +21,14 @@ export interface ITeacherQueryParams {
   page?: number | string;
   teacherSearchParam1?: string;
 }
+
+export interface IYogaType {
+  _id: string;
+  name: string;
+  owner: {
+    name: string;
+    _id: string;
+  };
+  createdAt: string;
+  updatedAt: string;
+}

@@ -27,14 +27,22 @@ export default [
 
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
+
+          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
+
           { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
           { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
+
           { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
+
           { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
           { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
+
           { path: '/teacherType', component: '@/pages/teacherType/dashboard/TeacherTypeDashboard' },
           { path: '/teacherType/:teacherTypeId', component: '@/pages/teacherType/view/TeacherTypeView' },
+
           { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
           { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },
 
@@ -53,7 +61,15 @@ export default [
             routes: [
               {
                 path: '/settings/:userId',
-                redirect: '/settings/account/:userId',
+                redirect: '/settings/teacherAccount/:userId',
+              },
+              {
+                path: '/settings/profile/:userId',
+                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+              },
+              {
+                path: '/settings/teacherAccount/:userId',
+                component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
               },
               {
                 path: '/settings/profile/:userId',

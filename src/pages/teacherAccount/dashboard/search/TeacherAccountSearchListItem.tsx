@@ -44,4 +44,5 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch({ type: 'TeacherAccountDashboard/teacherAccountDeleteDyId', payload: teacherAccountId }),
 });
 
+// @ts-ignore
 export default connect(null, mapDispatchToProps)(TeacherAccountSearchListItem);
