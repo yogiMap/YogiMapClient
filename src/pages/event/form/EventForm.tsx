@@ -6,7 +6,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher} from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
-import { ITeacherType } from '@/pages/teacherType/types';
+import { ITeacherType } from '@/pages/classType/types';
 
 interface IProps {
   isLoading: boolean;

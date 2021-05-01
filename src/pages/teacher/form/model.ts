@@ -2,7 +2,7 @@ import { Effect, history, Reducer } from 'umi';
 
 import { queryTeacherCreate, queryTeacherGetById, queryTeacherUpdateById } from '@/pages/teacher/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import { queryTeacherTypeSearch } from '@/pages/teacherType/queries';
+import { queryTeacherTypeSearch } from '@/pages/classType/queries';
 import { queryClassesSearch } from '@/pages/classes/queries';
 import { queryEventSearch } from '@/pages/event/queries';
 import { queryStyleSearch } from '@/pages/style/queries';

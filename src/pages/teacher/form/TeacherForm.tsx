@@ -3,7 +3,7 @@ import { Button, DatePicker, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
 import { ITeacher } from '@/pages/teacher/types';
-import { ITeacherType } from '@/pages/teacherType/types';
+import { ITeacherType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';

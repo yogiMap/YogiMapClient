@@ -38,11 +38,11 @@ const ClassesSearchList = (props: IProps) => {
     },
     {
       title: 'TeacherType',
-      key: 'teacherType',
+      key: 'classType',
       render: (row) => {
-        return <Link to={`/teacherType/${get(row, 'teacherType._id')}`}>{get(row, 'teacherType.name')}</Link>;
+        return <Link to={`/teacherType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
       },
-      //   render: (row) => <Link to={`/teacherType/${row._id}`}>{row.name}</Link>,
+      //   render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'YogaStyle',

@@ -40,8 +40,8 @@ export default [
           { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
           { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
 
-          { path: '/teacherType', component: '@/pages/teacherType/dashboard/TeacherTypeDashboard' },
-          { path: '/teacherType/:teacherTypeId', component: '@/pages/teacherType/view/TeacherTypeView' },
+          { path: '/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
+          { path: '/classType/:classTypeId', component: '@/pages/classType/view/ClassTypeView' },
 
           { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
           { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },

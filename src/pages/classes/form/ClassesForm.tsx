@@ -6,7 +6,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
-import { ITeacherType } from '@/pages/teacherType/types';
+import { IClassType } from '@/pages/classType/types';
 
 interface IProps {
   isLoading: boolean;
@@ -15,7 +15,7 @@ interface IProps {
   initialValues?: IClasses;
   teacherList: ITeacher[];
   styleList: IStyle[];
-  teacherTypeList: ITeacherType[];
+  classTypeList: IClassType[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -44,9 +44,9 @@ const ClassesForm = (props: IProps) => {
           </Form.Item>
         </div>
         <div className="col">
-          <Form.Item name="teacherType" label="Teacher Type">
+          <Form.Item name="classType" label="Class Type">
             <Select className="rounded-circle">
-              {props.teacherTypeList.map((el) => (
+              {props.classTypeList.map((el) => (
                 <Option key={el._id} value={el._id}>
                   {el.name}
                 </Option>

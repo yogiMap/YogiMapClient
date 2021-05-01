@@ -1,4 +1,4 @@
-import { ITeacherType, ITeacherTypeQueryParams } from '@/pages/teacherType/types';
+import { IClassType, IClassTypeQueryParams } from '@/pages/classType/types';
 import { Button, Dropdown, Menu, Modal } from 'antd';
 import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
@@ -8,16 +8,16 @@ import { EditOutlined } from '@ant-design/icons';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
-interface ITeacherTypeDeleteById {
-  teacherTypeId: string;
-  queryParams: ITeacherTypeQueryParams;
+interface IClassTypeDeleteById {
+  classTypeId: string;
+  queryParams: IClassTypeQueryParams;
 }
 
 interface IProps {
-  row: ITeacherType;
+  row: IClassType;
   open: (arg: ISidepanel) => void;
-  teacherTypeDeleteById: (arg: ITeacherTypeDeleteById) => void;
-  queryParams: ITeacherTypeQueryParams;
+  classTypeDeleteById: (arg: IClassTypeDeleteById) => void;
+  queryParams: IClassTypeQueryParams;
   Account: IUserAccount;
 }
 
@@ -29,7 +29,7 @@ const ActionMenu = (props: IProps) => {
     { key: 'delete', handler: 'delete', name: 'Delete', danger: true },
   ];
 
-  const menu = (row: ITeacherType) => (
+  const menu = (row: IClassType) => (
     <Menu>
       {menuItems.map((el) => (
         <Menu.Item key={el.key} danger={el.danger} onClick={() => contextMenuClick(el.handler, row)}>
@@ -39,7 +39,7 @@ const ActionMenu = (props: IProps) => {
     </Menu>
   );
 
-  const contextMenuClick = (handler: any, row: ITeacherType) => {
+  const contextMenuClick = (handler: any, row: IClassType) => {
     if (handler === 'edit') {
       editHandler(row._id);
     }
@@ -48,22 +48,22 @@ const ActionMenu = (props: IProps) => {
     }
   };
 
-  const editHandler = (teacherTypeId: string) => {
+  const editHandler = (classTypeId: string) => {
     props.open({
-      title: 'Edit TeacherType',
-      component: 'TeacherTypeFormEdit',
-      place: 'TeacherTypeDashboard',
+      title: 'Edit ClassType',
+      component: 'ClassTypeFormEdit',
+      place: 'ClassTypeDashboard',
       width: 800,
-      teacherTypeId,
+      classTypeId,
     });
   };
 
-  const deletePrompt = (teacherType: ITeacherType) => {
+  const deletePrompt = (classType: IClassType) => {
     Modal.confirm({
       title: `Do you want to delete?`,
-      content: `${teacherType.name}`,
+      content: `${classType.name}`,
       okType: 'danger',
-      onOk: () => props.teacherTypeDeleteById({ teacherTypeId: teacherType._id, queryParams }),
+      onOk: () => props.classTypeDeleteById({ classTypeId: classType._id, queryParams }),
     });
   };
 
@@ -93,7 +93,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  teacherTypeDeleteById: (payload: ITeacherTypeDeleteById) => dispatch({ type: 'TeacherTypeDashboard/teacherTypeDeleteById', payload }),
+  classTypeDeleteById: (payload: IClassTypeDeleteById) => dispatch({ type: 'ClassTypeDashboard/classTypeDeleteById', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);

@@ -53,7 +53,7 @@ const TeacherAccountForm = (props: IProps) => {
       </div>
 
       <div className="row">
-        <div className="col">
+        <div className="col-md-6">
           <Form.Item label="Yoga Focus" name="focus">
             <FocusSearchInput/>
           </Form.Item>

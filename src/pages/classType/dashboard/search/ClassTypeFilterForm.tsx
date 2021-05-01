@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { ITeacherTypeQueryParams } from '@/pages/teacherType/types';
+import { IClassTypeQueryParams } from '@/pages/classType/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | ITeacherTypeQueryParams) => void;
-  filters: ITeacherTypeQueryParams;
+  onChange: (values: null | IClassTypeQueryParams) => void;
+  filters: IClassTypeQueryParams;
 }
 
-const TeacherTypeFilterForm = (props: IProps) => {
+const ClassTypeFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -41,7 +41,7 @@ const TeacherTypeFilterForm = (props: IProps) => {
       <div className="row d-flex justify-content-center">
         <div className="col d-flex justify-content-center">
       <Form.Item name="name">
-        <Input placeholder="teacherType"  className="rounded-pill"/>
+        <Input placeholder="classType"  className="rounded-pill"/>
       </Form.Item>
         </div>
 
@@ -55,4 +55,4 @@ const TeacherTypeFilterForm = (props: IProps) => {
   );
 };
 
-export default TeacherTypeFilterForm;
+export default ClassTypeFilterForm;

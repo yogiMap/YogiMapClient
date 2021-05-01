@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
-import { ITeacherType } from '@/pages/teacherType/types';
+import { IClassType } from '@/pages/classType/types';
 import { get } from 'lodash';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
-  initialValues?: ITeacherType;
+  initialValues?: IClassType;
 }
 
-const TeacherTypeForm = (props: IProps) => {
+const ClassTypeForm = (props: IProps) => {
   //const { Option } = Select;
 
   const isLoading = get(props, 'isLoading', false);
@@ -23,12 +23,12 @@ const TeacherTypeForm = (props: IProps) => {
         <Input placeholder="Type Of Yoga" className="rounded-pill"/>
       </Form.Item>
 
-      {/*<TeacherTypeForm.Item name="accessType" rules={[validator.require]}>*/}
+      {/*<ClassTypeForm.Item name="accessType" rules={[validator.require]}>*/}
       {/*  <Select placeholder="Access type">*/}
       {/*    <Option value="members">Members</Option>*/}
       {/*    <Option value="all">All</Option>*/}
       {/*  </Select>*/}
-      {/*</TeacherTypeForm.Item>*/}
+      {/*</ClassTypeForm.Item>*/}
 
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
@@ -39,4 +39,4 @@ const TeacherTypeForm = (props: IProps) => {
   );
 };
 
-export default TeacherTypeForm;
+export default ClassTypeForm;

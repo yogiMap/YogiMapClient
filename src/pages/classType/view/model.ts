@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryTeacherTypeGetById } from '@/pages/teacherType/queries';
+import { queryClassTypeGetById } from '@/pages/classType/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
@@ -9,7 +9,7 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    teacherTypeGetById: Effect;
+    classTypeGetById: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -17,21 +17,21 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'TeacherTypeView',
+  namespace: 'ClassTypeView',
 
   state: {},
 
   effects: {
-    *teacherTypeGetById({ payload }, { call, put }) {
+    *classTypeGetById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
-      const data = yield call(queryTeacherTypeGetById, payload);
+      const data = yield call(queryClassTypeGetById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
     },
 
-    // *teacherTypeDeleteById({ payload }, { call, put }) {
+    // *classTypeDeleteById({ payload }, { call, put }) {
     //   console.log(payload);
-    //   yield call(queryTeacherTypeDeleteById, payload.teacherTypeId);
-    //   yield put({ type: 'teacherTypeSearch', payload: payload.queryParams });
+    //   yield call(queryClassTypeDeleteById, payload.classTypeId);
+    //   yield put({ type: 'classTypeSearch', payload: payload.queryParams });
     // },
   },
 

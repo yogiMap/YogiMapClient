@@ -5,7 +5,7 @@ import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
 import { queryTeacherSearch } from '@/pages/teacher/queries';
-import { queryTeacherTypeSearch } from '@/pages/teacherType/queries';
+import { queryTeacherTypeSearch } from '@/pages/classType/queries';
 
 export interface IState {}
 

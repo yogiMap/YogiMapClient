@@ -3,17 +3,17 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { ITeacherType } from '@/pages/teacherType/types';
+import { IClassType } from '@/pages/classType/types';
 
-interface IProps extends ITeacherType {
-  teacherTypeDelete: (id: String) => void;
+interface IProps extends IClassType {
+  classTypeDelete: (id: String) => void;
 }
 
-const TeacherTypeSearchListItem = (props: IProps) => {
-  const { teacherTypeDelete } = props;
+const ClassTypeSearchListItem = (props: IProps) => {
+  const { classTypeDelete } = props;
 
   const owner = get(props, 'item.owner', '');
-  const teacherTypeId = get(props, 'item._id', '');
+  const classTypeId = get(props, 'item._id', '');
   const createdAt = get(props, 'item.createdAt', '');
   const description = get(props, 'item.description', '');
 
@@ -31,7 +31,7 @@ const TeacherTypeSearchListItem = (props: IProps) => {
       <Row>{description}</Row>
 
       <Row>
-        <Button danger onClick={() => teacherTypeDelete(teacherTypeId)}>
+        <Button danger onClick={() => classTypeDelete(classTypeId)}>
           Delete
         </Button>
       </Row>
@@ -40,7 +40,7 @@ const TeacherTypeSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherTypeDelete: (payload: any) => dispatch({ type: 'TeacherTypeDashboard/teacherTypeDelete', payload }),
+  classTypeDelete: (payload: any) => dispatch({ type: 'ClassTypeDashboard/classTypeDelete', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(TeacherTypeSearchListItem);
+export default connect(null, mapDispatchToProps)(ClassTypeSearchListItem);

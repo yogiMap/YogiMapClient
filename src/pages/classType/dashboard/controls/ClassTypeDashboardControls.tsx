@@ -10,12 +10,12 @@ interface IProps {
   Account: IUserAccount;
 }
 
-const TeacherTypeDashboardControls = (props: IProps) => {
-  const teacherTypeCreate = () => {
+const ClassTypeDashboardControls = (props: IProps) => {
+  const classTypeCreate = () => {
     props.open({
       title: 'What Type of Yoga do you Teach?',
-      component: 'TeacherTypeFormCreate',
-      place: 'TeacherTypeDashboard',
+      component: 'ClassTypeFormCreate',
+      place: 'ClassTypeDashboard',
       width: 800,
     });
   };
@@ -26,7 +26,7 @@ const TeacherTypeDashboardControls = (props: IProps) => {
   return (
     <>
       {isUserAuth && (
-    <Button type="primary"  shape="round"  onClick={teacherTypeCreate}>
+    <Button type="primary"  shape="round"  onClick={classTypeCreate}>
       Teacher Type
     </Button>
       )}
@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeacherTypeDashboardControls);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassTypeDashboardControls);

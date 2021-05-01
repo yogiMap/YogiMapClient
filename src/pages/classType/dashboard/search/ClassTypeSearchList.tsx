@@ -5,28 +5,28 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { ITeacherType } from '@/pages/teacherType/types';
-import ActionMenu from '@/pages/teacherType/dashboard/search/ActionMenu';
+import { IClassType } from '@/pages/classType/types';
+import ActionMenu from '@/pages/classType/dashboard/search/ActionMenu';
 import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
 
 interface IProps extends RouteComponentProps {
-  items: ITeacherType[];
+  items: IClassType[];
 }
 
-const TeacherTypeSearchList = (props: IProps) => {
+const ClassTypeSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<ITeacherType>[] = [
+  const columns: ColumnProps<IClassType>[] = [
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/teacherType/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/teacherType/${row._id}`}>{row.teacher}</Link>,
+      render: (row) => <Link to={`/classType/${row._id}`}>{row.teacher}</Link>,
     },
     {
       title: 'Action',
@@ -55,4 +55,4 @@ const mapStateToProps = () => ({});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeacherTypeSearchList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassTypeSearchList));
