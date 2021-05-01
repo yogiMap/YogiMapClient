@@ -18,6 +18,7 @@ export interface IModel {
     addressSearch: Effect;
     stateSearch: Effect;
     timeZoneSearch: Effect;
+    focusSearch: Effect;
     open: Effect;
   };
   reducers: {
@@ -70,6 +71,16 @@ const Model: IModel = {
         type: 'save',
         payload: {
           timeZoneList: get(data, 'payload'),
+        },
+      });
+    },
+
+    *focusSearch({ payload }, { call, put }) {
+      const data = yield call(queryTeacherAccountGetFocus, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          focusList: get(data, 'payload'),
         },
       });
     },

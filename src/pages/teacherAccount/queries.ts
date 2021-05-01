@@ -43,3 +43,7 @@ export async function queryTeacherAccountGetCountryStatesList(country: string): 
 export async function queryTeacherAccountGetTimeZoneList(payload: string): Promise<any> {
   return get({ url: `/list/timeZone`, data: payload });
 }
+
+export async function queryTeacherAccountGetFocus(payload: string): Promise<any> {
+  return get({ url: `/list/focus`, data: payload });
+}

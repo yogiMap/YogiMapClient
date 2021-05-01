@@ -6,31 +6,31 @@ import { ILoadingEffects } from '@/types';
 
 const { Option } = Select;
 
-type ITimeZoneSearch = { timeZone: string } | '';
+type IFocusSearch = { focus: string } | '';
 
 interface IProps {
-  timeZoneSearch: (arg: ITimeZoneSearch) => void;
+  focusSearch: (arg: IFocusSearch) => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
   onChange?: (value: string) => void;
   value?: string;
 }
 
-const TimeZoneSearchInput = (props: IProps) => {
+const FocusSearchInput = (props: IProps) => {
   const value = get(props, 'value', '');
 
-  const isLoading = get(props, 'loadingEffects.SearchInput/timeZoneSearch', false);
+  const isLoading = get(props, 'loadingEffects.SearchInput/focusSearch', false);
 
-  const timeZoneList: [ITimeZoneSearch] = get(props, 'SearchInput.timeZoneList', []);
+  const focusList: [IFocusSearch] = get(props, 'SearchInput.focusList', []);
 
   const [selectedName, setSelectedName] = useState('');
 
   const onFocus = () => {
-    if (!timeZoneList.length) props.timeZoneSearch('');
+    if (!focusList.length) props.focusSearch('');
   };
 
   const onSearch = debounce((value) => {
-    if (value) props.timeZoneSearch(value);
+    if (value) props.focusSearch(value);
   }, 500);
 
   const onSelect = (value = '') => {
@@ -40,14 +40,14 @@ const TimeZoneSearchInput = (props: IProps) => {
   const onChange = (v: any) => {
     setSelectedName(
       get(
-        timeZoneList.find((el) => el === v),
-        'timeZone',
+        focusList.find((el) => el === v),
+        'focus',
         '',
       ),
     );
   };
 
-  const options = timeZoneList.map((el: any) => (
+  const options = focusList.map((el: any) => (
     <Option key={el} value={el}>
       {el}
     </Option>
@@ -58,7 +58,7 @@ const TimeZoneSearchInput = (props: IProps) => {
       value={value}
       showSearch
       defaultValue={selectedName}
-      placeholder="Select a TimeZone"
+      placeholder="Select a Focus"
       optionFilterProp="children"
       onFocus={onFocus}
       onChange={onChange}
@@ -77,7 +77,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  timeZoneSearch: (payload: ITimeZoneSearch) => dispatch({ type: 'SearchInput/timeZoneSearch', payload }),
+  focusSearch: (payload: IFocusSearch) => dispatch({ type: 'SearchInput/focusSearch', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimeZoneSearchInput);
+export default connect(mapStateToProps, mapDispatchToProps)(FocusSearchInput);
