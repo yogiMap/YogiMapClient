@@ -36,11 +36,15 @@ const SettingsMenu = (props: IProps) => {
       icon: <SafetyOutlined />,
       link: `/settings/security/${ownerId}`,
     },
-
     {
       name: 'Create Class',
       icon: <SafetyOutlined />,
       link: `/settings/classes/${ownerId}`,
+    },
+    {
+      name: 'Create Event',
+      icon: <SafetyOutlined />,
+      link: `/settings/event/${ownerId}`,
     },
   ];
 

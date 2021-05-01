@@ -81,7 +81,11 @@ export default [
               },
               {
                 path: '/settings/classes/:userId',
-                component: '@/pages/user/settings/classes/ClassesFormCreateWrapper',
+                component: '@/pages/classes/form/ClassesFormCreateWrapper',
+              },
+              {
+                path: '/settings/event/:userId',
+                component: '@/pages/event/form/EventFormCreateWrapper',
               },
               {
                 path: '/settings/emails/:userId',

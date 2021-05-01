@@ -1,28 +1,34 @@
 import React, { useEffect } from 'react';
-import { connect, withRouter } from 'umi';
+import { connect } from 'umi';
+import { get } from 'lodash';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { get, isEmpty } from 'lodash';
+import { IClasses, IClassesQueryParams } from '@/pages/classes/types';
 import ClassesForm from '@/pages/classes/form/ClassesForm';
-import { IClasses } from '@/pages/classes/types';
 import { ILoadingEffects } from '@/types';
 
+export interface IClassesUpdate {
+  values: IClasses;
+  classesId: string;
+  queryParams: IClassesQueryParams;
+}
+
 interface IProps {
-  getById: (classesId: string) => void;
-  reset: () => void;
-  updateById: any;
+  getById: (teacherId: string) => void;
+  updateById: (arg: any) => void;
+  classesGetById: (classesId: string) => void;
   classesInfo: IClasses;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
   teacherSearch: () => void;
   teacherTypeSearch: () => void;
 }
+
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
-const ClassesFormEditWrapper = (props: IProps) => {
+const ClassesFormSettingsEditWrapper = (props: IProps) => {
+  const classesId = get(props, 'ClassesId');
   const queryParams = get(props, 'location.query', {});
-  const classesId: string = get(props, 'sidepanel.classesId', '');
-
   const isLoadingGet = get(props, 'loadingEffects.ClassesForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.ClassesForm/updateById', false);
   const styleList = get(props, 'styleList', []);
@@ -30,6 +36,7 @@ const ClassesFormEditWrapper = (props: IProps) => {
   const teacherTypeList = get(props, 'teacherTypeList', []);
 
   useEffect(() => {
+    props.classesGetById(classesId);
     props.getById(classesId);
     props.styleSearch();
     props.teacherSearch();
@@ -56,7 +63,8 @@ const ClassesFormEditWrapper = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  sidepanel: state.Sidepanel,
+  ClassesView: state.ClassesView,
+  ClassesId: state.Account.classes,
   classesInfo: state.ClassesForm.classesInfo,
   loadingEffects: state.loading.effects,
   styleList: state.ClassesForm.styleList,
@@ -65,12 +73,12 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'ClassesForm/reset' }),
-  updateById: (payload: IClasses) => dispatch({ type: 'ClassesForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'ClassesForm/getById', payload }),
+  classesGetById: (classesId: string) => dispatch({ type: 'ClassesView/classesGetById', payload: classesId }),
+  getById: (classesId: string) => dispatch({ type: 'ClassesForm/getById', payload: classesId }),
+  updateById: (payload: IClassesUpdate) => dispatch({ type: 'ClassesForm/updateById', payload }),
   styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
   teacherTypeSearch: () => dispatch({ type: 'ClassesForm/teacherTypeSearch' }),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesFormEditWrapper));
+export default connect(mapStateToProps, mapDispatchToProps)(ClassesFormSettingsEditWrapper);
