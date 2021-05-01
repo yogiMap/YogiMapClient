@@ -4,7 +4,7 @@ import defaultReducers from '@/utils/defaultReducers';
 import { queryAddressSearch } from '@/pages/address/queries';
 import {
   queryTeacherAccountGetCountryList,
-  queryTeacherAccountGetCountryStatesList,
+  queryTeacherAccountGetCountryStatesList, queryTeacherAccountGetFocus,
   queryTeacherAccountGetTimeZoneList,
 } from '@/pages/teacherAccount/queries';
 

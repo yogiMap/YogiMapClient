@@ -8,6 +8,7 @@ import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSear
 import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import { IUser } from '@/pages/user/userSearch/types';
+import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 
 interface IProps {
   isLoading: boolean;
@@ -50,6 +51,15 @@ const TeacherAccountForm = (props: IProps) => {
           </Form.Item>
        </div>
       </div>
+
+      <div className="row">
+        <div className="col">
+          <Form.Item label="Yoga Focus" name="focus">
+            <FocusSearchInput/>
+          </Form.Item>
+        </div>
+      </div>
+
 
       <div className="row mt-3">
         <div className="col-md-6">
