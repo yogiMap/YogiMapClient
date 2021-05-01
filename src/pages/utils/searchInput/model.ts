@@ -4,7 +4,8 @@ import defaultReducers from '@/utils/defaultReducers';
 import { queryAddressSearch } from '@/pages/address/queries';
 import {
   queryTeacherAccountGetCountryList,
-  queryTeacherAccountGetCountryStatesList, queryTeacherAccountGetFocus,
+  queryTeacherAccountGetCountryStatesList,
+  queryTeacherAccountGetFocusList,
   queryTeacherAccountGetTimeZoneList,
 } from '@/pages/teacherAccount/queries';
 
@@ -76,7 +77,7 @@ const Model: IModel = {
     },
 
     *focusSearch({ payload }, { call, put }) {
-      const data = yield call(queryTeacherAccountGetFocus, payload);
+      const data = yield call(queryTeacherAccountGetFocusList, payload);
       yield put({
         type: 'save',
         payload: {

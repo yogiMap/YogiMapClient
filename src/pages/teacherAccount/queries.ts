@@ -44,6 +44,6 @@ export async function queryTeacherAccountGetTimeZoneList(payload: string): Promi
   return get({ url: `/list/timeZone`, data: payload });
 }
 
-export async function queryTeacherAccountGetFocus(payload: string): Promise<any> {
+export async function queryTeacherAccountGetFocusList(payload: string): Promise<any> {
   return get({ url: `/list/focus`, data: payload });
 }
