@@ -8,6 +8,7 @@ interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
+  const hash = get(props, 'Account.hash', '');
   const teacherAccountId = get(props, 'Account.teacherAccount', '');
 
   let menuItemName = '';
@@ -45,6 +46,11 @@ const SettingsMenu = (props: IProps) => {
       name: 'Create Event',
       icon: <SafetyOutlined />,
       link: `/settings/event/${ownerId}`,
+    },
+    {
+      name: 'Email Verify',
+      icon: <SafetyOutlined />,
+      link: `/user/verify/email/${ownerId}/${hash}`,
     },
   ];
 
