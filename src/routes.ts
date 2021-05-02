@@ -28,8 +28,8 @@ export default [
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
 
-          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
-          { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
+          { path: '/companyAccount', component: '@/pages/companyAccount/dashboard/CompanyAccountDashboard' },
+          { path: '/companyAccount/:companyAccountId', component: '@/pages/companyAccount/view/CompanyAccountView' },
 
           { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
           { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
@@ -64,15 +64,15 @@ export default [
             routes: [
               {
                 path: '/settings/:userId',
-                redirect: '/settings/teacherAccount/:userId',
+                redirect: '/settings/companyAccount/:userId',
               },
               {
                 path: '/settings/profile/:userId',
                 component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
               },
               {
-                path: '/settings/teacherAccount/:userId',
-                component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
+                path: '/settings/companyAccount/:userId',
+                component: '@/pages/user/settings/companyAccount/CompanyAccountSettingsView',
               },
               {
                 path: '/settings/profile/:userId',
@@ -81,6 +81,10 @@ export default [
               {
                 path: '/settings/security/:userId',
                 component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
+              },
+              {
+                path: '/settings/teacher/:userId',
+                component: '@/pages/teacher/form/TeacherCreateWrapper',
               },
               {
                 path: '/settings/classes/:userId',

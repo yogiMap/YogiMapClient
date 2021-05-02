@@ -9,7 +9,7 @@ import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import Check from '@/pages/utils/Check';
 import { history } from '@@/core/history';
 
-export interface ITeacherAccount {
+export interface ICompanyAccount {
   teacherName: string;
   phoneNumber1: string;
   email: string;
@@ -23,7 +23,7 @@ interface IProps {
   isLoading: boolean;
   submitButtonText: string;
   goToUserProfile: (userId: string) => void;
-  teacherAccountCreate: (values: ITeacherAccount) => void;
+  companyAccountCreate: (values: ICompanyAccount) => void;
   userVerifyEmailSend: (arg: { userId: object; email: string }) => void;
 }
 
@@ -34,13 +34,13 @@ const Wizard = (props: IProps) => {
 
   const email = get(props, 'Account.email', '');
   const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const teacherAccount = get(props, 'Account.account', false);
+  const companyAccount = get(props, 'Account.account', false);
   const userId = get(props, 'Account._id', '');
 
   const [openResend, setOpenResend] = useState(false);
 
   const onSubmit = (values: any) => {
-    props.teacherAccountCreate({ ...values, email });
+    props.companyAccountCreate({ ...values, email });
   };
 
   const onFinish = () => {
@@ -71,8 +71,8 @@ const Wizard = (props: IProps) => {
 
   const currentStep = () => {
     let step = steps[0];
-    if (teacherAccount) step = steps[1];
-    if (emailConfirmed && teacherAccount) step = steps[2];
+    if (companyAccount) step = steps[1];
+    if (emailConfirmed && companyAccount) step = steps[2];
     return step;
   };
 
@@ -83,7 +83,7 @@ const Wizard = (props: IProps) => {
       <div className="row">
         <div className="col-md-4">
           <div className="mb-4">
-            <Check checked={teacherAccount} />
+            <Check checked={companyAccount} />
             <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>Create Teacher</span>
           </div>
 
@@ -93,7 +93,7 @@ const Wizard = (props: IProps) => {
           </div>
 
           <div className="mb-4">
-            <Check checked={emailConfirmed && teacherAccount} />
+            <Check checked={emailConfirmed && companyAccount} />
             <span className={classNames('ms-2', currentStep() === steps[2] && 'fw-bold')}>All set</span>
           </div>
         </div>
@@ -168,7 +168,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherAccountCreate: (payload: ITeacherAccount) => dispatch({ type: 'WizardForm/teacherAccountCreate', payload }),
+  companyAccountCreate: (payload: ICompanyAccount) => dispatch({ type: 'WizardForm/companyAccountCreate', payload }),
   userVerifyEmailSend: (payload: IVerifyEmailArg) => dispatch({ type: 'WizardForm/userVerifyEmailSend', payload }),
 });
 

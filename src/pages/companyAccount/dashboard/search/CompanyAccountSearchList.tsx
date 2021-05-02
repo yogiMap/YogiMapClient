@@ -7,29 +7,29 @@ import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Modal } from 'antd';
-import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
+import { ICompanyAccount, ICompanyAccountQueryParams } from '@/pages/companyAccount/types';
 import RenderPhoneNumber from '@/pages/phoneNumberRendering/PhoneNumbersRendering';
 
-interface ITeacherAccountDeleteById {
-  teacherAccountId: string;
-  queryParams: ITeacherAccountQueryParams;
+interface ICompanyAccountDeleteById {
+  companyAccountId: string;
+  queryParams: ICompanyAccountQueryParams;
 }
 
 interface IProps extends RouteComponentProps {
-  items: ITeacherAccount[];
+  items: ICompanyAccount[];
   open: (arg: ISidepanel) => void;
-  teacherAccountDeleteById: (arg: ITeacherAccountDeleteById) => void;
+  companyAccountDeleteById: (arg: ICompanyAccountDeleteById) => void;
 }
 
-const TeacherAccountSearchList = (props: IProps) => {
+const CompanyAccountSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<ITeacherAccount>[] = [
+  const columns: ColumnProps<ICompanyAccount>[] = [
     {
       title: 'Teacher Name',
       key: 'teacherName',
-      render: (row) => <Link to={`/teacherAccount/${row._id}`}>{row.teacherName}</Link>,
+      render: (row) => <Link to={`/companyAccount/${row._id}`}>{row.teacherName}</Link>,
     },
 
     {
@@ -123,22 +123,22 @@ const TeacherAccountSearchList = (props: IProps) => {
     },
   ];
 
-  const edit = (teacherAccountId: string) => {
+  const edit = (companyAccountId: string) => {
     props.open({
-      title: 'Edit TeacherAccount',
-      component: 'TeacherAccountFormEdit',
-      place: 'TeacherAccountDashboard',
+      title: 'Edit CompanyAccount',
+      component: 'CompanyAccountFormEdit',
+      place: 'CompanyAccountDashboard',
       width: 800,
-      teacherAccountId,
+      companyAccountId,
     });
   };
 
-  const deletePrompt = (teacherAccount: ITeacherAccount) => {
+  const deletePrompt = (companyAccount: ICompanyAccount) => {
     Modal.confirm({
       title: `Do you want to delete?`,
-      content: `${teacherAccount.teacherName}`,
+      content: `${companyAccount.teacherName}`,
       okType: 'danger',
-      onOk: () => props.teacherAccountDeleteById({ teacherAccountId: teacherAccount._id, queryParams }),
+      onOk: () => props.companyAccountDeleteById({ companyAccountId: companyAccount._id, queryParams }),
     });
   };
 
@@ -156,8 +156,8 @@ const TeacherAccountSearchList = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  teacherAccountDeleteById: (payload: ITeacherAccountDeleteById) =>
-    dispatch({ type: 'TeacherAccountDashboard/teacherAccountDeleteById', payload }),
+  companyAccountDeleteById: (payload: ICompanyAccountDeleteById) =>
+    dispatch({ type: 'CompanyAccountDashboard/companyAccountDeleteById', payload }),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(TeacherAccountSearchList));
+export default withRouter(connect(null, mapDispatchToProps)(CompanyAccountSearchList));

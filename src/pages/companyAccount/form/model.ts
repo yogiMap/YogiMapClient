@@ -1,15 +1,15 @@
 import { Effect, history, Reducer } from 'umi';
 
 import {
-  queryTeacherAccountCreate,
-  queryTeacherAccountGetById,
-  queryTeacherAccountUpdateById,
-} from '@/pages/teacherAccount/queries';
+  queryCompanyAccountCreate,
+  queryCompanyAccountGetById,
+  queryCompanyAccountUpdateById,
+} from '@/pages/companyAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
 
-export interface TeacherAccountModelType {
+export interface CompanyAccountModelType {
   namespace: string;
   state: IState;
   effects: {
@@ -25,16 +25,16 @@ export interface TeacherAccountModelType {
 
 const initialState = {};
 
-const TeacherAccountModel: TeacherAccountModelType = {
-  namespace: 'TeacherAccountForm',
+const CompanyAccountModel: CompanyAccountModelType = {
+  namespace: 'CompanyAccountForm',
 
   state: initialState,
 
   effects: {
     *create({ payload }, { call, put }) {
-      const createResult = yield call(queryTeacherAccountCreate, payload);
+      const createResult = yield call(queryCompanyAccountCreate, payload);
       if (!(createResult instanceof Error)) {
-        yield put({ type: 'TeacherAccountDashboard/teacherAccountSearch' });
+        yield put({ type: 'CompanyAccountDashboard/companyAccountSearch' });
         yield put({ type: 'Sidepanel/close' });
         yield put({ type: 'Account/auth' });
         history.push('/account');
@@ -42,20 +42,20 @@ const TeacherAccountModel: TeacherAccountModelType = {
     },
 
     *getById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
-      const data = yield call(queryTeacherAccountGetById, payload);
+      yield put({ type: 'save', payload: { companyAccountInfo: [] } });
+      const data = yield call(queryCompanyAccountGetById, payload);
       yield put({
         type: 'save',
-        payload: { teacherAccountInfo: data.payload },
+        payload: { companyAccountInfo: data.payload },
       });
     },
 
     *updateById({ payload }, { call, put }) {
-      const updateResult = yield call(queryTeacherAccountUpdateById, payload);
+      const updateResult = yield call(queryCompanyAccountUpdateById, payload);
       if (!(updateResult instanceof Error)) {
         yield put({ type: 'Sidepanel/close' });
         yield put({
-          type: 'TeacherAccountDashboard/teacherAccountSearch',
+          type: 'CompanyAccountDashboard/companyAccountSearch',
           payload: payload.queryParams,
         });
       }
@@ -71,4 +71,4 @@ const TeacherAccountModel: TeacherAccountModelType = {
   },
 };
 
-export default TeacherAccountModel;
+export default CompanyAccountModel;

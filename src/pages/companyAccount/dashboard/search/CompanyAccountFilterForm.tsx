@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
+import { ICompanyAccountQueryParams } from '@/pages/companyAccount/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | ITeacherAccountQueryParams) => void;
-  filters: ITeacherAccountQueryParams;
+  onChange: (values: null | ICompanyAccountQueryParams) => void;
+  filters: ICompanyAccountQueryParams;
 }
 
-const TeacherAccountFilterForm = (props: IProps) => {
+const CompanyAccountFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -52,4 +52,4 @@ const TeacherAccountFilterForm = (props: IProps) => {
   );
 };
 
-export default TeacherAccountFilterForm;
+export default CompanyAccountFilterForm;

@@ -1,5 +1,5 @@
 import { get, patch, post, del } from '@/utils/httpMethods';
-import { IVerifyEmailArg } from '@/pages/teacherAccount/wizard/Wizard';
+import { IVerifyEmailArg } from '@/pages/companyAccount/wizard/Wizard';
 
 export async function queryUsersSearch(payload: any): Promise<any> {
   return post({ url: '/user/dashboard', data: payload });

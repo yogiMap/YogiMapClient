@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import validator from '@/utils/validators';
-import { ITeacherAccount } from '@/pages/teacherAccount/types';
+import { ICompanyAccount } from '@/pages/companyAccount/types';
 import { get } from 'lodash';
 import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
@@ -12,12 +12,12 @@ import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 
 interface IProps {
   isLoading: boolean;
-  onFinish: (values: ITeacherAccount) => void;
+  onFinish: (values: ICompanyAccount) => void;
   submitButtonText: string;
-  initialValues?:  ITeacherAccount;
+  initialValues?:  ICompanyAccount;
 }
 
-const TeacherAccountForm = (props: IProps) => {
+const CompanyAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
   const teacherCode = get(props, 'initialValues.code', 'n/a');
   const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
@@ -25,7 +25,7 @@ const TeacherAccountForm = (props: IProps) => {
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues}
-          layout='vertical' name='teacherAccount'>
+          layout='vertical' name='companyAccount'>
 
       <div className="row">
         <div className="col-md-10">
@@ -156,4 +156,4 @@ const TeacherAccountForm = (props: IProps) => {
   );
 };
 
-export default TeacherAccountForm;
+export default CompanyAccountForm;

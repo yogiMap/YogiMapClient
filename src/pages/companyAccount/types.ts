@@ -1,4 +1,4 @@
-export interface ITeacherAccount {
+export interface ICompanyAccount {
   _id: string;
   teacherName: string;
   phoneNumber1: string;
@@ -16,16 +16,16 @@ export interface ITeacherAccount {
   updatedAt?: string;
 }
 
-export interface ITeacherAccountQueryParams {
+export interface ICompanyAccountQueryParams {
   limit?: number | string;
   page?: number | string;
-  teacherAccountSearchParam1?: string;
-  teacherAccountSearchParam2?: string;
+  companyAccountSearchParam1?: string;
+  companyAccountSearchParam2?: string;
 }
 
-export interface ITeacherAccountStats {
-  totalTeacherAccount: number;
-  todayTeacherAccount: number;
-  monthTeacherAccount: number;
-  averageTeacherAccount: number;
+export interface ICompanyAccountStats {
+  totalCompanyAccount: number;
+  todayCompanyAccount: number;
+  monthCompanyAccount: number;
+  averageCompanyAccount: number;
 }

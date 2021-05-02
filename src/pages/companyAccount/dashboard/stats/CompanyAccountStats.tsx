@@ -1,19 +1,19 @@
 import React from 'react';
 import { get } from 'lodash';
 import { Col, Row, Statistic } from 'antd';
-import { ITeacherAccountStats } from '@/pages/teacherAccount/types';
+import { ICompanyAccountStats } from '@/pages/companyAccount/types';
 
 interface IProps {
-  stats: ITeacherAccountStats;
+  stats: ICompanyAccountStats;
 }
 
-const TeacherAccountStats = (props: IProps) => {
-  const teacherAccountStats = get(props, 'stats', '');
+const CompanyAccountStats = (props: IProps) => {
+  const companyAccountStats = get(props, 'stats', '');
 
-  const totalCount = get(teacherAccountStats, 'totalCount', '...');
-  const totalCountDouble = get(teacherAccountStats, 'totalCountDouble', '...');
-  const totalCountTriple = get(teacherAccountStats, 'totalCountTriple', '...');
-  const totalCountTen = get(teacherAccountStats, 'totalCountTen', '...');
+  const totalCount = get(companyAccountStats, 'totalCount', '...');
+  const totalCountDouble = get(companyAccountStats, 'totalCountDouble', '...');
+  const totalCountTriple = get(companyAccountStats, 'totalCountTriple', '...');
+  const totalCountTen = get(companyAccountStats, 'totalCountTen', '...');
 
   return (
     <Row gutter={16}>
@@ -36,4 +36,4 @@ const TeacherAccountStats = (props: IProps) => {
   );
 };
 
-export default TeacherAccountStats;
+export default CompanyAccountStats;

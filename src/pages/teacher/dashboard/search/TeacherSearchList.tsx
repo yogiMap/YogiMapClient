@@ -36,10 +36,10 @@ const TeacherSearchList = (props: IProps) => {
     // },
 
     {
-      title: 'TeacherType',
+      title: 'Class Type',
       key: 'classType',
       render: (row) => {
-        return <Link to={`/teacherType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
+        return <Link to={`/classType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
       },
     //   render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
     },

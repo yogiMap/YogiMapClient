@@ -7,7 +7,7 @@ import {
   queryTeacherAccountGetCountryStatesList,
   queryTeacherAccountGetFocusList,
   queryTeacherAccountGetTimeZoneList,
-} from '@/pages/teacherAccount/queries';
+} from '@/pages/companyAccount/queries';
 
 export interface IState {}
 

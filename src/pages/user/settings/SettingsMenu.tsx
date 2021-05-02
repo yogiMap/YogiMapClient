@@ -9,12 +9,12 @@ interface IProps {}
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
   const hash = get(props, 'Account.hash', '');
-  const teacherAccountId = get(props, 'Account.teacherAccount', '');
+  const companyAccountId = get(props, 'Account.companyAccount', '');
 
   let menuItemName = '';
 
-  if (history.location.pathname.split('/')[2] === 'teacherAccount') {
-    menuItemName = 'Teacher account';
+  if (history.location.pathname.split('/')[2] === 'companyAccount') {
+    menuItemName = 'Company account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'Profile';
   } else if (history.location.pathname.split('/')[2] === 'security') {
@@ -25,7 +25,7 @@ const SettingsMenu = (props: IProps) => {
     {
       name: 'Teacher account',
       icon: <UsergroupAddOutlined />,
-      link: `/settings/teacherAccount/${ownerId}`,
+      link: `/settings/companyAccount/${ownerId}`,
     },
     {
       name: 'Profile',
@@ -36,6 +36,11 @@ const SettingsMenu = (props: IProps) => {
       name: 'Password',
       icon: <SafetyOutlined />,
       link: `/settings/security/${ownerId}`,
+    },
+    {
+      name: 'Create Teacher',
+      icon: <SafetyOutlined />,
+      link: `/settings/teacher/${ownerId}`,
     },
     {
       name: 'Create Class',
@@ -59,7 +64,7 @@ const SettingsMenu = (props: IProps) => {
   return (
     <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
       {menu.map((el) => (
-        <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
+        <Menu.Item key={el.name} disabled={!companyAccountId && el.name !== 'Teacher account'}>
           {el.icon}
           {el.name}
           <Link to={el.link} />

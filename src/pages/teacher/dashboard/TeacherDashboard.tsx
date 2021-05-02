@@ -65,6 +65,7 @@ const TeacherDashboard = (props: IProps) => {
   // @ts-ignore
   // @ts-ignore
   // @ts-ignore
+  // @ts-ignore
   return (
     <div className="container">
       <div className="row my-5">
