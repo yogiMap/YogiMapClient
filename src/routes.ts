@@ -46,6 +46,9 @@ export default [
           { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
           { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },
 
+          { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
+          { path: '/focus/:focusId', component: '@/pages/focus/view/FocusView' },
+
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },

@@ -5,7 +5,6 @@ import FocusFilterForm from '@/pages/focus/dashboard/search/FocusFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
 import { IFocusQueryParams } from '@/pages/focus/types';
 import FocusSearchList from '@/pages/focus/dashboard/search/FocusSearchList';
-import FocusDashboardControls from '@/pages/focus/dashboard/controls/FocusDashboardControls';
 import { IState } from '@/pages/focus/dashboard/model';
 
 const initialSearchForm = {
@@ -19,14 +18,12 @@ const initialSearchQuery = {
 };
 
 interface IProps {
-  focusGetStats: () => void;
   focusSearch: (arg: IFocusQueryParams) => void;
   focusReset: () => void;
   FocusDashboard: IState;
 }
 
 const FocusDashboard = (props: IProps) => {
-  const focusStats = get(props, 'FocusDashboard.focusStats', {});
   const focusList = get(props, 'FocusDashboard.focusList', []);
   const focusPager = get(props, 'FocusDashboard.focusPager', {});
   const queryParams = get(props, 'location.query', {});
@@ -37,8 +34,6 @@ const FocusDashboard = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.focusGetStats();
-
     return () => {
       props.focusReset();
     };
@@ -64,7 +59,7 @@ const FocusDashboard = (props: IProps) => {
     <div className="container">
       <div className="row my-5">
         <div className="col d-flex justify-content-center">
-          <h1>Focus Of Yoga</h1>
+          <h1>Yoga Focus</h1>
         </div>
       </div>
 
@@ -93,7 +88,6 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   focusSearch: (payload: IFocusQueryParams) =>
     dispatch({ type: 'FocusDashboard/focusSearch', payload }),
-  focusGetStats: () => dispatch({ type: 'FocusDashboard/focusGetStats' }),
   focusReset: () => dispatch({ type: 'FocusDashboard/reset' }),
 });
 
