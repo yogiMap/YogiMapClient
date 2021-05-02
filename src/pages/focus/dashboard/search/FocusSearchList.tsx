@@ -4,24 +4,28 @@ import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
-
-import { IFocus } from '@/pages/focus/types';
-import ActionMenu from '@/pages/focus/dashboard/search/ActionMenu';
+import { IFocus, IFocusQueryParams } from '@/pages/focus/types';
 import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
 
 interface IProps extends RouteComponentProps {
   items: IFocus[];
+  companyAccountId: string;
+  queryParams: IFocusQueryParams;
+  focus: string;
 }
 
 const FocusSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
+  const focus = get(props, 'focus', '')
 
   const columns: ColumnProps<IFocus>[] = [
     {
       title: 'Focus',
-      key: 'name',
-      render: (row) => <Link to={`/focus/${row._id}`}>{row.name}</Link>,
+      dataIndex: 'focus',
+      key: 'focus',
+      // render: (row) => <Link to={`/focus/${row._id}`}>{row.name}</Link>,
+      // <FocusSearchInput/>
     },
     {
       title: 'Teacher',
@@ -42,9 +46,9 @@ const FocusSearchList = (props: IProps) => {
   );
 };
 
-// state: any
-const mapStateToProps = () => ({});
-
+const mapStateToProps = (state: any) => ({
+ focus: state.Account.focus,
+});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
