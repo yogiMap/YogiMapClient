@@ -9,8 +9,8 @@ import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
 
 interface IProps extends RouteComponentProps {
   items: IFocus[];
-  companyAccountId: string;
-  queryParams: IFocusQueryParams;
+  // teacherAccountId: string;
+  // queryParams: IFocusQueryParams;
   focus: string;
 }
 
