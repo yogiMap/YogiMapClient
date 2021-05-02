@@ -10,7 +10,7 @@ interface IProps extends IFocus {
 }
 
 const FocusSearchListItem = (props: IProps) => {
-  const { focusDelete } = props;
+  // const { focusDelete } = props;
 
   const owner = get(props, 'item.owner', '');
   const focusId = get(props, 'item._id', '');
@@ -30,11 +30,11 @@ const FocusSearchListItem = (props: IProps) => {
 
       <div className="row">{description}</div>
 
-      <div className="row">
-        <Button danger onClick={() => focusDelete(focusId)}>
-          Delete
-        </Button>
-      </div>
+      {/*<div className="row">*/}
+      {/*  <Button danger onClick={() => focusDelete(focusId)}>*/}
+      {/*    Delete*/}
+      {/*  </Button>*/}
+      {/*</div>*/}
     </div>
   );
 };
