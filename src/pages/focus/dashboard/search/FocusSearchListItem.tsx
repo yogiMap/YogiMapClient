@@ -22,25 +22,21 @@ const FocusSearchListItem = (props: IProps) => {
 
   return (
     <div>
-      <Row>
+      <div className="row">
         {moment(createdAt).format('LL HH:mm')}
 
         <Link to={`/profile/${ownerId}`}>{ownerName}</Link>
-      </Row>
+      </div>
 
-      <Row>{description}</Row>
+      <div className="row">{description}</div>
 
-      <Row>
+      <div className="row">
         <Button danger onClick={() => focusDelete(focusId)}>
           Delete
         </Button>
-      </Row>
+      </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
-  focusDelete: (payload: any) => dispatch({ type: 'FocusDashboard/focusDelete', payload }),
-});
-
-export default connect(null, mapDispatchToProps)(FocusSearchListItem);
+export default FocusSearchListItem ;

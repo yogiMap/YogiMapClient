@@ -19,7 +19,7 @@ const FocusSearchList = (props: IProps) => {
 
   const columns: ColumnProps<IFocus>[] = [
     {
-      title: 'Name',
+      title: 'Focus',
       key: 'name',
       render: (row) => <Link to={`/focus/${row._id}`}>{row.name}</Link>,
     },
@@ -27,13 +27,6 @@ const FocusSearchList = (props: IProps) => {
       title: 'Teacher',
       key: 'teacher',
       render: (row) => <Link to={`/focus/${row._id}`}>{row.teacher}</Link>,
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      className: 'actions',
-      width: 80,
-      render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];
 
