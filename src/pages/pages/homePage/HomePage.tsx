@@ -39,6 +39,15 @@ function HomePage(props: IProps) {
       </div>
 
       <div className="home-description">
+        <div className="row d-flex justify-content-center my-5">
+          <div className="col-md-10 ">
+            Yoga is the always changing conception. Online resources are the important way of teaching by individual
+            yoga instructor for the last year. Our space helps you to find your own teacher for your body, mind and soul
+            improvement. Also here you will be able find your community and all information you were interested about
+            yoga.
+          </div>
+        </div>
+
         <div className="home-bg-header-secondary">
           <h2>FIND YOUR GURU</h2>
         </div>
