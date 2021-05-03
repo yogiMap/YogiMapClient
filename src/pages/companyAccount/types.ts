@@ -1,6 +1,8 @@
 export interface ICompanyAccount {
   _id: string;
-  teacherName: string;
+  firstName: string;
+  lastName: string;
+  name: string;
   phoneNumber1: string;
   phoneNumber2: string;
   fax: string;

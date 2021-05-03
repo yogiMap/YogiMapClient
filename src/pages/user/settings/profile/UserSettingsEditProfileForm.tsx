@@ -40,10 +40,10 @@ const UserSettingsEditProfileForm = (props: IProps) => {
         </div>
       </div>
 
-      <div className="row mt-3">
+      <div className="row">
         <div className="col-md-6">
-          <Form.Item name="phoneNumber" label="Phone">
-            <PhoneInput />
+          <Form.Item name="phone" label="Phone">
+            <PhoneInput name="phoneNumber" required={false} />
           </Form.Item>
         </div>
 
