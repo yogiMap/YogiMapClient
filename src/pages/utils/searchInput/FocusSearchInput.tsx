@@ -52,7 +52,6 @@ const FocusSearchInput = (props: IProps) => {
       {el}
     </Option>
   ));
-
   return (
     <Select
       value={value}
