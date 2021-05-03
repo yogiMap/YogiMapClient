@@ -3,7 +3,7 @@ import { Button, DatePicker, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
 import { ITeacher } from '@/pages/teacher/types';
-import { ITeacherType } from '@/pages/classType/types';
+import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';
@@ -18,7 +18,7 @@ interface IProps {
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: ITeacher;
-  teacherTypeList: ITeacherType[];
+  classTypeList: IClassType[];
   classesList: IClasses[];
   eventList: IEvent[];
   styleList: IStyle[];
@@ -92,9 +92,9 @@ const TeacherForm = (props: IProps) => {
         </div>
 
         <div className="col">
-          <Form.Item name="teacherType" label="type of yoga" rules={[validator.require]}>
+          <Form.Item name="classType" label="Type of Class" rules={[validator.require]}>
             <Select>
-              {props.teacherTypeList.map((el) => (
+              {props.classTypeList.map((el) => (
                 <Option key={el._id} value={el._id}>
                   {el.name}
                 </Option>

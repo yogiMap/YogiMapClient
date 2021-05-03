@@ -52,6 +52,14 @@ const CompanyAccountForm = (props: IProps) => {
        </div>
       </div>
 
+      {/*<div className="row">*/}
+      {/*  <div className="col">*/}
+      {/*    <Form.Item label='Name' name='name'>*/}
+      {/*      <Input />*/}
+      {/*    </Form.Item>*/}
+      {/* </div>*/}
+      {/* </div>*/}
+
       <div className="row">
         <div className="col-md-6">
           <Form.Item label="Yoga Focus" name="focus">
@@ -61,10 +69,10 @@ const CompanyAccountForm = (props: IProps) => {
       </div>
 
 
-      <div className="row mt-3">
-        <div className="col-md-6">
-          <Form.Item name="phoneNumber" label="Phone">
-            <PhoneInput />
+      <div className="row">
+        <div className="col">
+          <Form.Item name="phone" label="Phone">
+            <PhoneInput  name="phoneNumber" required={false} />
           </Form.Item>
         </div>
 

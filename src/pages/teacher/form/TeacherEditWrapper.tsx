@@ -10,7 +10,7 @@ import { ILoadingEffects } from '@/types';
 interface IProps {
   getById: (teacherId: string) => void;
   reset: () => void;
-  teacherTypeSearch: () => void;
+  classTypeSearch: () => void;
   classesSearch: () => void;
   eventSearch: () => void;
   styleSearch: () => void;
@@ -26,7 +26,7 @@ const TeacherEditWrapper = (props: IProps) => {
 
   const isLoadingGet = get(props, 'loadingEffects.TeacherForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.TeacherForm/updateById', false);
-  const teacherTypeList = get(props, "teacherTypeList", []);
+  const classTypeList = get(props, "classTypeList", []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
   const styleList = get(props, 'styleList', []);
@@ -34,7 +34,7 @@ const TeacherEditWrapper = (props: IProps) => {
 
   useEffect(() => {
     props.getById(teacherId);
-    props.teacherTypeSearch();
+    props.classTypeSearch();
     props.classesSearch();
     props.eventSearch();
     props.styleSearch();
@@ -51,7 +51,7 @@ const TeacherEditWrapper = (props: IProps) => {
       onFinish={onFinish}
       initialValues={props.teacherInfo}
       submitButtonText="Update"
-      teacherTypeList={teacherTypeList}
+      classTypeList={classTypeList}
       classesList={classesList}
       eventList={eventList}
       styleList={styleList}
@@ -64,7 +64,7 @@ const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
   teacherInfo: state.TeacherForm.teacherInfo,
   loadingEffects: state.loading.effects,
-  teacherTypeList: state.TeacherForm.teacherList,
+  classTypeList: state.TeacherForm.teacherList,
   classesList: state.TeacherForm.classesList,
   eventList: state.TeacherForm.eventList,
   styleList: state.TeacherForm.styleList,
@@ -74,7 +74,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'TeacherForm/reset' }),
   updateById: (payload: ITeacher) => dispatch({ type: 'TeacherForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'TeacherForm/getById', payload }),
-  teacherTypeSearch: () => dispatch({type: 'TeacherForm/teacherTypeSearch'}),
+  classTypeSearch: () => dispatch({type: 'TeacherForm/classTypeSearch'}),
   classesSearch: () => dispatch({ type: 'TeacherForm/classesSearch' }),
   eventSearch: () => dispatch({ type: 'TeacherForm/eventSearch' }),
   styleSearch: () => dispatch({ type: 'TeacherForm/styleSearch' }),

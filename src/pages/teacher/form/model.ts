@@ -2,7 +2,7 @@ import { Effect, history, Reducer } from 'umi';
 
 import { queryTeacherCreate, queryTeacherGetById, queryTeacherUpdateById } from '@/pages/teacher/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import { queryTeacherTypeSearch } from '@/pages/classType/queries';
+import { queryClassTypeSearch } from '@/pages/classType/queries';
 import { queryClassesSearch } from '@/pages/classes/queries';
 import { queryEventSearch } from '@/pages/event/queries';
 import { queryStyleSearch } from '@/pages/style/queries';
@@ -17,7 +17,7 @@ export interface TeacherModelType {
     create: Effect;
     getById: Effect;
     updateById: Effect;
-    teacherTypeSearch: Effect;
+    classTypeSearch: Effect;
     classesSearch: Effect;
     eventSearch: Effect;
     styleSearch: Effect;
@@ -55,12 +55,12 @@ const TeacherModel: TeacherModelType = {
       yield put({ type: 'TeacherDashboard/teacherSearch', payload: payload.queryParams });
     },
 
-    *teacherTypeSearch(_, { call, put }) {
-      const data = yield call(queryTeacherTypeSearch);
+    *classTypeSearch(_, { call, put }) {
+      const data = yield call(queryClassTypeSearch);
       yield put({
         type: 'save',
         payload: {
-          teacherTypeList: get(data, 'payload.items'),
+          classTypeList: get(data, 'payload.items'),
         },
       });
     },

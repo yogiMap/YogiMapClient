@@ -7,7 +7,7 @@ import { ILoadingEffects } from '@/types';
 
 interface IProps {
   create: (arg: ITeacher) => void;
-  teacherTypeSearch: () => void;
+  classTypeSearch: () => void;
   classesSearch: () => void;
   eventSearch: () => void;
   styleSearch: () => void;
@@ -20,14 +20,14 @@ const TeacherCreateWrapper = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.teacherTypeSearch();
+    props.classTypeSearch();
     props.classesSearch();
     props.eventSearch();
     props.styleSearch();
   }, []);
 
   const isLoading = get(props, 'loadingEffects.TeacherForm/create', false);
-  const teacherTypeList = get(props, 'teacherTypeList', []);
+  const classTypeList = get(props, 'classTypeList', []);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
   const styleList = get(props, 'styleList', []);
@@ -37,7 +37,7 @@ const TeacherCreateWrapper = (props: IProps) => {
       onFinish={onFinish}
       submitButtonText="Create"
       isLoading={isLoading}
-      teacherTypeList={teacherTypeList}
+      classTypeList={classTypeList}
       classesList={classesList}
       eventList={eventList}
       styleList={styleList}
@@ -47,7 +47,7 @@ const TeacherCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  teacherTypeList: state.TeacherForm.teacherTypeList,
+  classTypeList: state.TeacherForm.classTypeList,
   classesList: state.TeacherForm.classesList,
   eventList: state.TeacherForm.eventList,
   styleList: state.TeacherForm.styleList,
@@ -55,7 +55,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: ITeacher) => dispatch({ type: 'TeacherForm/create', payload }),
-  teacherTypeSearch: () => dispatch({ type: 'TeacherForm/teacherTypeSearch' }),
+  classTypeSearch: () => dispatch({ type: 'TeacherForm/classTypeSearch' }),
   classesSearch: () => dispatch({ type: 'TeacherForm/classesSearch' }),
   eventSearch: () => dispatch({ type: 'TeacherForm/eventSearch' }),
   styleSearch: () => dispatch({ type: 'TeacherForm/styleSearch' }),
