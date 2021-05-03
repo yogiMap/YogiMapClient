@@ -53,7 +53,7 @@ const CompanyAccountForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <div className="col">
+          <div className="col-md-6">
             <Form.Item name="phone" label="Phone">
               <PhoneInput name="phoneNumber" required={false} />
             </Form.Item>

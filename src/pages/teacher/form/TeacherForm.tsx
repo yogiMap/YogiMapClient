@@ -12,8 +12,11 @@ import { useJsApiLoader } from '@react-google-maps/api';
 import { useForm } from 'antd/es/form/Form';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
+import { connect, withRouter } from 'umi';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
+  Account: IUserAccount;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
@@ -37,6 +40,8 @@ const TeacherForm = (props: IProps) => {
   const [addressFields, setAddressFields] = useState();
 
   const isLoading = get(props, 'isLoading', false);
+  const accountCode = get(props, 'initialValues.code', 'n/a');
+  const name = get(props, 'Account.name', '');
 
   const onChange = (center: any) => {
     center ? setAddressFields(center[1]) : null;
@@ -47,28 +52,25 @@ const TeacherForm = (props: IProps) => {
   return (
     <div className="container mt-5">
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
-      <div className="row">
-        <div className="col">
-          <Form.Item name="name" label="Teacher's Name" rules={[{ required: true, message: 'Please input your Name' }]}>
-            <Input placeholder="Class Name" className="rounded-pill" />
-          </Form.Item>
+
+      <div className="row mb-5">
+        <div className="col-md-8">
+          <h1>
+            {name}
+          </h1>
         </div>
 
-        <div className="col">
-          <Form.Item name="email" label="Email">
-            <Input placeholder="Email" className="rounded-pill" />
-          </Form.Item>
+        <div className="col-md-4 text-end">
+          <h6>Teacher Information</h6>
+          Account ID: {accountCode}
         </div>
       </div>
 
-      {/*<Form.Item name="location" label="Location">*/}
-      {/*  <Input placeholder="Location" className="rounded-pill"/>*/}
-      {/*</Form.Item>*/}
 
       <div className="row">
         <div className="col">
-          <Form.Item name="phone" label="Phone">
-            <PhoneInput  name="phoneNumber" required={false} />
+          <Form.Item name="name" label="Teacher's Name" rules={[{ required: true, message: 'Please input your Name' }]}>
+            <Input placeholder="Teacher`s Name" className="rounded-pill" />
           </Form.Item>
         </div>
 
@@ -93,7 +95,7 @@ const TeacherForm = (props: IProps) => {
         </div>
 
         <div className="col">
-          <Form.Item name="classType" label="Type of Class" rules={[validator.require]}>
+          <Form.Item name="classType" label="Type of Classes" rules={[validator.require]}>
             <Select>
               {props.classTypeList.map((el) => (
                 <Option key={el._id} value={el._id}>
@@ -104,36 +106,8 @@ const TeacherForm = (props: IProps) => {
           </Form.Item>
         </div>
       </div>
-
-      <div className="row">
-        <div className="col">
-          <Form.Item name="classes" label="classes" rules={[validator.require]}>
-            <Select>
-              {props.classesList.map((el) => (
-                <Option key={el._id} value={el._id}>
-                  {el.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-        </div>
-
-        <div className="col">
-          <Form.Item name="event" label="event">
-            <Select>
-              {props.eventList.map((el) => (
-                <Option key={el._id} value={el._id}>
-                  {el.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-        </div>
-      </div>
-
       <div>
         <h6 className="my-3">Address</h6>
-
         <div className="row">
           <div className="col">
             <Form.Item name="addressLine1">
@@ -178,7 +152,6 @@ const TeacherForm = (props: IProps) => {
       ) : (
         loadError
       )}
-
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
           {props.submitButtonText}
@@ -188,5 +161,9 @@ const TeacherForm = (props: IProps) => {
     </div>
   );
 };
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
 
-export default TeacherForm;
+// @ts-ignore
+export default withRouter(connect(mapStateToProps)(TeacherForm));
