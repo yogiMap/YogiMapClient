@@ -17,6 +17,7 @@ interface IProps {
 
 const UserSettingsEditProfileForm = (props: IProps) => {
   return (
+    <div className="container mt-5">
     <Form onFinish={props.onFinish} initialValues={props.initialValues}
           layout='vertical' name='editProfile'>
       <h2>Profile</h2>
@@ -81,6 +82,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

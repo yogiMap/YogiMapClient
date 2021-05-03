@@ -5,7 +5,7 @@ import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
 import { queryTeacherSearch } from '@/pages/teacher/queries';
-import { queryTeacherTypeSearch } from '@/pages/classType/queries';
+import { queryClassTypeSearch } from '@/pages/classType/queries';
 
 export interface IState {}
 
@@ -18,7 +18,7 @@ export interface EventModelType {
     updateById: Effect;
     styleSearch: Effect;
     teacherSearch: Effect;
-    teacherTypeSearch: Effect;
+    classTypeSearch: Effect;
     reset: Effect;
   };
   reducers: {
@@ -73,12 +73,12 @@ const EventModel: EventModelType = {
       });
     },
 
-    *teacherTypeSearch(_, { call, put }) {
-      const data = yield call(queryTeacherTypeSearch);
+    *classTypeSearch(_, { call, put }) {
+      const data = yield call(queryClassTypeSearch);
       yield put({
         type: 'save',
         payload: {
-          teacherTypeList: get(data, 'payload.items'),
+          classTypeList: get(data, 'payload.items'),
         },
       });
     },

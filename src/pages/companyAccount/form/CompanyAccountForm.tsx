@@ -9,6 +9,7 @@ import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import { IUser } from '@/pages/user/userSearch/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
+import dva from 'dva';
 
 interface IProps {
   isLoading: boolean;
@@ -24,6 +25,7 @@ const CompanyAccountForm = (props: IProps) => {
   // const firstName =
 
   return (
+    <div className='container mt-5'>
     <Form onFinish={props.onFinish} initialValues={props.initialValues}
           layout='vertical' name='companyAccount'>
 
@@ -161,6 +163,7 @@ const CompanyAccountForm = (props: IProps) => {
         </Form.Item>
       </div>
     </Form>
+    </div>
   );
 };
 

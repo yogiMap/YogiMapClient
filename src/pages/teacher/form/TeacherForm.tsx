@@ -45,6 +45,7 @@ const TeacherForm = (props: IProps) => {
   useEffect(() => form.setFieldsValue(addressFields));
 
   return (
+    <div className="container mt-5">
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
       <div className="row">
         <div className="col">
@@ -184,6 +185,7 @@ const TeacherForm = (props: IProps) => {
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

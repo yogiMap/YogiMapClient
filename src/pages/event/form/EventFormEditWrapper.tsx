@@ -15,7 +15,7 @@ interface IProps {
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
   teacherSearch: () => void;
-  teacherTypeSearch: () => void;
+  classTypeSearch: () => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -30,7 +30,7 @@ const EventFormEditWrapper = (props: IProps) => {
     props.getById(eventId);
     props.styleSearch();
     props.teacherSearch();
-    props.teacherTypeSearch();
+    props.classTypeSearch();
   }, []);
 
   const onFinish = (values: IEvent) => {
@@ -40,7 +40,7 @@ const EventFormEditWrapper = (props: IProps) => {
   if (isLoadingGet) return <Spin indicator={antIcon} />;
   const styleList = get(props, 'styleList', []);
   const teacherList = get(props, 'teacherList', []);
-  const teacherTypeList = get(props, 'teacherTypeList', []);
+  const classTypeList = get(props, 'classTypeList', []);
 
   return (
     <EventForm
@@ -50,7 +50,7 @@ const EventFormEditWrapper = (props: IProps) => {
       isLoading={isLoadingUpdate}
       styleList={styleList}
       teacherList={teacherList}
-      teacherTypeList={teacherTypeList}
+      classTypeList={classTypeList}
     />
   );
 };
@@ -61,7 +61,7 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.EventForm.styleList,
   teacherList: state.EventForm.teacherList,
-  teacherTypeList: state.EventForm.teacherTypeList,
+  classTypeList: state.EventForm.classTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -70,7 +70,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'EventForm/teacherSearch' }),
-  teacherTypeSearch: () => dispatch({ type: 'EventForm/teacherTypeSearch' }),
+  classTypeSearch: () => dispatch({ type: 'EventForm/classTypeSearch' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventFormEditWrapper));

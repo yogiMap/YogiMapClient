@@ -10,7 +10,7 @@ interface IProps {
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
   teacherSearch: () => void;
-  teacherTypeSearch: () => void;
+  classTypeSearch: () => void;
 }
 
 const EventFormCreateWrapper = (props: IProps) => {
@@ -21,13 +21,13 @@ const EventFormCreateWrapper = (props: IProps) => {
   useEffect(() => {
     props.styleSearch();
     props.teacherSearch();
-    props.teacherTypeSearch();
+    props.classTypeSearch();
   }, []);
 
   const isLoading = get(props, 'loadingEffects.EventForm/create', false);
   const styleList = get(props, 'styleList', []);
   const teacherList = get(props, 'teacherList', []);
-  const teacherTypeList = get(props, 'teacherTypeList', []);
+  const classTypeList = get(props, 'classTypeList', []);
 
   return <EventForm
     onFinish={onFinish}
@@ -35,7 +35,7 @@ const EventFormCreateWrapper = (props: IProps) => {
     isLoading={isLoading}
     styleList={styleList}
     teacherList={teacherList}
-    teacherTypeList={teacherTypeList}
+    classTypeList={classTypeList}
   />;
 };
 
@@ -43,14 +43,14 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.EventForm.styleList,
   teacherList: state.EventForm.teacherList,
-  teacherTypeList: state.EventForm.teacherTypeList,
+  classTypeList: state.EventForm.classTypeList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IEvent) => dispatch({ type: 'EventForm/create', payload }),
   styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
   teacherSearch: () => dispatch({ type: 'EventForm/teacherSearch' }),
-  teacherTypeSearch: () => dispatch({ type: 'EventForm/teacherTypeSearch' }),
+  classTypeSearch: () => dispatch({ type: 'EventForm/classTypeSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventFormCreateWrapper);

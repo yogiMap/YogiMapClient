@@ -17,25 +17,26 @@ const ClassTypeForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
 
   return (
-    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
+    <div className="container">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
+        <Form.Item name="name" label="Type Of Yoga" rules={[validator.require]}>
+          <Input placeholder="Type Of Yoga" className="rounded-pill" />
+        </Form.Item>
 
-      <Form.Item name="name" label="Type Of Yoga" rules={[validator.require]}>
-        <Input placeholder="Type Of Yoga" className="rounded-pill"/>
-      </Form.Item>
+        {/*<ClassTypeForm.Item name="accessType" rules={[validator.require]}>*/}
+        {/*  <Select placeholder="Access type">*/}
+        {/*    <Option value="members">Members</Option>*/}
+        {/*    <Option value="all">All</Option>*/}
+        {/*  </Select>*/}
+        {/*</ClassTypeForm.Item>*/}
 
-      {/*<ClassTypeForm.Item name="accessType" rules={[validator.require]}>*/}
-      {/*  <Select placeholder="Access type">*/}
-      {/*    <Option value="members">Members</Option>*/}
-      {/*    <Option value="all">All</Option>*/}
-      {/*  </Select>*/}
-      {/*</ClassTypeForm.Item>*/}
-
-      <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
-          {props.submitButtonText}
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
+            {props.submitButtonText}
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 
