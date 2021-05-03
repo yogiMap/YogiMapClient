@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, DatePicker, Form, Input, Select } from 'antd';
+import { Button, DatePicker, TimePicker, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
 import { IClasses } from '@/pages/classes/types';
 import { get } from 'lodash';
@@ -27,7 +27,10 @@ const ClassesForm = (props: IProps) => {
   initialValues.date = moment(initialValues.date);
 
   const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
+  const [time, setTime] = useState(null);
   const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
+  const onTimeChange = (selectedTime: any) => setTime(selectedTime);
+
   const name = get(props, 'Account.name', '');
   const isLoading = get(props, 'isLoading', false);
 
@@ -90,19 +93,28 @@ const ClassesForm = (props: IProps) => {
             </Form.Item>
           </div>
         </div>
+
         <div className="row">
-          <div className="col">
+          <div className="col-md-6">
             <Form.Item label="Date" name="date" initialValue={date}>
               <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
+          <div className="col-md-6">
+            <Form.Item label="Time" name="time" initialValue={time}>
+              <TimePicker value={time} onChange={onTimeChange} className="rounded-pill" />
+            </Form.Item>
+          </div>
         </div>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
-            {props.submitButtonText}
-          </Button>
-        </Form.Item>
+          <div className="col">
+            <Form.Item>
+              <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
+                {props.submitButtonText}
+              </Button>
+            </Form.Item>
+          </div>
+
       </Form>
     </div>
   );

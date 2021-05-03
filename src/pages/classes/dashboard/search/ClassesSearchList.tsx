@@ -4,7 +4,7 @@ import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
-import { formatterDateFull, formatterDateTimeFull } from '@/utils/dateTime';
+import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 import { IClasses } from '@/pages/classes/types';
 import ActionMenu from '@/pages/classes/dashboard/search/ActionMenu';
@@ -31,31 +31,49 @@ const ClassesSearchList = (props: IProps) => {
         return formatterDateFull(row.date);
       },
     },
+
+    {
+      title: 'Time',
+      dataIndex: 'time',
+      key: 'time',
+      // render: (row) => {
+      //   return formatterTimeFull(row.date);
+      // },
+    },
+
     {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
     },
     {
-      title: 'TeacherType',
+      title: 'Yoga Focus',
+      key: 'focus',
+      dataIndex: 'focus',
+    },
+    {
+      title: 'Yoga Style',
+      key: 'style',
+      // dataIndex: 'style',
+      render: (row) => {
+        return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
+      },
+    },
+    {
+      title: 'Class Type',
       key: 'classType',
       render: (row) => {
-        return <Link to={`/teacherType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
+        return <Link to={`/classType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
       },
       //   render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
     },
     {
-      title: 'YogaStyle',
-      key: 'yogaStyle',
-      dataIndex: 'yogaStyle',
-    },
-    {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
-      // render: (row) => {
-      //   return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
-      // },
+      // render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
+      render: (row) => {
+        return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
+      },
     },
     {
       title: 'Description',

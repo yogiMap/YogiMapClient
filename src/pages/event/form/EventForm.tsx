@@ -45,7 +45,7 @@ const EventForm = (props: IProps) => {
             </Form.Item>
           </div>
           <div className="col">
-            <Form.Item name="classType" label="Teacher Type">
+            <Form.Item name="classType" label="Class Type">
               <Select className="rounded-circle">
                 {props.classTypeList.map((el) => (
                   <Option key={el._id} value={el._id}>

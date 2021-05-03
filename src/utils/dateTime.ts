@@ -6,4 +6,8 @@ const formatterDateTimeFull = (date: string) => moment(date).local().format(form
 const formatDateFull = 'MM/DD/yyyy';
 const formatterDateFull = (date: string) => moment(date).local().format(formatDateFull);
 
-export { formatterDateTimeFull, formatterDateFull };
+const formatTimeFull = 'h:mm a';
+const formatterTimeFull = (date: string) => moment(date).local().format(formatTimeFull);
+
+
+export { formatterDateTimeFull, formatterDateFull, formatterTimeFull };
