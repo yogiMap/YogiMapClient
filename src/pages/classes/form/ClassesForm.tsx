@@ -28,7 +28,7 @@ const ClassesForm = (props: IProps) => {
 
   const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
   const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
-
+  const name = get(props, 'Account.name', '');
   const isLoading = get(props, 'isLoading', false);
 
   useEffect(() => {

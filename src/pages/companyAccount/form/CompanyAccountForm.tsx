@@ -20,7 +20,8 @@ interface IProps {
 
 const CompanyAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
-  const teacherCode = get(props, 'initialValues.code', 'n/a');
+  const accountCode = get(props, 'initialValues.code', 'n/a');
+  const name = get(props, 'Account.name', '');
   const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
   // const firstName =
 
@@ -35,24 +36,26 @@ const CompanyAccountForm = (props: IProps) => {
         </div>
 
         <div className="col-md-2">
-          Account ID: {teacherCode}
+          name: {name}
+          <br/>
+          Account ID: {accountCode}
         </div>
       </div>
 
 
-      <div className="row">
-        <div className="col">
-          <Form.Item label='First Name' name='firstName'>
-            <Input />
-          </Form.Item>
-       </div>
+      {/*<div className="row">*/}
+      {/*  <div className="col">*/}
+      {/*    <Form.Item label='First Name' name='firstName'>*/}
+      {/*      <Input />*/}
+      {/*    </Form.Item>*/}
+      {/* </div>*/}
 
-        <div className="col">
-          <Form.Item label='Last Name' name='lastName'>
-            <Input />
-          </Form.Item>
-       </div>
-      </div>
+      {/*  <div className="col">*/}
+      {/*    <Form.Item label='Last Name' name='lastName'>*/}
+      {/*      <Input />*/}
+      {/*    </Form.Item>*/}
+      {/* </div>*/}
+      {/*</div>*/}
 
       {/*<div className="row">*/}
       {/*  <div className="col">*/}
@@ -61,6 +64,8 @@ const CompanyAccountForm = (props: IProps) => {
       {/*    </Form.Item>*/}
       {/* </div>*/}
       {/* </div>*/}
+
+
 
       <div className="row">
         <div className="col-md-6">
