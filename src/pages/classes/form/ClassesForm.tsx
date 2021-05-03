@@ -7,6 +7,7 @@ import moment from 'moment';
 import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
 import { IClassType } from '@/pages/classType/types';
+import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 
 interface IProps {
   isLoading: boolean;
@@ -42,38 +43,20 @@ const ClassesForm = (props: IProps) => {
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
         <div className="row my-3">
-          <div className="col">
+          <div className="col-md-6">
             <Form.Item name="name" label="Class Name" rules={[validator.require]}>
               <Input placeholder="Class Name" className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="col">
-            <Form.Item name="classType" label="Class Type">
-              <Select className="rounded-circle">
-                {props.classTypeList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
-              </Select>
+          <div className="col-md-6">
+            <Form.Item name="description" label="Description">
+              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
           </div>
         </div>
 
         <div className="row my-3">
-          <div className="col">
-            <Form.Item name="style" label="Yoga Style">
-              <Select className="rounded-circle">
-                {props.styleList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
-          </div>
-
-          <div className="col">
+          <div className="col-md-6">
             <Form.Item name="teacher" label="Teacher" rules={[validator.require]}>
               <Select className="rounded-circle">
                 {props.teacherList.map((el) => (
@@ -84,12 +67,34 @@ const ClassesForm = (props: IProps) => {
               </Select>
             </Form.Item>
           </div>
+          <div className="col-md-6">
+            <Form.Item label="Yoga Focus" name="focus">
+              <FocusSearchInput />
+            </Form.Item>
+          </div>
         </div>
 
         <div className="row">
-          <div className="col">
-            <Form.Item name="description" label="Description">
-              <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill" />
+          <div className="col-md-6">
+              <Form.Item name="style" label="Yoga Style">
+                <Select className="rounded-circle">
+                  {props.styleList.map((el) => (
+                    <Option key={el._id} value={el._id}>
+                      {el.name}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </div>
+          <div className="col-md-6">
+            <Form.Item name="classType" label="Class Type">
+              <Select className="rounded-circle">
+                {props.classTypeList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
             </Form.Item>
           </div>
         </div>
@@ -107,14 +112,13 @@ const ClassesForm = (props: IProps) => {
           </div>
         </div>
 
-          <div className="col">
-            <Form.Item>
-              <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
-                {props.submitButtonText}
-              </Button>
-            </Form.Item>
-          </div>
-
+        <div className="col">
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
+              {props.submitButtonText}
+            </Button>
+          </Form.Item>
+        </div>
       </Form>
     </div>
   );
