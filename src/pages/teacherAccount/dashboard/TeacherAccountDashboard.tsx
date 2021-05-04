@@ -60,20 +60,26 @@ const TeacherAccountDashboard = (props: IProps) => {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-end justify-content-between mb-2">
-        <div>
-          <div className="h4 mr-4">Teacher Account dashboard</div>
-          <TeacherAccountFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>Find Your Teacher</h1>
         </div>
-
-        <TeacherAccountStats stats={teacherAccountStats} />
       </div>
 
-      <TeacherAccountSearchList items={teacherAccountList} />
+      <div className="row my-5 d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
+          <TeacherAccountFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
+        </div>
+      </div>
 
-      <Pager pager={teacherAccountPager} onChange={onPagerChange} />
-    </>
+      <div className="row my-3">
+        <div className="col">
+          <TeacherAccountSearchList items={teacherAccountList} />
+          <Pager pager={teacherAccountPager} onChange={onPagerChange} />
+        </div>
+      </div>
+    </div>
   );
 };
 

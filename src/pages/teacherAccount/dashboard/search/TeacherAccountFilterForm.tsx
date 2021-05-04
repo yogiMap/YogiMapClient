@@ -19,6 +19,7 @@ const TeacherAccountFilterForm = (props: IProps) => {
   }, 500);
 
   useEffect(() => {
+    // при обновлении фильтров из пропс нужно обновлять форму
     Object.keys(formValues).forEach((key) => {
       formValues[key] = get(filters, `${key}`, '');
     });
@@ -36,18 +37,28 @@ const TeacherAccountFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="teacherName">
-        <Input placeholder="Teacher Name" />
-      </Form.Item>
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters} >
+      <div className="row d-flex justify-content-center">
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item name="name">
+            <Input placeholder="Name" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item name="phoneNumber1">
-        <Input placeholder="Phone Number1" />
-      </Form.Item>
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item name="location">
+            <Input placeholder="Location" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item>
-        <Button onClick={reset}>Reset</Button>
-      </Form.Item>
+        <div className="col-lg-4 d-flex justify-content-center">
+          <Form.Item>
+            <Button onClick={reset} shape="round">
+              Reset
+            </Button>
+          </Form.Item>
+        </div>
+      </div>
     </Form>
   );
 };

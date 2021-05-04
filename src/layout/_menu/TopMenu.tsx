@@ -15,11 +15,12 @@ const TopMenu = (props: IProps) => {
   const mainMenu = [
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
     { path: '/', name: 'HOME' },
-    { path: '/teacher', name: 'TEACHER', perm: 'teacher.get.own' },
+    { path: '/teacherAccount', name: 'TEACHER', perm: 'teacherAccount.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
     { path: '/list/focus', name: 'YOGA FOCUS', perm: 'focus.get.own' },
     { path: '/style', name: 'YOGA STYLE', perm: 'style.get.own' },
+    { path: '/classType', name: 'CLASS TYPE', perm: 'classType.get.own' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
