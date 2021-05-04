@@ -14,7 +14,7 @@ const SettingsMenu = (props: IProps) => {
   let menuItemName = '';
 
   if (history.location.pathname.split('/')[2] === 'teacherAccount') {
-    menuItemName = 'Company account';
+    menuItemName = 'Teacher account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'Profile';
   } else if (history.location.pathname.split('/')[2] === 'security') {
@@ -36,11 +36,6 @@ const SettingsMenu = (props: IProps) => {
       name: 'Password',
       icon: <SafetyOutlined />,
       link: `/settings/security/${ownerId}`,
-    },
-    {
-      name: 'Create Teacher',
-      icon: <SafetyOutlined />,
-      link: `/settings/teacher/${ownerId}`,
     },
     {
       name: 'Create Class',

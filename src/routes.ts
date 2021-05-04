@@ -14,7 +14,6 @@ export default [
           { path: '/user/password/reset/:userId/:hash', component: '@/pages/user/account/UserPasswordResetNew' },
           { path: '/user/login', component: '@/pages/user/account/UserLogin' },
           { path: '/user/register', component: '@/pages/user/account/UserRegister' },
-          { path: '/user/register/teacher', component: '@/pages/user/account/UserRegisterTeacher' },
           { path: '/user/verify/email/:userId/:hash', component: '@/pages/user/account/UserEmailVerify' },
         ],
       },
@@ -31,8 +30,8 @@ export default [
           { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
           { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
 
-          { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
-          { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
+          // { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
+          // { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
 
           { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
@@ -82,10 +81,10 @@ export default [
                 path: '/settings/security/:userId',
                 component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
               },
-              {
-                path: '/settings/teacher/:userId',
-                component: '@/pages/teacher/form/TeacherCreateWrapper',
-              },
+              // {
+              //   path: '/settings/teacher/:userId',
+              //   component: '@/pages/teacher/form/TeacherCreateWrapper',
+              // },
               {
                 path: '/settings/classes/:userId',
                 component: '@/pages/classes/form/ClassesFormCreateWrapper',

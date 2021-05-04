@@ -6,6 +6,11 @@ import {
   queryTeacherAccountUpdateById,
 } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
+import { queryClassTypeSearch } from '@/pages/classType/queries';
+import { queryClassesSearch } from '@/pages/classes/queries';
+import { queryEventSearch } from '@/pages/event/queries';
+import { queryStyleSearch } from '@/pages/style/queries';
+import { get } from 'lodash';
 
 export interface IState {}
 
@@ -16,6 +21,10 @@ export interface TeacherAccountModelType {
     create: Effect;
     getById: Effect;
     updateById: Effect;
+    classTypeSearch: Effect;
+    classesSearch: Effect;
+    eventSearch: Effect;
+    styleSearch: Effect;
     reset: Effect;
   };
   reducers: {
@@ -59,6 +68,46 @@ const TeacherAccountModel: TeacherAccountModelType = {
           payload: payload.queryParams,
         });
       }
+    },
+
+    *classTypeSearch(_, { call, put }) {
+      const data = yield call(queryClassTypeSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          classTypeList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *classesSearch(_, { call, put }) {
+      const data = yield call(queryClassesSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          classesList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *eventSearch(_, { call, put }) {
+      const data = yield call(queryEventSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          eventList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *styleSearch(_, { call, put }) {
+      const data = yield call(queryStyleSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          styleList: get(data, 'payload.items'),
+        },
+      });
     },
 
     *reset(_, { put }) {
