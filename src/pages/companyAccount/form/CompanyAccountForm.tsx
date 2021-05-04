@@ -7,9 +7,8 @@ import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
 import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
-import { IUser } from '@/pages/user/userSearch/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
-import dva from 'dva';
+import { useForm } from 'antd/es/form/Form';
 
 interface IProps {
   isLoading: boolean;
@@ -26,7 +25,7 @@ const CompanyAccountForm = (props: IProps) => {
   // const userInfo = get(props, 'userInfo', '');
   // const userName = get(userInfo, 'name', '');
   const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
-  // const firstName =
+  const [form] = useForm();
 
   return (
     <div className="container mt-5">
@@ -54,8 +53,8 @@ const CompanyAccountForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-6">
-            <Form.Item name="phone" label="Phone">
-              <PhoneInput name="phoneNumber" required={false} />
+            <Form.Item name="phoneNumber">
+              <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
             </Form.Item>
           </div>
 

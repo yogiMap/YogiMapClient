@@ -47,18 +47,24 @@ const PhoneInput = (props: any) => {
 
   return (
     <div>
+      <div className="ant-col ant-form-item-label">
+        <label htmlFor={props.name}>{props.label}</label>
+      </div>
+
       <div className="d-flex">
         <div style={{ marginRight: 10 }}>
-          <label htmlFor={props.name}>{props.label}</label>
-          <Select value={phoneCode} onChange={handleChangeCode}>
-            {options}
-          </Select>
+          <Form.Item name={`${props.name}_code`} initialValue={phoneCode}>
+            <Select value={phoneCode} onChange={handleChangeCode}>
+              {options}
+            </Select>
+          </Form.Item>
         </div>
 
         <Form.Item
           style={{ marginRight: 10, width: 300 }}
-          name={props.name}
+          name={`${props.name}_number`}
           rules={[validator.usaPhone, props.required && { required: true, message: 'Required' }]}
+          initialValue={phoneNumber}
         >
           <Input placeholder="Phone Number" value={phoneNumber} onChange={handleChangeNumber} />
         </Form.Item>
