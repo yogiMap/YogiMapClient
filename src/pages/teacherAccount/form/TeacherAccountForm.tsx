@@ -103,7 +103,7 @@ const TeacherAccountForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <div className="col-md-9">
+          <div className="col-md-10">
             {isLoaded ? (
               <Form.Item label="Address Search">
                 <Autocomplete onChange={onChange} />
@@ -113,7 +113,7 @@ const TeacherAccountForm = (props: IProps) => {
             )}
           </div>
 
-          <div className="col-md-1 pt-4">
+          <div className="col-md-2 pt-4">
             <Button type="primary" shape="round" className="mt-2">
               Search
             </Button>

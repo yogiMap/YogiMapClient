@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Button, DatePicker, Form, Input, Select } from 'antd';
+import { Button, DatePicker, Form, Input, Select, TimePicker } from 'antd';
 import validator from '@/utils/validators';
 import { IEvent } from '@/pages/event/types';
 import { get } from 'lodash';
 import moment from 'moment';
-import { ITeacher } from '@/pages/teacher/types';
 import { IStyle } from '@/pages/style/types';
 import { IClassType } from '@/pages/classType/types';
+import { IUserAccount } from '@/pages/user/userSearch/types';
+import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
+import { connect, withRouter } from 'umi';
 
 interface IProps {
+  Account: IUserAccount;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: IEvent;
-  teacherList: ITeacher[];
   styleList: IStyle[];
   classTypeList: IClassType[];
 }
@@ -25,9 +27,13 @@ const EventForm = (props: IProps) => {
   const initialValues: any = get(props, 'initialValues', {});
   initialValues.dueDate = moment(initialValues.dueDate);
   initialValues.date = moment(initialValues.date);
+  const name = get(props, 'Account.name', '');
+  const email = get(props, 'Account.email', '');
 
   const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
+  const [time, setTime] = useState(null);
   const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
+  const onTimeChange = (selectedTime: any) => setTime(selectedTime);
 
   const isLoading = get(props, 'isLoading', false);
 
@@ -35,24 +41,29 @@ const EventForm = (props: IProps) => {
     form.setFieldsValue({ date: date, dueDate: dueDate });
   }, [date, dueDate]);
 
+  useEffect(() => {
+    form.setFieldsValue({ date: time });
+  }, [time]);
+
   return (
     <div className="container mt-5">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="event">
+        <div className="row mb-5">
+          <div className="col-md-8">
+            <h1>{name}</h1>
+            <h6 className="mt-3">email: {email} </h6>
+          </div>
+        </div>
+
         <div className="row my-3">
           <div className="col">
             <Form.Item name="name" label="Event Name" rules={[validator.require]}>
               <Input placeholder="Event Name" className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="col">
-            <Form.Item name="classType" label="Class Type">
-              <Select className="rounded-circle">
-                {props.classTypeList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
-              </Select>
+          <div className="col-md-6">
+            <Form.Item label="Yoga Focus" name="focus">
+              <FocusSearchInput />
             </Form.Item>
           </div>
         </div>
@@ -69,11 +80,10 @@ const EventForm = (props: IProps) => {
               </Select>
             </Form.Item>
           </div>
-
           <div className="col">
-            <Form.Item name="teacher" label="Teacher" rules={[validator.require]}>
+            <Form.Item name="classType" label="Class Type">
               <Select className="rounded-circle">
-                {props.teacherList.map((el) => (
+                {props.classTypeList.map((el) => (
                   <Option key={el._id} value={el._id}>
                     {el.name}
                   </Option>
@@ -86,24 +96,23 @@ const EventForm = (props: IProps) => {
         <div className="row">
           <div className="col">
             <Form.Item name="description" label="Description">
-              <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} className="rounded-pill" />
-            </Form.Item>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <Form.Item label="Date" name="date" initialValue={date}>
-              <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
           </div>
         </div>
 
-        {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
-        {/*  <Select placeholder="Access type">*/}
-        {/*    <Option value="members">Members</Option>*/}
-        {/*    <Option value="all">All</Option>*/}
-        {/*  </Select>*/}
-        {/*</TeacherForm.Item>*/}
+        <div className="row">
+          <div className="col-md-6">
+            <Form.Item label="Date" name="date" initialValue={date}>
+              <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+            </Form.Item>
+          </div>
+          <div className="col-md-6">
+            <Form.Item label="Time" name="time" initialValue={time}>
+              <TimePicker value={time} onChange={onTimeChange} className="rounded-pill" />
+            </Form.Item>
+          </div>
+        </div>
 
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
@@ -115,4 +124,9 @@ const EventForm = (props: IProps) => {
   );
 };
 
-export default EventForm;
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
+// @ts-ignore
+export default withRouter(connect(mapStateToProps)(EventForm));
