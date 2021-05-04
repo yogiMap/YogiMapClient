@@ -73,31 +73,19 @@ const TeacherAccountForm = (props: IProps) => {
             </Form.Item>
           </div>
 
-          <div className="col">
-            <Form.Item name="description" label="Description">
-              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
-            </Form.Item>
-          </div>
-        </div>
-
-        <div className="row">
           <div className="col-md-6">
             <Form.Item label="Yoga Focus" name="focus">
               <FocusSearchInput />
             </Form.Item>
           </div>
+        </div>
 
-          {/*<div className="col">*/}
-          {/*  <Form.Item name="style" label="Yoga Style">*/}
-          {/*    <Select className="rounded-circle">*/}
-          {/*      {props.styleList.map((el) => (*/}
-          {/*        <Option key={el._id} value={el._id}>*/}
-          {/*          {el.name}*/}
-          {/*        </Option>*/}
-          {/*      ))}*/}
-          {/*    </Select>*/}
-          {/*  </Form.Item>*/}
-          {/*</div>*/}
+        <div className="row">
+          <div className="col">
+            <Form.Item name="description" label="Description">
+              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
+            </Form.Item>
+          </div>
         </div>
 
         <div className="row">

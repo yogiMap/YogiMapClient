@@ -65,8 +65,8 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
       <div className="row">
         <div className="col-md-6">
-          <Form.Item name="phone" label="Phone">
-            <PhoneInput name="phoneNumber" required={false} />
+          <Form.Item name="phoneNumber">
+            <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
           </Form.Item>
         </div>
 
@@ -76,53 +76,6 @@ const UserSettingsEditProfileForm = (props: IProps) => {
           </Form.Item>
         </div>
       </div>
-
-      <div>
-        <h6 className="my-3">Address</h6>
-        <div className="row">
-          <div className="col">
-            <Form.Item name="addressLine1">
-              <Input placeholder="Address Line 1" className="rounded-pill" />
-            </Form.Item>
-          </div>
-          <div className="col">
-            <Form.Item name="addressLine2">
-              <Input placeholder="Apartment/Unit/Suite #" className="rounded-pill" />
-            </Form.Item>
-          </div>
-          <div className="col">
-            <Form.Item name="city">
-              <Input placeholder="City" className="rounded-pill" />
-            </Form.Item>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col">
-            <Form.Item name="state">
-              <Input placeholder="State" className="rounded-pill" />
-            </Form.Item>
-          </div>
-          <div className="col">
-            <Form.Item name="zipCode">
-              <Input placeholder="Zip" className="rounded-pill" />
-            </Form.Item>
-          </div>
-          <div className="col">
-            <Form.Item name="countryName">
-              <Input placeholder="Country" className="rounded-pill" />
-            </Form.Item>
-          </div>
-        </div>
-      </div>
-
-      {isLoaded ? (
-        <Form.Item label="Address Search">
-          <Autocomplete onChange={onChange} />
-        </Form.Item>
-      ) : (
-        loadError
-      )}
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol }}>
         <Button type='primary' shape="round" htmlType='submit'>

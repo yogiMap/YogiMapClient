@@ -61,7 +61,7 @@ const PhoneInput = (props: any) => {
         </div>
 
         <Form.Item
-          style={{ marginRight: 10, width: 300 }}
+          style={{ marginRight: 10, width: 360 }}
           name={`${props.name}_number`}
           rules={[validator.usaPhone, props.required && { required: true, message: 'Required' }]}
           initialValue={phoneNumber}
