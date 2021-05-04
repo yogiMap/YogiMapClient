@@ -39,6 +39,7 @@ function HomePage(props: IProps) {
       </div>
 
       <div className="home-description">
+        <div className="container">
         <div className="row d-flex justify-content-center my-5">
           <div className="col-md-10 ">
             Yoga is the always changing conception. Online resources are the important way of teaching by individual
@@ -46,6 +47,7 @@ function HomePage(props: IProps) {
             improvement. Also here you will be able find your community and all information you were interested about
             yoga.
           </div>
+        </div>
         </div>
 
         <div className="home-bg-header-secondary">
