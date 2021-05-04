@@ -9,11 +9,11 @@ interface IProps {}
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
   const hash = get(props, 'Account.hash', '');
-  const companyAccountId = get(props, 'Account.companyAccount', '');
+  const teacherAccountId = get(props, 'Account.teacherAccount', '');
 
   let menuItemName = '';
 
-  if (history.location.pathname.split('/')[2] === 'companyAccount') {
+  if (history.location.pathname.split('/')[2] === 'teacherAccount') {
     menuItemName = 'Company account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'Profile';
@@ -25,7 +25,7 @@ const SettingsMenu = (props: IProps) => {
     {
       name: 'Teacher account',
       icon: <UsergroupAddOutlined />,
-      link: `/settings/companyAccount/${ownerId}`,
+      link: `/settings/teacherAccount/${ownerId}`,
     },
     {
       name: 'Profile',
@@ -64,7 +64,7 @@ const SettingsMenu = (props: IProps) => {
   return (
     <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
       {menu.map((el) => (
-        <Menu.Item key={el.name} disabled={!companyAccountId && el.name !== 'Teacher account'}>
+        <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
           {el.icon}
           {el.name}
           <Link to={el.link} />

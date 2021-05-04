@@ -3,17 +3,17 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { ICompanyAccount } from '@/pages/companyAccount/types';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
-interface IProps extends ICompanyAccount {
-  companyAccountDeleteById: (id: String) => void;
+interface IProps extends ITeacherAccount {
+  teacherAccountDeleteById: (id: String) => void;
 }
 
-const CompanyAccountSearchListItem = (props: IProps) => {
-  const { companyAccountDeleteById } = props;
+const TeacherAccountSearchListItem = (props: IProps) => {
+  const { teacherAccountDeleteById } = props;
 
   const owner = get(props, 'item.owner', '');
-  const companyAccountId = get(props, 'item._id', '');
+  const teacherAccountId = get(props, 'item._id', '');
   const createdAt = get(props, 'item.createdAt', '');
   const description = get(props, 'item.description', '');
 
@@ -31,7 +31,7 @@ const CompanyAccountSearchListItem = (props: IProps) => {
       <Row>{description}</Row>
 
       <Row>
-        <Button danger onClick={() => companyAccountDeleteById(companyAccountId)}>
+        <Button danger onClick={() => teacherAccountDeleteById(teacherAccountId)}>
           Delete
         </Button>
       </Row>
@@ -40,9 +40,9 @@ const CompanyAccountSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  companyAccountDeleteById: (companyAccountId: string) =>
-    dispatch({ type: 'CompanyAccountDashboard/companyAccountDeleteDyId', payload: companyAccountId }),
+  teacherAccountDeleteById: (teacherAccountId: string) =>
+    dispatch({ type: 'TeacherAccountDashboard/teacherAccountDeleteDyId', payload: teacherAccountId }),
 });
 
 // @ts-ignore
-export default connect(null, mapDispatchToProps)(CompanyAccountSearchListItem);
+export default connect(null, mapDispatchToProps)(TeacherAccountSearchListItem);

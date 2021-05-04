@@ -3,11 +3,11 @@ import { get } from 'lodash';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryAddressSearch } from '@/pages/address/queries';
 import {
-  queryCompanyAccountGetCountryList,
-  queryCompanyAccountGetCountryStatesList,
-  queryCompanyAccountGetFocusList,
-  queryCompanyAccountGetTimeZoneList,
-} from '@/pages/companyAccount/queries';
+  queryTeacherAccountGetCountryList,
+  queryTeacherAccountGetCountryStatesList,
+  queryTeacherAccountGetFocusList,
+  queryTeacherAccountGetTimeZoneList,
+} from '@/pages/teacherAccount/queries';
 
 export interface IState {}
 
@@ -35,7 +35,7 @@ const Model: IModel = {
 
   effects: {
     *countrySearch(_, { call, put }) {
-      const data = yield call(queryCompanyAccountGetCountryList);
+      const data = yield call(queryTeacherAccountGetCountryList);
       yield put({
         type: 'save',
         payload: {
@@ -45,7 +45,7 @@ const Model: IModel = {
     },
 
     *stateSearch({ payload }, { call, put }) {
-      const data = yield call(queryCompanyAccountGetCountryStatesList, payload);
+      const data = yield call(queryTeacherAccountGetCountryStatesList, payload);
       yield put({
         type: 'save',
         payload: {
@@ -68,7 +68,7 @@ const Model: IModel = {
     },
 
     *timeZoneSearch({ payload }, { call, put }) {
-      const data = yield call(queryCompanyAccountGetTimeZoneList, payload);
+      const data = yield call(queryTeacherAccountGetTimeZoneList, payload);
       yield put({
         type: 'save',
         payload: {
@@ -78,7 +78,7 @@ const Model: IModel = {
     },
 
     *focusSearch({ payload }, { call, put }) {
-      const data = yield call(queryCompanyAccountGetFocusList, payload);
+      const data = yield call(queryTeacherAccountGetFocusList, payload);
       yield put({
         type: 'save',
         payload: {

@@ -7,18 +7,18 @@ interface IProps {
   open: (arg: ISidepanel) => void;
 }
 
-const CompanyAccountDashboardControls = (props: IProps) => {
-  const companyAccountCreate = () => {
+const TeacherAccountDashboardControls = (props: IProps) => {
+  const teacherAccountCreate = () => {
     props.open({
       title: 'Create new Teacher Account',
-      component: 'CompanyAccountFormCreate',
-      place: 'CompanyAccountDashboard',
+      component: 'TeacherAccountFormCreate',
+      place: 'TeacherAccountDashboard',
       width: 1000,
     });
   };
 
   return (
-    <Button type="primary" onClick={companyAccountCreate}>
+    <Button type="primary" onClick={teacherAccountCreate}>
       Create Teacher Account
     </Button>
   );
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(CompanyAccountDashboardControls);
+export default connect(null, mapDispatchToProps)(TeacherAccountDashboardControls);

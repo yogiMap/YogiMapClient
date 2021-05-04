@@ -28,8 +28,8 @@ export default [
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
 
-          { path: '/companyAccount', component: '@/pages/companyAccount/dashboard/CompanyAccountDashboard' },
-          { path: '/companyAccount/:companyAccountId', component: '@/pages/companyAccount/view/CompanyAccountView' },
+          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
 
           { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
           { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
@@ -64,15 +64,15 @@ export default [
             routes: [
               {
                 path: '/settings/:userId',
-                redirect: '/settings/companyAccount/:userId',
+                redirect: '/settings/teacherAccount/:userId',
               },
               {
                 path: '/settings/profile/:userId',
                 component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
               },
               {
-                path: '/settings/companyAccount/:userId',
-                component: '@/pages/user/settings/companyAccount/CompanyAccountSettingsView',
+                path: '/settings/teacherAccount/:userId',
+                component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
               },
               {
                 path: '/settings/profile/:userId',

@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryCompanyAccountGetById } from '@/pages/companyAccount/queries';
+import { queryTeacherAccountGetById } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
@@ -9,7 +9,7 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    companyAccountGetById: Effect;
+    teacherAccountGetById: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -17,14 +17,14 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'CompanyAccountView',
+  namespace: 'TeacherAccountView',
 
   state: {},
 
   effects: {
-    *companyAccountGetById({ payload }, { call, put }) {
+    *teacherAccountGetById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
-      const data = yield call(queryCompanyAccountGetById, payload);
+      const data = yield call(queryTeacherAccountGetById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
     },
   },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import validator from '@/utils/validators';
-import { ICompanyAccount } from '@/pages/companyAccount/types';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 import { get } from 'lodash';
 import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
@@ -12,12 +12,12 @@ import { useForm } from 'antd/es/form/Form';
 
 interface IProps {
   isLoading: boolean;
-  onFinish: (values: ICompanyAccount) => void;
+  onFinish: (values: ITeacherAccount) => void;
   submitButtonText: string;
-  initialValues?: ICompanyAccount;
+  initialValues?: ITeacherAccount;
 }
 
-const CompanyAccountForm = (props: IProps) => {
+const TeacherAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
   const firstName = get(props, 'initialValues.firstName', '');
@@ -29,7 +29,7 @@ const CompanyAccountForm = (props: IProps) => {
 
   return (
     <div className="container mt-5">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="companyAccount">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
         <div className="row mb-5">
           <div className="col-md-8">
             <h1>
@@ -147,4 +147,4 @@ const CompanyAccountForm = (props: IProps) => {
   );
 };
 
-export default CompanyAccountForm;
+export default TeacherAccountForm;

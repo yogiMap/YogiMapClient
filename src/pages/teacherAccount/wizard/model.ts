@@ -1,6 +1,6 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryCompanyAccountCreate } from '@/pages/companyAccount/queries';
+import { queryTeacherAccountCreate } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryUserVerifyEmailSend } from '@/pages/user/userSearch/queries';
 export interface IState {}
@@ -9,7 +9,7 @@ export interface WizardModelType {
   namespace: string;
   state: IState;
   effects: {
-    companyAccountCreate: Effect;
+    teacherAccountCreate: Effect;
     userVerifyEmailSend: Effect;
   };
   reducers: {
@@ -25,8 +25,8 @@ const WizardModel: WizardModelType = {
   state: initialState,
 
   effects: {
-    *companyAccountCreate({ payload }, { call, put }) {
-      yield call(queryCompanyAccountCreate, payload);
+    *teacherAccountCreate({ payload }, { call, put }) {
+      yield call(queryTeacherAccountCreate, payload);
       yield put({ type: 'Account/auth' });
       history.push('/wizard');
     },

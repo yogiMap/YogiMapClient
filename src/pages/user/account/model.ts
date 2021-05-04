@@ -57,7 +57,7 @@ const UserModel: UserModelType = {
         }
 
         const emailConfirmed = get(userAuthResult, 'payload.emailConfirmation.confirmed');
-        const companyAccount = get(userAuthResult, 'payload.account');
+        const teacherAccount = get(userAuthResult, 'payload.account');
 
 
         if (userAuthResult) {
@@ -86,7 +86,7 @@ const UserModel: UserModelType = {
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
-        history.push(`/companyAccount/${userId}`);
+        history.push(`/teacherAccount/${userId}`);
 
         yield put({ type: 'auth' });
       }
