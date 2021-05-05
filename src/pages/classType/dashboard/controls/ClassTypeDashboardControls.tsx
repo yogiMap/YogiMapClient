@@ -13,7 +13,7 @@ interface IProps {
 const ClassTypeDashboardControls = (props: IProps) => {
   const classTypeCreate = () => {
     props.open({
-      title: 'What Type of Yoga do you Teach?',
+      title: 'Create New Class Type',
       component: 'ClassTypeFormCreate',
       place: 'ClassTypeDashboard',
       width: 800,
@@ -27,7 +27,7 @@ const ClassTypeDashboardControls = (props: IProps) => {
     <>
       {isUserAuth && (
     <Button type="primary"  shape="round"  onClick={classTypeCreate}>
-      Teacher Type
+      Create Class Type
     </Button>
       )}
     </>

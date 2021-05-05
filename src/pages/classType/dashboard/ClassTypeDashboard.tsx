@@ -84,11 +84,11 @@ const ClassTypeDashboard = (props: IProps) => {
         </div>
       </div>
 
-    {/*  <div className="row my-3">*/}
-    {/*    <div className="col d-flex justify-content-end">*/}
-    {/*      <ClassTypeDashboardControls />*/}
-    {/*    </div>*/}
-    {/*  </div>*/}
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <ClassTypeDashboardControls />
+        </div>
+      </div>
     </div>
   );
 };

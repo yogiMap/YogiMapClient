@@ -19,8 +19,8 @@ const ClassTypeForm = (props: IProps) => {
   return (
     <div className="container">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
-        <Form.Item name="name" label="Type Of Yoga" rules={[validator.require]}>
-          <Input placeholder="Type Of Yoga" className="rounded-pill" />
+        <Form.Item name="name" label="Class Type" rules={[validator.require]}>
+          <Input placeholder="Class Type" className="rounded-pill" />
         </Form.Item>
 
         {/*<ClassTypeForm.Item name="accessType" rules={[validator.require]}>*/}
