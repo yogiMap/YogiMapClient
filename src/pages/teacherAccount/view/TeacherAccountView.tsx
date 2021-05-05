@@ -48,9 +48,11 @@ const TeacherAccountView = (props: IProps) => {
         <h6>Phone Number: {phone}</h6>
         <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
 
-        <h3 className="mt-5">Address</h3>
+        <div className="py-5">
+        <h3>Address</h3>
         <div>
           <TeacherAccountViewAddressList />
+        </div>
         </div>
 
         <h3 className="mt-5">Classes</h3>
