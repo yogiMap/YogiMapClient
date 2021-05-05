@@ -50,9 +50,11 @@ const TeacherAccountView = (props: IProps) => {
 
       <div className="container">
         <h1 className="text-center">{name}</h1>
-        { focusObject.map((el: any) => (
-          <h2>{el.name}</h2>
-        ))}
+        {/*{ focusObject.map((el: any) => (*/}
+        {/*  <h2>{el.name}</h2>*/}
+        {/*))}*/}
+
+        Phone Number: <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
 
         <div className="d-print-block">
           <h6>
@@ -66,6 +68,15 @@ const TeacherAccountView = (props: IProps) => {
           <div className="mb-1">{countryName}</div>
           <div className="mb-1">{email}</div>
           <div className="mb-1">{phone}</div>
+          Email: {email} <br />
+          Address: {address} <br />
+          Address Line1: {addressLine1} <br />
+          Address Line2: {addressLine2} <br />
+          City: {city} <br />
+          State: {state} <br />
+          Country: {country} <br />
+          Zip Code: {zipCode} <br />
+          Time Zone: {timeZone} <br />
         </div>
 
         <h3 className="mt-5">Classes</h3>
@@ -77,22 +88,7 @@ const TeacherAccountView = (props: IProps) => {
         <div>
           <TeacherAccountViewEventList event={event}/>
         </div>
-
       </div>
-
-      <h2>{teacherName}</h2>
-      <hr />
-      Phone Number: <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
-      <br />
-      Email: {email} <br />
-      Address: {address} <br />
-      Address Line1: {addressLine1} <br />
-      Address Line2: {addressLine2} <br />
-      City: {city} <br />
-      State: {state} <br />
-      Country: {country} <br />
-      Zip Code: {zipCode} <br />
-      Time Zone: {timeZone} <br />
     </div>
   );
 };

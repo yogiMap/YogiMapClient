@@ -27,7 +27,7 @@ const TeacherAccountSearchList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/teacher/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/teacherAccount/${row._id}`}>{row.name}</Link>,
     },
 
     {
