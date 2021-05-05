@@ -65,12 +65,6 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
       <div className="row">
         <div className="col-md-6">
-          <Form.Item name="phoneNumber">
-            <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
-          </Form.Item>
-        </div>
-
-        <div className="col-md-6">
           <Form.Item label="E-mail" name="email" rules={[validator.require]}>
             <Input />
           </Form.Item>

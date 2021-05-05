@@ -9,8 +9,9 @@ const { Option } = Select;
 const PhoneInput = (props: any) => {
   const initialPhoneCode = get(props, 'value.code', '1');
   const initialPhoneNumber = get(props, 'value.number', '');
-  const initialPhoneExt = get(props, 'value.ext', '');
+  // const initialPhoneExt = get(props, 'value.ext', '');
 
+  console.log(initialPhoneNumber);
   const options = codePhoneNumber.map((el: string) => (
     <Option key={el} value={el} className="font-weight-bold">
       +{el}

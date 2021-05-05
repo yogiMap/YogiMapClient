@@ -7,6 +7,7 @@ import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
+import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -31,28 +32,26 @@ const TeacherAccountSearchList = (props: IProps) => {
     },
 
     {
-      title: 'Class Type',
-      key: 'classType',
-      render: (row) => {
-        return <Link to={`/classType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
-      },
-      //   render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
+      title: 'Yoga Focus',
+      key: 'focus',
+      dataIndex: 'focus',
     },
 
     {
       title: 'YogaStyle',
       key: 'style',
+      // dataIndex: 'style',
       render: (row) => {
         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
       },
     },
-    {
-      title: 'Action',
-      key: 'action',
-      className: 'actions',
-      width: 80,
-      render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
-    },
+    // {
+    //   title: 'Action',
+    //   key: 'action',
+    //   className: 'actions',
+    //   width: 80,
+    //   render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
+    // },
   ];
 
   return (

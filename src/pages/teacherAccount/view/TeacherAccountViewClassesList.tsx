@@ -12,8 +12,8 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
-  open: (arg: ISidepanel) => void;
-  Account: IUserAccount;
+  // open: (arg: ISidepanel) => void;
+  // Account: IUserAccount;
 }
 
 const TeacherAccountViewClassesList = (props: IProps) => {
@@ -70,12 +70,12 @@ const TeacherAccountViewClassesList = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
-  sidepanel: state.Sidepanel,
+  // Account: state.Account,
+  // sidepanel: state.Sidepanel,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
+  // open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 
 });
 

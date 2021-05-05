@@ -18,6 +18,8 @@ import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
+import TeacherAccountDashboardControlsDelete
+  from '@/pages/user/settings/teacherAccount/controls/TeacherAccountDashboardControlsDelete';
 
 interface IProps {
   isLoading: boolean;
@@ -51,6 +53,7 @@ const TeacherAccountForm = (props: IProps) => {
   };
   useEffect(() => form.setFieldsValue(addressFields));
 
+  // @ts-ignore
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
@@ -178,6 +181,7 @@ const TeacherAccountForm = (props: IProps) => {
             </Button>
           </Form.Item>
         </div>
+        {/*<TeacherAccountDashboardControlsDelete/>*/}
       </Form>
     </div>
   );
