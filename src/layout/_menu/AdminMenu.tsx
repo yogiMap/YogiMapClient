@@ -17,10 +17,9 @@ const TopMenu = (props: IProps) => {
   if (!isAdmin) return null;
 
   const menuItems = [
-    { path: '/users', name: 'Users', perm: 'user.auth' },
-    { path: '/lineItem', name: 'LineItem', perm: 'lineItem.get.own' },
+    { path: '/style', name: 'Yoga Style', perm: 'style.get.own' },
+    { path: '/classType', name: 'Class Type', perm: 'classType.get.own' },
     { path: '/account', name: 'Teacher Accounts', perm: 'account.get.all' },
-    { path: '/telephony', name: 'Telephony', perm: 'user.delete.any' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
@@ -41,7 +40,7 @@ const TopMenu = (props: IProps) => {
   );
 
   return (
-    <div id="admin-menu" role="menu" className="d-flex d-print-none me-3">
+    <div id="admin-menu" role="menu">
       <Dropdown overlay={menu}>
         <span className="ant-dropdown-link pointer item">Admin</span>
       </Dropdown>

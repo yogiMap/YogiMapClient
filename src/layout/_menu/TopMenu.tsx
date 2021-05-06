@@ -26,16 +26,13 @@ const TopMenu = (props: IProps) => {
     isActive: location.startsWith(el.path),
   }));
 
-
   return (
-    <div id="top-menu" role="menu" className="d-flex d-print-none">
-
-      {mainMenu.map((el) => (
-        <div className={classNames('item', { active: el.isActive })} key={el.path}>
-          <Link to={el.path}>{el.name}</Link>
-        </div>
-      ))}
-
+    <div id="top-menu" role="menu">
+        {mainMenu.map((el) => (
+          <div className="item" key={el.path}>
+            <Link to={el.path}>{el.name}</Link>
+          </div>
+        ))}
     </div>
   );
 };

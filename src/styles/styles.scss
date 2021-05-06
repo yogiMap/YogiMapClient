@@ -2,7 +2,7 @@
 @import 'overrides';
 @import 'nprogress';
 @import 'landing';
-@import 'profile';
+@import 'burger-menu';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // you must include each plugins' css
@@ -21,7 +21,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 //@primary-color:  #4c4c4c;
-h1{
+h1 {
   color: #d2791e;
 }
 
@@ -109,21 +109,50 @@ a {
 
 #top-menu {
   border-bottom: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 
   .item {
     margin-right: 5px;
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 1px 8px;
 
-    &.active {
-      display: inline;
+    &:hover,
+    &:active {
+      color: #d2791e;
+      display: inline-block;
       border-radius: 0.3em;
-      background: #ebeef0;
+      background: #f6f5f3;
+
+      //&.active {
+      //  display: inline;
+      //  border-radius: 0.3em;
+      //  color: #d2791e;
+      //  background: #ebeef0;
 
       a {
         //color: $primary-color;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  #top-menu {
+    flex-flow: column nowrap;
+    position: fixed;
+    top: 6rem;
+    left: 4rem;
+    height: 60vh;
+    width: 250px;
+    z-index: 1000;
+
+    //.item {
+    //  display: inline-block;
+    //  margin-top: 1px;
+    //  padding: 5px;
+    //}
   }
 }
 
