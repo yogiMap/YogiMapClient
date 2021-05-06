@@ -38,6 +38,6 @@ const ClassTypeForm = (props: IProps) => {
       </Form>
     </div>
   );
-};
+};1
 
 export default ClassTypeForm;

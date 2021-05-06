@@ -3,13 +3,14 @@ import { get } from 'lodash';
 import { connect } from 'umi';
 import { IUser } from '@/pages/user/userSearch/types';
 import UserSettingsEditProfileForm from '@/pages/user/settings/profile/UserSettingsEditProfileForm';
+import { Alert } from 'antd';
 
 interface IProps {
   userId: string;
   match: any;
   userGetInfo: () => void;
   userInfo: any;
-  userUpdateById: (user: IUser) => void;
+  userUpdateById: (user: { values: IUser; userId: any }) => void;
   initialValues?: IUser;
   reset: () => void;
 }
@@ -60,7 +61,8 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
   //       )}
   //     </>
   //   );
-  //
+
+  // @ts-ignore
   return <UserSettingsEditProfileForm onFinish={onFinish} initialValues={initialValues} />;
 };
 

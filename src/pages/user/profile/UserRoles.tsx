@@ -5,10 +5,10 @@ import { get } from 'lodash';
 export default function UserRoles(props: any) {
   const roles = get(props, 'roles', []);
   return (
-    <span>
+    <div>
       {roles.map((el: string) => (
-        <Badge count={el} style={{ backgroundColor: '#800080' }} key={el} />
+        <Badge count={el} style={{ backgroundColor: '#c4c4c4' }} key={el} />
       ))}
-    </span>
+    </div>
   );
 }

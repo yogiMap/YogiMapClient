@@ -3,18 +3,24 @@ import { connect } from 'umi';
 import { get, isEmpty } from 'lodash';
 import { Col, Row } from 'antd';
 import UserRoles from '@/pages/user/profile/UserRoles';
-import TeacherImageUpload from '@/pages/user/profile/profileList/teacherImageUpload/TeacherImageUpload';
-import TeacherDescription from './profileList/TeacherDescription';
-import TeacherLocation from '@/pages/user/profile/profileList/TeacherLocation';
-import TeacherContact from '@/pages/user/profile/profileList/TeacherContact';
-import TeacherYouTube from '@/pages/user/profile/profileList/TeacherYouTube';
-import TeacherInstagram from '@/pages/user/profile/profileList/TeacherInstagram';
-import TeacherFacebook from '@/pages/user/profile/profileList/TeacherFacebook';
-import TeacherResetPassword from '@/pages/user/profile/profileList/TeacherResetPassword';
-import TeacherYogaStyle from '@/pages/user/profile/profileList/teacherYogaStyle/TeacherYogaStyle';
-import UserProfileSidePanel from '@/pages/user/profile/UserProfileSidePanel';
+import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
+import { IUserAccount } from '@/pages/user/userSearch/types';
+
+interface IProps {
+  teacherAccountId: string;
+  name: string;
+  teacherAccountGetById: (teacherAccountId: string) => void;
+  Account: IUserAccount;
+}
 
 const UserProfile = (props: any) => {
+  const teacherAccountId: string = get(props, 'Sidepanel.teacherAccountId', '');
+
+  useEffect(() => {
+    props.teacherAccountGetById(teacherAccountId);;
+    props.teacherAccountSearch();
+  }, []);
+
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
@@ -27,47 +33,35 @@ const UserProfile = (props: any) => {
     props.userGetById(userId);
   }, []);
 
+  // @ts-ignore
   return (
-    <div className="profile-bg">
-      <h5>Profile {userName}</h5>
+    <div className="container">
+      <h1 className="text-center">Profile Page</h1>
+      <h3 className="text-end">{userName}</h3>
+      <h5 className="text-end">{email}</h5>
+      <div  className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>
 
-      <div className="container">
-        <div className="row d-flex justify-content-center">
-          <div className="col-lg-9">
-            <p className="profile-greetings text-center">
-              Welcome {userName}! YogiMap empowers yoga teachers to manage & grow their business - let`s get you set up:
-            </p>
-          </div>
-        </div>
-
-        <div className="row d-flex justify-content-center">
-          <div className="col-lg-3">
-            <UserProfileSidePanel />
-          </div>
-
-          <div className="col-lg-6">
-            <TeacherYogaStyle />
-            <TeacherDescription />
-            <TeacherLocation />
-            <TeacherContact />
-            <TeacherResetPassword />
-            <TeacherImageUpload />
-            <TeacherYouTube />
-            <TeacherInstagram />
-            <TeacherFacebook />
-          </div>
-        </div>
+      <h3>Address</h3>
+      <div>
+        <TeacherAccountViewAddressList />
       </div>
+
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
+  TeacherAccountView: state.TeacherAccountView,
   userInfo: state.Profile.userInfo,
+  Account: state.Account,
+  teacherAccountList: state.Profile.teacherAccountList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: any) => dispatch({ type: 'Profile/userGetById', payload }),
+  userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
+  teacherAccountGetById: (teacherAccountId: string) =>
+    dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
+  teacherAccountSearch: () => dispatch({ type: 'Profile/teacherAccountSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
