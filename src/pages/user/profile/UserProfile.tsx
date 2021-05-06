@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get, isEmpty } from 'lodash';
-import { Col, Row } from 'antd';
 import UserRoles from '@/pages/user/profile/UserRoles';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
@@ -14,13 +13,7 @@ interface IProps {
 }
 
 const UserProfile = (props: any) => {
-  const teacherAccountId: string = get(props, 'Sidepanel.teacherAccountId', '');
-
-  useEffect(() => {
-    props.teacherAccountGetById(teacherAccountId);;
-    props.teacherAccountSearch();
-  }, []);
-
+  const teacherAccountId: string = get(props, 'TeacherAccountView.teacherAccountId', '');
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
@@ -28,9 +21,14 @@ const UserProfile = (props: any) => {
   const roles = get(userInfo, 'roles', []);
   const about = get(userInfo, 'about', '');
   const email = get(userInfo, 'email', '');
+  const profile = get(props, 'Profile' );
+  // const phoneNumber = profile.map((el: { phoneNumber: any; }) => el.phoneNumber)
+  //
+  // console.log(phoneNumber);
 
   useEffect(() => {
     props.userGetById(userId);
+    props.teacherAccountGetById(teacherAccountId);
   }, []);
 
   // @ts-ignore
@@ -39,6 +37,7 @@ const UserProfile = (props: any) => {
       <h1 className="text-center">Profile Page</h1>
       <h3 className="text-end">{userName}</h3>
       <h5 className="text-end">{email}</h5>
+      {/*<h5 className="text-end">{phoneNumber}</h5>*/}
       <div  className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>
 
       <h3>Address</h3>
@@ -51,17 +50,16 @@ const UserProfile = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  TeacherAccountView: state.TeacherAccountView,
+  // TeacherAccountView: state.TeacherAccountView,
   userInfo: state.Profile.userInfo,
+  Profile: state.Profile,
   Account: state.Account,
-  teacherAccountList: state.Profile.teacherAccountList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
   teacherAccountGetById: (teacherAccountId: string) =>
     dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
-  teacherAccountSearch: () => dispatch({ type: 'Profile/teacherAccountSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
