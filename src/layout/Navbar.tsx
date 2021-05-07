@@ -7,9 +7,14 @@ import logo from '@/icons/logo_yogimap.svg';
 import BurgerMenu from '@/layout/BurgerMenu';
 
 const Navbar = () => {
+  const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
+
+  const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
+  const closeBurgerMenu = () => setOpenBurgerMenu(false);
+
   return (
     <div>
-      <div className="main-nav">
+      <div onClick={toggleOpenBurgerMenu} className="main-nav">
         <nav className="main-nav__items">
           <Link to="/" className="site-name text-nowrap">
             <img src={logo} alt="Yogi Map Logo" height={40} className="logo mr-2" />
@@ -29,7 +34,10 @@ const Navbar = () => {
         </nav>
       </div>
 
-      <BurgerMenu />
+      <BurgerMenu
+        toggleOpenBurgerMenu={toggleOpenBurgerMenu}
+        openBurgerMenu={openBurgerMenu}
+      />
     </div>
   );
 };

@@ -7,11 +7,13 @@ import UserInfo from '@/pages/user/topInfo/UserInfo';
 import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
 
-const BurgerMenu = () => {
-  const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
+const BurgerMenu = (props: any) => {
 
-  const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
-  const closeBurgerMenu = () => setOpenBurgerMenu(false);
+  const {openBurgerMenu, toggleOpenBurgerMenu} = props;
+  // const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
+  //
+  // const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
+  // const closeBurgerMenu = () => setOpenBurgerMenu(false);
 
   return (
     <div>
