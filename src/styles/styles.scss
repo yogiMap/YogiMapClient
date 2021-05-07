@@ -2,7 +2,7 @@
 @import 'overrides';
 @import 'nprogress';
 @import 'landing';
-@import 'burger-menu';
+@import 'navbar';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // you must include each plugins' css
@@ -34,37 +34,6 @@ a {
   }
 }
 
-.site-name {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 60px;
-  margin-left: 5px;
-  color: #4c4c4c;
-}
-
-.navbar-brand {
-  font-family: 'Oswald', sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: #4c4c4c !important;
-
-  &:hover {
-    color: #d2791e;
-  }
-}
-
-//.nav-box{
-//  height: 70px;
-//  background-color: rgba(255,255,255,0.9);
-//}
-
-.top-menu-home {
-  color: #d2791e;
-  &:hover {
-    color: #4c4c4c;
-  }
-}
 
 .footer {
   background: white;
@@ -104,55 +73,6 @@ a {
     &:last-child {
       border-bottom: none;
     }
-  }
-}
-
-#top-menu {
-  border-bottom: none;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-
-  .item {
-    margin-right: 5px;
-    margin-top: 15px;
-    padding: 1px 8px;
-
-    &:hover,
-    &:active {
-      color: #d2791e;
-      display: inline-block;
-      border-radius: 0.3em;
-      background: #f6f5f3;
-
-      //&.active {
-      //  display: inline;
-      //  border-radius: 0.3em;
-      //  color: #d2791e;
-      //  background: #ebeef0;
-
-      a {
-        //color: $primary-color;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  #top-menu {
-    flex-flow: column nowrap;
-    position: fixed;
-    top: 6rem;
-    left: 4rem;
-    height: 50vh;
-    width: 250px;
-    //z-index: 1005;
-
-    //.item {
-    //  display: inline-block;
-    //  margin-top: 1px;
-    //  padding: 5px;
-    //}
   }
 }
 
