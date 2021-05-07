@@ -51,13 +51,13 @@
   //transition: transform 300ms ease-out;
   position: fixed;
   display: block;
-  z-index: 101;
-  top: 3rem;
+  z-index: 1001;
+  top: 4rem;
   left: 0;
   background: white;
   width: 80%;
-  //overflow-y: scroll;
-  overflow: hidden;
+  overflow-y: scroll;
+  //overflow: hidden;
   //width: 300px;
   height: 100vh;
 }
@@ -73,14 +73,6 @@
   justify-content: center;
   align-items: center;
 }
-
-//.mobile-nav__item {
-//  margin: 1rem 0;
-//}
-//
-//.mobile-nav__item a {
-//  font-size: 1.5rem;
-//}
 
 @media screen and (min-width: 768px) {
   .mobile-nav {
