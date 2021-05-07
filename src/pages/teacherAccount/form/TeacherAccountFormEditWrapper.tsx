@@ -82,4 +82,5 @@ const mapDispatchToProps = (dispatch: any) => ({
   styleSearch: () => dispatch({ type: 'TeacherAccountForm/styleSearch' }),
 });
 
+// @ts-ignore
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeacherAccountFormEditWrapper));

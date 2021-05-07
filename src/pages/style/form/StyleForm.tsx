@@ -23,13 +23,6 @@ const StyleForm = (props: IProps) => {
           <Input placeholder="Yoga Style" className="rounded-pill" />
         </Form.Item>
 
-        {/*<TeacherForm.Item name="accessType" rules={[validator.require]}>*/}
-        {/*  <Select placeholder="Access type">*/}
-        {/*    <Option value="members">Members</Option>*/}
-        {/*    <Option value="all">All</Option>*/}
-        {/*  </Select>*/}
-        {/*</TeacherForm.Item>*/}
-
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
             {props.submitButtonText}

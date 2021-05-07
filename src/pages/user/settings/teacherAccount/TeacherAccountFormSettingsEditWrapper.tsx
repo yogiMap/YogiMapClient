@@ -21,8 +21,15 @@ interface IProps {
   getById: (teacherAccountId: string) => void;
   updateById: (arg: any) => void;
   teacherAccountGetById: (teacherAccountId: string) => void;
+  submitButtonText: string;
+  initialValues?: ITeacherAccount;
   teacherAccountInfo: ITeacherAccount;
   loadingEffects: ILoadingEffects;
+  onFinish: (values: ITeacherAccount) => void;
+  classTypeSearch: () => void;
+  classesSearch: () => void;
+  eventSearch: () => void;
+  styleSearch: () => void;
 }
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -52,6 +59,7 @@ const TeacherAccountFormSettingsEditWrapper = (props: IProps) => {
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
 
+  // @ts-ignore
   return (
     <TeacherAccountForm
       onFinish={onFinish}

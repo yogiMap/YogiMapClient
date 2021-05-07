@@ -3,9 +3,7 @@ export interface ITeacherAccount {
   firstName: string;
   lastName: string;
   name: string;
-  phoneNumber1: string;
-  phoneNumber2: string;
-  fax: string;
+  phoneNumber: string;
   email: string;
   address: string;
   city: string;

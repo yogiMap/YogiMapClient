@@ -27,6 +27,7 @@ const TeacherAccountView = (props: IProps) => {
   const eventObject = get(props, 'TeacherAccountView.event', {});
   const event: any = Object.values(eventObject);
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
+  const classType = Object.values(classTypeObject);
   const focusObject = get(props, 'TeacherAccountView.focus', {});
   const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
   console.log(event);
@@ -45,7 +46,7 @@ const TeacherAccountView = (props: IProps) => {
           <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
         </h6>
 
-        {/*{classTypeObject.map((el: any) => (*/}
+        {/*{classType.map((el: any) => (*/}
         {/*  <h2>{el.name}</h2>*/}
         {/*))}*/}
 

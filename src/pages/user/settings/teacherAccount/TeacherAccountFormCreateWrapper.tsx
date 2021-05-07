@@ -4,12 +4,13 @@ import TeacherAccountForm from '@/pages/teacherAccount/form/TeacherAccountForm';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import TeacherForm from '@/pages/teacher/form/TeacherForm';
 
 interface IProps {
   create: (arg: ITeacherAccount) => void;
   loadingEffects: ILoadingEffects;
   onFinish: (values: ITeacherAccount) => void;
+  initialValues?: ITeacherAccount;
+  teacherAccountInfo: ITeacherAccount;
   classTypeSearch: () => void;
   classesSearch: () => void;
   eventSearch: () => void;
