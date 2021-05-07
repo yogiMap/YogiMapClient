@@ -9,6 +9,8 @@ import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAcco
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
+import StyleSearchList from '@/pages/style/dashboard/search/StyleSearchList';
+import StyleView from '@/pages/style/view/StyleView';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -41,9 +43,10 @@ const TeacherAccountSearchList = (props: IProps) => {
     {
       title: 'YogaStyle',
       key: 'style',
-      // dataIndex: 'style',
       render: (row) => {
-        return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
+         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
+        // @ts-ignore
+        // return <StyleView id={get(row, 'style._id')} name={get(row, 'style.name')} />;
       },
     },
 
@@ -52,7 +55,6 @@ const TeacherAccountSearchList = (props: IProps) => {
       key: 'owner',
       render: (row) => {
         return <ProfileHoverCard id={get(row, 'owner._id')} name={get(row, 'owner.name')} />;
-
         // <Link to={`/profile/${get(row, 'owner._id')}`}>{get(row, 'owner.name')}</Link>;
       },
     },

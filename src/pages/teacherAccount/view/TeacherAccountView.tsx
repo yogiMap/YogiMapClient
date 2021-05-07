@@ -19,7 +19,7 @@ const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
   const teacherName = get(props, 'TeacherAccountView.teacherName', '');
   const email = get(props, 'Account.email', '');
-  const phone: any = get(props, 'TeacherAccountView.phoneNumber', '');
+  const phone: any = get(props, 'TeacherAccountView.phoneNumber.number', '');
 
   const name = get(props, 'TeacherAccountView.name', '');
   const classesObject = get(props, 'TeacherAccountView.classes', {});
@@ -28,7 +28,7 @@ const TeacherAccountView = (props: IProps) => {
   const event: any  = Object.values(eventObject);
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const focusObject = get(props, 'TeacherAccountView.focus', {});
-  const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
+  // const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
   console.log(event);
 
 
@@ -37,16 +37,15 @@ const TeacherAccountView = (props: IProps) => {
     props.teacherAccountGetById(teacherAccountId);
   }, []);
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <div>
 
       <div className="container">
         <h1 className="text-center">{name}</h1>
        <h6>Email: {email}</h6>
-        <h6>Phone Number: {phone}</h6>
+        <h6>Phone:
         <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
+        </h6>
 
         <div className="py-5">
         <h3>Address</h3>
