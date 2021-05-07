@@ -9,7 +9,7 @@ import TopMenu from '@/layout/_menu/TopMenu';
 
 const BurgerMenu = (props: any) => {
 
-  const {openBurgerMenu, toggleOpenBurgerMenu} = props;
+  const {openBurgerMenu, toggleOpenBurgerMenu, closeBurgerMenu} = props;
   // const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
   //
   // const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
@@ -24,7 +24,7 @@ const BurgerMenu = (props: any) => {
           </button>
         </div>
 
-        <Link to="/" className="logo-burger">
+        <Link to="/" className="logo-burger" onClick={closeBurgerMenu}>
           <img src={logoSmall} alt="Yogi Map LogoSmall" height={35} />
         </Link>
         {openBurgerMenu && (

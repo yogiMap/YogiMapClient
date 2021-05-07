@@ -13,13 +13,19 @@
 }
 
 .burger{
-  display: flex;
-  align-items: center;
+  position: fixed;
+  display: block;
+  z-index: 1001;
+  top: 1.2rem;
+  left: 1rem;
 }
 
 .logo-burger{
-  display: flex;
-  align-items: center;
+  position: fixed;
+  display: block;
+  z-index: 1001;
+  top: 1.5rem;
+  right: 1rem;
 }
 
 .main-nav {

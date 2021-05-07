@@ -12,6 +12,7 @@ const Navbar = () => {
   const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
   const closeBurgerMenu = () => setOpenBurgerMenu(false);
 
+  // @ts-ignore
   return (
     <div>
       <div onClick={toggleOpenBurgerMenu} className="main-nav">
@@ -22,6 +23,7 @@ const Navbar = () => {
 
           <div className="main-nav__item">
             <TopMenu />
+
           </div>
 
           <div className="main-nav__item">
@@ -37,6 +39,7 @@ const Navbar = () => {
       <BurgerMenu
         toggleOpenBurgerMenu={toggleOpenBurgerMenu}
         openBurgerMenu={openBurgerMenu}
+        closeBurgerMenu={closeBurgerMenu}
       />
     </div>
   );
