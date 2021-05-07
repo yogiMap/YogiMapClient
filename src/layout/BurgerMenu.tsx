@@ -29,11 +29,11 @@ const BurgerMenu = () => {
         {openBurgerMenu && (
           <>
             <nav className="mobile-nav">
-              {/*<div className="mobile-user-info">*/}
-              {/*  <UserInfo />*/}
-              {/*</div>*/}
               <div className="mobile-nav__items">
                 <TopMenu />
+              </div>
+              <div className="mobile-user-info">
+                <UserInfo />
               </div>
             </nav>
           </>
