@@ -15,6 +15,7 @@ const menu2 = [
 const menu3 = [
   { link: '/library', text: 'Our Library' },
   { link: '/styles', text: 'Yoga Styles Guide' },
+  { link: '/classTypeGuide', text: 'Class Type Guide' },
 ];
 
 const Footer = () => {

@@ -28,7 +28,7 @@ const TeacherAccountView = (props: IProps) => {
   const event: any  = Object.values(eventObject);
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const focusObject = get(props, 'TeacherAccountView.focus', {});
-  // const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
+  const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
   console.log(event);
 
 

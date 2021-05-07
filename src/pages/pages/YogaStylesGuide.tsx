@@ -11,28 +11,6 @@ const YogaStylesGuide = () => {
           <br />
           <div className="format-text">
             <h3>
-              <a href="/s?f%5B0%5D=style%3A540">Acro</a>
-            </h3>
-            <p>
-              Acro-yoga is a physical practice which blends elements of yoga, acrobatics, and healing arts to form a
-              practice that cultivates trust, connection and playfulness between partners. This type of yoga is
-              interactive and fun. Classes typically include partner-assisted postures, some massage and simple
-              acrobatics techniques accessible to all levels of practitioners. There are 7 main elements that make up
-              the practice: circle ceremony, postures, massage, partner flow, therapeutic flying, inversions and
-              spotting, and partner acrobatics.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A539">Aerial</a>
-            </h3>
-            <p>
-              Aerial Yoga is a relatively new way to practice yoga. In an Aerial Yoga class students practice the
-              various postures and movements while suspended a few inches off the ground (over soft mats) by a
-              hammock-like long piece of cloth, holding them by the waist. Aerial Yoga is designed to counteract gravity
-              and increase flexibility by relieving compression, which releases tension, straightens the shoulders, and
-              elongates the spine. This type of yoga is a fun practice for beginners and more advanced yogis. Beginner
-              classes typically start on the floor and gradually move on to using the trapeze.
-            </p>
-            <h3>
               <a href="/s?f%5B0%5D=style%3A583">Agama</a>
             </h3>
             <p>
@@ -51,16 +29,6 @@ const YogaStylesGuide = () => {
               crouching, sitting, laying on the belly, laying on the back, arm balances and inversions). This style
               offers a balance between yang and yin - effort and allowing, in postures, meditation, and life. This style
               offers studies in asana, pranayama, mantra, visualization, relaxation and meditation.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A541">Alignment</a>
-            </h3>
-            <p>
-              Alignment is a general term used in yoga to refer to the precise way in which the body should be
-              positioned in each posture to avoid injury and obtain the maximum benefits. Some classes offer a specific
-              focus on alignment. These classes generally provide individualized adjustment in the different poses so
-              that students learn how to change or correct their own posture. Alignment-focused classes develop the
-              strength, flexibility, and balance, and usually are very beneficial to beginners.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A542">Ananda</a>
@@ -95,16 +63,6 @@ const YogaStylesGuide = () => {
               the belief in intrinsic goodness. Anusara classes focus on attitude, alignment, and action, and are
               accessible to students of different ages and abilities. Props (such as straps, block and pillows) are
               often used, and students are taught to open their heart, both physically and spiritually.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A592">Aqua</a>
-            </h3>
-            <p>
-              This is low-impact yoga in a pool, where the warmth of the water encourages joints to open and muscles to
-              relax. It's an excellent therapeutic modality for people who are challenged by practicing on a mat, as the
-              weightlessness in the water takes the stress out of challenged joints. But, Aqua Yoga isn't just for those
-              with dry-land limitations: an experienced practitioner can try new or challenging poses, and also get
-              deeper into familiar poses in a relaxing environment.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A544">Ashtanga</a>
@@ -148,69 +106,12 @@ const YogaStylesGuide = () => {
               every part of the body to give it everything it needs to maintain optimum health.
             </p>
             <h3>
-              <a href="/s?f%5B0%5D=style%3A589">Broga</a>
-            </h3>
-            <p>
-              Broga is a yoga class for men (where "it’s okay if you can’t touch your toes"). Created by Robert Sidoti,
-              it can be described as strong, energetic,and challenging, combining core-strengthening, muscle-toning,
-              cardio-working, stress-reducing, clarity-enhancing yoga postures with functional fitness exercises. While
-              it's "yoga for dudes", classes are open to all.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A596">Chair</a>
-            </h3>
-            <p>
-              Chair Yoga is one of the most gentle forms of yoga. It is practiced sitting on a chair, or standing and
-              using a chair for support. The poses taught in a Chair Yoga class are often adaptions of Hatha Yoga poses.
-              Chair Yoga classes are often taught in senior centers, and physical rehabilitation centers. Students learn
-              many kinds of yoga postures, breathing techniques, meditation, and ways of relaxation, with the aid of a
-              chair. This type of yoga is great for people with physical restrictions who are unable to participate in a
-              'traditional' yoga class, and it is a great way to increase flexibility, strength and balance.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A547">Children&#039;s</a>
-            </h3>
-            <p>
-              Yoga for Children is a non-competitive and gentle form of exercise that helps promote flexibility,
-              concentration and relaxation. Classes are usually playful and fun, lasting around 45 minutes. They teach
-              children how to stretch their muscles, and to feel connected with their minds and bodies.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A548">Core Strength</a>
-            </h3>
-            <p>
-              Core Strength classes usually offer a challenging workout specifically designed to strengthen the
-              abdominal muscles. The benefits of these classes include greater ease in most yoga poses, improved general
-              posture, and a stronger back. Classes can vary and are sometimes taught with an emphasis of linking
-              movement to breath. They may also include work on the idea of core not only as a precise physical area,
-              but also as an energetic space in the mind or the body. These classes are generally favored by people who
-              enjoy a dynamic practice.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A549">Corporate</a>
-            </h3>
-            <p>
-              Corporate yoga generally refers to yoga in the workplace. Many teachers are available to teach yoga in
-              companies that wish to encourage their employees to consider yoga as a way to counteract stress and to
-              improve well-being. Classes are generally tailored to specific groups.
-            </p>
-            <h3>
               <a href="/s?f%5B0%5D=style%3A582">Dru</a>
             </h3>
             <p>
               Dru yoga is a style of yoga that works with postures, breath work, relaxation and meditation. Its series
               or sequences are called 'Energy Block Release' and include flowing movements, directed breathing and
               visualisation. They're designed for all fitness levels and all age groups.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A550">Family</a>
-            </h3>
-            <p>
-              Family classes can be a fun way for the whole family to experience yoga. These classes tend to be playful
-              and child-focused. Generally, there is little or no meditation, or complicated poses. The pace and content
-              of the classes can vary but they usually alternate quiet and active periods, often with some relaxation at
-              the end. Teachers may also use stories or music. Family members of all ages can join. Minimum age
-              requirement may vary.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A552">Flow</a>
@@ -220,25 +121,6 @@ const YogaStylesGuide = () => {
               postures that includes fluid movements and transitions. It can also refer to linking movement to breath
               while performing (and transitioning between) postures. Flow classes can range from gentle to athlethic,
               with other specific elements of focus determined by the style of yoga practiced in the class.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A551">Forrest</a>
-            </h3>
-            <p>
-              Designed by Ana Forrest, Forrest Yoga helps students to connect with their physical and emotional bodies.
-              Focusing on breath, strength, integrity, and spirit, a typical class offers a vigorous sequence of
-              postures performed with an emphasis on core strengthening, deep breathing, and long holds in the poses.
-              Forrest Yoga promotes healing and integrity by helping to strengthen and purify the body through the
-              release of emotional and mental blocks, and the celebration of inner strength.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A553">Gentle</a>
-            </h3>
-            <p>
-              Classes that are described as gentle generally guide practitioners through a slower and more passive
-              sequence of postures. They often focus on connecting the breath with mindful movements that reduce tension
-              and increase energy.ÊGentle practices warm and open the body, encourage health and quiet the mind. Gentle
-              yoga classes are particularly suited for beginners and people working with injuries.{' '}
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A554">Hatha</a>
@@ -393,26 +275,6 @@ const YogaStylesGuide = () => {
               of their experience.{' '}
             </p>
             <h3>
-              <a href="/s?f%5B0%5D=style%3A563">Men&#039;s</a>
-            </h3>
-            <p>
-              These classes are for men new to yoga, or with a regular yoga practice. They are specifically designed to
-              address men's challenges and goals in yoga, whether to become stronger or more flexible, increase energy,
-              improve health, or explore deeper aspect of life.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A564">Mom &amp; Baby</a>
-            </h3>
-            <p>
-              Mom and Baby yoga classes generally accommodate babies aged six weeks to crawling. In most classes, moms
-              will place a yoga blanket (that can be covered with a blanket from home) at the top of their yoga mat. The
-              baby will lie on the blanket for the duration of the class, and moms are entirely free to pick up, hold,
-              feed, or change their baby during the class. It is never a problem if the baby cries. Some classes are
-              very gentle and may focus on playing with the babies (moms can also bring a few small toys), while others
-              offer more exercise and less playtime. Mom and Baby classes can also provide a quiet place to meet other
-              new mothers.
-            </p>
-            <h3>
               <a href="/s?f%5B0%5D=style%3A565">Mysore</a>
             </h3>
             <p>
@@ -434,13 +296,6 @@ const YogaStylesGuide = () => {
               Universal Kabbalah (the laws of nature) for total well-being: physical, mental, emotional and energetic.
             </p>
             <h3>
-              <a href="/s?f%5B0%5D=style%3A566">Nude</a>
-            </h3>
-            <p>
-              Naked yoga is the practice of yoga without clothes. While many people practice naked yoga at home, there
-              are a growing number of participants in group classes.
-            </p>
-            <h3>
               <a href="/s?f%5B0%5D=style%3A593">Odaka</a>
             </h3>
             <p>
@@ -450,15 +305,6 @@ const YogaStylesGuide = () => {
               transforms the practice into a process where no interruption occurs between one pose and the another. This
               aims to dissolve physical, mental and emotional tensions and contractions, while soothing the mind with
               immediate action and creating space for a new balance and inner strength.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A586">Paddleboard</a>
-            </h3>
-            <p>
-              Paddle Board Yoga is hatha yoga and vinyasa yoga asanas combined with paddle surfing (SUP). Practitioners
-              may start off practicing on the beach sand or in a swimming pool to gain the strength and flexibility
-              required to maintain the balance and postures on moving water such as the ocean or a lake. In the short
-              time it has been in existence, Paddleboard or SUP Yoga has grown to become quite popular.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A607">Phoenix Rising</a>
@@ -488,15 +334,6 @@ const YogaStylesGuide = () => {
               Pranayama comes from the the words <i>Prana</i> - "life force", and <i>Yama</i> - "control".
             </p>
             <h3>
-              <a href="/s?f%5B0%5D=style%3A567">Prenatal</a>
-            </h3>
-            <p>
-              Prenatal classes are designed for women who are pregnant, whether they have an ongoing yoga practice, or
-              are brand new to yoga and wish to discover the benefits that yoga can bring all the way to delivery.
-              Prenatal yoga can bring calm, focus, flexibility, and strength. These classes are generally appropriate
-              for all stages of pregnancy.
-            </p>
-            <h3>
               <a href="/s?f%5B0%5D=style%3A569">Purna</a>
             </h3>
             <p>
@@ -514,13 +351,6 @@ const YogaStylesGuide = () => {
               strain on the body. The final relaxation is usually held for 20 minutes to allow complete rest.
               Restorative Yoga offers many benefits that can help with ailments such as stress, chronic pain, migraines
               and insomnia. This type of yoga is accessible and beneficial to all ages and fitness levels.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A615">Rocket Yoga</a>
-            </h3>
-            <p>
-              Rocket Yoga is a very dynamic, flowing form of yoga, rooted in the Ashtanga/Vinyasa styles. Similar to
-              power yoga, but more fast-paced ― a class usually involves 142 poses in 75 minutes.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A571">Satyananda</a>
@@ -543,14 +373,6 @@ const YogaStylesGuide = () => {
               Students are encouraged to be still, and follow the body's guidance. Emphasis is placed on poses for the
               spine, and movements are effortless and light. This style is suited for those looking for a gentle and
               inward-focused practice.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A573">Senior</a>
-            </h3>
-            <p>
-              Yoga classes for Seniors are designed so that seniors can safely participate at their level of comfort.
-              They help address the health challenges that may come with age, and help increase the flexibility and
-              well-being of practitioners. These classes are generally gentle and slow-paced.
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A574">Shadow</a>
@@ -580,14 +402,6 @@ const YogaStylesGuide = () => {
               relaxation, proper diet (vegetarian), positive thinking and meditation. Classes typically focus on 12 core
               poses and include chanting, breathing, mediation, and corpse pose. Sivananda classes are generally
               relatively gentle and suitable for all ages and levels of fitness.{' '}
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A576">Special Needs</a>
-            </h3>
-            <p>
-              As an ancient practice that has many benefits for the mind, the body and the spirit, yoga can be
-              beneficial for both adults and children with special needs. Classes are frequently taught individually or
-              in small groups, and the specifics should always be discussed with teachers beforehand.{' '}
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A577">Svaroopa</a>
@@ -674,17 +488,6 @@ const YogaStylesGuide = () => {
               series of poses called Sun Salutations to warm up the body. Vinyasa Flow classes are mostly slower-paced
               than Power Yoga classes, and more vigorous than Iyengar classes. Vinyasa Flow Yoga builds strength,
               flexibility, concentration and balance.
-            </p>
-            <h3>
-              <a href="/s?f%5B0%5D=style%3A580">Women&#039;s</a>
-            </h3>
-            <p>
-              Yoga for Women are classes that offer sequences specifically tailored to female practitioners whether new
-              to yoga, or with a regular yoga practice. They are designed to support a healthy practice for women in all
-              stages of their development. These classes show how a balanced yoga practice can help women deal with the
-              different stages of their cycle, and the symptoms associated with hormonal changes. They generally help
-              women build an awareness of their body and mind, and often guide women through sequences that balance
-              strength with the feminine.{' '}
             </p>
             <h3>
               <a href="/s?f%5B0%5D=style%3A611">Yantra Yoga</a>
