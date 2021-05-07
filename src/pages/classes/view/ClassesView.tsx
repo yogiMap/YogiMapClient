@@ -11,6 +11,7 @@ interface IProps {
 const ClassesView = (props: IProps) => {
   const classesId = get(props, 'match.params.classesId');
   const name = get(props, 'ClassesView.name', '');
+  const focus = get(props, 'ClassesView.focus', '');
 
   console.log(props);
 
@@ -19,8 +20,9 @@ const ClassesView = (props: IProps) => {
   }, []);
 
   return (
-    <div>
-      <h1>{name}</h1>
+    <div className="container">
+      <h1 className="text-center">{name}</h1>
+      <h3>{focus}</h3>
     </div>
   );
 };

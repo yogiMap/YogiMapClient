@@ -23,15 +23,13 @@ const TeacherAccountView = (props: IProps) => {
 
   const name = get(props, 'TeacherAccountView.name', '');
   const classesObject = get(props, 'TeacherAccountView.classes', {});
-  const classes: any  = Object.values(classesObject);
+  const classes: any = Object.values(classesObject);
   const eventObject = get(props, 'TeacherAccountView.event', {});
-  const event: any  = Object.values(eventObject);
+  const event: any = Object.values(eventObject);
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const focusObject = get(props, 'TeacherAccountView.focus', {});
   const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
   console.log(event);
-
-
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
@@ -39,31 +37,34 @@ const TeacherAccountView = (props: IProps) => {
 
   return (
     <div>
-
       <div className="container">
         <h1 className="text-center">{name}</h1>
-       <h6>Email: {email}</h6>
-        <h6>Phone:
-        <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
+        <h6>Email: {email}</h6>
+        <h6>
+          Phone:
+          <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
         </h6>
 
+        {/*{classTypeObject.map((el: any) => (*/}
+        {/*  <h2>{el.name}</h2>*/}
+        {/*))}*/}
+
         <div className="py-5">
-        <h3>Address</h3>
-        <div>
-          <TeacherAccountViewAddressList />
-        </div>
+          <h3>Address</h3>
+          <div>
+            <TeacherAccountViewAddressList />
+          </div>
         </div>
 
         <h3 className="mt-5">Classes</h3>
         <div>
-          <TeacherAccountViewClassesList classes={classes}/>
+          <TeacherAccountViewClassesList classes={classes} />
         </div>
 
         <h3 className="mt-5">Events</h3>
         <div>
-          <TeacherAccountViewEventList event={event}/>
+          <TeacherAccountViewEventList event={event} />
         </div>
-
       </div>
     </div>
   );
