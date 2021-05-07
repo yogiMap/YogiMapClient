@@ -40,22 +40,11 @@
     margin-top: 15px;
     padding: 1px 8px;
 
-    &:hover,
     &:active {
       color: #d2791e;
       display: inline-block;
       border-radius: 0.3em;
       background: #f6f5f3;
-
-      //&.active {
-      //  display: inline;
-      //  border-radius: 0.3em;
-      //  color: #d2791e;
-      //  background: #ebeef0;
-
-      //a {
-      //  //color: $primary-color;
-      //}
     }
   }
 }
