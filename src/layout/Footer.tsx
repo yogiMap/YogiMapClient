@@ -8,7 +8,7 @@ const menu1 = [
 ];
 
 const menu2 = [
-  { link: '/teacher', text: 'Find Your Teacher' },
+  { link: '/teacherAccount', text: 'Find Your Teacher' },
   { link: '/classes', text: 'Find Your Classes' },
 ];
 
