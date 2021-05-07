@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'umi';
-import logo from '@/icons/logo_yogimap.svg';
 import logoSmall from '@/icons/logo_yogymap_small.svg';
 import burger from '@/icons/burger.svg';
 import UserInfo from '@/pages/user/topInfo/UserInfo';
-import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
 
 const BurgerMenu = (props: any) => {
 
   const {openBurgerMenu, toggleOpenBurgerMenu, closeBurgerMenu} = props;
-  // const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
-  //
-  // const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
-  // const closeBurgerMenu = () => setOpenBurgerMenu(false);
 
   return (
     <div>
