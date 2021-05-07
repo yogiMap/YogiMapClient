@@ -1,47 +1,56 @@
 import React from 'react';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
-import { Popover, Button } from 'antd';
+import { Popover } from 'antd';
 
 interface IProps {
   name: string;
   id: string;
-  // Sidepanel: ISidepanel;
-  // close: () => void;
+  userGetById: (id: string) => void;
+  close: () => void;
 }
 
 const ProfileHoverCard = (props: IProps) => {
   const name = get(props, 'name');
-  const id = get(props, 'id');
+  const userId = get(props, 'id');
+
+  const email = get(props, 'HoverCard.email', '');
+  const phone = get(props, 'HoverCard.phone', '');
+  const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
+  const companyAccountName = get(props, 'HoverCard.teacherAccount.name', '');
+  const companyAccountId = get(props, 'HoverCard.teacherAccount._id', '');
+
+  const onVisibleChange = (isVisible: boolean) => {
+    if (isVisible) {
+      props.userGetById(userId);
+    } else {
+      props.close();
+    }
+  };
 
   const content = (
-    <div>
-      <p>Content</p>
-      <p>Content</p>
+    <div className="hoverCard">
+      {email && <p>Email: {email}</p>}
+      {phone && <p>Phone: {phone}</p>}
+      {companyAccountName && <Link to={`/company/${companyAccountId}`}>{companyAccountName}</Link>}
+      {isCompanyOwner && ' owner'}
     </div>
   );
 
-  const onVisibleChange = () => {
-    console.log('onVisibleChange');
-  }
-
   return (
-    <div>
-      <Popover content={content} title={name} trigger="hover" onVisibleChange={onVisibleChange}>
-        <Link to={`/profile/${id}`}>
-          {name}
-        </Link>
-      </Popover>
-    </div>
+    <Popover content={content} title={name} trigger="hover" onVisibleChange={onVisibleChange}>
+      <Link to={`/profile/${userId}`}>{name}</Link>
+    </Popover>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  // Sidepanel: state.Sidepanel,
+  HoverCard: state.HoverCard,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // close: () => dispatch({ type: 'ProfileHoverCard/close' }),
+  userGetById: (payload: string) => dispatch({ type: 'HoverCard/userGetById', payload }),
+  close: () => dispatch({ type: 'HoverCard/close' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileHoverCard);

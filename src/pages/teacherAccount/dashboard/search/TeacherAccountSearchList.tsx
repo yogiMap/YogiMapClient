@@ -8,6 +8,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
+import ProfileHoverCard from '@/pages/utils/hoverCard/ProfileHoverCard';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -45,6 +46,17 @@ const TeacherAccountSearchList = (props: IProps) => {
         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
       },
     },
+
+    {
+      title: 'Owner',
+      key: 'owner',
+      render: (row) => {
+        return <ProfileHoverCard id={get(row, 'owner._id')} name={get(row, 'owner.name')} />;
+
+        // <Link to={`/profile/${get(row, 'owner._id')}`}>{get(row, 'owner.name')}</Link>;
+      },
+    },
+
     // {
     //   title: 'Action',
     //   key: 'action',
