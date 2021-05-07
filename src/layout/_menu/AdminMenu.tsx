@@ -40,7 +40,7 @@ const TopMenu = (props: IProps) => {
   );
 
   return (
-    <div id="admin-menu" role="menu">
+    <div id="admin-menu" role="menu" className="mt-3" >
       <Dropdown overlay={menu}>
         <span className="ant-dropdown-link pointer item">Admin</span>
       </Dropdown>
