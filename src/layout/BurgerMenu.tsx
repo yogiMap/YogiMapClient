@@ -9,16 +9,15 @@ import TopMenu from '@/layout/_menu/TopMenu';
 
 const BurgerMenu = () => {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
-  const [burgerShow, setBurgerShow] = useState(false);
 
   const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
-  const toggleBurgerShow = () => setBurgerShow(!burgerShow);
+  const closeBurgerMenu = () => setOpenBurgerMenu(false);
 
   return (
     <div>
       <div className="burger-nav">
         <div className="burger">
-          <button onClick={toggleOpenBurgerMenu}>
+          <button onClick={toggleOpenBurgerMenu} className="btn btn-outline-secondary">
             <img src={burger} alt="click me" height={35} />
           </button>
         </div>
