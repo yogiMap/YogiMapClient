@@ -54,7 +54,7 @@ const UserInfo = (props: IProps) => {
 
   if (name) {
     return (
-      <div className="ml-auto">
+      <div className="mt-3">
         <Dropdown overlay={menu} trigger={['click']}>
           <a className="ant-dropdown-link" data-qa="userInfoName" onClick={(e) => e.preventDefault()}>
             {/*{isAvatar ? <Avatar src={avatar} size="large" /> : <Avatar icon={<UserOutlined />} />}*/}
