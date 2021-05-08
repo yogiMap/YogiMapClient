@@ -9,21 +9,31 @@ import { IClassType } from '@/pages/classType/types';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { connect, withRouter } from 'umi';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {
   Account: IUserAccount;
+  TeacherAccountDashboard: ITeacherAccount;
   isLoading: boolean;
+  create: (arg: IEvent) => void;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: IEvent;
   styleList: IStyle[];
   classTypeList: IClassType[];
+  teacherAccountList: ITeacherAccount[];
 }
 
 const EventForm = (props: IProps) => {
   const { Option } = Select;
 
+  const teacherAccount = {
+    name: get(props, 'teacherAccountList.name', ''),
+    _id: get(props, 'teacherAccountList._id', ''),
+  };
+
   const [form] = Form.useForm();
+
   const initialValues: any = get(props, 'initialValues', {});
   initialValues.dueDate = moment(initialValues.dueDate);
   initialValues.date = moment(initialValues.date);
@@ -45,13 +55,32 @@ const EventForm = (props: IProps) => {
     form.setFieldsValue({ date: time });
   }, [time]);
 
+  const onFinish = (formValues: IEvent) => {
+    props.onFinish({
+      ...formValues,
+      client: get(formValues, 'teacherAccount._id', formValues.teacherAccount),
+      address: get(formValues, 'classTypes._id', formValues.classType),
+    });
+  };
+
   return (
     <div className="container mt-5">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="event">
+      <Form onFinish={onFinish} initialValues={props.initialValues} layout="vertical" name="event">
         <div className="row mb-5">
-          <div className="col-md-8">
+          <div className="col-md-6">
             <h1>{name}</h1>
             <h6 className="mt-3">email: {email} </h6>
+          </div>
+          <div className="col-md-6">
+            <Form.Item name="teacherAccount" label="teacherAccount">
+              <Select className="rounded-circle">
+                {props.teacherAccountList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
           </div>
         </div>
 
@@ -120,7 +149,7 @@ const EventForm = (props: IProps) => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+     </div>
   );
 };
 

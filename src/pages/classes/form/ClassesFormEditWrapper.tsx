@@ -14,7 +14,7 @@ interface IProps {
   classesInfo: IClasses;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
-  teacherSearch: () => void;
+  teacherAccountSearch: () => void;
   classTypeSearch: () => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -26,13 +26,13 @@ const ClassesFormEditWrapper = (props: IProps) => {
   const isLoadingGet = get(props, 'loadingEffects.ClassesForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.ClassesForm/updateById', false);
   const styleList = get(props, 'styleList', []);
-  const teacherList = get(props, 'teacherList', []);
+  const teacherAccountList = get(props, 'teacherAccountList', []);
   const classTypeList = get(props, 'classTypeList', []);
 
   useEffect(() => {
     props.getById(classesId);
     props.styleSearch();
-    props.teacherSearch();
+    props.teacherAccountSearch();
     props.classTypeSearch();
   }, []);
 
@@ -49,7 +49,7 @@ const ClassesFormEditWrapper = (props: IProps) => {
       submitButtonText="Update"
       isLoading={isLoadingUpdate}
       styleList={styleList}
-      teacherList={teacherList}
+      teacherAccountList={teacherAccountList}
       classTypeList={classTypeList}
     />
   );
@@ -60,7 +60,7 @@ const mapStateToProps = (state: any) => ({
   classesInfo: state.ClassesForm.classesInfo,
   loadingEffects: state.loading.effects,
   styleList: state.ClassesForm.styleList,
-  teacherList: state.ClassesForm.teacherList,
+  teacherAccountList: state.ClassesForm.teacherAccountList,
   classTypeList: state.ClassesForm.classTypeList,
 });
 
@@ -69,7 +69,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   updateById: (payload: IClasses) => dispatch({ type: 'ClassesForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'ClassesForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
+  teacherAccountSearch: () => dispatch({ type: 'ClassesForm/teacherAccountSearch' }),
   classTypeSearch: () => dispatch({ type: 'ClassesForm/classTypeSearch' }),
 });
 

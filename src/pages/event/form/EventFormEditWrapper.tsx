@@ -14,7 +14,7 @@ interface IProps {
   eventInfo: IEvent;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
-  teacherSearch: () => void;
+  teacherAccountSearch: () => void;
   classTypeSearch: () => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -29,7 +29,7 @@ const EventFormEditWrapper = (props: IProps) => {
   useEffect(() => {
     props.getById(eventId);
     props.styleSearch();
-    props.teacherSearch();
+    props.teacherAccountSearch();
     props.classTypeSearch();
   }, []);
 
@@ -39,7 +39,7 @@ const EventFormEditWrapper = (props: IProps) => {
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
   const styleList = get(props, 'styleList', []);
-  const teacherList = get(props, 'teacherList', []);
+  const teacherAccountList = get(props, 'teacherAccountList', []);
   const classTypeList = get(props, 'classTypeList', []);
 
   return (
@@ -49,7 +49,7 @@ const EventFormEditWrapper = (props: IProps) => {
       submitButtonText="Update"
       isLoading={isLoadingUpdate}
       styleList={styleList}
-      teacherList={teacherList}
+      teacherAccountList={teacherAccountList}
       classTypeList={classTypeList}
     />
   );
@@ -60,7 +60,7 @@ const mapStateToProps = (state: any) => ({
   eventInfo: state.EventForm.eventInfo,
   loadingEffects: state.loading.effects,
   styleList: state.EventForm.styleList,
-  teacherList: state.EventForm.teacherList,
+  teacherAccountList: state.EventForm.teacherAccountList,
   classTypeList: state.EventForm.classTypeList,
 });
 
@@ -69,7 +69,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   updateById: (payload: IEvent) => dispatch({ type: 'EventForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'EventForm/teacherSearch' }),
+  teacherAccountSearch: () => dispatch({ type: 'EventForm/teacherAccountSearch' }),
   classTypeSearch: () => dispatch({ type: 'EventForm/classTypeSearch' }),
 });
 

@@ -9,7 +9,7 @@ interface IProps {
   create: (arg: IClasses) => void;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
-  teacherSearch: () => void;
+  teacherAccountSearch: () => void;
   classTypeSearch: () => void;
 }
 
@@ -20,13 +20,13 @@ const ClassesFormCreateWrapper = (props: IProps) => {
 
   useEffect(() => {
     props.styleSearch();
-    props.teacherSearch();
+    props.teacherAccountSearch();
     props.classTypeSearch();
   }, []);
 
   const isLoading = get(props, 'loadingEffects.ClassesForm/create', false);
   const styleList = get(props, 'styleList', []);
-  const teacherList = get(props, 'teacherList', []);
+  const teacherAccountList = get(props, 'teacherAccountList', []);
   const classTypeList = get(props, 'classTypeList', []);
 
   return <ClassesForm
@@ -34,7 +34,7 @@ const ClassesFormCreateWrapper = (props: IProps) => {
     submitButtonText="Create"
     isLoading={isLoading}
     styleList={styleList}
-    teacherList={teacherList}
+    teacherAccountList={teacherAccountList}
     classTypeList={classTypeList}
   />;
 };
@@ -42,7 +42,7 @@ const ClassesFormCreateWrapper = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.ClassesForm.styleList,
-  teacherList: state.ClassesForm.teacherList,
+  teacherAccountList: state.ClassesForm.teacherAccountList,
   classTypeList: state.ClassesForm.classTypeList,
 
 });
@@ -50,7 +50,7 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IClasses) => dispatch({ type: 'ClassesForm/create', payload }),
   styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
-  teacherSearch: () => dispatch({ type: 'ClassesForm/teacherSearch' }),
+  teacherAccountSearch: () => dispatch({ type: 'ClassesForm/teacherAccountSearch' }),
   classTypeSearch: () => dispatch({ type: 'ClassesForm/classTypeSearch' }),
 });
 

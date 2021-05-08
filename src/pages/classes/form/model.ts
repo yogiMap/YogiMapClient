@@ -3,7 +3,7 @@ import { Effect, history, Reducer } from 'umi';
 import { queryClassesCreate, queryClassesGetById, queryClassesUpdateById } from '@/pages/classes/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
-import { queryTeacherSearch } from '@/pages/teacher/queries';
+import { queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
 import { get } from 'lodash';
 import { queryClassTypeSearch } from '@/pages/classType/queries';
 
@@ -17,7 +17,7 @@ export interface ClassesModelType {
     getById: Effect;
     updateById: Effect;
     styleSearch: Effect;
-    teacherSearch: Effect;
+    teacherAccountSearch: Effect;
     classTypeSearch: Effect;
     reset: Effect;
   };
@@ -63,12 +63,12 @@ const ClassesModel: ClassesModelType = {
       });
     },
 
-    *teacherSearch(_, { call, put }) {
-      const data = yield call(queryTeacherSearch);
+    *teacherAccountSearch(_, { call, put }) {
+      const data = yield call(queryTeacherAccountSearch);
       yield put({
         type: 'save',
         payload: {
-          teacherList: get(data, 'payload.items'),
+          teacherAccountList: get(data, 'payload.items'),
         },
       });
     },

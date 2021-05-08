@@ -4,7 +4,7 @@ import { queryEventCreate, queryEventGetById, queryEventUpdateById } from '@/pag
 import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
-import { queryTeacherSearch } from '@/pages/teacher/queries';
+import { queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
 import { queryClassTypeSearch } from '@/pages/classType/queries';
 
 export interface IState {}
@@ -17,7 +17,7 @@ export interface EventModelType {
     getById: Effect;
     updateById: Effect;
     styleSearch: Effect;
-    teacherSearch: Effect;
+    teacherAccountSearch: Effect;
     classTypeSearch: Effect;
     reset: Effect;
   };
@@ -63,12 +63,12 @@ const EventModel: EventModelType = {
       });
     },
 
-    *teacherSearch(_, { call, put }) {
-      const data = yield call(queryTeacherSearch);
+    *teacherAccountSearch(_, { call, put }) {
+      const data = yield call(queryTeacherAccountSearch);
       yield put({
         type: 'save',
         payload: {
-          teacherList: get(data, 'payload.items'),
+          teacherAccountList: get(data, 'payload.items'),
         },
       });
     },

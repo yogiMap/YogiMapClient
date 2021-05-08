@@ -9,6 +9,7 @@ import { IClassType } from '@/pages/classType/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { connect, withRouter } from 'umi';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {
   Account: IUserAccount;
@@ -18,6 +19,7 @@ interface IProps {
   initialValues?: IClasses;
   styleList: IStyle[];
   classTypeList: IClassType[];
+  teacherAccountList: ITeacherAccount[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -49,9 +51,20 @@ const ClassesForm = (props: IProps) => {
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
         <div className="row mb-5">
-          <div className="col-md-8">
+          <div className="col-md-6">
             <h1>{name}</h1>
             <h6 className="mt-3">email: {email} </h6>
+          </div>
+          <div className="col-md-6">
+            <Form.Item name="teacherAccount" label="teacherAccount">
+              <Select className="rounded-circle">
+                {props.teacherAccountList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
           </div>
         </div>
 
@@ -128,6 +141,7 @@ const ClassesForm = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
+
 });
 
 // @ts-ignore
