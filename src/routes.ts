@@ -52,7 +52,7 @@ export default [
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
           { path: '/styles', component: '@/pages/pages/YogaStylesGuide' },
-          { path: '/type', component: '@/pages/pages/classTypeGuide' },
+          // { path: '/type', component: '@/pages/pages/classTypeGuide' },
           { path: '/library', component: '@/pages/pages/Library' },
           { path: '/faq', component: '@/pages/pages/Faq' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
