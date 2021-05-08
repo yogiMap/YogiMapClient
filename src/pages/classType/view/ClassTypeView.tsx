@@ -21,7 +21,7 @@ const ClassTypeView = (props: IProps) => {
 
   return (
     <div className="container">
-      <h1 className="text-center">{name}</h1>
+      <h1 className="text-center m-4">{name}</h1>
       <p>{description}</p>
     </div>
   );
