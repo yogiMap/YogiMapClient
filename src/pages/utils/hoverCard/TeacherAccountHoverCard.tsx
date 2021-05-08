@@ -12,12 +12,12 @@ interface IProps {
 
 const ProfileHoverCard = (props: IProps) => {
   const name = get(props, 'name');
-  const userId = get(props, 'id');
+  const teacherAccountId = get(props, 'id');
 
   const email = get(props, 'HoverCard.email', '');
   const phone = get(props, 'HoverCard.phone', '');
   const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
-  const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
+  //const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
   const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
   const country = get(props, 'HoverCard.teacherAccount.country', '');
   const city = get(props, 'teacherAccountList.city', '');
