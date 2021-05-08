@@ -21,7 +21,7 @@ const UserProfile = (props: any) => {
   const roles = get(userInfo, 'roles', []);
   const about = get(userInfo, 'about', '');
   const email = get(userInfo, 'email', '');
-  const profile = get(props, 'Profile' );
+  const profile = get(props, 'Profile');
   // const phoneNumber = profile.map((el: { phoneNumber: any; }) => el.phoneNumber)
   //
   // console.log(phoneNumber);
@@ -31,20 +31,18 @@ const UserProfile = (props: any) => {
     props.teacherAccountGetById(teacherAccountId);
   }, []);
 
-  // @ts-ignore
   return (
     <div className="container">
       <h1 className="text-center">Profile Page</h1>
       <h3 className="text-end">{userName}</h3>
       <h5 className="text-end">{email}</h5>
       {/*<h5 className="text-end">{phoneNumber}</h5>*/}
-      <div  className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>
+      <div className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>
 
       <h3>Address</h3>
       <div>
         <TeacherAccountViewAddressList />
       </div>
-
     </div>
   );
 };

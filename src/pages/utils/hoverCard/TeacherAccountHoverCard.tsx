@@ -15,12 +15,11 @@ const ProfileHoverCard = (props: IProps) => {
   const teacherAccountId = get(props, 'id');
 
   const email = get(props, 'HoverCard.email', '');
-  const phone = get(props, 'HoverCard.phone', '');
+  const phoneNumber = get(props, 'HoverCard.phoneNumber', '');
   const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
-  //const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
   const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
-  const country = get(props, 'HoverCard.teacherAccount.country', '');
-  const city = get(props, 'teacherAccountList.city', '');
+  const country = get(props, 'HoverCard.country', '');
+  const city = get(props, 'HoverCard.city', '');
 
   // const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
 
@@ -35,7 +34,7 @@ const ProfileHoverCard = (props: IProps) => {
   const content = (
     <div className="hoverCard">
       {email && <p>Email: {email}</p>}
-      {phone && <p>Phone: {phone}</p>}
+      {phoneNumber && <p>Phone: {phoneNumber}</p>}
       {country && <p>Country: {country}</p>}
       {city && <p>City: {city}</p>}
       {teacherAccountName && <Link to={`/teacherAccount/${teacherAccountId}`}>{teacherAccountName}</Link>}
