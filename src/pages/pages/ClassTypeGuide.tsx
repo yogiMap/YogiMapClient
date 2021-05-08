@@ -5,8 +5,7 @@ const ClassTypeGuide = () => {
     <article id="main" className="container" role="main">
       <div id="main-col" className="main-col">
         <div className="panel">
-          <h1 className="page-title">Yoga Styles Guide</h1>
-
+          <h1 className="page-title">Class Type Guide</h1>
           <br />
           <br />
           <div className="format-text">
