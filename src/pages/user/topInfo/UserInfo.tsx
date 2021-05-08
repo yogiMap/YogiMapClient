@@ -72,7 +72,7 @@ const UserInfo = (props: IProps) => {
         </Link>
 
         <Link to={'/user/register'} className="ms-1 p-2" data-qa="register">
-          SignIn
+          SignUp
         </Link>
       </div>
     );
