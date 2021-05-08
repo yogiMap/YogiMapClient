@@ -11,6 +11,7 @@ interface IProps {
 const ClassTypeView = (props: IProps) => {
   const classTypeId = get(props, 'match.params.classTypeId');
   const name = get(props, 'ClassTypeView.name', '');
+  const description = get(props, 'ClassTypeView.description', '');
 
   console.log(props);
 
@@ -19,8 +20,9 @@ const ClassTypeView = (props: IProps) => {
   }, []);
 
   return (
-    <div>
-      <h1>{name}</h1>
+    <div className="container">
+      <h1 className="text-center">{name}</h1>
+      <p>{description}</p>
     </div>
   );
 };

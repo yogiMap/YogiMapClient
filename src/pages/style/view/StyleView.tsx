@@ -11,6 +11,7 @@ interface IProps {
 const StyleView = (props: IProps) => {
   const styleId = get(props, 'match.params.styleId');
   const name = get(props, 'StyleView.name', '');
+  const description = get(props, 'StyleView.description', '');
 
   console.log(props);
 
@@ -19,8 +20,9 @@ const StyleView = (props: IProps) => {
   }, []);
 
   return (
-    <div>
-      <h1>{name}</h1>
+    <div className="container">
+      <h1 className="text-center">{name}</h1>
+      <p>{description}</p>
     </div>
   );
 };
