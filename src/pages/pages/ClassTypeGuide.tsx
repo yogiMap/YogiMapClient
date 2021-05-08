@@ -1,6 +1,6 @@
 import React from 'react';
 
-const YogaStylesGuide = () => {
+const ClassTypeGuide = () => {
   return (
     <article id="main" className="container" role="main">
       <div id="main-col" className="main-col">
@@ -318,4 +318,4 @@ const YogaStylesGuide = () => {
   );
 };
 
-export default YogaStylesGuide;
+export default ClassTypeGuide;
