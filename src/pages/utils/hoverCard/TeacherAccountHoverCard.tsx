@@ -6,7 +6,7 @@ import { Popover } from 'antd';
 interface IProps {
   name: string;
   id: string;
-  userGetById: (id: string) => void;
+  teacherAccountGetById: (id: string) => void;
   close: () => void;
 }
 
@@ -17,12 +17,16 @@ const ProfileHoverCard = (props: IProps) => {
   const email = get(props, 'HoverCard.email', '');
   const phone = get(props, 'HoverCard.phone', '');
   const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
-  const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
   const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
+  const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
+  const country = get(props, 'HoverCard.teacherAccount.country', '');
+  const city = get(props, 'teacherAccountList.city', '');
+
+  // const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
 
   const onVisibleChange = (isVisible: boolean) => {
     if (isVisible) {
-      props.userGetById(userId);
+      props.teacherAccountGetById(teacherAccountId);
     } else {
       props.close();
     }
@@ -32,14 +36,16 @@ const ProfileHoverCard = (props: IProps) => {
     <div className="hoverCard">
       {email && <p>Email: {email}</p>}
       {phone && <p>Phone: {phone}</p>}
+      {country && <p>Country: {country}</p>}
+      {city && <p>City: {city}</p>}
       {teacherAccountName && <Link to={`/teacherAccount/${teacherAccountId}`}>{teacherAccountName}</Link>}
-      {isCompanyOwner && 'owner'}
+      {/*{isCompanyOwner && 'owner'}*/}
     </div>
   );
 
   return (
     <Popover content={content} title={name} trigger="hover" onVisibleChange={onVisibleChange}>
-      <Link to={`/profile/${userId}`}>{name}</Link>
+      <Link to={`/teacherAccount/${teacherAccountId}`}>{name}</Link>
     </Popover>
   );
 };
@@ -49,7 +55,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: string) => dispatch({ type: 'HoverCard/userGetById', payload }),
+  teacherAccountGetById: (payload: string) => dispatch({ type: 'HoverCard/teacherAccountGetById', payload }),
   close: () => dispatch({ type: 'HoverCard/close' }),
 });
 

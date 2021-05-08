@@ -1,7 +1,7 @@
 import { Effect, Reducer } from 'umi';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryUserGetById } from '@/pages/user/queries';
-// import { queryClientGetInfoById } from '@/pages/client/queries';
+import { queryTeacherAccountGetById } from '@/pages/teacherAccount/queries';
 
 export interface IState {}
 
@@ -10,7 +10,8 @@ export interface IModel {
   state: IState;
   effects: {
     userGetById: Effect;
- //   clientGetById: Effect;
+    teacherAccountGetById: Effect;
+    //   clientGetById: Effect;
     close: Effect;
   };
   reducers: {
@@ -32,13 +33,13 @@ const Model: IModel = {
       });
     },
 
-    // *clientGetById({ payload }, { call, put }) {
-    //   const response = yield call(queryClientGetInfoById, payload);
-    //   yield put({
-    //     type: 'save',
-    //     payload: response.payload,
-    //   });
-    // },
+    *teacherAccountGetById({ payload }, { call, put }) {
+      const response = yield call(queryTeacherAccountGetById, payload);
+      yield put({
+        type: 'save',
+        payload: response.payload,
+      });
+    },
 
     *close(_, { put }) {
       yield put({ type: 'set', payload: {} });

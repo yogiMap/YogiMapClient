@@ -6,6 +6,7 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
+import TeacherAccountHoverCard from '@/pages/utils/hoverCard/TeacherAccountHoverCard';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -26,7 +27,13 @@ const TeacherAccountSearchList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/teacherAccount/${row._id}`}>{row.name}</Link>,
+      sorter: {
+        compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
+      },
+      // render: (row) => <Link to={`/teacherAccount/${row._id}`}>{row.name}</Link>,
+      render: (row) => {
+        return <TeacherAccountHoverCard id={get(row, '_id')} name={get(row, 'name')} />;
+      },
     },
 
     {
@@ -39,7 +46,7 @@ const TeacherAccountSearchList = (props: IProps) => {
       title: 'YogaStyle',
       key: 'style',
       render: (row) => {
-         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
+        return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
         // @ts-ignore
         // return <StyleView id={get(row, 'style._id')} name={get(row, 'style.name')} />;
       },
@@ -49,9 +56,6 @@ const TeacherAccountSearchList = (props: IProps) => {
       title: 'Country',
       key: 'country',
       dataIndex: 'country',
-      // render: (row) => {
-      //       return <ProfileHoverCard id={get(row, 'owner._id')} name={get(row, 'owner.name')} />;
-      //     },
     },
 
     {
