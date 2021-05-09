@@ -133,12 +133,12 @@ const ClassesForm = (props: IProps) => {
           <h5>Date And Time of the Class</h5>
           <div className="col-md-6">
             <Form.Item name="Date" label="Date">
-              <DatePicker size="large" format="MM.DD.YYYY" />
+              <DatePicker format="MM.DD.YYYY" />
             </Form.Item>
           </div>
           <div className="col-md-6">
             <Form.Item name="time" label="Time">
-              <TimePicker use12Hours format="h:mm A" size="large" />
+              <TimePicker use12Hours format="h:mm A" />
             </Form.Item>
           </div>
         </div>
