@@ -4,7 +4,7 @@ export interface IClasses {
 
   code: string;
   address: string;
-  classesDate: string;
+  date: string;
   teacherAccount: string;
 
   owner: {

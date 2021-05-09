@@ -48,9 +48,17 @@ const ClassesForm = (props: IProps) => {
   //   form.setFieldsValue({ time: time });
   // }, [time]);
 
+  const onFinish = (formValues: IClasses) => {
+    props.onFinish({
+      ...formValues,
+      address: get(formValues, 'address._id', formValues.address),
+      date: get(formValues, 'orderStart', formValues.date),
+    });
+  };
+
   return (
     <div className="container mt-5">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
+      <Form onFinish={onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
         <div className="row mb-5">
           <div className="col-md-6">
             <h1>{name}</h1>
@@ -132,12 +140,12 @@ const ClassesForm = (props: IProps) => {
         <div className="row">
           <h5>Date And Time of the Class</h5>
           <div className="col-md-6">
-            <Form.Item name="Date" label="Date">
+            <Form.Item name="date" label="Date">
               <DatePicker format="MM.DD.YYYY" />
             </Form.Item>
           </div>
           <div className="col-md-6">
-            <Form.Item name="time" label="Time">
+            <Form.Item name="date" label="Time">
               <TimePicker use12Hours format="h:mm A" />
             </Form.Item>
           </div>
