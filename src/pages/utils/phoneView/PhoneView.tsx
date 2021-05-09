@@ -10,10 +10,10 @@ interface IPhone {
 }
 
 const PhoneView = (props: IPhone) => {
-  console.log(props);
-
   let code = get(props, 'phone.code', '');
-  code = code !== '1' && `+${code} `;
+
+  if (code === 1 || !code) code = '';
+  else code = `+${code} `;
 
   const number = get(props, 'phone.number', '');
 
