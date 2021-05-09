@@ -1,6 +1,12 @@
 export interface IClasses {
   _id: string;
   name: string;
+
+  code: string;
+  address: string;
+  classesDate: string;
+  teacherAccount: string;
+
   owner: {
     name: string;
     _id: string;

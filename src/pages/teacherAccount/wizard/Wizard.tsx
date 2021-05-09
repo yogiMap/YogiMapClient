@@ -8,10 +8,11 @@ import validator from '@/utils/validators';
 import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import Check from '@/pages/utils/Check';
 import { history } from '@@/core/history';
+import { IPhone } from '@/pages/user/types';
 
 export interface ITeacherAccount {
   teacherName: string;
-  phoneNumber1: string;
+  phoneNumber: IPhone;
   email: string;
 }
 

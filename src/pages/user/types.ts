@@ -28,3 +28,9 @@ export interface IResetPasswordArg {
   hash: string;
   password: string;
 }
+
+export interface IPhone {
+  code: string;
+  number: string;
+  ext: string;
+}

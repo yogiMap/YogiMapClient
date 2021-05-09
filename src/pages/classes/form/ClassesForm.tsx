@@ -26,26 +26,27 @@ const ClassesForm = (props: IProps) => {
   const { Option } = Select;
 
   const [form] = Form.useForm();
-  const initialValues: any = get(props, 'initialValues', {});
-  initialValues.dueDate = moment(initialValues.dueDate);
-  initialValues.date = moment(initialValues.date);
+  // const initialValuesDate: any = get(props, 'initialValues', {});
+  // initialValuesDate.date = moment(initialValuesDate.date);
+  // const initialValuesTime: any = get(props, 'initialValues', {});
+  // initialValuesTime.time = moment(initialValuesTime.time);
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
 
-  const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
-  const [time, setTime] = useState(null);
-  const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
-  const onTimeChange = (selectedTime: any) => setTime(selectedTime);
+  // const [date, setDates] = useState(initialValuesDate.date);
+  // const [time, setTime] = useState(initialValuesTime.time);
+  // const onDateChange = (selectedDate: any) => setDates(selectedDate);
+  // const onTimeChange = (selectedTime: any) => setTime(selectedTime);
 
   const isLoading = get(props, 'isLoading', false);
 
-  useEffect(() => {
-    form.setFieldsValue({ date: date, dueDate: dueDate });
-  }, [date, dueDate]);
+  // useEffect(() => {
+  //   form.setFieldsValue({ date: date });
+  // }, [date]);
 
-  useEffect(() => {
-    form.setFieldsValue({ date: time });
-  }, [time]);
+  // useEffect(() => {
+  //   form.setFieldsValue({ time: time });
+  // }, [time]);
 
   return (
     <div className="container mt-5">
@@ -114,15 +115,30 @@ const ClassesForm = (props: IProps) => {
           </div>
         </div>
 
+        {/*<div className="row">*/}
+        {/*  <h5>Date And Time of the Class</h5>*/}
+        {/*  <div className="col-md-6">*/}
+        {/*    <Form.Item label="Date" name="date" initialValue={date}>*/}
+        {/*      <DatePicker value={date} onChange={onDateChange} size="large" />*/}
+        {/*    </Form.Item>*/}
+        {/*  </div>*/}
+        {/*  <div className="col-md-6">*/}
+        {/*    <Form.Item label="Time" name="time" initialValue={initialValuesTime}>*/}
+        {/*      <DatePicker value={time} onChange={onTimeChange} size="large" />*/}
+        {/*    </Form.Item>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
         <div className="row">
+          <h5>Date And Time of the Class</h5>
           <div className="col-md-6">
-            <Form.Item label="Date" name="date" initialValue={date}>
-              <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+            <Form.Item name="Date" label="Date">
+              <DatePicker size="large" format="MM.DD.YYYY" />
             </Form.Item>
           </div>
           <div className="col-md-6">
-            <Form.Item label="Time" name="time" initialValue={time}>
-              <TimePicker value={time} onChange={onTimeChange} className="rounded-pill" />
+            <Form.Item name="time" label="Time">
+              <TimePicker use12Hours format="h:mm A" size="large" />
             </Form.Item>
           </div>
         </div>
@@ -141,7 +157,6 @@ const ClassesForm = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
-
 });
 
 // @ts-ignore
