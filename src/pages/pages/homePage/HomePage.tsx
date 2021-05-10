@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect, Link } from 'umi';
+import React, { useEffect } from 'react';
+import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import body from '@/pages/pages/homePage/images/yogigirl.png';
@@ -10,11 +10,18 @@ import soul from '@/pages/pages/homePage/images/monks.jpg';
 
 interface IProps {
   Account: IUserAccount;
+  closeMobileMenu: () => void;
 }
 
 function HomePage(props: IProps) {
   const isUserAuth = get(props, 'Account._id');
 
+  useEffect(() => {
+    props.closeMobileMenu();
+    // return () => {
+    //   props.addressReset();
+    // };
+  }, []);
   return (
     <>
       <div className="home-bg">
@@ -40,14 +47,14 @@ function HomePage(props: IProps) {
 
       <div className="home-description">
         <div className="container">
-        <div className="row my-5">
-          <div className="col">
-            Yoga is the always changing conception. Online resources are the important way of teaching by individual
-            yoga instructor for the last year. Our space helps you to find your own teacher for your body, mind and soul
-            improvement. Also here you will be able find your community and all information you were interested about
-            yoga.
+          <div className="row my-5">
+            <div className="col">
+              Yoga is the always changing conception. Online resources are the important way of teaching by individual
+              yoga instructor for the last year. Our space helps you to find your own teacher for your body, mind and
+              soul improvement. Also here you will be able find your community and all information you were interested
+              about yoga.
+            </div>
           </div>
-        </div>
         </div>
 
         <div className="home-bg-header-secondary">
@@ -158,6 +165,11 @@ function HomePage(props: IProps) {
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
+  mobileMenu: state.mobileMenu,
 });
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = (dispatch: any) => ({
+  closeMobileMenu: () => dispatch({ type: 'MobileMenu/close' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
