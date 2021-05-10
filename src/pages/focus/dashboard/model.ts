@@ -1,7 +1,7 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-import {  queryFocusSearch } from '@/pages/focus/queries';
+import { queryFocusSearch } from '@/pages/focus/queries';
 import { IFocus, IFocusStats } from '@/pages/focus/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
@@ -32,6 +32,7 @@ const Model: IModel = {
 
   effects: {
     *focusSearch({ payload }, { call, put }) {
+      yield put({ type: 'MobileMenu/close' });
       const data = yield call(queryFocusSearch, payload);
       yield put({
         type: 'save',
@@ -41,7 +42,6 @@ const Model: IModel = {
         },
       });
     },
-
 
     *reset(_, { put }) {
       yield put({ type: 'set', payload: {} });

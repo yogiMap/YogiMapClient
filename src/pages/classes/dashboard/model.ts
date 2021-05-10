@@ -34,6 +34,7 @@ const Model: IModel = {
 
   effects: {
     *classesSearch({ payload }, { call, put }) {
+      yield put({ type: 'MobileMenu/close' });
       const data = yield call(queryClassesSearch, payload);
       yield put({
         type: 'save',
