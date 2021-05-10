@@ -23,7 +23,7 @@ const SettingsMenu = (props: IProps) => {
 
   const menu = [
     {
-      name: 'Teacher account',
+      name: 'Teacher`s Account',
       icon: <UsergroupAddOutlined />,
       link: `/settings/teacherAccount/${ownerId}`,
     },

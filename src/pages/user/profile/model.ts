@@ -51,6 +51,7 @@ const UserModel: IUserModel = {
     },
 
     *userGetById({ payload }, { call, put }) {
+      yield put({ type: 'MobileMenu/close' });
       const response = yield call(queryUserGetById, payload);
       yield put({
         type: 'save',

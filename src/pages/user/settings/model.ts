@@ -28,6 +28,7 @@ const UserModel: IUserModelType = {
 
   effects: {
     *userGetInfo(_, { call, put }) {
+      yield put({ type: 'MobileMenu/close' });
       const data = yield call(queryUserAuth);
       yield put({ type: 'save', payload: { userInfo: data.payload } });
     },
