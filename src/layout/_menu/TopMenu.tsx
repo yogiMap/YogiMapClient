@@ -6,6 +6,7 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
   Account: IUserAccount;
+  close: () => void;
 }
 
 const TopMenu = (props: IProps) => {
@@ -28,17 +29,23 @@ const TopMenu = (props: IProps) => {
 
   return (
     <div id="top-menu" role="menu">
-        {mainMenu.map((el) => (
-          <div className="item" key={el.path}>
-            <Link to={el.path}>{el.name}</Link>
-          </div>
-        ))}
+      {mainMenu.map((el) => (
+        <div className="item" key={el.path}>
+          <Link to={el.path}>{el.name}</Link>
+        </div>
+      ))}
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
+  mobileMenu: state.mobileMenu,
 });
 
+const mapDispatchToProps = (dispatch: any) => ({
+  close: () => dispatch({ type: 'MobileMenu/close' }),
+});
+
+// @ts-ignore
 export default withRouter(connect(mapStateToProps)(TopMenu));
