@@ -24,6 +24,12 @@ const ClassesSearchList = (props: IProps) => {
       render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
     },
     {
+      title: 'Name',
+      key: 'name',
+      render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
+    },
+
+    {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
@@ -37,14 +43,8 @@ const ClassesSearchList = (props: IProps) => {
       dataIndex: 'time',
       key: 'time',
       // render: (row) => {
-      //   return formatterTimeFull(row.date);
+      //   return formatterTimeFull(row.time);
       // },
-    },
-
-    {
-      title: 'Name',
-      key: 'name',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Yoga Focus',
@@ -69,17 +69,17 @@ const ClassesSearchList = (props: IProps) => {
     },
     {
       title: 'Teacher',
-      key: 'teacher',
+      key: 'teacherAccount',
       // render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
       render: (row) => {
-        return <Link to={`/teacher/${get(row, 'teacher._id')}`}>{get(row, 'teacher.name')}</Link>;
+        return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
       },
     },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
+    // {
+    //   title: 'Description',
+    //   dataIndex: 'description',
+    //   key: 'description',
+    // },
     {
       title: 'Action',
       key: 'action',

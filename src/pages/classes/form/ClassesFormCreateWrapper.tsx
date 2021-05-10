@@ -29,14 +29,16 @@ const ClassesFormCreateWrapper = (props: IProps) => {
   const teacherAccountList = get(props, 'teacherAccountList', []);
   const classTypeList = get(props, 'classTypeList', []);
 
-  return <ClassesForm
-    onFinish={onFinish}
-    submitButtonText="Create"
-    isLoading={isLoading}
-    styleList={styleList}
-    teacherAccountList={teacherAccountList}
-    classTypeList={classTypeList}
-  />;
+  return (
+    <ClassesForm
+      onFinish={onFinish}
+      submitButtonText="Create"
+      isLoading={isLoading}
+      styleList={styleList}
+      teacherAccountList={teacherAccountList}
+      classTypeList={classTypeList}
+    />
+  );
 };
 
 const mapStateToProps = (state: any) => ({
@@ -44,7 +46,6 @@ const mapStateToProps = (state: any) => ({
   styleList: state.ClassesForm.styleList,
   teacherAccountList: state.ClassesForm.teacherAccountList,
   classTypeList: state.ClassesForm.classTypeList,
-
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

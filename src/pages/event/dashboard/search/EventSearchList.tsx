@@ -23,6 +23,11 @@ const EventSearchList = (props: IProps) => {
       render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
     },
     {
+      title: 'Name',
+      key: 'name',
+      render: (row) => <Link to={`/event/${row._id}`}>{row.name}</Link>,
+    },
+    {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
@@ -31,24 +36,19 @@ const EventSearchList = (props: IProps) => {
       },
     },
     {
-      title: 'Name',
-      key: 'name',
-      render: (row) => <Link to={`/event/${row._id}`}>{row.name}</Link>,
-    },
-    {
       title: 'Teacher',
       dataIndex: 'teacherAccount',
       key: 'teacherAccount',
       // render: (row) => <Link to={`/teacherAccount/${row.teacherAccountId}`}>{row.name}</Link>,
-      // render: (row) => {
-      //   return <Link to={`/teacher/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
-      // },
+      render: (row) => {
+        return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
+      },
     },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
+    // {
+    //   title: 'Description',
+    //   dataIndex: 'description',
+    //   key: 'description',
+    // },
     {
       title: 'Action',
       key: 'action',

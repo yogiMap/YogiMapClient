@@ -13,6 +13,10 @@ export interface IClasses {
   };
   createdAt: string;
   updatedAt: string;
+
+  styleSearch: () => void;
+  teacherAccountSearch: () => void;
+  classTypeSearch: () => void;
 }
 
 export interface IClassesStats {

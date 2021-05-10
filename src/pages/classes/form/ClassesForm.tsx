@@ -24,49 +24,22 @@ interface IProps {
 
 const ClassesForm = (props: IProps) => {
   const { Option } = Select;
+  const isLoading = get(props, 'isLoading', false);
 
-  const [form] = Form.useForm();
-  // const initialValuesDate: any = get(props, 'initialValues', {});
-  // initialValuesDate.date = moment(initialValuesDate.date);
-  // const initialValuesTime: any = get(props, 'initialValues', {});
-  // initialValuesTime.time = moment(initialValuesTime.time);
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
 
-  // const [date, setDates] = useState(initialValuesDate.date);
-  // const [time, setTime] = useState(initialValuesTime.time);
-  // const onDateChange = (selectedDate: any) => setDates(selectedDate);
-  // const onTimeChange = (selectedTime: any) => setTime(selectedTime);
-
-  const isLoading = get(props, 'isLoading', false);
-
-  // useEffect(() => {
-  //   form.setFieldsValue({ date: date });
-  // }, [date]);
-
-  // useEffect(() => {
-  //   form.setFieldsValue({ time: time });
-  // }, [time]);
-
-  const onFinish = (formValues: IClasses) => {
-    props.onFinish({
-      ...formValues,
-      address: get(formValues, 'address._id', formValues.address),
-      date: get(formValues, 'orderStart', formValues.date),
-    });
-  };
-
   return (
     <div className="container mt-5">
-      <Form onFinish={onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
         <div className="row mb-5">
           <div className="col-md-6">
             <h1>{name}</h1>
             <h6 className="mt-3">email: {email} </h6>
           </div>
           <div className="col-md-6">
-            <Form.Item name="teacherAccount" label="teacherAccount">
-              <Select className="rounded-circle">
+            <Form.Item name="teacherAccountList" label="Teacher`s `Account">
+              <Select>
                 {props.teacherAccountList.map((el) => (
                   <Option key={el._id} value={el._id}>
                     {el.name}
@@ -123,30 +96,16 @@ const ClassesForm = (props: IProps) => {
           </div>
         </div>
 
-        {/*<div className="row">*/}
-        {/*  <h5>Date And Time of the Class</h5>*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    <Form.Item label="Date" name="date" initialValue={date}>*/}
-        {/*      <DatePicker value={date} onChange={onDateChange} size="large" />*/}
-        {/*    </Form.Item>*/}
-        {/*  </div>*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    <Form.Item label="Time" name="time" initialValue={initialValuesTime}>*/}
-        {/*      <DatePicker value={time} onChange={onTimeChange} size="large" />*/}
-        {/*    </Form.Item>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-
         <div className="row">
           <h5>Date And Time of the Class</h5>
           <div className="col-md-6">
             <Form.Item name="date" label="Date">
-              <DatePicker format="MM.DD.YYYY" />
+              <DatePicker format="MM.DD.YYYY" className="rounded-pill" />
             </Form.Item>
           </div>
           <div className="col-md-6">
             <Form.Item name="date" label="Time">
-              <TimePicker use12Hours format="h:mm A" />
+              <TimePicker use12Hours format="h:mm A" className="rounded-pill" />
             </Form.Item>
           </div>
         </div>
