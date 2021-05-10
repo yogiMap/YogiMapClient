@@ -13,7 +13,7 @@ const TeacherAccountDashboardControls = (props: IProps) => {
       title: 'Create new Teacher Account',
       component: 'TeacherAccountFormCreate',
       place: 'TeacherAccountDashboard',
-      width: 1000,
+      width: '80%',
     });
   };
 

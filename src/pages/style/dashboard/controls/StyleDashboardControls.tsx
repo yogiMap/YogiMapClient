@@ -16,18 +16,18 @@ const StyleDashboardControls = (props: IProps) => {
       title: 'Create New Yoga Style',
       component: 'StyleFormCreate',
       place: 'StyleDashboard',
-      width: 800,
+      width: '80%',
     });
   };
   const isUserAuth = get(props, 'Account._id');
 
   return (
     <>
-    {isUserAuth && (
-    <Button type="primary"  shape="round" onClick={styleCreate}>
-      Create Yoga Style
-    </Button>
-    )}
+      {isUserAuth && (
+        <Button type="primary" shape="round" onClick={styleCreate}>
+          Create Yoga Style
+        </Button>
+      )}
     </>
   );
 };

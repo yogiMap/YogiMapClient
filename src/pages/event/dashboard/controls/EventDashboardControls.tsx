@@ -16,7 +16,7 @@ const EventDashboardControls = (props: IProps) => {
       title: 'Create New Event',
       component: 'EventFormCreate',
       place: 'EventDashboard',
-      width: 800,
+      width: '80%',
     });
   };
 

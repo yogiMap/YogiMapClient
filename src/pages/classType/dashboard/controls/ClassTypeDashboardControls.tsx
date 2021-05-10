@@ -16,19 +16,18 @@ const ClassTypeDashboardControls = (props: IProps) => {
       title: 'Create New Class Type',
       component: 'ClassTypeFormCreate',
       place: 'ClassTypeDashboard',
-      width: 800,
+      width: '80%',
     });
   };
 
   const isUserAuth = get(props, 'Account._id');
 
-
   return (
     <>
       {isUserAuth && (
-    <Button type="primary"  shape="round"  onClick={classTypeCreate}>
-      Create Class Type
-    </Button>
+        <Button type="primary" shape="round" onClick={classTypeCreate}>
+          Create Class Type
+        </Button>
       )}
     </>
   );

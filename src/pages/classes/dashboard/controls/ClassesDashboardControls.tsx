@@ -16,7 +16,7 @@ const ClassesDashboardControls = (props: IProps) => {
       title: 'Create New Class',
       component: 'ClassesFormCreate',
       place: 'ClassesDashboard',
-      width: 800,
+      width: '80%',
     });
   };
 
