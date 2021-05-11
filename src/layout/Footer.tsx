@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'umi';
+import { connect, Link, withRouter } from 'umi';
 
 const menu1 = [
   { link: '/faq', text: 'Help & FAQ' },
@@ -15,7 +15,7 @@ const menu2 = [
 const menu3 = [
   { link: '/library', text: 'Our Library' },
   { link: '/styles', text: 'Yoga Styles Guide' },
-  // { link: '/type', text: 'Class Type Guide' },
+  { link: '/type', text: 'Class Type Guide' },
 ];
 
 const Footer = () => {
