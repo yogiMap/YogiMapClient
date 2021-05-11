@@ -28,6 +28,7 @@ const StyleSearchList = (props: IProps) => {
       key: 'name',
       render: (row) => <Link to={`/style/${row._id}`}>{row.name}</Link>,
       sorter: (a, b) => a.name.length - b.name.length,
+      sortDirections: ['descend'],
     },
     {
       title: 'Action',
