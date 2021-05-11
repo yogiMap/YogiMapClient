@@ -22,6 +22,7 @@ const ClassTypeSearchList = (props: IProps) => {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
+      sorter: (a, b) => a.name.length - b.name.length,
     },
     {
       title: 'Teacher',

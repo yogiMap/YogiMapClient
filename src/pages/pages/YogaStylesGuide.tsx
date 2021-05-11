@@ -9,7 +9,7 @@ const initialSearchForm = {
 };
 
 const initialSearchQuery = {
-  limit: 20,
+  limit: 100,
   page: 1,
   ...initialSearchForm,
 };
@@ -40,7 +40,7 @@ const YogaStylesGuide = (props: IProps) => {
       <div className="row">
         <div className="col">
           {styleList
-            .sort((a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name))
+            // .sort((a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name))
             .map((el: any) => (
               <div key={el._id}>
                 <h2>

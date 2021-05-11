@@ -9,7 +9,7 @@ const initialSearchForm = {
 };
 
 const initialSearchQuery = {
-  limit: 20,
+  limit: 100,
   page: 1,
   ...initialSearchForm,
 };
