@@ -41,9 +41,9 @@ const EventForm = (props: IProps) => {
   const email = get(props, 'Account.email', '');
 
   const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
-  const [time, setTime] = useState(null);
+  // const [time, setTime] = useState(null);
   const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
-  const onTimeChange = (selectedTime: any) => setTime(selectedTime);
+  // const onTimeChange = (selectedTime: any) => setTime(selectedDate);
 
   const isLoading = get(props, 'isLoading', false);
 
@@ -51,21 +51,21 @@ const EventForm = (props: IProps) => {
     form.setFieldsValue({ date: date, dueDate: dueDate });
   }, [date, dueDate]);
 
-  useEffect(() => {
-    form.setFieldsValue({ date: time });
-  }, [time]);
+  // useEffect(() => {
+  //   form.setFieldsValue({ date: time });
+  // }, [time]);
 
-  const onFinish = (formValues: IEvent) => {
-    props.onFinish({
-      ...formValues,
-      client: get(formValues, 'teacherAccount._id', formValues.teacherAccount),
-      address: get(formValues, 'classTypes._id', formValues.classType),
-    });
-  };
+  // const onFinish = (formValues: IEvent) => {
+  //   props.onFinish({
+  //     ...formValues,
+  //     client: get(formValues, 'teacherAccount._id', formValues.teacherAccount),
+  //     address: get(formValues, 'classTypes._id', formValues.classType),
+  //   });
+  // };
 
   return (
     <div className="container mt-5">
-      <Form onFinish={onFinish} initialValues={props.initialValues} layout="vertical" name="event">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="event">
         <div className="row mb-5">
           <div className="col-md-6">
             <h1>{name}</h1>
@@ -137,8 +137,8 @@ const EventForm = (props: IProps) => {
             </Form.Item>
           </div>
           <div className="col-md-6">
-            <Form.Item label="Time" name="time" initialValue={time}>
-              <TimePicker value={time} onChange={onTimeChange} className="rounded-pill" />
+            <Form.Item label="Time" name="date" initialValue={date}>
+              <TimePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
         </div>
@@ -149,7 +149,7 @@ const EventForm = (props: IProps) => {
           </Button>
         </Form.Item>
       </Form>
-     </div>
+    </div>
   );
 };
 

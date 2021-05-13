@@ -5,7 +5,7 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { IEvent } from '@/pages/event/types';
 import ActionMenu from '@/pages/event/dashboard/search/ActionMenu';
-import { formatterDateFull } from '@/utils/dateTime';
+import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 import { RouteComponentProps } from 'react-router-dom';
 
 interface IProps extends RouteComponentProps {
@@ -33,6 +33,14 @@ const EventSearchList = (props: IProps) => {
       key: 'date',
       render: (row) => {
         return formatterDateFull(row.date);
+      },
+    },
+    {
+      title: 'Time',
+      dataIndex: 'date',
+      key: 'date',
+      render: (row) => {
+        return formatterTimeFull(row.date);
       },
     },
     {

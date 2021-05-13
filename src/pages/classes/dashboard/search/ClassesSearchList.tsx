@@ -37,14 +37,13 @@ const ClassesSearchList = (props: IProps) => {
         return formatterDateFull(row.date);
       },
     },
-
     {
-      title: 'Time',
-      dataIndex: 'time',
-      key: 'time',
-      // render: (row) => {
-      //   return formatterTimeFull(row.time);
-      // },
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+      render: (row) => {
+        return formatterTimeFull(row.date);
+      },
     },
     {
       title: 'Yoga Focus',
