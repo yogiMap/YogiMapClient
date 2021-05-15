@@ -34,7 +34,6 @@ a {
   }
 }
 
-
 .footer {
   background: white;
   border-top: 50px solid #c4c4c4;
@@ -186,5 +185,12 @@ span.edit-pen-icon {
     height: 55px;
     font-size: 1.3rem;
     transition-delay: 0.5s;
+  }
+}
+
+.login-link {
+  color: #d2791e;
+  &:hover {
+    color: #18a38e;
   }
 }

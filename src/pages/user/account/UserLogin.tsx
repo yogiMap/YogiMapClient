@@ -57,11 +57,19 @@ const UserLogin = (props: IProps) => {
 
       <Form.Item>
         <p>
-          Don’t have an account? <Link to="/user/register">Create one</Link>.
+          Don’t have an account?{' '}
+          <Link to="/user/register" className="login-link">
+            Create one
+          </Link>
+          .
         </p>
 
         <p>
-          Forgot your password? <Link to="/user/password/reset/request">Reset it</Link>.
+          Forgot your password?{' '}
+          <Link to="/user/password/reset/request" className="login-link">
+            Reset it
+          </Link>
+          .
         </p>
       </Form.Item>
     </Form>
