@@ -25,31 +25,20 @@ interface IProps {
 }
 
 const EventForm = (props: IProps) => {
+  const name = get(props, 'Account.name', '');
+  const email = get(props, 'Account.email', '');
+  // const name = get(props, 'teacherAccountList.name', '');
+  // const email = get(props, 'teacherAccountList.email', '');
+  // const teacherAccountId = get(props, 'teacherAccountList._id', '');
+
   const { Option } = Select;
-
-  const name = get(props, 'teacherAccountList.name', '');
-  const email = get(props, 'teacherAccountList.email', '');
-  const teacherAccountId = get(props, 'teacherAccountList._id', '');
-  // const name = get(props, 'Account.name', '');
-  // const email = get(props, 'Account.email', '');
-
   const [form] = Form.useForm();
-
-  const initialValues: any = get(props, 'initialValues', {});
-  // initialValues.dueDate = moment(initialValues.dueDate);
-  initialValues.date = moment(initialValues.date);
-
-  const [date, setDate] = useState(initialValues.date);
-  const onDateChange = (selectedDate: any) => setDate(selectedDate);
-
   const isLoading = get(props, 'isLoading', false);
 
-  // const onValueChange = (a: any) => {
-  //   console.log('onValueChange', a);
-  //   if (a.date) {
-  //     console.log(a.date.format('MMMM Do YYYY'));
-  //   }
-  // };
+  const initialValues: any = get(props, 'initialValues', {});
+  initialValues.date = moment(initialValues.date);
+  const [date, setDate] = useState(initialValues.date);
+  const onDateChange = (selectedDate: any) => setDate(selectedDate);
 
   useEffect(() => {
     form.setFieldsValue({ date: date });

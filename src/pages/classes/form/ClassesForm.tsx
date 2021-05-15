@@ -23,11 +23,21 @@ interface IProps {
 }
 
 const ClassesForm = (props: IProps) => {
-  const { Option } = Select;
-  const isLoading = get(props, 'isLoading', false);
-
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
+
+  const { Option } = Select;
+  const [form] = Form.useForm();
+  const isLoading = get(props, 'isLoading', false);
+
+  const initialValues: any = get(props, 'initialValues', {});
+  initialValues.date = moment(initialValues.date);
+  const [date, setDate] = useState(initialValues.date);
+  const onDateChange = (selectedDate: any) => setDate(selectedDate);
+
+  useEffect(() => {
+    form.setFieldsValue({ date: date });
+  }, [date]);
 
   return (
     <div className="container mt-5">
@@ -97,15 +107,14 @@ const ClassesForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <h5>Date And Time of the Class</h5>
           <div className="col-md-6">
-            <Form.Item name="date" label="Date">
-              <DatePicker format="MM.DD.YYYY" className="rounded-pill" />
+            <Form.Item label="Date" name="eventDate" initialValue={date}>
+              <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
           <div className="col-md-6">
-            <Form.Item name="date" label="Time">
-              <TimePicker use12Hours format="h:mm A" className="rounded-pill" />
+            <Form.Item label="Time" name="date" initialValue={date}>
+              <TimePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
         </div>
