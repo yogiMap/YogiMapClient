@@ -23,7 +23,7 @@ interface IProps {
 }
 
 const UsersDashboard = (props: IProps) => {
-  const { usersSearch, usersGetStats, usersGetGroupList, usersGetRolesList, reset } = props;
+  const { usersSearch, usersGetStats, usersGetRolesList, reset } = props;
 
   const usersStats = get(props, 'UsersDashboard.usersStats', {});
   const usersList = get(props, 'UsersDashboard.usersList', []);
@@ -76,10 +76,10 @@ const UsersDashboard = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   UsersDashboard: state.UsersDashboard,
-  // usersStats: state.UsersDashboard.usersStats,
-  // usersList: state.UsersDashboard.usersList,
-  // usersRolesList: state.UsersDashboard.usersRolesList,
-  // usersPagination: state.UsersDashboard.usersPagination,
+  usersStats: state.UsersDashboard.usersStats,
+  usersList: state.UsersDashboard.usersList,
+  usersRolesList: state.UsersDashboard.usersRolesList,
+  usersPagination: state.UsersDashboard.usersPagination,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

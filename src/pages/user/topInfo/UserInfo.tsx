@@ -73,9 +73,9 @@ const UserInfo = (props: IProps) => {
           LogIn
         </Link>
 
-        <Link to={'/user/register'} className="ms-1 p-2" data-qa="register">
-          SignUp
-        </Link>
+        {/*<Link to={'/user/register'} className="ms-1 p-2" data-qa="register">*/}
+        {/*  SignUp*/}
+        {/*</Link>*/}
       </div>
     );
 };
