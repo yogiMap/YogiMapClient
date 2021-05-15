@@ -57,7 +57,7 @@ const UserLogin = (props: IProps) => {
 
       <Form.Item>
         <p>
-          Don’t have an account?{' '}
+          Don’t have an account?
           <Link to="/user/register" className="login-link">
             Create one
           </Link>

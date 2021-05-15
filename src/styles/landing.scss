@@ -131,13 +131,13 @@
 
 .blue-stripe {
   background-color: #375769;
-  height: 200px;
+  height: 220px;
   margin-top: 80px;
   margin-bottom: 80px;
 
   .homepage-blue-stripe-text{
     color: white;
-    margin-top: 1rem;
+    margin-top: 0.7rem;
   }
 }
 
@@ -145,7 +145,7 @@
   background: url('../pages/pages/homePage/images/rishikesh2.jpg') left center/cover no-repeat, fixed;
   position: relative;
   height: 100vh;
-  min-height: 900px;
+  min-height: 1000px;
   box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.7);
 
   h2 {
