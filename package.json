@@ -37,6 +37,7 @@
     "react-burger-menu": "^3.0.6",
     "react-collapse": "^5.1.0",
     "react-dom": "^17.0.1",
+    "recharts": "^2.0.9",
     "twilio-client": "^1.13.0",
     "umi": "^3.3.2",
     "yorkie": "^2.0.0"

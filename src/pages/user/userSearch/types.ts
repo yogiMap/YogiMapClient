@@ -12,6 +12,7 @@ export interface IUser {
   roles: string[];
   active: boolean;
   resetPassword: { history: [] };
+  email: string;
   phone: string;
   createdAt: string;
   updatedAt: string;
@@ -29,6 +30,10 @@ export interface IPersonalAddress {
 export interface IUsersStats {
   total?: number;
   registeredLast10Days?: number;
+}
+
+export interface IUserGetStats {
+  loadId: string;
 }
 
 export interface IUsersSearchTerms {
