@@ -52,7 +52,7 @@ export default [
           { path: '/focus/:focusId', component: '@/pages/focus/view/FocusView' },
 
           // *****  ====================================
-          // { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
+          //  { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
           { path: '/styles', component: '@/pages/pages/YogaStylesGuide' },
           { path: '/type', component: '@/pages/pages/ClassTypeGuide' },

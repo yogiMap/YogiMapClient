@@ -68,7 +68,11 @@ const TeacherAccountForm = (props: IProps) => {
 
         <div className="row">
           <div className="col">
-            <Form.Item name="name" label="Teacher's Name" rules={[{ required: true, message: 'Please input your Name' }]}>
+            <Form.Item
+              name="name"
+              label="Teacher's Name"
+              rules={[{ required: true, message: 'Please input your Name' }]}
+            >
               <Input placeholder="Teacher`s Name" className="rounded-pill" />
             </Form.Item>
           </div>
@@ -77,27 +81,24 @@ const TeacherAccountForm = (props: IProps) => {
             <Form.Item name="description" label="Description">
               <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
-        </div>
-
-        <div className="row">
-
           </div>
+          <div className="row"></div>
           <div className="col-md-6">
             <Form.Item label="Yoga Focus" name="focus">
               <FocusSearchInput />
             </Form.Item>
           </div>
-            {/*<div className="col-md-6">*/}
-            {/*  <Form.Item name="style" label="Yoga Style">*/}
-            {/*    <Select className="rounded-circle">*/}
-            {/*      {props.styleList.map((el) => (*/}
-            {/*        <Option key={el._id} value={el._id}>*/}
-            {/*          {el.name}*/}
-            {/*        </Option>*/}
-            {/*      ))}*/}
-            {/*    </Select>*/}
-            {/*  </Form.Item>*/}
-            {/*</div>*/}
+          {/*<div className="col-md-6">*/}
+          {/*  <Form.Item name="style" label="Yoga Style">*/}
+          {/*    <Select className="rounded-circle">*/}
+          {/*      {props.styleList.map((el) => (*/}
+          {/*        <Option key={el._id} value={el._id}>*/}
+          {/*          {el.name}*/}
+          {/*        </Option>*/}
+          {/*      ))}*/}
+          {/*    </Select>*/}
+          {/*  </Form.Item>*/}
+          {/*</div>*/}
         </div>
 
         <div className="row">
@@ -181,7 +182,6 @@ const TeacherAccountForm = (props: IProps) => {
             </Form.Item>
           </div>
         </div>
-
 
         <div className="row">
           <Form.Item className="mx-3">
