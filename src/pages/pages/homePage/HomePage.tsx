@@ -18,9 +18,6 @@ function HomePage(props: IProps) {
 
   useEffect(() => {
     props.closeMobileMenu();
-    // return () => {
-    //   props.addressReset();
-    // };
   }, []);
   return (
     <>
@@ -34,9 +31,9 @@ function HomePage(props: IProps) {
       <div className="home-stripe-under-bg">
         <div className="container">
           {!isUserAuth && (
-            <div className="row d-flex justify-content-center">
-              <div className="col-lg-4 my-lg-5 d-flex justify-content-center">
-                <Link to="/user/register" className="home-button my-2">
+            <div className="row">
+              <div className="col d-flex justify-content-center">
+                <Link to="/user/register" className="home-button">
                   JOIN US
                 </Link>
               </div>
@@ -48,11 +45,8 @@ function HomePage(props: IProps) {
       <div className="home-description">
         <div className="container">
           <div className="row my-5">
-            <div className="col">
-              Yoga is the always changing conception. Online resources are the important way of teaching by individual
-              yoga instructor for the last year. Our space helps you to find your own teacher for your body, mind and
-              soul improvement. Also here you will be able find your community and all information you were interested
-              about yoga.
+            <div className="col d-flex justify-content-center">
+              <h5>Yoga takes you into the present moment, the only place where life exists.” – Patañjali.</h5>
             </div>
           </div>
         </div>
@@ -105,49 +99,55 @@ function HomePage(props: IProps) {
         </div>
       </div>
 
-      <div className="blue-stripe"></div>
+      <div className="blue-stripe">
+        <div className="container">
+          <div className="row d-flex justify-content-center">
+            <div className="col-md5 d-flex justify-content-center">
+              <p className="homepage-blue-stripe-text">
+                Yoga is the always changing conception. Online resources are the important way of teaching by individual
+                yoga instructor for the last year. Our space helps you to find your own teacher for your body, mind and
+                soul improvement. Also here you will be able find your community and all information you were interested
+                about yoga.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="home-bg-informational-block">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-4 d-flex justify-content-center">
             <div className="mt-5 mb-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">EDUCATION</h2>
-              <ul>
-                <li>Virtual professional development program delivered via 8 modules of content</li>
-                <li>Yoga + Mindfulness activity videos for students, staff and families</li>
-                <li>
-                  Support for adapting practices for different ages, learning environments and classroom or home-based
-                  needs
-                </li>
-                <li> Implementation guide</li>
-              </ul>
+              <p>
+                Yoga education helps in self discipline and sel-control, leading to immense amount of awareness,
+                concentration and higher level of consciousness. Yogamap offers you updated list of ongoing classes &
+                events, as well as online resources to study Science of Yoga in all aspects of this ancient study. We
+                offer resources for maintaining good health, menthal, hygiene, emotional stability and moral values.
+              </p>
             </div>
           </div>
 
           <div className="col-lg-4 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">INFORMATION</h2>
-              <ul>
-                <li> Livestream or recorded self-care practice videos</li>
-                <li>Well-being circles (virtual or in-person where possible)</li>
-                <li> Consultation</li>
-                <li> Webinars and online courses</li>
-              </ul>
+              <p>
+                In sanskrit, “Guru” refers to a spiritual teacher who leads a willing student to the realization of
+                their true nature. Whether your goals are spiritual, physical or emotional, you want to know that you
+                are getting somewhere. The perfect teacher for you is the one that helps guides you along your journey.
+                At Yoga map you would be able to find yours.
+              </p>
             </div>
           </div>
 
           <div className="col-lg-4 d-flex justify-content-center">
             <div className="my-lg-5 px-5 home-informational-block">
               <h2 className="mb-lg-4">COMMUNITY</h2>
-              <ul>
-                <li>
-                  Community is when people begin to care about one another, and when they begin to share things that are
-                  important to one another. Yoga is one of those things
-                </li>
-                <li>Find your Yoga Community here</li>
-                <li>Moving Outside of the Classroom</li>
-                <li> A Big Yoga Teachers Community </li>
-              </ul>
+              <p>
+                Community is about union and connection. Building a yoga community is a beneficial step to bringing
+                every yogi together to increase positivity and health. YogiMap is the place to feel safe, unite with
+                like-minded yogies, be inspired for personal growth and stay motivated to become a better human.
+              </p>
             </div>
           </div>
         </div>

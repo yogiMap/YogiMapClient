@@ -29,6 +29,7 @@
 .home-stripe-under-bg {
   background-color: #5c494d;
   height: 170px;
+  position: relative;
 
   .home-button {
     font-family: 'Oswald', sans-serif;
@@ -39,6 +40,8 @@
     padding: 0.8rem 1.6rem;
     border: 1px solid #f4e4ba;
     border-radius: 5px;
+    position: absolute;
+    top: 30%;
 
     &:hover,
     &:active {
@@ -128,9 +131,14 @@
 
 .blue-stripe {
   background-color: #375769;
-  height: 150px;
+  height: 200px;
   margin-top: 80px;
   margin-bottom: 80px;
+
+  .homepage-blue-stripe-text{
+    color: white;
+    margin-top: 1rem;
+  }
 }
 
 .home-bg-informational-block {
@@ -197,6 +205,13 @@
   }
   .img-container {
     width: 350px;
+  }
+  .blue-stripe {
+    height: 150px;
+
+    .homepage-blue-stripe-text{
+      margin-top: 2rem;
+    }
   }
 }
 
