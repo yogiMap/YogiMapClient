@@ -27,45 +27,37 @@ interface IProps {
 const EventForm = (props: IProps) => {
   const { Option } = Select;
 
-  const teacherAccount = {
-    name: get(props, 'teacherAccountList.name', ''),
-    _id: get(props, 'teacherAccountList._id', ''),
-  };
+  const name = get(props, 'teacherAccountList.name', '');
+  const email = get(props, 'teacherAccountList.email', '');
+  const teacherAccountId = get(props, 'teacherAccountList._id', '');
+  // const name = get(props, 'Account.name', '');
+  // const email = get(props, 'Account.email', '');
 
   const [form] = Form.useForm();
 
   const initialValues: any = get(props, 'initialValues', {});
-  initialValues.dueDate = moment(initialValues.dueDate);
+  // initialValues.dueDate = moment(initialValues.dueDate);
   initialValues.date = moment(initialValues.date);
-  const name = get(props, 'Account.name', '');
-  const email = get(props, 'Account.email', '');
 
-  const [[date, dueDate], setDates] = useState([initialValues.date, initialValues.dueDate]);
-  // const [time, setTime] = useState(null);
-  const onDateChange = (selectedDate: any) => setDates([selectedDate, dueDate < selectedDate ? selectedDate : dueDate]);
-  // const onTimeChange = (selectedTime: any) => setTime(selectedDate);
+  const [date, setDate] = useState(initialValues.date);
+  const onDateChange = (selectedDate: any) => setDate(selectedDate);
 
   const isLoading = get(props, 'isLoading', false);
 
-  useEffect(() => {
-    form.setFieldsValue({ date: date, dueDate: dueDate });
-  }, [date, dueDate]);
-
-  // useEffect(() => {
-  //   form.setFieldsValue({ date: time });
-  // }, [time]);
-
-  // const onFinish = (formValues: IEvent) => {
-  //   props.onFinish({
-  //     ...formValues,
-  //     client: get(formValues, 'teacherAccount._id', formValues.teacherAccount),
-  //     address: get(formValues, 'classTypes._id', formValues.classType),
-  //   });
+  // const onValueChange = (a: any) => {
+  //   console.log('onValueChange', a);
+  //   if (a.date) {
+  //     console.log(a.date.format('MMMM Do YYYY'));
+  //   }
   // };
+
+  useEffect(() => {
+    form.setFieldsValue({ date: date });
+  }, [date]);
 
   return (
     <div className="container mt-5">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="event">
+      <Form onFinish={props.onFinish} initialValues={initialValues} layout="vertical" name="event">
         <div className="row mb-5">
           <div className="col-md-6">
             <h1>{name}</h1>
@@ -132,7 +124,7 @@ const EventForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-6">
-            <Form.Item label="Date" name="date" initialValue={date}>
+            <Form.Item label="Date" name="eventDate" initialValue={date}>
               <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>

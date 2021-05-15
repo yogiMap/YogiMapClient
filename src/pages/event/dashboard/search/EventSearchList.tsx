@@ -15,12 +15,13 @@ interface IProps extends RouteComponentProps {
 const EventSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
+  console.log(items);
 
   const columns: ColumnProps<IEvent>[] = [
     {
       title: '#',
       key: 'code',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
+      render: (row) => <Link to={`/event/${row._id}`}>{row.code}</Link>,
     },
     {
       title: 'Name',
@@ -29,16 +30,14 @@ const EventSearchList = (props: IProps) => {
     },
     {
       title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
+      key: 'eventDate',
       render: (row) => {
         return formatterDateFull(row.date);
       },
     },
     {
       title: 'Time',
-      dataIndex: 'date',
-      key: 'date',
+      key: 'eventDate',
       render: (row) => {
         return formatterTimeFull(row.date);
       },

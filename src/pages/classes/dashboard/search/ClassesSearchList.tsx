@@ -31,15 +31,13 @@ const ClassesSearchList = (props: IProps) => {
 
     {
       title: 'Date',
-      dataIndex: 'date',
       key: 'date',
       render: (row) => {
         return formatterDateFull(row.date);
       },
     },
     {
-      title: 'Date',
-      dataIndex: 'date',
+      title: 'Time',
       key: 'date',
       render: (row) => {
         return formatterTimeFull(row.date);
