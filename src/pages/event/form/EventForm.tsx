@@ -113,7 +113,7 @@ const EventForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-6">
-            <Form.Item label="Date" name="eventDate" initialValue={date}>
+            <Form.Item label="Date" name="date" initialValue={date}>
               <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>

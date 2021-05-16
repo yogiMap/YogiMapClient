@@ -51,7 +51,6 @@ const ClassesSearchList = (props: IProps) => {
     {
       title: 'Yoga Style',
       key: 'style',
-      // dataIndex: 'style',
       render: (row) => {
         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
       },
@@ -62,7 +61,6 @@ const ClassesSearchList = (props: IProps) => {
       render: (row) => {
         return <Link to={`/classType/${get(row, 'classType._id')}`}>{get(row, 'classType.name')}</Link>;
       },
-      //   render: (row) => <Link to={`/classType/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Teacher',
