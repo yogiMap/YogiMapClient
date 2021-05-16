@@ -46,7 +46,9 @@ function HomePage(props: IProps) {
         <div className="container">
           <div className="row my-5">
             <div className="col d-flex justify-content-center">
-              <h5>”Yoga takes you into the present moment, the only place where life exists.” – Patañjali.</h5>
+              <p className="home-slogan">
+                ”Yoga takes you into the present moment, the only place where life exists.” – Patañjali.
+              </p>
             </div>
           </div>
         </div>
