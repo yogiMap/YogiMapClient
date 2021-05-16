@@ -27,7 +27,9 @@ const StyleSearchList = (props: IProps) => {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/style/${row._id}`}>{row.name}</Link>,
-      sorter: (a, b) => a.name.localeCompare(b.name),
+      sorter: {
+        compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
+      },
     },
     {
       title: 'Action',
