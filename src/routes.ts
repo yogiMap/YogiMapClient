@@ -22,7 +22,7 @@ export default [
         path: '/',
         component: '@/layout/GeneralLayout',
         routes: [
-          { path: '/welcome', component: '@/pages/pages/homePage/NewUserLanding' },
+          { path: '/welcome', component: '@/pages/pages/home/NewUserLanding' },
 
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard', permission: 'user.get.all' },
@@ -108,7 +108,7 @@ export default [
             ],
           },
 
-          { path: '/', component: '@/pages/pages/homePage/HomePage' },
+          { path: '/', component: '@/pages/pages/home/Home' },
         ],
       },
     ],

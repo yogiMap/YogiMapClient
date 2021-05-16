@@ -2,18 +2,18 @@ import React, { useEffect } from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
-import body from '@/pages/pages/homePage/images/yogigirl.png';
+import body from '@/pages/pages/home/images/yogigirl.png';
 // @ts-ignore
-import mind from '@/pages/pages/homePage/images/crystals.jpeg';
+import mind from '@/pages/pages/home/images/crystals.jpeg';
 // @ts-ignore
-import soul from '@/pages/pages/homePage/images/monks.jpg';
+import soul from '@/pages/pages/home/images/monks.jpg';
 
 interface IProps {
   Account: IUserAccount;
   closeMobileMenu: () => void;
 }
 
-function HomePage(props: IProps) {
+function Home(props: IProps) {
   const isUserAuth = get(props, 'Account._id');
 
   useEffect(() => {
@@ -174,4 +174,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   closeMobileMenu: () => dispatch({ type: 'MobileMenu/close' }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
