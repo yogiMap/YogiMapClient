@@ -9,6 +9,7 @@ import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import Check from '@/pages/utils/Check';
 import { history } from '@@/core/history';
 import { IPhone } from '@/pages/user/types';
+import { useForm } from 'antd/es/form/Form';
 
 export interface ITeacherAccount {
   teacherName: string;
@@ -30,6 +31,7 @@ interface IProps {
 
 const Wizard = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
+  const [form] = useForm();
 
   const isLoadingAuth = get(props, 'loadingEffects.Account/auth', true);
 
@@ -102,17 +104,18 @@ const Wizard = (props: IProps) => {
         <div className="col-md-8">
           {currentStep() === steps[0] && (
             <Form name="normal_login" className="login-form" onFieldsChange={onFieldsChange} onFinish={onSubmit}>
-              <h3>Fill out your teacher name and phone</h3>
-              <Form.Item name="teacherName" label="Teacher Name" rules={[validator.require]}>
-                <Input placeholder="Happy Teacher LLC" />
+              <h3 className="mb-5">Fill out your teacher name and phone</h3>
+              <Form.Item name="teacherName" label="Teacher's Name" rules={[validator.require]}>
+                <Input placeholder="Your Teacher`s Name" />
               </Form.Item>
+              <p className="small text-secondary">You can use the special Teacher`s name or your own full-name</p>
 
-              <Form.Item name="phoneNumber1" label="Phone Number" rules={[validator.require]}>
-                <PhoneInput />
+              <Form.Item name="phoneNumber">
+                <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
               </Form.Item>
 
               <Form.Item>
-                <Button type="primary" htmlType="submit" disabled={disableSubmit}>
+                <Button type="primary" shape="round" htmlType="submit" disabled={disableSubmit}>
                   Next →
                 </Button>
               </Form.Item>
@@ -150,9 +153,9 @@ const Wizard = (props: IProps) => {
 
           {currentStep() === steps[2] && (
             <>
-              <h6>Welcome to Kompot!</h6>
+              <h6>Welcome to YogiMap!</h6>
 
-              <Button type="primary" htmlType="submit" onClick={onFinish}>
+              <Button type="primary" shape="round" htmlType="submit" onClick={onFinish}>
                 Let's get started
               </Button>
             </>

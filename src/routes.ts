@@ -24,7 +24,10 @@ export default [
         routes: [
           { path: '/welcome', component: '@/pages/pages/home/NewUserLanding' },
 
+          { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
+
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
+
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard', permission: 'user.get.all' },
 
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
@@ -61,6 +64,7 @@ export default [
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
           { path: '/sitemap', component: '@/pages/pages/SiteMap' },
           { path: '/subscribe', component: '@/pages/pages/Subscribe' },
+
           {
             path: '/settings/:userId',
             component: '@/layout/UserSettingsLayout',

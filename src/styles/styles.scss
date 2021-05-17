@@ -188,6 +188,25 @@ span.edit-pen-icon {
   }
 }
 
+.button-link-primary {
+  font-family: 'Oswald', 'OpenSans', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #18a38e;
+  background-color: white;
+  border-radius: 30px;
+  outline: none;
+  border: 2px solid rgba(210, 121, 30, 0.5);
+  padding: 0.5rem 2rem;
+
+  &:hover {
+    color: #ffffff;
+    background: #d2791e;
+    font-size: 1.3rem;
+  }
+}
+
 .login-link {
   color: #d2791e;
   &:hover {

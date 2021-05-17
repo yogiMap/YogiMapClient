@@ -59,7 +59,6 @@ const UserModel: UserModelType = {
         const emailConfirmed = get(userAuthResult, 'payload.emailConfirmation.confirmed');
         const teacherAccount = get(userAuthResult, 'payload.account');
 
-
         if (userAuthResult) {
           yield put({
             type: 'save',
@@ -82,11 +81,14 @@ const UserModel: UserModelType = {
       const userId = get(data, 'userId', '');
       const name = get(data, 'user.name');
       const token = get(data, 'token');
+      const teacherAccount = get(data, 'user.companyAccount', '');
 
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
         history.push(`/teacherAccount/${userId}`);
+        if (!teacherAccount) history.push(`/welcome`);
+        else history.push(`/settings/profile/${userId}`);
 
         yield put({ type: 'auth' });
       }
@@ -97,6 +99,7 @@ const UserModel: UserModelType = {
       if (!(createResult instanceof Error)) {
         notification.destroy();
         yield put({ type: 'login', payload });
+        history.push('/wizard');
       }
     },
 

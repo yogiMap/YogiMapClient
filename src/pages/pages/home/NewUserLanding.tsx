@@ -1,14 +1,50 @@
 import React from 'react';
 import emailIcon from '@/icons/email.svg';
+import { connect, Link, withRouter } from 'umi';
+import { get } from 'lodash';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
-export default function NewUserLanding() {
+interface IProps {
+  Account: IUserAccount;
+}
+
+const NewUserLanding = (props: IProps) => {
+  const name = get(props, 'Account.name', '');
+
   return (
     <div className="m-5">
-      <h1>Welcome to the coolest coding school. We are excited you are here!</h1>
-      <div className="row align-items-center">
-        <h3 className="mt-5 col-md-6">To gain access to our awesome learning content, please confirm your email.</h3>
-        <img className="mt-5 col-md-6" src={emailIcon} alt="email" />
+      <h1 className="text-center">Hi {name}!</h1>
+      <h3 className="my-5 text-center"> Welcome to the Our Yoga Space!</h3>
+
+      <div className="row my-5">
+        <div className="col-8 my-4">
+          <p>If you are Yoga Teacher please press the button and create your own Teacher`s Account.</p>
+        </div>
+
+        <div className="col-4 my-4">
+          <Link to="/wizard" className="button-link-primary">
+            Create Teacher's Account
+          </Link>
+        </div>
+
+        <div className="row my-5">
+          <div className="col-md-4 my-3">
+            <Link to="/user/verify/email/:userId/:hash" className="button-link-primary">
+              Confirm email
+            </Link>
+          </div>
+
+          <div className="col-md-8 my-3">
+            <p>If you are a Yoga Student to gain access to our awesome learning content, please confirm your email.</p>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
+export default withRouter(connect(mapStateToProps)(NewUserLanding));

@@ -11,6 +11,7 @@ import { queryClassesSearch } from '@/pages/classes/queries';
 import { queryEventSearch } from '@/pages/event/queries';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
+import { queryUserLogin } from '@/pages/user/queries';
 
 export interface IState {}
 
@@ -41,12 +42,16 @@ const TeacherAccountModel: TeacherAccountModelType = {
 
   effects: {
     *create({ payload }, { call, put }) {
+      const data = yield call(queryUserLogin, payload);
+      const userId = get(data, 'userId', '');
+
       const createResult = yield call(queryTeacherAccountCreate, payload);
+
       if (!(createResult instanceof Error)) {
         yield put({ type: 'TeacherAccountDashboard/teacherAccountSearch' });
         yield put({ type: 'Sidepanel/close' });
         yield put({ type: 'Account/auth' });
-        history.push('/account');
+        history.push(`/settings/teacherAccount/${userId}`);
       }
     },
 

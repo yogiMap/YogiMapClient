@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect, Link, withRouter } from 'umi';
 import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
@@ -8,12 +8,6 @@ import MobileMenu from '@/pages/utils/mobileMenu/MobileMenu';
 import logoSmall from '@/icons/logo_yogymap_small.svg';
 
 const Navbar = () => {
-  // const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
-  //
-  // const toggleOpenBurgerMenu = () => setOpenBurgerMenu(!openBurgerMenu);
-  // const closeBurgerMenu = () => setOpenBurgerMenu(false);
-
-  // @ts-ignore
   return (
     <div>
       <div className="main-nav">
@@ -57,4 +51,3 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
-// export default Navbar;
