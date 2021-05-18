@@ -36,6 +36,9 @@ export default [
           { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
           { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
 
+          { path: '/student', component: '@/pages/student/dashboard/StudentDashboard' },
+          { path: '/student/:studentId', component: '@/pages/student/view/StudentView' },
+
           // { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
           // { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
 

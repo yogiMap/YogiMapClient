@@ -30,6 +30,7 @@ const TeacherAccountSearchList = (props: IProps) => {
       sorter: {
         compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
       },
+      sortDirections: ['descend'],
       render: (row) => {
         return <TeacherAccountHoverCard id={get(row, '_id')} name={get(row, 'name')} />;
       },

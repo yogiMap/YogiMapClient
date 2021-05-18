@@ -6,7 +6,6 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { IStudent, IStudentQueryParams } from '@/pages/student/types';
-import StudentHoverCard from '@/pages/utils/hoverCard/StudentHoverCard';
 
 interface IStudentDeleteById {
   studentId: string;
@@ -30,9 +29,7 @@ const StudentSearchList = (props: IProps) => {
       sorter: {
         compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
       },
-      render: (row) => {
-        return <StudentHoverCard id={get(row, '_id')} name={get(row, 'name')} />;
-      },
+      sortDirections: ['descend'],
     },
 
     {
