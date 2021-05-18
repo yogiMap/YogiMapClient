@@ -1,5 +1,4 @@
 import React from 'react';
-import emailIcon from '@/icons/email.svg';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
@@ -10,6 +9,8 @@ interface IProps {
 
 const NewUserLanding = (props: IProps) => {
   const name = get(props, 'Account.name', '');
+  const userId = get(props, 'match.params.userId');
+  const hash = get(props, 'match.params.hash');
 
   return (
     <div className="m-5">
@@ -29,13 +30,16 @@ const NewUserLanding = (props: IProps) => {
 
         <div className="row my-5">
           <div className="col-md-4 my-3">
-            <Link to="/user/verify/email/:userId/:hash" className="button-link-primary">
+            <Link to={`/user/verify/email/${userId}/${hash}`} className="button-link-primary">
               Confirm email
             </Link>
           </div>
 
           <div className="col-md-8 my-3">
-            <p>If you are a Yoga Student to gain access to our awesome learning content, please confirm your email.</p>
+            <p>
+              If you are a Yoga Student to gain access to our awesome learning content, please check your mail box and
+              confirm your email.
+            </p>
           </div>
         </div>
       </div>
