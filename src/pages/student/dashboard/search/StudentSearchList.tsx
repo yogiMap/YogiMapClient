@@ -26,10 +26,8 @@ const StudentSearchList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
-      sorter: {
-        compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
-      },
-      sortDirections: ['descend'],
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend'],
     },
 
     {

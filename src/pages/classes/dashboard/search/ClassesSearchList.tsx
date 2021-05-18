@@ -28,6 +28,7 @@ const ClassesSearchList = (props: IProps) => {
       key: 'name',
       render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
       sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend'],
     },
 
     {
