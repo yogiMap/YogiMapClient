@@ -9,8 +9,8 @@ interface IProps {
 
 const NewUserLanding = (props: IProps) => {
   const name = get(props, 'Account.name', '');
-  const userId = get(props, 'match.params.userId');
-  const hash = get(props, 'match.params.hash');
+  // const userId = get(props, 'match.params.userId');
+  // const hash = get(props, 'match.params.hash');
 
   return (
     <div className="m-5">
@@ -30,7 +30,7 @@ const NewUserLanding = (props: IProps) => {
 
         <div className="row my-5">
           <div className="col-md-4 my-3">
-            <Link to={`/user/verify/email/${userId}/${hash}`} className="button-link-primary">
+            <Link to="/wizardStudent" className="button-link-primary">
               Confirm email
             </Link>
           </div>

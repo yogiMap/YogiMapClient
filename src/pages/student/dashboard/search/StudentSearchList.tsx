@@ -37,16 +37,6 @@ const StudentSearchList = (props: IProps) => {
     },
 
     {
-      title: 'YogaStyle',
-      key: 'style',
-      render: (row) => {
-        return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
-        // @ts-ignore
-        // return <StyleView id={get(row, 'style._id')} name={get(row, 'style.name')} />;
-      },
-    },
-
-    {
       title: 'Country',
       key: 'country',
       dataIndex: 'country',

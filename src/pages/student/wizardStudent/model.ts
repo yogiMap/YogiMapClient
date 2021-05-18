@@ -28,7 +28,7 @@ const WizardStudentModel: WizardStudentModelType = {
     *studentCreate({ payload }, { call, put }) {
       yield call(queryStudentCreate, payload);
       yield put({ type: 'Account/auth' });
-      history.push('/wizardStudentStudent');
+      history.push('/wizardStudent');
     },
 
     *userVerifyEmailSend({ payload }, { call }) {

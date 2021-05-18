@@ -64,7 +64,7 @@ const WizardStudentStudent = (props: IProps) => {
     setDisableSubmit(hasErrors || hasEmptyFields);
   };
 
-  const steps = ['Create Teacher', 'Email confirmation', 'Finish'];
+  const steps = ['Create Student`s Account', 'Email confirmation', 'Finish'];
 
   const [newEmail, setNewEmail] = useState('');
 
@@ -101,7 +101,7 @@ const WizardStudentStudent = (props: IProps) => {
           </div>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-8">
           {currentStep() === steps[0] && (
             <Form
               name="normal_login"
@@ -110,11 +110,10 @@ const WizardStudentStudent = (props: IProps) => {
               onFinish={onSubmit}
               layout="vertical"
             >
-              <h3 className="mb-5">Fill out your teacher name and phone</h3>
-              <Form.Item name="teacherName" label="Teacher's Name" rules={[validator.require]}>
-                <Input placeholder="Your Name" />
+              <h3 className="mb-5">Fill out your name and phone</h3>
+              <Form.Item name="name" label="Name" rules={[validator.require]}>
+                <Input placeholder="Name" />
               </Form.Item>
-              <p className="small text-secondary">You can use the special teacher`s name or your own full-name</p>
 
               <Form.Item name="phoneNumber">
                 <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />

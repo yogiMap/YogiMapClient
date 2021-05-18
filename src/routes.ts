@@ -25,6 +25,7 @@ export default [
           { path: '/welcome', component: '@/pages/pages/home/NewUserLanding' },
 
           { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
+          { path: '/wizardStudent', component: '@/pages/student/wizardStudent/WizardStudent' },
 
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 

@@ -99,7 +99,7 @@ const UserModel: UserModelType = {
       if (!(createResult instanceof Error)) {
         notification.destroy();
         yield put({ type: 'login', payload });
-        history.push('/wizardStudent');
+        history.push('/welcome');
       }
     },
 

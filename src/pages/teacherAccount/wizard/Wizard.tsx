@@ -64,7 +64,7 @@ const Wizard = (props: IProps) => {
     setDisableSubmit(hasErrors || hasEmptyFields);
   };
 
-  const steps = ['Create Teacher', 'Email confirmation', 'Finish'];
+  const steps = ['Create Teacher`s Account', 'Email confirmation', 'Finish'];
 
   const [newEmail, setNewEmail] = useState('');
 
