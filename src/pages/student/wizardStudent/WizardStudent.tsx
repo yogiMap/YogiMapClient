@@ -11,7 +11,7 @@ import { history } from '@@/core/history';
 import { IPhone } from '@/pages/user/types';
 import { useForm } from 'antd/es/form/Form';
 
-export interface ITeacherAccount {
+export interface IStudent {
   teacherName: string;
   phoneNumber: IPhone;
   email: string;
@@ -25,11 +25,11 @@ interface IProps {
   isLoading: boolean;
   submitButtonText: string;
   goToUserProfile: (userId: string) => void;
-  teacherAccountCreate: (values: ITeacherAccount) => void;
+  studentCreate: (values: IStudent) => void;
   userVerifyEmailSend: (arg: { userId: object; email: string }) => void;
 }
 
-const Wizard = (props: IProps) => {
+const WizardStudentStudent = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
   const [form] = useForm();
 
@@ -37,13 +37,13 @@ const Wizard = (props: IProps) => {
 
   const email = get(props, 'Account.email', '');
   const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const teacherAccount = get(props, 'Account.account', false);
+  const student = get(props, 'Account.account', false);
   const userId = get(props, 'Account._id', '');
 
   const [openResend, setOpenResend] = useState(false);
 
   const onSubmit = (values: any) => {
-    props.teacherAccountCreate({ ...values, email });
+    props.studentCreate({ ...values, email });
   };
 
   const onFinish = () => {
@@ -74,8 +74,8 @@ const Wizard = (props: IProps) => {
 
   const currentStep = () => {
     let step = steps[0];
-    if (teacherAccount) step = steps[1];
-    if (emailConfirmed && teacherAccount) step = steps[2];
+    if (student) step = steps[1];
+    if (emailConfirmed && student) step = steps[2];
     return step;
   };
 
@@ -86,7 +86,7 @@ const Wizard = (props: IProps) => {
       <div className="row">
         <div className="col-md-4">
           <div className="mb-4">
-            <Check checked={teacherAccount} />
+            <Check checked={student} />
             <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>Create Teacher</span>
           </div>
 
@@ -96,7 +96,7 @@ const Wizard = (props: IProps) => {
           </div>
 
           <div className="mb-4">
-            <Check checked={emailConfirmed && teacherAccount} />
+            <Check checked={emailConfirmed && student} />
             <span className={classNames('ms-2', currentStep() === steps[2] && 'fw-bold')}>All set</span>
           </div>
         </div>
@@ -178,9 +178,10 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherAccountCreate: (payload: ITeacherAccount) => dispatch({ type: 'WizardForm/teacherAccountCreate', payload }),
-  userVerifyEmailSend: (payload: IVerifyEmailArg) => dispatch({ type: 'WizardForm/userVerifyEmailSend', payload }),
+  studentCreate: (payload: IStudent) => dispatch({ type: 'WizardStudentForm/studentCreate', payload }),
+  userVerifyEmailSend: (payload: IVerifyEmailArg) =>
+    dispatch({ type: 'WizardStudentForm/userVerifyEmailSend', payload }),
 });
 
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(Wizard);
+export default connect(mapStateToProps, mapDispatchToProps)(WizardStudentStudent);
