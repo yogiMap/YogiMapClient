@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { get } from 'lodash';
 import { connect, Link } from 'umi';
-import { IVerifyEmailArg } from '@/pages/teacherAccount/wizard/Wizard';
 import validator from '@/utils/validators';
 import { Button, Form, Input } from 'antd';
 
 export interface IVerifyEmail {
   userId: string;
   hash: string;
-  email: string;
+  // email: string;
 }
 
 interface IProps {
   userPasswordReset: (values: any) => void;
   emailVerify: (arg: IVerifyEmail) => void;
-  userVerifyEmailSend: (arg: { userId: object; email: string }) => void;
 }
 
 const UserEmailVerify = (props: IProps) => {
@@ -55,11 +53,7 @@ const UserEmailVerify = (props: IProps) => {
             <Input placeholder="Email" defaultValue={email} onChange={onChangeEmail} value={newEmail} />
           </Form.Item>
 
-          <Button
-            type="primary"
-            shape="round"
-            onClick={() => props.userVerifyEmailSend({ userId: userId, email: newEmail })}
-          >
+          <Button type="primary" shape="round" onClick={() => props.emailVerify({ userId: userId, email: newEmail })}>
             Resend
           </Button>
         </Form>
@@ -70,7 +64,6 @@ const UserEmailVerify = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   emailVerify: (payload: IVerifyEmail) => dispatch({ type: 'Account/emailVerify', payload }),
-  userVerifyEmailSend: (payload: IVerifyEmailArg) => dispatch({ type: 'WizardForm/userVerifyEmailSend', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(UserEmailVerify);

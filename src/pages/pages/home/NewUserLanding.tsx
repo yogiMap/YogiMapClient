@@ -18,11 +18,11 @@ const NewUserLanding = (props: IProps) => {
       <h3 className="my-5 text-center"> Welcome to the Our Yoga Space!</h3>
 
       <div className="row my-5">
-        <div className="col-8 my-4">
+        <div className="col-md-8 my-4">
           <p>If you are Yoga Teacher please press the button and create your own Teacher`s Account.</p>
         </div>
 
-        <div className="col-4 my-4">
+        <div className="col-md-4 my-4">
           <Link to="/wizard" className="button-link-primary">
             Create Teacher's Account
           </Link>
