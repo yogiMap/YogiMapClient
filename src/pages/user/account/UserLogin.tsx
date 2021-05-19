@@ -59,14 +59,16 @@ const UserLogin = (props: IProps) => {
         <p>
           Don’t have an account?
           <Link to="/user/register" className="login-link">
+            {' '}
             Create one
           </Link>
           .
         </p>
 
         <p>
-          Forgot your password?{' '}
+          Forgot your password?
           <Link to="/user/password/reset/request" className="login-link">
+            {' '}
             Reset it
           </Link>
           .

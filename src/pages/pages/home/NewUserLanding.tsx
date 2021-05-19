@@ -28,20 +28,20 @@ const NewUserLanding = (props: IProps) => {
           </Link>
         </div>
 
-        <div className="row my-5">
-          <div className="col-md-4 my-3">
-            <Link to="/wizardStudent" className="button-link-primary">
-              Confirm email
-            </Link>
-          </div>
+        {/*  <div className="row my-5">*/}
+        {/*    <div className="col-md-4 my-3">*/}
+        {/*      <Link to="/wizardStudent" className="button-link-primary">*/}
+        {/*        Confirm email*/}
+        {/*      </Link>*/}
+        {/*    </div>*/}
 
-          <div className="col-md-8 my-3">
-            <p>
-              If you are a Yoga Student to gain access to our awesome learning content, please check your mail box and
-              confirm your email.
-            </p>
-          </div>
-        </div>
+        {/*    <div className="col-md-8 my-3">*/}
+        {/*      <p>*/}
+        {/*        If you are a Yoga Student to gain access to our awesome learning content, please check your mail box and*/}
+        {/*        confirm your email.*/}
+        {/*      </p>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
       </div>
     </div>
   );

@@ -26,7 +26,13 @@ interface IProps {
   submitButtonText: string;
   goToUserProfile: (userId: string) => void;
   teacherAccountCreate: (values: ITeacherAccount) => void;
-  userVerifyEmailSend: (arg: { userId: object; email: string }) => void;
+  userVerifyEmailSend: (arg: {
+    userId: any;
+    email: string;
+    // firstName: string;
+    // lastName: string;
+    // emailHashConfirmation: string;
+  }) => void;
 }
 
 const Wizard = (props: IProps) => {
@@ -35,9 +41,12 @@ const Wizard = (props: IProps) => {
 
   const isLoadingAuth = get(props, 'loadingEffects.Account/auth', true);
 
+  const firstName = get(props, 'Account.firstName', '');
+  const lastName = get(props, 'Account.lastName', '');
+  const emailHashConfirmation = get(props, 'Account.emailConfirmation.hash', '');
   const email = get(props, 'Account.email', '');
   const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const teacherAccount = get(props, 'Account.account', false);
+  const teacherAccount = get(props, 'Account.teacherAccount', false);
   const userId = get(props, 'Account._id', '');
 
   const [openResend, setOpenResend] = useState(false);
@@ -70,6 +79,16 @@ const Wizard = (props: IProps) => {
 
   const onChangeEmail = (e: any) => {
     setNewEmail(e.target.value);
+  };
+
+  const sendEmailButtonHandler = () => {
+    props.userVerifyEmailSend({
+      userId,
+      email: newEmail,
+      // firstName,
+      // lastName,
+      // emailHashConfirmation,
+    });
   };
 
   const currentStep = () => {
@@ -111,7 +130,7 @@ const Wizard = (props: IProps) => {
               layout="vertical"
             >
               <h3 className="mb-5">Fill out your teacher name and phone</h3>
-              <Form.Item name="teacherName" label="Teacher's Name" rules={[validator.require]}>
+              <Form.Item name="name" label="Teacher's Name" rules={[validator.require]}>
                 <Input placeholder="Your Name" />
               </Form.Item>
               <p className="small text-secondary">You can use the special teacher`s name or your own full-name</p>
@@ -134,12 +153,13 @@ const Wizard = (props: IProps) => {
                 <>
                   <h5>We sent you confirmation email to {email}.</h5>
                   <p>Please check your inbox (and spam folder) and verify.</p>
-                  <p>
+
+                  <div className="my-3">
                     Have not received email?
-                    <Button type="link" onClick={resetHandler}>
+                    <Button type="link" shape={'round'} onClick={resetHandler}>
                       Resend confirmation email
                     </Button>
-                  </p>
+                  </div>
                 </>
               ) : (
                 <Form name="email">
@@ -149,7 +169,7 @@ const Wizard = (props: IProps) => {
                     <Input placeholder="Email" defaultValue={email} onChange={onChangeEmail} value={newEmail} />
                   </Form.Item>
 
-                  <Button type="primary" onClick={() => props.userVerifyEmailSend({ userId: userId, email: newEmail })}>
+                  <Button type="primary" shape={'round'} onClick={sendEmailButtonHandler}>
                     Resend
                   </Button>
                 </Form>
