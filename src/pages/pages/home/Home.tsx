@@ -49,12 +49,10 @@ function Home(props: IProps) {
               <ul className="home-text-about">
                 <li>Yoga is the always changing conception.</li>
                 <li>
-                  Online resources are the important way of teaching by individual yoga instructor for the last year.
+                  Online resources are the important way of teaching by individual yoga instructors for the last year.
                 </li>
                 <li> Our space helps you to find your own teacher for your body, mind and soul improvement.</li>
-                <li>
-                  Also here you will be able find your community and all information you were interested about yoga.
-                </li>
+                <li>Also here you will find your community and all information about yoga.</li>
               </ul>
             </div>
           </div>
