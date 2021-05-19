@@ -111,7 +111,7 @@ function Home(props: IProps) {
       <div className="blue-stripe">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-lg-4 d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
               <p className="home-blue-stripe-text">
                 ”Yoga takes you into the present moment, the only place where life exists.” – Patañjali.
               </p>
