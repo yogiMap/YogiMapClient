@@ -49,12 +49,10 @@ function Home(props: IProps) {
               <ul className="home-text-about">
                 <li>Yoga is the always changing conception.</li>
                 <li>
-                  {' '}
                   Online resources are the important way of teaching by individual yoga instructor for the last year.
                 </li>
                 <li> Our space helps you to find your own teacher for your body, mind and soul improvement.</li>
                 <li>
-                  {' '}
                   Also here you will be able find your community and all information you were interested about yoga.
                 </li>
               </ul>
@@ -113,7 +111,7 @@ function Home(props: IProps) {
       <div className="blue-stripe">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-md5 d-flex justify-content-center">
+            <div className="col-lg-4 d-flex justify-content-center">
               <p className="home-blue-stripe-text">
                 ”Yoga takes you into the present moment, the only place where life exists.” – Patañjali.
               </p>
@@ -123,45 +121,47 @@ function Home(props: IProps) {
       </div>
 
       <div className="home-bg-informational-block">
-        <div className="row d-flex justify-content-center">
-          <div className="col-lg-4 d-flex justify-content-center">
-            <div className="mt-5 mb-lg-5 px-5 home-informational-block">
-              <h2 className="mb-lg-4">EDUCATION</h2>
-              <p>
-                Yoga education helps in self discipline and sel-control, leading to immense amount of awareness,
-                concentration and higher level of consciousness. Yogamap offers you updated list of ongoing classes &
-                events, as well as online resources to study Science of Yoga in all aspects of this ancient study. We
-                offer resources for maintaining good health, menthal, hygiene, emotional stability and moral values.
-              </p>
+        <div className="container-fluid home-informational-block-white-bg">
+          <div className="row">
+            <div className="col-lg-4 d-flex justify-content-center">
+              <div className="my-lg-5 ">
+                <h2 className="education mb-lg-4 text-center">EDUCATION</h2>
+                <p>
+                  Yoga education helps in self discipline and sel-control, leading to immense amount of awareness,
+                  concentration and higher level of consciousness. Yogamap offers you updated list of ongoing classes &
+                  events, as well as online resources to study Science of Yoga in all aspects of this ancient study. We
+                  offer resources for maintaining good health, menthal, hygiene, emotional stability and moral values.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="col-lg-4 d-flex justify-content-center">
-            <div className="my-lg-5 px-5 home-informational-block">
-              <h2 className="mb-lg-4">INFORMATION</h2>
-              <p>
-                In sanskrit, “Guru” refers to a spiritual teacher who leads a willing student to the realization of
-                their true nature. Whether your goals are spiritual, physical or emotional, you want to know that you
-                are getting somewhere. The perfect teacher for you is the one that helps guides you along your journey.
-                At Yoga map you would be able to find yours.
-              </p>
+            <div className="col-lg-4 d-flex justify-content-center">
+              <div className="my-lg-5">
+                <h2 className="information mb-lg-4 text-center">INFORMATION</h2>
+                <p>
+                  In sanskrit, “Guru” refers to a spiritual teacher who leads a willing student to the realization of
+                  their true nature. Whether your goals are spiritual, physical or emotional, you want to know that you
+                  are getting somewhere. The perfect teacher for you is the one that helps guides you along your
+                  journey. At Yoga map you would be able to find yours.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="col-lg-4 d-flex justify-content-center">
-            <div className="my-lg-5 px-5 home-informational-block">
-              <h2 className="mb-lg-4">COMMUNITY</h2>
-              <p>
-                Community is about union and connection. Building a yoga community is a beneficial step to bringing
-                every yogi together to increase positivity and health. YogiMap is the place to feel safe, unite with
-                like-minded yogies, be inspired for personal growth and stay motivated to become a better human.
-              </p>
+            <div className="col-lg-4 d-flex justify-content-center">
+              <div className="my-lg-5">
+                <h2 className="community mb-lg-4 text-center">COMMUNITY</h2>
+                <p>
+                  Community is about union and connection. Building a yoga community is a beneficial step to bringing
+                  every yogi together to increase positivity and health. YogiMap is the place to feel safe, unite with
+                  like-minded yogies, be inspired for personal growth and stay motivated to become a better human.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="row d-flex justify-content-center">
-          <div className="col-lg-6 d-flex justify-content-center">
-            <button className="button-primary">LEARN MORE</button>
+          <div className="row d-flex justify-content-center">
+            <div className="col-md-6 d-flex justify-content-center">
+              <button className="button-primary">LEARN MORE</button>
+            </div>
           </div>
         </div>
       </div>
