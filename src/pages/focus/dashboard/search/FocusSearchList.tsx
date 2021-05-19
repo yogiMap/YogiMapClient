@@ -17,11 +17,11 @@ interface IProps extends RouteComponentProps {
 const FocusSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
-  const focus = get(props, 'focus', '')
+  const focus = get(props, 'focus', '');
 
   const columns: ColumnProps<IFocus>[] = [
     {
-      title: 'Focus',
+      title: 'focus',
       dataIndex: 'focus',
       key: 'focus',
       // render: (row) => <Link to={`/focus/${row._id}`}>{row.name}</Link>,
@@ -46,9 +46,7 @@ const FocusSearchList = (props: IProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
- focus: state.Account.focus,
-});
+const mapStateToProps = (state: any) => ({});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
