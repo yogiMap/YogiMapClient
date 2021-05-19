@@ -1,6 +1,5 @@
 .home-bg {
-  background: url('../pages/pages/home/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat,
-    fixed;
+  background: url('../pages/pages/home/images/alicezilberberg_afterthenight3.jpg') left center/cover no-repeat, fixed;
   height: 70vh;
   position: relative;
   min-height: 440px;
@@ -50,14 +49,45 @@
   }
 }
 
-.home-slogan {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  font-size: 1.3rem;
-  text-align: center;
+.home-text-about {
+  font-size: 1.1rem;
   color: #375769;
+  list-style-type: none;
 }
 
+@media screen and (min-width: 768px) {
+  .home-bg {
+    height: 70vh;
+    background-position: 0 85%;
+
+    .home-bg-headers {
+      width: 600px;
+      height: 250px;
+      left: 4%;
+
+      h1 {
+        font-size: 3rem;
+        padding-left: 50px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .home-stripe-under-bg {
+      height: 150px;
+    }
+
+    .home-button {
+      font-size: 1.2rem;
+    }
+
+    .home-text-about {
+      font-size: 1.3rem;
+    }
+  }
+}
 /* ========================================================== */
 /* 		                       BODY-MIND-SOUL                   */
 /* ========================================================== */
@@ -133,19 +163,39 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .home-description {
+    .home-bg-header-secondary {
+      height: 120px;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .img-container {
+      width: 350px;
+    }
+  }
+}
+
 /* ========================================================== */
 /* 		         EDUCATION-INFORMATION-COMMUNITY                */
 /* ========================================================== */
 
 .blue-stripe {
   background-color: #375769;
-  height: 220px;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .home-blue-stripe-text{
+  .home-blue-stripe-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
     color: white;
-    margin-top: 1rem;
+    margin: 0 2rem;
   }
 }
 
@@ -170,62 +220,17 @@
   margin-bottom: 80px;
 }
 
-/* ========================================================== */
-/* 		                          @media                        */
-/* ========================================================== */
-
 @media screen and (min-width: 768px) {
-  .home-bg {
-    height: 70vh;
-    background-position: 0 85%;
-
-    .home-bg-headers {
-      width: 600px;
-      height: 250px;
-      left: 4%;
-
-      h1 {
-        font-size: 3rem;
-        padding-left: 50px;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-    }
-  }
-
-  .home-stripe-under-bg {
-    height: 150px;
-  }
-
-  .home-button {
-    font-size: 1.2rem;
-  }
-
-  .home-slogan {
-    font-size: 1.8rem;
-  }
-
-  .home-description {
-    .home-bg-header-secondary {
-      height: 120px;
-      h2 {
-        font-size: 2.5rem;
-      }
-    }
-  }
-  .img-container {
-    width: 350px;
-  }
   .blue-stripe {
-    height: 150px;
-
-    .home-blue-stripe-text{
-      margin-top: 2rem;
+    .home-blue-stripe-text {
+      font-size: 1.8rem;
     }
   }
 }
+
+/* ========================================================== */
+/* 		                          @keyframes                      */
+/* ========================================================== */
 
 @keyframes flip-yoga-type {
   0% {
