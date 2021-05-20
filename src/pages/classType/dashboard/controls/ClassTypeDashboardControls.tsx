@@ -20,11 +20,13 @@ const ClassTypeDashboardControls = (props: IProps) => {
     });
   };
 
-  const isUserAuth = get(props, 'Account._id');
+  const roles = get(props, 'Account.roles', '');
+  const authUser = roles[0] === 'admin';
+  console.log(authUser);
 
   return (
     <>
-      {isUserAuth && (
+      {authUser && (
         <Button type="primary" shape="round" onClick={classTypeCreate}>
           Create Class Type
         </Button>

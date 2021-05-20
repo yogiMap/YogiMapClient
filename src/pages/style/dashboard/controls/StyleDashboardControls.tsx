@@ -8,6 +8,8 @@ import { get } from 'lodash';
 interface IProps {
   open: (arg: ISidepanel) => void;
   Account: IUserAccount;
+  adminId: string;
+  adminToken: string;
 }
 
 const StyleDashboardControls = (props: IProps) => {
@@ -19,11 +21,14 @@ const StyleDashboardControls = (props: IProps) => {
       width: '80%',
     });
   };
-  const isUserAuth = get(props, 'Account._id');
+
+  const roles = get(props, 'Account.roles', '');
+  const authUser = roles[0] === 'admin';
+  console.log(authUser);
 
   return (
     <>
-      {isUserAuth && (
+      {authUser && (
         <Button type="primary" shape="round" onClick={styleCreate}>
           Create Yoga Style
         </Button>
@@ -34,6 +39,7 @@ const StyleDashboardControls = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
+  LoadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
