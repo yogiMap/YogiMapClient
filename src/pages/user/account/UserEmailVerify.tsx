@@ -21,8 +21,18 @@ const UserEmailVerify = (props: IProps) => {
   }, []);
 
   return (
-    <div>
-      Email Verified <a href="/wizard">Continue</a>
+    <div className="container">
+      <div className=" mt-5 row">
+        <div className="col">
+          <h6 className="text-center">
+            Email Verified!
+            <br />
+            <a href="/wizard" className="login-link">
+              Please Continue...
+            </a>
+          </h6>
+        </div>
+      </div>
     </div>
   );
 };

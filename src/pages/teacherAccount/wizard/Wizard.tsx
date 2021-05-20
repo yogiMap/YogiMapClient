@@ -35,6 +35,11 @@ interface IProps {
   }) => void;
 }
 
+const layout = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 14 },
+};
+
 const Wizard = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
   const [form] = useForm();
@@ -106,7 +111,9 @@ const Wizard = (props: IProps) => {
         <div className="col-md-4">
           <div className="mb-4">
             <Check checked={teacherAccount} />
-            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>Create Teacher</span>
+            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>
+              Create Teacher`s Account
+            </span>
           </div>
 
           <div className="mb-4">
@@ -120,7 +127,7 @@ const Wizard = (props: IProps) => {
           </div>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-8">
           {currentStep() === steps[0] && (
             <Form
               name="normal_login"
@@ -128,6 +135,7 @@ const Wizard = (props: IProps) => {
               onFieldsChange={onFieldsChange}
               onFinish={onSubmit}
               layout="vertical"
+              {...layout}
             >
               <h3 className="mb-5">Fill out your teacher name and phone</h3>
               <Form.Item name="name" label="Teacher's Name" rules={[validator.require]}>
@@ -179,11 +187,16 @@ const Wizard = (props: IProps) => {
 
           {currentStep() === steps[2] && (
             <>
-              <h6>Welcome to YogiMap!</h6>
-
-              <Button type="primary" shape="round" htmlType="submit" onClick={onFinish}>
-                Let's get started
-              </Button>
+              <div className=" mt-5 row">
+                <div className="col">
+                  <h5>Welcome to YogiMap!</h5>
+                </div>
+                <div className="col">
+                  <Button type="primary" shape="round" htmlType="submit" onClick={onFinish}>
+                    Let's get started
+                  </Button>
+                </div>
+              </div>
             </>
           )}
         </div>
