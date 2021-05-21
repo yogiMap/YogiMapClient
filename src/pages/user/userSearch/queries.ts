@@ -2,7 +2,7 @@ import { get, patch, post, del } from '@/utils/httpMethods';
 import { IVerifyEmailArg } from '@/pages/teacherAccount/wizard/Wizard';
 
 export async function queryUsersSearch(payload: any): Promise<any> {
-  return post({ url: '/user/dashboard', data: payload });
+  return post({ url: '/user/search', data: payload });
 }
 
 export async function queryUsersGetStats(): Promise<any> {

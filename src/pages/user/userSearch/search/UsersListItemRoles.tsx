@@ -9,18 +9,18 @@ interface IProps {
 }
 
 const UsersListItemRoles = (props: IProps) => {
-  const { userRoles, usersRolesList, userId, onChange } = props;
+  const { userRoles = [], usersRolesList = [], userId, onChange } = props;
   const [visible, setVisible] = useState(false);
-  const [selectedKeys, setSelectedKeys] = useState(userRoles);
+  const [selectedRoles, setSelectedRoles] = useState(userRoles);
 
-  function handleSelection(selectedKeys: string[]) {
-    onChange({ roles: selectedKeys, userId: userId });
-    setSelectedKeys(selectedKeys);
+  function handleSelection(selectedRoles: string[]) {
+    onChange({ roles: selectedRoles, userId: userId });
+    setSelectedRoles(selectedRoles);
   }
 
-  function handleDeSelection(selectedKeys: string[]) {
-    onChange({ roles: selectedKeys, userId: userId });
-    setSelectedKeys(selectedKeys);
+  function handleDeSelection(selectedRoles: string[]) {
+    onChange({ roles: selectedRoles, userId: userId });
+    setSelectedRoles(selectedRoles);
   }
 
   const handleClick = () => {
@@ -32,8 +32,10 @@ const UsersListItemRoles = (props: IProps) => {
       selectable
       defaultSelectedKeys={userRoles}
       multiple={true}
-      selectedKeys={selectedKeys}
+      selectedKeys={selectedRoles}
+      // @ts-ignore
       onSelect={({ selectedKeys }) => handleSelection(selectedKeys)}
+      // @ts-ignore
       onDeselect={({ selectedKeys }) => handleDeSelection(selectedKeys)}
     >
       {usersRolesList.map((el) => (
@@ -43,14 +45,18 @@ const UsersListItemRoles = (props: IProps) => {
   );
 
   return (
-    <Dropdown trigger={['click']} overlay={() => menu} visible={visible}>
-      <div onClick={() => handleClick()}>
-        {selectedKeys.length === 0 && <span>No roles</span>}
-        {selectedKeys.map((el) => (
-          <span key={el}>{el} </span>
-        ))}
-      </div>
-    </Dropdown>
+    <div>
+      {selectedRoles.length === 0 && <span>No roles</span>}
+      {selectedRoles.map((role) => (
+        <span key={role}>{role} </span>
+      ))}
+
+      <Dropdown trigger={['click']} overlay={() => menu} visible={visible}>
+        <div className="pointer btn btn-link" onClick={() => handleClick()}>
+          Change
+        </div>
+      </Dropdown>
+    </div>
   );
 };
 

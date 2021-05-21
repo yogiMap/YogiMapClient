@@ -66,7 +66,7 @@ const UsersDashboard = (props: IProps) => {
       <UsersChart />
       <StatisticsList items={usersStats} />
       <UsersFilterForm filters={searchForm} onChange={onFiltersChange} selectOptions={{ usersRolesList }} />
-      <UsersList items={usersList} />
+      {/*<UsersList items={usersList} />*/}
       {usersPagination.itemsCount > usersPagination.limit && (
         <UsersPagination pagination={usersPagination} onChange={onPageChange} />
       )}

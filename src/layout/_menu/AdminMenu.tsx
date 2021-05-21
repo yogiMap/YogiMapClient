@@ -19,7 +19,7 @@ const TopMenu = (props: IProps) => {
   const menuItems = [
     { path: '/style', name: 'Style', perm: 'style.get.own' },
     { path: '/classType', name: 'Type', perm: 'classType.get.own' },
-    { path: '/users', name: 'Users', perm: 'user.get.all' },
+    { path: '/users', name: 'Users', perm: 'user.auth' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
