@@ -87,7 +87,7 @@ const UserModel: UserModelType = {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
         history.push(`/teacherAccount/${userId}`);
-        if (!teacherAccount) history.push(`/welcome`);
+        if (!teacherAccount) history.push(`/settings/${userId}`);
         else history.push(`/settings/profile/${userId}`);
 
         yield put({ type: 'auth' });

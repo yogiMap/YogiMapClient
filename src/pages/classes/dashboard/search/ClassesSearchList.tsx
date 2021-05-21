@@ -19,11 +19,6 @@ const ClassesSearchList = (props: IProps) => {
 
   const columns: ColumnProps<IClasses>[] = [
     {
-      title: '#',
-      key: 'code',
-      render: (row) => <Link to={`/classes/${row._id}`}>{row.code}</Link>,
-    },
-    {
       title: 'Name',
       key: 'name',
       render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
@@ -67,7 +62,8 @@ const ClassesSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacherAccount',
-      // render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
+      // dataIndex: 'teacherAccount',
+      // // render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
       render: (row) => {
         return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
       },

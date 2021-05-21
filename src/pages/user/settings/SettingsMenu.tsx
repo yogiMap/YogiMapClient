@@ -8,7 +8,6 @@ interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
-  const hash = get(props, 'Account.hash', '');
   const teacherAccountId = get(props, 'Account.teacherAccount', '');
 
   let menuItemName = '';
@@ -21,7 +20,7 @@ const SettingsMenu = (props: IProps) => {
     menuItemName = 'Password';
   }
 
-  const menu = [
+  const menuTeacher = [
     {
       name: 'Teacher`s Account',
       icon: <UsergroupAddOutlined />,
@@ -47,18 +46,13 @@ const SettingsMenu = (props: IProps) => {
       icon: <SafetyOutlined />,
       link: `/settings/event/${ownerId}`,
     },
-    {
-      name: 'Email Verify',
-      icon: <SafetyOutlined />,
-      link: `/user/verify/email/${ownerId}/${hash}`,
-    },
   ];
 
   console.log(props);
 
   return (
     <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
-      {menu.map((el) => (
+      {menuTeacher.map((el) => (
         <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
           {el.icon}
           {el.name}
