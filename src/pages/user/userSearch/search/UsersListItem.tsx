@@ -6,6 +6,7 @@ import { Button, Modal } from 'antd';
 import UsersListItemRoles from '@/pages/user/userSearch/search/UsersListItemRoles';
 import { IUser, IUserAccount, IUserQueryParams } from '@/pages/user/userSearch/types';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
+import { DeleteTwoTone } from '@ant-design/icons';
 
 const loadId = { impersonateButton: 'impersonateButton' };
 
@@ -24,6 +25,8 @@ interface IProps {
   open: ISidepanelOpen;
   userImpersonate: (args: { userId: string; loadId: string }) => void;
   userDeleteById: (arg: { userId: string; queryParams: IUserQueryParams }) => void;
+  queryParams: IUserQueryParams;
+  row: IUser;
 }
 
 const UsersListItem = (props: IProps) => {
@@ -54,8 +57,8 @@ const UsersListItem = (props: IProps) => {
 
   // @ts-ignore
   return (
-    <div className="row mb-2 border-bottom">
-      <div className="col-md-2">
+    <div className="row mb-3 border-bottom">
+      <div className="col-md-3">
         <div>{moment(createdAt).format('LL HH:mm')}</div>
         <div>Last login {lastLogin}</div>
       </div>
@@ -81,20 +84,22 @@ const UsersListItem = (props: IProps) => {
       </div>
 
       <div className="col-md-2">
-        <div>
+        <div className="d-flex justify-content-left">
           <Button
             loading={get(props, 'loader.impersonateButton', false)}
             size="small"
-            type={'link'}
+            type="link"
             onClick={() => userImpersonate({ userId, loadId: loadId.impersonateButton })}
           >
             Impersonate
           </Button>
         </div>
+      </div>
 
+      <div className="col-md-1">
         <div>
           <Button danger onClick={() => deletePrompt(row)}>
-            Delete
+            <DeleteTwoTone />
           </Button>
         </div>
       </div>

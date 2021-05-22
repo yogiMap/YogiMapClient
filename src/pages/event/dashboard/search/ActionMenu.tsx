@@ -4,7 +4,6 @@ import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
-import { EditOutlined } from '@ant-design/icons';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import { get } from 'lodash';
 
@@ -77,11 +76,11 @@ const ActionMenu = (props: IProps) => {
         {/*</Button>*/}
 
         {isUserAuth && (
-        <Dropdown overlay={menu(row)}>
-          <span className="ant-dropdown-link">
-            <img src={dotsIcon} alt="" height="27" />
-          </span>
-        </Dropdown>
+          <Dropdown overlay={menu(row)}>
+            <span className="ant-dropdown-link">
+              <img src={dotsIcon} alt="" height="27" />
+            </span>
+          </Dropdown>
         )}
       </div>
     </span>
@@ -91,7 +90,6 @@ const ActionMenu = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
 });
-
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
