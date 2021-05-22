@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown, Menu } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 interface IProps {
   userRoles: string[];
@@ -10,7 +11,6 @@ interface IProps {
 
 const UsersListItemRoles = (props: IProps) => {
   const { userRoles = [], usersRolesList = [], userId, onChange } = props;
-  const [visible, setVisible] = useState(false);
   const [selectedRoles, setSelectedRoles] = useState(userRoles);
 
   function handleSelection(selectedRoles: string[]) {
@@ -22,10 +22,6 @@ const UsersListItemRoles = (props: IProps) => {
     onChange({ roles: selectedRoles, userId: userId });
     setSelectedRoles(selectedRoles);
   }
-
-  const handleClick = () => {
-    setVisible(!visible);
-  };
 
   const menu = (
     <Menu
@@ -51,10 +47,10 @@ const UsersListItemRoles = (props: IProps) => {
         <span key={role}>{role} </span>
       ))}
 
-      <Dropdown trigger={['click']} overlay={() => menu} visible={visible}>
-        <div className="pointer btn btn-link primary-link " onClick={() => handleClick()}>
-          Change
-        </div>
+      <Dropdown trigger={['click']} overlay={menu}>
+        <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+          Change <DownOutlined />
+        </a>
       </Dropdown>
     </div>
   );
