@@ -65,7 +65,9 @@ const UsersListItem = (props: IProps) => {
 
       <div className="col-md-3">
         <div>
-          <Link to={`/profile/${userId}`}>{userName}</Link>
+          <Link className="primary-link" to={`/profile/${userId}`}>
+            {userName}
+          </Link>
 
           <UsersListItemRoles
             usersRolesList={usersRolesList}
@@ -84,24 +86,20 @@ const UsersListItem = (props: IProps) => {
       </div>
 
       <div className="col-md-2">
-        <div className="d-flex justify-content-left">
-          <Button
-            loading={get(props, 'loader.impersonateButton', false)}
-            size="small"
-            type="link"
-            onClick={() => userImpersonate({ userId, loadId: loadId.impersonateButton })}
-          >
-            Impersonate
-          </Button>
-        </div>
+        <Button
+          loading={get(props, 'loader.impersonateButton', false)}
+          size="small"
+          type="link"
+          onClick={() => userImpersonate({ userId, loadId: loadId.impersonateButton })}
+        >
+          Impersonate
+        </Button>
       </div>
 
       <div className="col-md-1">
-        <div>
-          <Button danger onClick={() => deletePrompt(row)}>
-            <DeleteTwoTone />
-          </Button>
-        </div>
+        <Button danger onClick={() => deletePrompt(row)}>
+          <DeleteTwoTone />
+        </Button>
       </div>
     </div>
   );
