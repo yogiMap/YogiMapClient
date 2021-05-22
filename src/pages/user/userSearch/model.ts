@@ -47,9 +47,10 @@ const UsersModel: UsersDashboardModelType = {
   effects: {
     *usersSearch({ payload }, { call, put }) {
       const data = yield call(queryUsersSearch, payload);
+      console.log(data);
       yield put({
         type: 'save',
-        payload: { usersList: data.items, usersPagination: data.pagination },
+        payload: { usersList: data.items.payload, usersPagination: data.pagination },
       });
     },
 

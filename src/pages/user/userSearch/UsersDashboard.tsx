@@ -5,30 +5,43 @@ import UsersList from '@/pages/user/userSearch/search/UsersList';
 import UsersPagination from '@/pages/user/userSearch/search/UsersPagination';
 import UsersFilterForm from '@/pages/user/userSearch/search/UsersFilterForm';
 import { IUsersSearchTerms, IUser, IUsersStats, IPagination, IUserGetStats } from '@/pages/user/userSearch/types';
-import { get } from 'lodash';
-import StatisticsList from '@/pages/utils/statistics/StatisticsList';
-import UsersChart from '@/pages/user/userSearch/UsersChart';
 
-const defaultSearchParams = { name: '', email: '', phone: '', group: '', role: '', limit: 10, page: 1 };
+const defaultSearchParams: IUsersSearchTerms = {
+  name: '',
+  email: '',
+  phone: '',
+  role: '',
+  limit: 10,
+  page: 1,
+};
 
 interface IProps {
   usersStats: IUsersStats;
-  usersGetStats: (p: { loadId: string }) => void;
   usersList: IUser[];
   usersRolesList: string[];
   usersPagination: IPagination;
   usersSearch: (arg: IUsersSearchTerms) => void;
+  usersGetStats: () => void;
   usersGetRolesList: () => void;
-  reset: () => void;
 }
 
 const UsersDashboard = (props: IProps) => {
-  const { usersSearch, usersGetStats, usersGetRolesList, reset } = props;
-
-  const usersStats = get(props, 'UsersDashboard.usersStats', {});
-  const usersList = get(props, 'UsersDashboard.usersList', []);
-  const usersRolesList = get(props, 'UsersDashboard.usersRolesList', []);
-  const usersPagination = get(props, 'UsersDashboard.usersPagination', {});
+  const {
+    usersStats = {},
+    usersList = [],
+    usersRolesList = [],
+    usersSearch,
+    usersGetStats,
+    usersGetRolesList,
+    usersPagination = {
+      pageCurrent: 1,
+      pageCount: 1,
+      limit: 50,
+      itemsCount: 50,
+      isFirst: true,
+      isLast: false,
+    },
+  } = props;
 
   const [searchForm, setSearchForm] = useState(defaultSearchParams);
 
@@ -38,20 +51,14 @@ const UsersDashboard = (props: IProps) => {
 
   useEffect(() => {
     search(defaultSearchParams);
-    usersGetStats({ loadId: loadId.stats });
+    usersGetStats();
     usersGetRolesList();
-
-    return () => {
-      reset();
-    };
   }, []);
 
   const onFiltersChange = (values: IUsersSearchTerms) => {
     setSearchForm(values);
     search(values);
   };
-
-  const loadId = { stats: 'userList' };
 
   const onPageChange = (page: number) => {
     search({
@@ -62,11 +69,11 @@ const UsersDashboard = (props: IProps) => {
 
   return (
     <div className="container">
-      <h1>Users</h1>
-      <UsersChart />
-      <StatisticsList items={usersStats} />
+      <h1 className="text-center">Users</h1>
+      {/*<UsersChart />*/}
+      <UsersStats usersStats={usersStats} />
       <UsersFilterForm filters={searchForm} onChange={onFiltersChange} selectOptions={{ usersRolesList }} />
-      {/*<UsersList items={usersList} />*/}
+      <UsersList items={usersList} />
       {usersPagination.itemsCount > usersPagination.limit && (
         <UsersPagination pagination={usersPagination} onChange={onPageChange} />
       )}
@@ -75,7 +82,6 @@ const UsersDashboard = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  UsersDashboard: state.UsersDashboard,
   usersStats: state.UsersDashboard.usersStats,
   usersList: state.UsersDashboard.usersList,
   usersRolesList: state.UsersDashboard.usersRolesList,
@@ -84,9 +90,9 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   usersSearch: (payload: IUsersSearchTerms) => dispatch({ type: 'UsersDashboard/usersSearch', payload }),
-  usersGetStats: (payload: IUserGetStats) => dispatch({ type: 'UsersDashboard/usersGetStats', payload }),
+  usersGetStats: () => dispatch({ type: 'UsersDashboard/usersGetStats' }),
   usersGetRolesList: () => dispatch({ type: 'UsersDashboard/usersGetRolesList' }),
-  reset: () => dispatch({ type: 'UsersDashboard/reset' }),
 });
 
+// @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(UsersDashboard);

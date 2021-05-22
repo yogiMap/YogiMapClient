@@ -26,7 +26,7 @@ const UsersListItem = (props: IProps) => {
   const lastLoginDate = get(props, 'item.lastLogin.date', null);
   const lastLogin = new Date().getTime() ? moment(lastLoginDate).fromNow() : 'Never';
   const userName = get(props, 'item.name', '');
-  const userId = get(props, 'item._id', '');
+  const userId = get(props, 'item._id', ' ');
   const userEmail = get(props, 'item.email', '');
   const userRoles = get(props, 'item.roles', '');
   const userEmailConfirmed = get(props, 'item.emailConfirmation.confirmed', false);

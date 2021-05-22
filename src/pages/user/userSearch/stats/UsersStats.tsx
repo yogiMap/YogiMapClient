@@ -1,6 +1,5 @@
 import React from 'react';
 import { get } from 'lodash';
-import { Row, Col, Card } from 'antd';
 import { IUsersStats } from '@/pages/user/userSearch/types';
 
 interface IProps {
@@ -13,16 +12,16 @@ const UsersStats = (props: IProps) => {
   const registeredLast10Days = get(usersStats, 'registeredLast10Days', 0);
 
   return (
-    <div>
-      <Row gutter={16}>
-        <Col span={6}>
-          <Card title="Total">{total}</Card>
-        </Col>
+    <div className="row mb-3">
+      <div className="col-md-2">
+        <strong>Total</strong>
+        <div>{total}</div>
+      </div>
 
-        <Col span={6}>
-          <Card title="Last 10 days registrations">{registeredLast10Days}</Card>
-        </Col>
-      </Row>
+      <div className="col-md-2">
+        <strong>Last 10 days</strong>
+        <div>{registeredLast10Days}</div>
+      </div>
     </div>
   );
 };

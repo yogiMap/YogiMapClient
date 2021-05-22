@@ -27,29 +27,21 @@ const UsersFilterForm = (props: IProps) => {
       initialValues={filters}
       onValuesChange={(changedValues, allValues) => debounceInput(allValues)}
     >
-      <Row gutter={6}>
-        <Col span={8}>
-          <Form.Item name="name" label="Name">
+      <div className="row">
+        <div className="col-md-3">
+          <Form.Item name="name">
             <Input size="large" placeholder="Search by Name..." />
           </Form.Item>
-        </Col>
+        </div>
 
-        <Col span={8}>
-          <Form.Item name="email" label="Email">
+        <div className="col-md-3">
+          <Form.Item name="email">
             <Input size="large" placeholder="Search by Email..." />
           </Form.Item>
-        </Col>
+        </div>
 
-        <Col span={8}>
-          <Form.Item name="phone" label="Phone">
-            <Input size="large" placeholder="Search by Phone..." />
-          </Form.Item>
-        </Col>
-      </Row>
-
-      <Row gutter={6} justify="start">
-        <Col span={8}>
-          <Form.Item name="role" label="Roles">
+        <div className="col-md-3">
+          <Form.Item name="role">
             <Select showSearch allowClear={true} size="large" placeholder="Select...">
               {selectOptions.usersRolesList.map((el) => (
                 <Option value={el} key={el}>
@@ -58,8 +50,8 @@ const UsersFilterForm = (props: IProps) => {
               ))}
             </Select>
           </Form.Item>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </Form>
   );
 };
