@@ -21,8 +21,8 @@ export async function queryUserUpdateRoleById(payload: any): Promise<any> {
   return patch({ url: `/user/${payload.userId}`, data: { roles: payload.roles } });
 }
 
-export async function queryUserDeleteById(payload: any): Promise<any> {
-  return del({ url: `/user/${payload}` });
+export async function queryUserDeleteById(userId: string): Promise<any> {
+  return del({ url: `/user/${userId}` });
 }
 
 export async function queryUserUpdateSlackMemberId(payload: any): Promise<any> {

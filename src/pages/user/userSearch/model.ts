@@ -81,7 +81,7 @@ const UsersModel: UsersDashboardModelType = {
 
     *userDeleteById({ payload }, { call, put }) {
       yield put({ type: 'Sidepanel/close' });
-      yield call(queryUserDeleteById, payload);
+      yield call(queryUserDeleteById, payload.userId);
       yield put({
         type: 'removeUserFromUsersList',
         payload: payload,
@@ -132,7 +132,7 @@ const UsersModel: UsersDashboardModelType = {
     ...defaultReducers,
 
     removeUserFromUsersList(state: any | undefined, { payload }) {
-      const newUsersList = state.usersList.filter((el: IUser) => el._id !== payload);
+      const newUsersList = state.usersList.filter((el: IUser) => el._id !== payload.userId);
       return {
         ...state,
         usersList: newUsersList,

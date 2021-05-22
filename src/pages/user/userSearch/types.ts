@@ -74,3 +74,10 @@ export interface IUserAccount {
 
   acl: string[];
 }
+
+export interface IUserQueryParams {
+  limit?: number | string;
+  page?: number | string;
+  userSearchParam1?: string;
+  userSearchParam2?: string;
+}

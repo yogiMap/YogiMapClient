@@ -2,12 +2,18 @@ import React from 'react';
 import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 import UsersListItemRoles from '@/pages/user/userSearch/search/UsersListItemRoles';
-import { IUser } from '@/pages/user/userSearch/types';
+import { IUser, IUserAccount, IUserQueryParams } from '@/pages/user/userSearch/types';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
 
 const loadId = { impersonateButton: 'impersonateButton' };
+
+interface IUserDeleteById {
+  userId: string;
+  queryParams: IUserQueryParams;
+  Account: IUserAccount;
+}
 
 interface IProps {
   item: IUser;
@@ -17,6 +23,7 @@ interface IProps {
   userVerifyEmailSend: (userId: { userId: string }) => void;
   open: ISidepanelOpen;
   userImpersonate: (args: { userId: string; loadId: string }) => void;
+  userDeleteById: (arg: { userId: string; queryParams: IUserQueryParams }) => void;
 }
 
 const UsersListItem = (props: IProps) => {
@@ -34,15 +41,18 @@ const UsersListItem = (props: IProps) => {
     usersUpdateRoleById(values);
   };
 
-  const UserDeleteHandler = () => {
-    props.open({
-      title: 'User Delete',
-      component: 'UsersFormDelete',
-      place: 'UsersList',
-      data: { userId, userName },
+  const { row, queryParams } = props;
+
+  const deletePrompt = (user: IUser) => {
+    Modal.confirm({
+      title: `Do you want to delete?`,
+      content: `${userName}`,
+      okType: 'danger',
+      onOk: () => props.userDeleteById({ userId: userId, queryParams }),
     });
   };
 
+  // @ts-ignore
   return (
     <div className="row mb-2 border-bottom">
       <div className="col-md-2">
@@ -83,7 +93,7 @@ const UsersListItem = (props: IProps) => {
         </div>
 
         <div>
-          <Button danger onClick={UserDeleteHandler}>
+          <Button danger onClick={() => deletePrompt(row)}>
             Delete
           </Button>
         </div>
@@ -104,7 +114,17 @@ const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   userImpersonate: (payload: { userId: string; loadId: string }) =>
     dispatch({ type: 'UsersDashboard/userImpersonate', payload }),
+  userDeleteById: (payload: IUserDeleteById) => dispatch({ type: 'UsersDashboard/userDeleteById', payload }),
 });
 
 // @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(UsersListItem);
+
+// const UserDeleteHandler = () => {
+//   props.open({
+//     title: 'User Delete',
+//     component: 'UsersFormDelete',
+//     place: 'UsersList',
+//     data: { userId, userName },
+//   });
+// };
