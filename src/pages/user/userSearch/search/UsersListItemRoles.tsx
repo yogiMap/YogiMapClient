@@ -52,7 +52,7 @@ const UsersListItemRoles = (props: IProps) => {
       ))}
 
       <Dropdown trigger={['click']} overlay={() => menu} visible={visible}>
-        <div className="pointer btn btn-link" onClick={() => handleClick()}>
+        <div className="pointer btn btn-link primary-link " onClick={() => handleClick()}>
           Change
         </div>
       </Dropdown>

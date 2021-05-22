@@ -50,7 +50,7 @@ const UsersModel: UsersDashboardModelType = {
       console.log(data);
       yield put({
         type: 'save',
-        payload: { usersList: data.items.payload, usersPagination: data.pagination },
+        payload: { usersList: data.items, usersPagination: data.pagination },
       });
     },
 
