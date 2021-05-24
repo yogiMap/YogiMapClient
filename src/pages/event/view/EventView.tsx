@@ -60,7 +60,7 @@ const EventView = (props: IProps) => {
 
       <div className="mt-5 d-flex justify-content-center">
         <Link to="/event" className="button-link-primary">
-          Back To Event
+          Back To Events
         </Link>
       </div>
     </div>
