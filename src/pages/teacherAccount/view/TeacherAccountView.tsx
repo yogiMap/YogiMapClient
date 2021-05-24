@@ -26,8 +26,9 @@ const TeacherAccountView = (props: IProps) => {
   const event: any = Object.values(eventObject);
   const focus = get(props, 'TeacherAccountView.focus', '');
   const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
-  const styleArr = Object.values(YogaStyleObject);
-  const style = styleArr.map((el: any) => el.name).toString();
+  const style = Object.values(YogaStyleObject)
+    .map((el: any) => el.name)
+    .toString();
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const classType = Object.values(classTypeObject)
     .map((el: any) => el.name)
@@ -60,17 +61,17 @@ const TeacherAccountView = (props: IProps) => {
         </div>
 
         <div className="py-5">
-          <h3 className="mt-5">Classes</h3>
+          <h3 className="text-colored-first mt-5">Classes</h3>
           <div>
             <TeacherAccountViewClassesList classes={classes} />
           </div>
 
-          <h3 className="mt-5">Events</h3>
+          <h3 className="text-colored-second mt-5">Events</h3>
           <div>
             <TeacherAccountViewEventList event={event} />
           </div>
 
-          <h3 className="text-center">Address</h3>
+          <h3 className="text-colored-third">Address</h3>
           <div>
             <TeacherAccountViewAddressList />
           </div>
