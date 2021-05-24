@@ -33,43 +33,43 @@ const ClassesView = (props: IProps) => {
       <div className="row my-2 border-top border-bottom">
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3">Focus</div>
-            <h6 className="title">{focus}</h6>
+            <div className="text-colored-second mb-3">Focus</div>
+            <h6 className="text-colored-first">{focus}</h6>
           </div>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3">Style</div>
-            <h6 className="title">{style}</h6>
+            <div className="text-colored-second mb-3">Style</div>
+            <h6 className="text-colored-first">{style}</h6>
           </div>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3"> ClassType</div>
-            <h6 className="title">{classType}</h6>
+            <div className="text-colored-second mb-3"> ClassType</div>
+            <h6 className="text-colored-first">{classType}</h6>
           </div>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3"> Description </div>
-            <div className="title">{description}</div>
+            <div className="text-colored-second mb-3"> Description </div>
+            <div className="text-colored-first">{description}</div>
           </div>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3"> Date </div>
-            <div className="title">{formatterDateFull(date)}</div>
+            <div className="text-colored-second mb-3"> Date </div>
+            <div className="text-colored-first">{formatterDateFull(date)}</div>
           </div>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center my-3">
           <div>
-            <div className="title2 mb-3"> Time </div>
-            <div className="title">{formatterTimeFull(date)}</div>
+            <div className="text-colored-second mb-3"> Time </div>
+            <div className="text-colored-first">{formatterTimeFull(date)}</div>
           </div>
         </div>
       </div>
