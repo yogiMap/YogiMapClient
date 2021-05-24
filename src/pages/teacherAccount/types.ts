@@ -5,6 +5,9 @@ export interface ITeacherAccount {
   firstName: string;
   lastName: string;
   name: string;
+  focus: string;
+  style: string;
+  classType: string;
   phoneNumber: IPhone;
   email: string;
   address: string;

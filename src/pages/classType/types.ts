@@ -1,6 +1,7 @@
 export interface IClassType {
   _id: string;
   name: string;
+  description: string;
   owner: {
     name: string;
     _id: string;

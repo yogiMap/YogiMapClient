@@ -22,9 +22,9 @@ export interface TeacherAccountModelType {
     create: Effect;
     getById: Effect;
     updateById: Effect;
-    classTypeSearch: Effect;
     classesSearch: Effect;
     eventSearch: Effect;
+    classTypeSearch: Effect;
     styleSearch: Effect;
     reset: Effect;
   };
@@ -75,16 +75,6 @@ const TeacherAccountModel: TeacherAccountModelType = {
       }
     },
 
-    *classTypeSearch(_, { call, put }) {
-      const data = yield call(queryClassTypeSearch);
-      yield put({
-        type: 'save',
-        payload: {
-          classTypeList: get(data, 'payload.items'),
-        },
-      });
-    },
-
     *classesSearch(_, { call, put }) {
       const data = yield call(queryClassesSearch);
       yield put({
@@ -101,6 +91,16 @@ const TeacherAccountModel: TeacherAccountModelType = {
         type: 'save',
         payload: {
           eventList: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *classTypeSearch(_, { call, put }) {
+      const data = yield call(queryClassTypeSearch);
+      yield put({
+        type: 'save',
+        payload: {
+          classTypeList: get(data, 'payload.items'),
         },
       });
     },

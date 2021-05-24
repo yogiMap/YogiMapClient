@@ -17,6 +17,8 @@ import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
+import validator from '@/utils/validators';
+import TeacherAccountDashboardControlsDelete from '@/pages/user/settings/teacherAccount/controls/TeacherAccountDashboardControlsDelete';
 
 interface IProps {
   isLoading: boolean;
@@ -50,7 +52,8 @@ const TeacherAccountForm = (props: IProps) => {
   };
   useEffect(() => form.setFieldsValue(addressFields));
 
-  // @ts-ignore
+  console.log(props.styleList, '*******************');
+
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
@@ -82,15 +85,18 @@ const TeacherAccountForm = (props: IProps) => {
               <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="row"></div>
+        </div>
+
+        <div className="row">
           <div className="col-md-6">
             <Form.Item label="Yoga Focus" name="focus">
               <FocusSearchInput />
             </Form.Item>
           </div>
+
           {/*<div className="col-md-6">*/}
           {/*  <Form.Item name="style" label="Yoga Style">*/}
-          {/*    <Select className="rounded-circle">*/}
+          {/*    <Select>*/}
           {/*      {props.styleList.map((el) => (*/}
           {/*        <Option key={el._id} value={el._id}>*/}
           {/*          {el.name}*/}
@@ -99,6 +105,18 @@ const TeacherAccountForm = (props: IProps) => {
           {/*    </Select>*/}
           {/*  </Form.Item>*/}
           {/*</div>*/}
+
+          <div className="col-md-6">
+            <Form.Item name="classType" label="Type of Classes" rules={[validator.require]}>
+              <Select>
+                {props.classTypeList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </div>
         </div>
 
         <div className="row">
@@ -184,13 +202,20 @@ const TeacherAccountForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <Form.Item className="mx-3">
-            <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
-              {props.submitButtonText}
-            </Button>
-          </Form.Item>
+          <div className="col">
+            <Form.Item className="mx-3">
+              <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
+                {props.submitButtonText}
+              </Button>
+            </Form.Item>
+          </div>
+
+          <div className="col">
+            <Form.Item className="mx-3">
+              <TeacherAccountDashboardControlsDelete />
+            </Form.Item>
+          </div>
         </div>
-        {/*<TeacherAccountDashboardControlsDelete/>*/}
       </Form>
     </div>
   );
