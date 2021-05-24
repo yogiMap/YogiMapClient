@@ -3,6 +3,7 @@ import { get } from 'lodash';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { IAddress } from '@/pages/address/types';
+import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 interface IProps extends RouteComponentProps {
   address: IAddress[];
@@ -20,29 +21,50 @@ const TeacherAccountViewAddressList = (props: IProps) => {
   const timeZone = get(props, 'TeacherAccountView.timeZone', '');
 
   return (
-    <div>
-      <table className="table table-light">
-        <thead>
-        <tr className="table-secondary">
-          <th scope="col">address</th>
-          <th scope="col">city</th>
-          <th scope="col">state</th>
-          <th scope="col">country</th>
-          <th scope="col">zipCode</th>
-          <th scope="col">timeZone</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>{addressLine1}</td>
-          <td>{city}</td>
-          <td>{state}</td>
-          <td>{country}</td>
-          <td>{zipCode}</td>
-          <td>{timeZone}</td>
-        </tr>
-        </tbody>
-      </table>
+    <div className="container">
+      <div className="row my-2 border-top border-bottom">
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">address</div>
+            <h6 className="text-colored-first">{addressLine1}</h6>
+          </div>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">City</div>
+            <h6 className="text-colored-first">{city}</h6>
+          </div>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">State</div>
+            <h6 className="text-colored-first">{state}</h6>
+          </div>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">Country</div>
+            <div className="text-colored-first">{country}</div>
+          </div>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">zipCode</div>
+            <div className="text-colored-first">{zipCode}</div>
+          </div>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center my-2">
+          <div>
+            <div className="text-colored-second mb-3">timeZone</div>
+            <div className="text-colored-first">{timeZone}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import RenderPhoneNumber from '@/pages/phoneNumberRendering/PhoneNumbersRendering';
-import { Tag } from 'antd';
 import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAccountViewClassesList';
 import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAccountViewEventList';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
@@ -24,15 +22,16 @@ const TeacherAccountView = (props: IProps) => {
   const phone: any = get(props, 'TeacherAccountView.phoneNumber.number', '');
 
   const name = get(props, 'TeacherAccountView.name', '');
+  const phoneNumber = get(props, 'TeacherAccountView.phoneNumber', '');
   const classesObject = get(props, 'TeacherAccountView.classes', {});
   const classes: any = Object.values(classesObject);
   const eventObject = get(props, 'TeacherAccountView.event', {});
   const event: any = Object.values(eventObject);
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const classType = Object.values(classTypeObject);
-  const focusObject = get(props, 'TeacherAccountView.focus', {});
-  const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
-  console.log(event);
+  const focus = get(props, 'TeacherAccountView.focus', '');
+  const YogaStyleObject = get(props, 'TeacherAccountView.style', '');
+  console.log(focus);
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
@@ -42,31 +41,33 @@ const TeacherAccountView = (props: IProps) => {
     <div>
       <div className="container">
         <h1 className="text-center">{name}</h1>
-        <h6>Email: {email}</h6>
-        <h6>
-          Phone:
-          <RenderPhoneNumber phoneNumberAll={get(props, 'TeacherAccountView.phoneNumber', {})} />
-        </h6>
 
-        {/*{classType.map((el: any) => (*/}
-        {/*  <h2>{el.name}</h2>*/}
-        {/*))}*/}
+        <div className="row">
+          <div className="col-md-10 d-flex justify-content-start">
+            <h3 className="text-colored-second">{focus}</h3>
+          </div>
 
-        <div className="py-5">
-          <h3>Address</h3>
-          <div>
-            <TeacherAccountViewAddressList />
+          <div className="col-md-2">
+            <h6>Email: {email}</h6>
+            <h6>Phone: {phoneNumber}</h6>
           </div>
         </div>
 
-        <h3 className="mt-5">Classes</h3>
-        <div>
-          <TeacherAccountViewClassesList classes={classes} />
-        </div>
+        <div className="py-5">
+          <h3 className="mt-5">Classes</h3>
+          <div>
+            <TeacherAccountViewClassesList classes={classes} />
+          </div>
 
-        <h3 className="mt-5">Events</h3>
-        <div>
-          <TeacherAccountViewEventList event={event} />
+          <h3 className="mt-5">Events</h3>
+          <div>
+            <TeacherAccountViewEventList event={event} />
+          </div>
+
+          <h3 className="text-center">Address</h3>
+          <div>
+            <TeacherAccountViewAddressList />
+          </div>
         </div>
       </div>
     </div>

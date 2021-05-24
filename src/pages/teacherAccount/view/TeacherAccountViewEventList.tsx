@@ -16,8 +16,6 @@ interface IProps extends RouteComponentProps {
 const TeacherAccountViewEventList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const event = get(props, 'event', []);
-  const items = get(props, 'items', []);
-  console.log(items);
 
   const columns: ColumnProps<IEvent>[] = [
     {
