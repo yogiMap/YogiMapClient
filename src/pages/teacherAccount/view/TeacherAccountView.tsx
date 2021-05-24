@@ -24,13 +24,14 @@ const TeacherAccountView = (props: IProps) => {
   const classes: any = Object.values(classesObject);
   const eventObject = get(props, 'TeacherAccountView.event', {});
   const event: any = Object.values(eventObject);
-  const classTypeObject = get(props, 'TeacherAccountView.classType', {});
-  const classType = Object.values(classTypeObject);
   const focus = get(props, 'TeacherAccountView.focus', '');
   const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
   const styleArr = Object.values(YogaStyleObject);
   const style = styleArr.map((el: any) => el.name).toString();
-  console.log(style, '++++++++++++++++');
+  const classTypeObject = get(props, 'TeacherAccountView.classType', {});
+  const classType = Object.values(classTypeObject)
+    .map((el: any) => el.name)
+    .toString();
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
@@ -45,7 +46,8 @@ const TeacherAccountView = (props: IProps) => {
           <div className="col-md-8 d-flex justify-content-start">
             <div>
               <h3 className="text-colored-second text-start">{focus}</h3>
-              <h6 className="text-colored-third"> Teacher`Style of Yoga: {style}</h6>
+              <h6 className="text-colored-third text-start"> Style of Yoga: {style}</h6>
+              <h6 className="text-colored-first text-start"> Type of Classes: {classType}</h6>
             </div>
           </div>
 
