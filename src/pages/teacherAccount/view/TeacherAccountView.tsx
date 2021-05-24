@@ -7,11 +7,13 @@ import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAc
 import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAccountViewEventList';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IEventQueryParams } from '@/pages/event/types';
 
 interface IProps {
   teacherAccountId: string;
   name: string;
   teacherAccountGetById: (teacherAccountId: string) => void;
+  eventSearch: (arg: IEventQueryParams) => void;
   Account: IUserAccount;
 }
 
@@ -77,6 +79,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
+  eventSearch: (payload: IEventQueryParams) => dispatch({ type: 'EventDashboard/eventSearch', payload }),
   teacherAccountGetById: (teacherAccountId: string) =>
     dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload: teacherAccountId }),
 });
