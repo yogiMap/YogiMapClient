@@ -5,8 +5,8 @@ export async function queryClassesCreate(payload: any): Promise<any> {
   return post({ url: '/classes', data: payload });
 }
 
-export async function queryClassesGetById(id: string): Promise<any> {
-  return get({ url: `/classes/${id}` });
+export async function queryClassesGetById(classesId: string): Promise<any> {
+  return get({ url: `/classes/${classesId}` });
 }
 
 export async function queryClassesUpdateById(payload: { classesId: string; values: IClasses }): Promise<any> {
