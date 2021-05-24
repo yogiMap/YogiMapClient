@@ -17,10 +17,7 @@ interface IProps {
 
 const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
-  const teacherName = get(props, 'TeacherAccountView.teacherName', '');
   const email = get(props, 'Account.email', '');
-  const phone: any = get(props, 'TeacherAccountView.phoneNumber.number', '');
-
   const name = get(props, 'TeacherAccountView.name', '');
   const phoneNumber = get(props, 'TeacherAccountView.phoneNumber', '');
   const classesObject = get(props, 'TeacherAccountView.classes', {});
@@ -30,8 +27,10 @@ const TeacherAccountView = (props: IProps) => {
   const classTypeObject = get(props, 'TeacherAccountView.classType', {});
   const classType = Object.values(classTypeObject);
   const focus = get(props, 'TeacherAccountView.focus', '');
-  const YogaStyleObject = get(props, 'TeacherAccountView.style', '');
-  console.log(focus);
+  const YogaStyleObject = get(props, 'TeacherAccountView.style', {});
+  const styleArr = Object.values(YogaStyleObject);
+  const style = styleArr.map((el: any) => el.name).toString();
+  console.log(style, '++++++++++++++++');
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
@@ -43,13 +42,18 @@ const TeacherAccountView = (props: IProps) => {
         <h1 className="text-center">{name}</h1>
 
         <div className="row">
-          <div className="col-md-10 d-flex justify-content-start">
-            <h3 className="text-colored-second">{focus}</h3>
+          <div className="col-md-8 d-flex justify-content-start">
+            <div>
+              <h3 className="text-colored-second text-start">{focus}</h3>
+              <h6 className="text-colored-third"> Teacher`Style of Yoga: {style}</h6>
+            </div>
           </div>
 
-          <div className="col-md-2">
-            <h6>Email: {email}</h6>
-            <h6>Phone: {phoneNumber}</h6>
+          <div className="col-md-4 d-flex justify-content-end">
+            <div>
+              <h6>Email: {email}</h6>
+              <h6>Phone: {phoneNumber}</h6>
+            </div>
           </div>
         </div>
 
