@@ -13,9 +13,7 @@ import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {
   Account: IUserAccount;
-  TeacherAccountDashboard: ITeacherAccount;
   isLoading: boolean;
-  create: (arg: IEvent) => void;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: IEvent;
@@ -53,8 +51,8 @@ const EventForm = (props: IProps) => {
             <h6 className="mt-3">email: {email} </h6>
           </div>
           <div className="col-md-6">
-            <Form.Item name="teacherAccount" label="teacherAccount">
-              <Select className="rounded-circle">
+            <Form.Item name="teacherAccountList" label="Teacher`s `Account">
+              <Select>
                 {props.teacherAccountList.map((el) => (
                   <Option key={el._id} value={el._id}>
                     {el.name}

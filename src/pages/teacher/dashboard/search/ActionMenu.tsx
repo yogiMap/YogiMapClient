@@ -72,15 +72,16 @@ const ActionMenu = (props: IProps) => {
   return (
     <span>
       <div id="top-menu" role="menu" className="d-flex justify-content-center">
-        <Button type="link" onClick={() => editHandler(row._id)}>
-          <EditOutlined className="edit-pen-icon" />
-        </Button>
+        {/*<Button type="link" onClick={() => editHandler(row._id)}>*/}
+        {/*  <EditOutlined className="edit-pen-icon" />*/}
+        {/*</Button>*/}
+
         {isUserAuth && (
-        <Dropdown overlay={menu(row)}>
-          <span className="ant-dropdown-link">
-            <img src={dotsIcon} alt="" height="27" />
-          </span>
-        </Dropdown>
+          <Dropdown overlay={menu(row)}>
+            <span className="ant-dropdown-link">
+              <img src={dotsIcon} alt="" height="27" />
+            </span>
+          </Dropdown>
         )}
       </div>
     </span>
@@ -96,4 +97,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   teacherDeleteById: (payload: ITeacherDeleteById) => dispatch({ type: 'TeacherDashboard/teacherDeleteById', payload }),
 });
 
-export default connect(mapStateToProps , mapDispatchToProps)(ActionMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);

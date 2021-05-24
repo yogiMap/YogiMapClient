@@ -9,6 +9,7 @@ import { IClasses } from '@/pages/classes/types';
 import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
@@ -18,18 +19,30 @@ interface IProps extends RouteComponentProps {
 
 const TeacherAccountViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const classes: any  = get(props, 'classes', []);
+  const classes: any = get(props, 'classes', []);
   const isUserAuth = get(props, 'Account._id');
 
   const columns: ColumnProps<IClasses>[] = [
     {
       title: 'Name',
       key: 'name',
-      dataIndex: 'name',
-      // render: (row) => {
-      //   return <Link to={`/classes/${get(row, 'classes._id')}`}>{get(row, 'classes.name')}</Link>;
-      // },
-      // render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/event/${row._id}`}>{row.name}</Link>,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend'],
+    },
+    {
+      title: 'Date',
+      key: 'eventDate',
+      render: (row) => {
+        return formatterDateFull(row.date);
+      },
+    },
+    {
+      title: 'Time',
+      key: 'eventDate',
+      render: (row) => {
+        return formatterTimeFull(row.date);
+      },
     },
     {
       title: 'YogaStyle',
@@ -76,7 +89,6 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   // open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-
 });
 
 export default withRouter(TeacherAccountViewClassesList);

@@ -62,17 +62,10 @@ const ClassesSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacherAccount',
-      // dataIndex: 'teacherAccount',
-      // // render: (row) => <Link to={`/teacher/${row.teacher._id}`}>{row.name}</Link>,
       render: (row) => {
         return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
       },
     },
-    // {
-    //   title: 'Description',
-    //   dataIndex: 'description',
-    //   key: 'description',
-    // },
     {
       title: 'Action',
       key: 'action',

@@ -7,6 +7,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import { IEvent } from '@/pages/event/types';
 import EventDashboardControls from '@/pages/event/dashboard/controls/EventDashboardControls';
+import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 interface IProps extends RouteComponentProps {
   event: IEvent[];
@@ -20,11 +21,23 @@ const TeacherAccountViewEventList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
-      dataIndex: 'name',
-      // render: (row) => {
-      //   return <Link to={`/classes/${get(row, 'classes._id')}`}>{get(row, 'classes.name')}</Link>;
-      // },
-      // render: (row) => <Link to={`/classes/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/event/${row._id}`}>{row.name}</Link>,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend'],
+    },
+    {
+      title: 'Date',
+      key: 'eventDate',
+      render: (row) => {
+        return formatterDateFull(row.date);
+      },
+    },
+    {
+      title: 'Time',
+      key: 'eventDate',
+      render: (row) => {
+        return formatterTimeFull(row.date);
+      },
     },
     {
       title: 'YogaStyle',
