@@ -34,7 +34,7 @@ const UserRegister = (props: IProps) => {
 
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-        <h3 className="py-5">CREATE AN ACCOUNT</h3>
+      <h1 className="py-5">Create an Account</h1>
 
       <Row gutter={6}>
         <Col span={12}>
@@ -60,7 +60,7 @@ const UserRegister = (props: IProps) => {
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>
-          I have read <a onClick={showTerms}>terms and conditions</a>
+          I have read <a onClick={showTerms}>Terms and Conditions</a>
         </Checkbox>
       </Form.Item>
 
@@ -72,7 +72,11 @@ const UserRegister = (props: IProps) => {
 
       <Form.Item>
         <p>
-          Already have an account? Just click <Link to="/user/login">Log in</Link>.
+          Already have an account? Just click{' '}
+          <Link to="/user/login" className="login-link ms-2">
+            Log in
+          </Link>
+          .
         </p>
       </Form.Item>
     </Form>

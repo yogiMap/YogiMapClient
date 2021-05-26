@@ -106,17 +106,17 @@ const TeacherAccountForm = (props: IProps) => {
           {/*  </Form.Item>*/}
           {/*</div>*/}
 
-          <div className="col-md-6">
-            <Form.Item name="classType" label="Type of Classes" rules={[validator.require]}>
-              <Select>
-                {props.classTypeList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
-          </div>
+          {/*  <div className="col-md-6">*/}
+          {/*    <Form.Item name="classType" label="Type of Classes" rules={[validator.require]}>*/}
+          {/*      <Select>*/}
+          {/*        {props.classTypeList.map((el) => (*/}
+          {/*          <Option key={el._id} value={el._id}>*/}
+          {/*            {el.name}*/}
+          {/*          </Option>*/}
+          {/*        ))}*/}
+          {/*      </Select>*/}
+          {/*    </Form.Item>*/}
+          {/*  </div>*/}
         </div>
 
         <div className="row">

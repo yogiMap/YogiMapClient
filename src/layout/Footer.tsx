@@ -4,7 +4,7 @@ import { connect, Link, withRouter } from 'umi';
 const menu1 = [
   { link: '/faq', text: 'Help & FAQ' },
   { link: '/contact', text: 'ContactUs' },
-  { link: '/sitemap', text: 'Site Map' },
+  { link: '/user/register', text: 'Join Us' },
 ];
 
 const menu2 = [

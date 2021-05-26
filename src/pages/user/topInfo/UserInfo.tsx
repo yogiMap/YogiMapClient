@@ -70,7 +70,7 @@ const UserInfo = (props: IProps) => {
     return (
       <div className="mt-3">
         <Link to={'/user/login'} data-qa="login">
-          LogIn
+          Log In
         </Link>
 
         {/*<Link to={'/user/register'} className="ms-1 p-2" data-qa="register">*/}
