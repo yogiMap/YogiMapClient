@@ -22,7 +22,7 @@ const UserPasswordReset = (props: IProps) => {
 
   return (
     <Form size="large" name="user_password_reset" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-      <h1>Reset password</h1>
+      <h1 className="py-5">Reset password</h1>
       <p>Enter your account’s email address and we will send you a link to reset your password.</p>
 
       <Form.Item name="email" rules={[{ type: 'email' }, { required: true, message: 'Required' }]}>
@@ -36,7 +36,11 @@ const UserPasswordReset = (props: IProps) => {
       </Form.Item>
 
       <p>
-        Remembered your password? <Link to="/user/login">Login</Link>.
+        Remembered your password?{' '}
+        <Link to="/user/login" className="login-link ms-2">
+          Login
+        </Link>
+        .
       </p>
     </Form>
   );

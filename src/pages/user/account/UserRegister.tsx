@@ -34,7 +34,7 @@ const UserRegister = (props: IProps) => {
 
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-      <h1 className="py-5">Create an Account</h1>
+      <h1 className="py-5">Create User`s Account</h1>
 
       <Row gutter={6}>
         <Col span={12}>
