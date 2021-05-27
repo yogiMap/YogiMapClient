@@ -37,21 +37,33 @@ const TeacherAccountFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} >
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
       <div className="row d-flex justify-content-center">
-        <div className="col-lg-4 d-flex justify-content-center">
+        <div className="col-md-3 d-flex justify-content-center">
           <Form.Item name="name">
             <Input placeholder="Name" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-lg-4 d-flex justify-content-center">
-          <Form.Item name="location">
-            <Input placeholder="Location" className="rounded-pill" />
+        <div className="col-md-3 d-flex justify-content-center">
+          <Form.Item name="style">
+            <Input placeholder="style" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-lg-4 d-flex justify-content-center">
+        <div className="col-md-3 d-flex justify-content-center">
+          <Form.Item name="style">
+            <Input placeholder="country" className="rounded-pill" />
+          </Form.Item>
+        </div>
+
+        <div className="col-md-3 d-flex justify-content-center">
+          <Form.Item name="city">
+            <Input placeholder="city" className="rounded-pill" />
+          </Form.Item>
+        </div>
+
+        <div className="col-md-3 d-flex justify-content-center">
           <Form.Item>
             <Button onClick={reset} shape="round">
               Reset

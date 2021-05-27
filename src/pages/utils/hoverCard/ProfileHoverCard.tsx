@@ -29,7 +29,7 @@ const ProfileHoverCard = (props: IProps) => {
   };
 
   const content = (
-    <div className="hoverCard">
+    <div>
       {email && <p>Email: {email}</p>}
       {phone && <p>Phone: {phone}</p>}
       {teacherAccountName && <Link to={`/teacherAccount/${teacherAccountId}`}>{teacherAccountName}</Link>}

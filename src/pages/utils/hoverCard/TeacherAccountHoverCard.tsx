@@ -18,21 +18,21 @@ const ProfileHoverCard = (props: IProps) => {
   const phoneNumber = get(props, 'HoverCard.phoneNumber', '');
   // const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
   const teacherAccountName = get(props, 'HoverCard.teacherAccount.name', '');
-  // const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
   const country = get(props, 'HoverCard.country', '');
   const city = get(props, 'HoverCard.city', '');
 
   const onVisibleChange = (isVisible: boolean) => {
     if (isVisible) {
       props.teacherAccountGetById(teacherAccountId);
-    } else {
-      props.close();
     }
+    // else {
+    //   props.close();
+    // }
   };
 
   const content = (
     <div className="hoverCard">
-      {email && <p>Email: {email}</p>}
+      {/*{email && <p>Email: {email}</p>}*/}
       {/*{phoneNumber && <p>Phone: {phoneNumber}</p>}*/}
       {/*{country && <p>Country: {country}</p>}*/}
       {/*{city && <p>City: {city}</p>}*/}

@@ -40,6 +40,8 @@ const TeacherAccountSearchList = (props: IProps) => {
       title: 'Yoga Focus',
       key: 'focus',
       dataIndex: 'focus',
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['descend'],
     },
 
     {
@@ -47,21 +49,25 @@ const TeacherAccountSearchList = (props: IProps) => {
       key: 'style',
       render: (row) => {
         return <Link to={`/style/${get(row, 'style._id')}`}>{get(row, 'style.name')}</Link>;
-        // @ts-ignore
-        // return <StyleView id={get(row, 'style._id')} name={get(row, 'style.name')} />;
       },
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['descend'],
     },
 
     {
       title: 'Country',
       key: 'country',
       dataIndex: 'country',
+      // sorter: (a, b) => a.name.localeCompare(b.name),
+      // sortDirections: ['descend'],
     },
 
     {
       title: 'City',
       key: 'city',
       dataIndex: 'city',
+      // sorter: (a, b) => a.name.localeCompare(b.name),
+      // sortDirections: ['descend'],
     },
 
     // {
