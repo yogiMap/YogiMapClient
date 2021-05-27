@@ -116,18 +116,8 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-12 mt-3">
-            <h6>Teacher Location</h6>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-2 pt-4">
-            <Button type="primary" shape="round" className="mt-2">
-              Search
-            </Button>
-          </div>
+        <div className="row mt-5">
+          <h5 className="text-colored-first text-start my-1">Teacher`s Location</h5>
         </div>
 
         <div className="row">
