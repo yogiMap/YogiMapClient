@@ -78,7 +78,7 @@ const TeacherAccountForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-6">
-            <Form.Item name="styleList" label="Yoga Style">
+            <Form.Item name="styleList" label="Yoga Style" rules={[validator.require]}>
               <Select>
                 {props.styleList.map((el) => (
                   <Option key={el._id} value={el._id}>
@@ -90,7 +90,7 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
 
           <div className="col-md-6">
-            <Form.Item name="classTypeList" label="Type of Classes" rules={[validator.require]}>
+            <Form.Item name="classTypeList" label="Type of Classes">
               <Select>
                 {props.classTypeList.map((el) => (
                   <Option key={el._id} value={el._id}>
@@ -108,8 +108,10 @@ const TeacherAccountForm = (props: IProps) => {
               <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
             </Form.Item>
           </div>
+        </div>
 
-          <div className="col-md-6">
+        <div className="row">
+          <div className="col-md-12">
             <Form.Item name="description" label="Description">
               <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
