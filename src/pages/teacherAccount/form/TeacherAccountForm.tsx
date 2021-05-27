@@ -39,14 +39,13 @@ const TeacherAccountForm = (props: IProps) => {
   const [form] = useForm();
 
   console.log(props.styleList, '*******************');
-  // const style = get(props, 'styleList', []);
   if (!props.styleList) return null;
 
   // @ts-ignore
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
-        <div className="row mb-5">
+        <div className="row mb-5 border-bottom">
           <div className="col-md-8">
             <h1>{name}</h1>
             <h6 className="mt-3">email: {email} </h6>
@@ -110,7 +109,7 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row mb-5 border-bottom">
           <div className="col-md-12">
             <Form.Item name="description" label="Description">
               <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
@@ -183,7 +182,7 @@ const TeacherAccountForm = (props: IProps) => {
 
           <div className="col">
             <Form.Item className="mx-3">
-              <TeacherAccountDashboardControlsDelete />{' '}
+              <TeacherAccountDashboardControlsDelete />
             </Form.Item>
           </div>
         </div>
