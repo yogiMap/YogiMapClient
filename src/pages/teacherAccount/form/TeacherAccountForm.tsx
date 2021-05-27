@@ -117,7 +117,7 @@ const TeacherAccountForm = (props: IProps) => {
         </div>
 
         <div className="row mt-5">
-          <h5 className="text-colored-first text-start my-1">Teacher`s Location</h5>
+          <h6 className="text-colored-first text-start my-2">Teacher`s Location</h6>
         </div>
 
         <div className="row">
