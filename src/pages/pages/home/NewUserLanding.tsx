@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const NewUserLanding = (props: IProps) => {
-  const name = get(props, 'Account.name', '');
+  const name = get(props, 'Account.userName', '');
   // const userId = get(props, 'match.params.userId');
   // const hash = get(props, 'match.params.hash');
 

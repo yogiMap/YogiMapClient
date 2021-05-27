@@ -5,8 +5,7 @@ import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
 
 export interface IRegisterForm {
-  firstName: string;
-  lastName: string;
+  userName: string;
   email: string;
   password: string;
 }
@@ -36,19 +35,9 @@ const UserRegister = (props: IProps) => {
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
       <h1 className="py-5">Create User`s Account</h1>
 
-      <Row gutter={6}>
-        <Col span={12}>
-          <Form.Item name="firstName" rules={[validator.require]} hasFeedback>
-            <Input placeholder="First Name" />
-          </Form.Item>
-        </Col>
-
-        <Col span={12}>
-          <Form.Item name="lastName" rules={[validator.require]} hasFeedback>
-            <Input placeholder="Last Name" />
-          </Form.Item>
-        </Col>
-      </Row>
+      <Form.Item name="userName" rules={[validator.require]} hasFeedback>
+        <Input placeholder="User Name" />
+      </Form.Item>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>
         <Input placeholder="Email" />
