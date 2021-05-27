@@ -49,7 +49,7 @@ const ClassesForm = (props: IProps) => {
           </div>
 
           <div className="col-md-6">
-            <Form.Item name="teacherAccount" label="Teacher`s `Account">
+            <Form.Item name="teacherAccountList" label="Teacher`s `Account">
               <Select>
                 {props.teacherAccountList.map((el) => (
                   <Option key={el._id} value={el._id}>

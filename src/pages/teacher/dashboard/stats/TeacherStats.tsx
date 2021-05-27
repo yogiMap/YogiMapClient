@@ -10,7 +10,7 @@ interface IProps {
 const TeacherStats = (props: IProps) => {
   const teacherStats = get(props, 'stats', '');
 
-  // if (isEmpty(teacherStats)) return null;
+  if (isEmpty(teacherStats)) return null;
 
   const totalCount = get(teacherStats, 'totalCount', '...');
   const totalCountDouble = get(teacherStats, 'totalCountDouble', '...');

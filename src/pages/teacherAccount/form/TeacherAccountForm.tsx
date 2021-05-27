@@ -39,20 +39,22 @@ const TeacherAccountForm = (props: IProps) => {
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
 
-  const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
+  // const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
   const [form] = useForm();
-  const opts = JsApiLoaderOpts();
-  // @ts-ignore
-  const { isLoaded, loadError } = useJsApiLoader(opts);
-
-  const [addressFields, setAddressFields] = useState();
-
-  const onChange = (center: any) => {
-    center ? setAddressFields(center[1]) : null;
-  };
-  useEffect(() => form.setFieldsValue(addressFields));
+  // const opts = JsApiLoaderOpts();
+  // // @ts-ignore
+  // const { isLoaded, loadError } = useJsApiLoader(opts);
+  //
+  // const [addressFields, setAddressFields] = useState();
+  //
+  // const onChange = (center: any) => {
+  //   center ? setAddressFields(center[1]) : null;
+  // };
+  // useEffect(() => form.setFieldsValue(addressFields));
 
   console.log(props.styleList, '*******************');
+  // const style = get(props, 'styleList', []);
+  if (!props.styleList) return null;
 
   return (
     <div className="container mt-5">
@@ -94,29 +96,29 @@ const TeacherAccountForm = (props: IProps) => {
             </Form.Item>
           </div>
 
-          {/*<div className="col-md-6">*/}
-          {/*  <Form.Item name="style" label="Yoga Style">*/}
-          {/*    <Select>*/}
-          {/*      {props.styleList.map((el) => (*/}
-          {/*        <Option key={el._id} value={el._id}>*/}
-          {/*          {el.name}*/}
-          {/*        </Option>*/}
-          {/*      ))}*/}
-          {/*    </Select>*/}
-          {/*  </Form.Item>*/}
-          {/*</div>*/}
+          <div className="col-md-6">
+            <Form.Item name="styleList" label="Yoga Style">
+              <Select>
+                {props.styleList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </div>
 
-          {/*  <div className="col-md-6">*/}
-          {/*    <Form.Item name="classType" label="Type of Classes" rules={[validator.require]}>*/}
-          {/*      <Select>*/}
-          {/*        {props.classTypeList.map((el) => (*/}
-          {/*          <Option key={el._id} value={el._id}>*/}
-          {/*            {el.name}*/}
-          {/*          </Option>*/}
-          {/*        ))}*/}
-          {/*      </Select>*/}
-          {/*    </Form.Item>*/}
-          {/*  </div>*/}
+          <div className="col-md-6">
+            <Form.Item name="classTypeList" label="Type of Classes" rules={[validator.require]}>
+              <Select>
+                {props.classTypeList.map((el) => (
+                  <Option key={el._id} value={el._id}>
+                    {el.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </div>
         </div>
 
         <div className="row">
@@ -135,13 +137,13 @@ const TeacherAccountForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-10">
-            {isLoaded ? (
-              <Form.Item label="Address Search">
-                <Autocomplete onChange={onChange} />
-              </Form.Item>
-            ) : (
-              loadError
-            )}
+            {/*{isLoaded ? (*/}
+            {/*  <Form.Item label="Address Search">*/}
+            {/*    <Autocomplete onChange={onChange} />*/}
+            {/*  </Form.Item>*/}
+            {/*) : (*/}
+            {/*  loadError*/}
+            {/*)}*/}
           </div>
 
           <div className="col-md-2 pt-4">
@@ -211,9 +213,7 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
 
           <div className="col">
-            <Form.Item className="mx-3">
-              <TeacherAccountDashboardControlsDelete />
-            </Form.Item>
+            <Form.Item className="mx-3">{/*<TeacherAccountDashboardControlsDelete />*/}</Form.Item>
           </div>
         </div>
       </Form>
