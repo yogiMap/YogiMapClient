@@ -35,7 +35,7 @@ const UserRegister = (props: IProps) => {
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
       <h1 className="py-5">Create User`s Account</h1>
 
-      <Form.Item name="userName" rules={[validator.require]} hasFeedback>
+      <Form.Item name="userName" rules={[validator.require, validator.name, validator.maxlength15]} hasFeedback>
         <Input placeholder="User Name" />
       </Form.Item>
 
@@ -43,7 +43,7 @@ const UserRegister = (props: IProps) => {
         <Input placeholder="Email" />
       </Form.Item>
 
-      <Form.Item name="password" rules={[validator.require]} hasFeedback>
+      <Form.Item name="password" rules={[validator.require, validator.minlength5]} hasFeedback>
         <Input.Password type="password" prefix={<LockOutlined />} placeholder="Password" />
       </Form.Item>
 

@@ -15,8 +15,16 @@ const validator = {
     required: true,
     message: 'Required',
   },
+  currency: {
+    pattern: /^(\.?)\d+(\.\d{1,6})?$/,
+    message: 'Invalid money format',
+  },
   numbers: {
     pattern: /^[0-9]$/,
+    message: 'Only numbers',
+  },
+  integers: {
+    pattern: /^\d+$/,
     message: 'Only numbers',
   },
   length4: {
@@ -27,6 +35,10 @@ const validator = {
     max: 6,
     message: 'Max 6 characters',
   },
+  minlength5: {
+    min: 5,
+    message: 'Min 5 characters',
+  },
   maxlength10: {
     max: 10,
     message: 'Max 10 characters',
@@ -35,11 +47,18 @@ const validator = {
     max: 15,
     message: 'Max 15 characters',
   },
+  maxlength20: {
+    max: 20,
+    message: 'Max 20 characters',
+  },
   name: {
     pattern: /^[a-zA-Z]+$/,
     message: 'Numbers and special characters are not allowed',
   },
+  url: {
+    type: 'url',
+    message: 'This field must be a valid url.',
+  },
 };
 
 export default validator;
-
