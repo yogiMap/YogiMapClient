@@ -15,6 +15,12 @@ const validator = {
     required: true,
     message: 'Required',
   },
+
+  requireUsername: {
+    required: true,
+    message: 'Please input your username!',
+  },
+
   currency: {
     pattern: /^(\.?)\d+(\.\d{1,6})?$/,
     message: 'Invalid money format',
@@ -52,8 +58,8 @@ const validator = {
     message: 'Max 20 characters',
   },
   name: {
-    pattern: /^[a-zA-Z]+$/,
-    message: 'Numbers and special characters are not allowed',
+    pattern: /^[a-zA-Z0-9]+$/,
+    message: 'Special characters are not allowed',
   },
   url: {
     type: 'url',

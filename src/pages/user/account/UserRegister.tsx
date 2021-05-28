@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
-import { LockOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Form, Input } from 'antd';
+import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
 
@@ -35,12 +35,12 @@ const UserRegister = (props: IProps) => {
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
       <h1 className="py-5">Create User`s Account</h1>
 
-      <Form.Item name="userName" rules={[validator.require, validator.name, validator.maxlength15]} hasFeedback>
-        <Input placeholder="User Name" />
+      <Form.Item name="userName" rules={[validator.requireUsername, validator.name, validator.maxlength15]} hasFeedback>
+        <Input prefix={<UserOutlined />} placeholder="First Name" />
       </Form.Item>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>
-        <Input placeholder="Email" />
+        <Input prefix={<MailOutlined />} placeholder="Email" />
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require, validator.minlength5]} hasFeedback>
