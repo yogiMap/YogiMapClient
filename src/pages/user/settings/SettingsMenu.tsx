@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect, Link, history, withRouter } from 'umi';
 import { Menu } from 'antd';
-import { UsergroupAddOutlined, IdcardOutlined, SafetyOutlined } from '@ant-design/icons';
+import {
+  UsergroupAddOutlined,
+  IdcardOutlined,
+  SafetyOutlined,
+  LockOutlined,
+  ScheduleOutlined,
+} from '@ant-design/icons';
 import { get } from 'lodash';
 
 interface IProps {}
@@ -38,12 +44,12 @@ const SettingsMenu = (props: IProps) => {
     },
     {
       name: 'Create Class',
-      icon: <SafetyOutlined />,
+      icon: <ScheduleOutlined />,
       link: `/settings/classes/${ownerId}`,
     },
     {
       name: 'Create Event',
-      icon: <SafetyOutlined />,
+      icon: <ScheduleOutlined />,
       link: `/settings/event/${ownerId}`,
     },
   ];
