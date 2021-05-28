@@ -79,12 +79,12 @@ const UserModel: UserModelType = {
       const data = yield call(queryUserLogin, payload);
 
       const userId = get(data, 'userId', '');
-      const userName = get(data, 'user.userName');
+      const name = get(data, 'user.name');
       const token = get(data, 'token');
       const teacherAccount = get(data, 'user.teacherAccount', '');
       const student = get(data, 'user.student', '');
 
-      if (userName && token && userId) {
+      if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
         history.push(`/teacherAccount/${userId}`);
