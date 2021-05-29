@@ -35,7 +35,7 @@ const UserRegister = (props: IProps) => {
     <Form size="large" name="register" className="sign-up-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
       <h1 className="py-5">Create User`s Account</h1>
 
-      <Form.Item name="name" rules={[validator.requireUsername, validator.name, validator.maxlength15]} hasFeedback>
+      <Form.Item name="name" rules={[validator.requireUsername, validator.name, validator.maxlength20]} hasFeedback>
         <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />
       </Form.Item>
 
