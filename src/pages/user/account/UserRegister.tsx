@@ -32,19 +32,23 @@ const UserRegister = (props: IProps) => {
   };
 
   return (
-    <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
+    <Form size="large" name="register" className="sign-up-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
       <h1 className="py-5">Create User`s Account</h1>
 
       <Form.Item name="name" rules={[validator.requireUsername, validator.name, validator.maxlength15]} hasFeedback>
-        <Input prefix={<UserOutlined />} placeholder="First Name" />
+        <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />
       </Form.Item>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>
-        <Input prefix={<MailOutlined />} placeholder="Email" />
+        <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require, validator.minlength5]} hasFeedback>
-        <Input.Password type="password" prefix={<LockOutlined />} placeholder="Password" />
+        <Input.Password
+          type="password"
+          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="Password"
+        />
       </Form.Item>
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
