@@ -8,7 +8,7 @@ interface IProps {
 
 const UsersList = (props: IProps) => {
   return (
-    <div>
+    <div className="my-5">
       {props.items.map((el) => (
         <UsersListItem key={el._id} item={el} />
       ))}

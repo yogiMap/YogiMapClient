@@ -99,12 +99,3 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 // @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(UsersListItem);
-
-// const UserDeleteHandler = () => {
-//   props.open({
-//     title: 'User Delete',
-//     component: 'UsersFormDelete',
-//     place: 'UsersList',
-//     data: { userId, userName },
-//   });
-// };

@@ -40,7 +40,7 @@ const ActionMenu = (props: IProps) => {
 
   const contextMenuClick = (handler: any, row: IUser) => {
     if (handler === 'impersonate') {
-      userImpersonateHandler(row._id);
+      userImpersonateHandler(row);
     }
     if (handler === 'delete') {
       deletePrompt(row);
