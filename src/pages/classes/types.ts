@@ -5,6 +5,7 @@ export interface IClasses {
   code: string;
   address: string;
   date: string;
+  duration: string;
 
   owner: {
     name: string;

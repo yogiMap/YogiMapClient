@@ -39,9 +39,12 @@ const ScheduleDashboard = (props: IProps) => {
 
   const calendarComponentRef = React.createRef(); //шайтан
 
+  // @ts-ignore
+  // @ts-ignore
   const events = classesList.map((el) => ({
     title: el.name,
-    start: el.date,
+    date: el.date,
+    duration: el.duration,
     // end: el.classesEnd,
     resourceId: 'A',
     ...el,
@@ -126,8 +129,10 @@ const ScheduleDashboard = (props: IProps) => {
   const eventClassNames = (arg: any) => {
     const description = get(arg, 'event.extendedProps.description', {});
     // console.log('eventClassNames', arg);
+    console.log(description, 'description');
     return description;
   };
+  console.log('eventClassNames', eventClassNames);
 
   const clickPrev = (arg: any) => {
     // @ts-ignore
@@ -258,6 +263,7 @@ const ScheduleDashboard = (props: IProps) => {
             duration: { day: 1 },
           },
         }}
+        initialView="timeGridDay"
         timeZone={timeZone}
         editable={true}
         ref={calendarComponentRef}
@@ -272,18 +278,21 @@ const ScheduleDashboard = (props: IProps) => {
         resources={[
           {
             id: 'A',
-            groupId: '1',
             title: 'Resource A',
+            date: '20.20.20',
+            duration: '45 min',
           },
           {
             id: 'B',
             groupId: '1',
             title: 'Resource B',
+            duration: '45 min',
           },
           {
             id: 'C',
             groupId: '2',
             title: 'Resource C',
+            duration: '45 min',
           },
         ]}
       />

@@ -1,30 +1,30 @@
 import { get, patch, post, del } from '@/utils/httpMethods';
-import { IOrder, IOrderQueryParams } from '@/pages/order/types';
+import { IClasses, IClassesQueryParams } from '@/pages/classes/types';
 
-export async function queryOrderCreate(payload: IOrder): Promise<any> {
-  return post({ url: '/order', data: payload });
+export async function queryClassesCreate(payload: IClasses): Promise<any> {
+  return post({ url: '/classes', data: payload });
 }
 
-export async function queryOrderGetById(id: string): Promise<any> {
-  return get({ url: `/order/${id}` });
+export async function queryClassesGetById(id: string): Promise<any> {
+  return get({ url: `/classes/${id}` });
 }
 
-export async function queryOrderUpdateById(payload: { orderId: string; values: IOrder }): Promise<any> {
-  return patch({ url: `/order/${payload.orderId}`, data: payload.values });
+export async function queryClassesUpdateById(payload: { classesId: string; values: IClasses }): Promise<any> {
+  return patch({ url: `/classes/${payload.classesId}`, data: payload.values });
 }
 
-export async function queryOrderDeleteById(orderId: string): Promise<any> {
-  return del({ url: `/order/${orderId}` });
+export async function queryClassesDeleteById(classesId: string): Promise<any> {
+  return del({ url: `/classes/${classesId}` });
 }
 
-export async function queryOrderSearch(payload: IOrderQueryParams): Promise<any> {
-  return post({ url: '/order/search', data: payload });
+export async function queryClassesSearch(payload: IClassesQueryParams): Promise<any> {
+  return post({ url: '/classes/search', data: payload });
 }
 
-export async function queryOrderGetAll(): Promise<any> {
-  return get({ url: '/order' });
+export async function queryClassesGetAll(): Promise<any> {
+  return get({ url: '/classes' });
 }
 
-export async function queryOrderGetStats(): Promise<any> {
-  return get({ url: `/order/stats` });
+export async function queryClassesGetStats(): Promise<any> {
+  return get({ url: `/classes/stats` });
 }

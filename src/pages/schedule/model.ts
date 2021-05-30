@@ -1,8 +1,7 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-// import { queryOrderDeleteById, queryOrderGetStats, queryOrderSearch } from '@/pages/schedule/queries';
-import { IOrder, IOrderStats } from '@/pages/schedule/types';
+import { IClasses, IClassesStats } from '@/pages/schedule/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
 import {
@@ -14,9 +13,9 @@ import {
 // import { queryOrderUpdateById } from '@/pages/order/queries';
 
 export interface IState {
-  orderList?: IOrder[];
-  orderStats?: IOrderStats;
-  orderPager?: IPager;
+  classesList?: IClasses[];
+  classesStats?: IClassesStats;
+  classesPager?: IPager;
 }
 
 export interface IModel {
@@ -46,7 +45,7 @@ const Model: IModel = {
       yield put({
         type: 'save',
         payload: {
-          orderList: get(data, 'payload.items'),
+          classesList: get(data, 'payload.items'),
           calendar: get(data, 'payload.calendar'), // - might be useless as we dont have pagination in schedule
         },
       });
@@ -62,13 +61,13 @@ const Model: IModel = {
       const data = yield call(queryClassesGetStats);
       yield put({
         type: 'save',
-        payload: { orderStats: data.payload },
+        payload: { classesStats: data.payload },
       });
     },
 
     *deleteById({ payload }, { call, put }) {
       yield call(queryClassesDeleteById, payload.orderId);
-      yield put({ type: 'orderSearch', payload: payload.queryParams });
+      yield put({ type: 'classesSearch', payload: payload.queryParams });
     },
 
     *reset(_, { put }) {

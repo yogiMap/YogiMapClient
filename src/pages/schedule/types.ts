@@ -1,30 +1,34 @@
-export interface IOrder {
+export interface IClasses {
   _id: string;
-  client: string;
-  order: string;
-  orderLine1: string;
-  orderLine2: string;
-  city: string;
-  state: string;
-  countryName: string;
-  countryCode: string;
-  zipCode: string;
-  orderAdditionalInfo: string;
+  name: string;
 
+  code: string;
+  address: string;
+  date: string;
+  duration: string;
+
+  owner: {
+    name: string;
+    _id: string;
+  };
   createdAt: string;
   updatedAt: string;
+
+  styleSearch: () => void;
+  teacherAccountSearch: () => void;
+  classTypeSearch: () => void;
 }
 
-export interface IOrderStats {
-  totalOrder: number;
-  todayOrder: number;
-  monthOrder: number;
-  averageOrder: number;
+export interface IClassesStats {
+  totalClasses: number;
+  todayClasses: number;
+  monthClasses: number;
+  averageClasses: number;
 }
 
-export interface IOrderQueryParams {
+export interface IClassesQueryParams {
   limit?: number | string;
   page?: number | string;
-  orderSearchParam1?: string;
-  orderSearchParam2?: string;
+  classesSearchParam1?: string;
+  classesSearchParam2?: string;
 }
