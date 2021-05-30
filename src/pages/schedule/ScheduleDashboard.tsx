@@ -129,10 +129,9 @@ const ScheduleDashboard = (props: IProps) => {
   const eventClassNames = (arg: any) => {
     const description = get(arg, 'event.extendedProps.description', {});
     // console.log('eventClassNames', arg);
-    console.log(description, 'description');
+    console.log(eventClassNames, arg);
     return description;
   };
-  console.log('eventClassNames', eventClassNames);
 
   const clickPrev = (arg: any) => {
     // @ts-ignore
