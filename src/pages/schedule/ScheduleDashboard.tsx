@@ -65,13 +65,9 @@ const ScheduleDashboard = (props: IProps) => {
     const calendarApi = calendarComponentRef.current.getApi();
     search(
       getSearchQuery({
-        start: moment //  устанавливаем начало диапазона, здесь нужно чтоб время было везде по нулям, кроме даты - начинаем с 0 часов 0 минут без часовых поясов. Таким образом наши эвенты (classess) очень точно ищутся в монго
+        date: moment //  устанавливаем начало диапазона, здесь нужно чтоб время было везде по нулям, кроме даты - начинаем с 0 часов 0 минут без часовых поясов. Таким образом наши эвенты (classess) очень точно ищутся в монго
           .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
           .utcOffset(3) // календарь куда то тырит три часа, добавляем
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        end: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
-          .utcOffset(3)
           .format('YYYY-MM-DDTHH:mm:ss'),
         view: calendarApi.currentDataManager.state.currentViewType,
       }),
@@ -87,32 +83,21 @@ const ScheduleDashboard = (props: IProps) => {
     // @ts-ignore
     const calendarApi = calendarComponentRef.current.getApi();
     const queryParams = {
-      start: moment
+      date: moment
         .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-        .utcOffset(3)
-        .format('YYYY-MM-DDTHH:mm:ss'),
-      end: moment
-        .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
         .utcOffset(3)
         .format('YYYY-MM-DDTHH:mm:ss'),
     };
     const classes = get(e, 'event.extendedProps', {});
     const classesId = get(classes, '_id');
-    const values: { classesEnd: string; classesStart: string; endDelta: undefined; startDelta: undefined } = {
-      classesStart: moment(classes.classesStart)
+    const values: { date: string; dateDelta: undefined } = {
+      date: moment(classes.date)
         .add(get(e, 'startDelta.years', 0), 'years')
         .add(get(e, 'startDelta.month', 0), 'month')
         .add(get(e, 'startDelta.days', 0), 'days')
         .add(get(e, 'startDelta.milliseconds', 0), 'millisecond')
         .format(),
-      classesEnd: moment(classes.classesEnd)
-        .add(get(e, 'endDelta.years', 0), 'years')
-        .add(get(e, 'endDelta.month', 0), 'month')
-        .add(get(e, 'endDelta.days', 0), 'days')
-        .add(get(e, 'endDelta.milliseconds', 0), 'millisecond')
-        .format(),
-      endDelta: get(e, 'endDelta'),
-      startDelta: get(e, 'startDelta'),
+      dateDelta: get(e, 'dateDelta'),
     };
     props.classesUpdateById({ classesId, values, queryParams });
   };
@@ -121,23 +106,14 @@ const ScheduleDashboard = (props: IProps) => {
     // @ts-ignore
     const calendarApi = calendarComponentRef.current.getApi();
     const queryParams = {
-      start: moment(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-        .utcOffset(3)
-        .format('YYYY-MM-DDTHH:mm:ss'),
-      end: moment(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
+      date: moment(calendarApi.currentDataManager.state.dateProfile.activeRange.date)
         .utcOffset(3)
         .format('YYYY-MM-DDTHH:mm:ss'),
     };
     const classes = get(e, 'event.extendedProps', {});
     const classesId = get(classes, '_id');
     const values = {
-      classesStart: moment(classes.classesStart)
-        .add(get(e, 'delta.years', 0), 'years')
-        .add(get(e, 'delta.month', 0), 'month')
-        .add(get(e, 'delta.days', 0), 'days')
-        .add(get(e, 'delta.milliseconds', 0), 'millisecond')
-        .format(),
-      classesEnd: moment(classes.classesEnd)
+      date: moment(classes.date)
         .add(get(e, 'delta.years', 0), 'years')
         .add(get(e, 'delta.month', 0), 'month')
         .add(get(e, 'delta.days', 0), 'days')
@@ -160,12 +136,8 @@ const ScheduleDashboard = (props: IProps) => {
     const query = getSearchQuery(
       {},
       {
-        start: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-          .utcOffset(3)
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        end: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
+        date: moment
+          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.date)
           .utcOffset(3)
           .format('YYYY-MM-DDTHH:mm:ss'),
         view: calendarApi.currentDataManager.state.currentViewType,
@@ -181,12 +153,8 @@ const ScheduleDashboard = (props: IProps) => {
     const query = getSearchQuery(
       {},
       {
-        start: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-          .utcOffset(3)
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        end: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
+        date: moment
+          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.date)
           .utcOffset(3)
           .format('YYYY-MM-DDTHH:mm:ss'),
         view: calendarApi.currentDataManager.state.currentViewType,
@@ -202,12 +170,8 @@ const ScheduleDashboard = (props: IProps) => {
     const query = getSearchQuery(
       {},
       {
-        start: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-          .utcOffset(3)
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        end: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
+        date: moment
+          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.date)
           .utcOffset(3)
           .format('YYYY-MM-DDTHH:mm:ss'),
         view: calendarApi.currentDataManager.state.currentViewType,
@@ -225,12 +189,8 @@ const ScheduleDashboard = (props: IProps) => {
     const query = getSearchQuery(
       {},
       {
-        start: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.start)
-          .utcOffset(3)
-          .format('YYYY-MM-DDTHH:mm:ss'),
-        end: moment
-          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.end)
+        date: moment
+          .utc(calendarApi.currentDataManager.state.dateProfile.activeRange.date)
           .utcOffset(3)
           .format('YYYY-MM-DDTHH:mm:ss'),
         view: calendarApi.currentDataManager.state.currentViewType,
@@ -242,12 +202,8 @@ const ScheduleDashboard = (props: IProps) => {
   const toggleWeekends = () => setCalendarWeekends(!calendarWeekends);
 
   return (
-    <div>
-      <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
-        <div>
-          <div className="h4 mr-4">Schedule dashboard</div>
-        </div>
-      </div>
+    <div className="container">
+      <h1 className="text-center my-4">Schedule dashboard</h1>
 
       <FullCalendar
         schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
@@ -321,7 +277,7 @@ const ScheduleDashboard = (props: IProps) => {
           },
           {
             id: 'B',
-            groupdId: '1',
+            groupId: '1',
             title: 'Resource B',
           },
           {

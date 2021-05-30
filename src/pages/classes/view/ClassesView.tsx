@@ -75,6 +75,10 @@ const ClassesView = (props: IProps) => {
       </div>
 
       <div className="mt-5 d-flex justify-content-center">
+        <Link to="/schedule" className="button-link-primary-active">
+          VIEW SCHEDULE
+        </Link>
+
         <Link to="/classes" className="button-link-primary">
           Back To Classes
         </Link>

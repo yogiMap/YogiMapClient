@@ -56,6 +56,8 @@ export default [
           { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
           { path: '/focus/:focusId', component: '@/pages/focus/view/FocusView' },
 
+          { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
+
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },
