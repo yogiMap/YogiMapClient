@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Button, Form, Input, Select } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { IUser } from '@/pages/user/userSearch/types';
-import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
 import validator from '@/utils/validators';
 import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
 import { useForm } from 'antd/es/form/Form';
@@ -44,7 +43,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
         <h2>Profile</h2>
         <div className="row">
           <div className="col">
-            <Form.Item label="name" name="usertName">
+            <Form.Item label="userName" name="name">
               <Input />
             </Form.Item>
           </div>

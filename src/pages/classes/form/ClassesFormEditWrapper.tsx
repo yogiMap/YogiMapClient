@@ -74,3 +74,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesFormEditWrapper));
+
+export class IClassesUpdate {}
