@@ -7,6 +7,7 @@ import UsersListItemRoles from '@/pages/user/userSearch/search/UsersListItemRole
 import { IUser, IUserAccount, IUserQueryParams } from '@/pages/user/userSearch/types';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
 import { DeleteTwoTone } from '@ant-design/icons';
+import ActionMenu from '@/pages/user/userSearch/search/ActionMenu';
 
 const loadId = { impersonateButton: 'impersonateButton' };
 
@@ -43,19 +44,8 @@ const UsersListItem = (props: IProps) => {
   const onUserRolesChange = (values: { roles: string[]; userId: string }) => {
     usersUpdateRoleById(values);
   };
+  const queryParams = get(props, 'location.query', {});
 
-  const { row, queryParams } = props;
-
-  const deletePrompt = (user: IUser) => {
-    Modal.confirm({
-      title: `Do you want to delete?`,
-      content: `${userName}`,
-      okType: 'danger',
-      onOk: () => props.userDeleteById({ userId: userId, queryParams }),
-    });
-  };
-
-  // @ts-ignore
   return (
     <div className="row mb-3 border-bottom">
       <div className="col-md-3">
@@ -86,20 +76,7 @@ const UsersListItem = (props: IProps) => {
       </div>
 
       <div className="col-md-2">
-        <Button
-          loading={get(props, 'loader.impersonateButton', false)}
-          size="small"
-          type="link"
-          onClick={() => userImpersonate({ userId, loadId: loadId.impersonateButton })}
-        >
-          Impersonate
-        </Button>
-      </div>
-
-      <div className="col-md-1">
-        <Button danger onClick={() => deletePrompt(row)}>
-          <DeleteTwoTone />
-        </Button>
+        <ActionMenu row={props.item} queryParams={queryParams} userImpersonate={userImpersonate} />
       </div>
     </div>
   );

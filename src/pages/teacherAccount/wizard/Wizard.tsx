@@ -138,7 +138,11 @@ const Wizard = (props: IProps) => {
               {...layout}
             >
               <h3 className="mb-5">Fill out your teacher name and phone</h3>
-              <Form.Item name="name" label="Teacher's Name" rules={[validator.require]}>
+              <Form.Item
+                name="name"
+                label="Teacher's Name"
+                rules={[validator.require, validator.minlength2, validator.maxlength30]}
+              >
                 <Input placeholder="Your Name" />
               </Form.Item>
               <p className="small text-secondary">You can use the special teacher`s name or your own full-name</p>

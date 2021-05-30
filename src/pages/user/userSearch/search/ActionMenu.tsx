@@ -3,13 +3,13 @@ import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
-import { IUser, IUserAccount, IUserQueryParams } from '@/pages/user/userSearch/types';
-import { get } from 'lodash';
+import { IUser, IUserQueryParams } from '@/pages/user/userSearch/types';
+
+const loadId = { impersonateButton: 'impersonateButton' };
 
 interface IUserDeleteById {
   userId: string;
   queryParams: IUserQueryParams;
-  Account: IUserAccount;
 }
 
 interface IProps {
@@ -17,13 +17,14 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   userDeleteById: (arg: { userId: string; queryParams: IUserQueryParams }) => void;
   queryParams: IUserQueryParams;
+  userImpersonate: (args: { userId: string; loadId: string }) => void;
 }
 
 const ActionMenu = (props: IProps) => {
-  const { row, queryParams } = props;
+  const { row, queryParams, userImpersonate } = props;
 
   const menuItems = [
-    { key: 'userImpersonate', handler: 'userImpersonate', name: 'userImpersonate' },
+    { key: 'impersonate', handler: 'impersonate', name: 'Impersonate' },
     { key: 'delete', handler: 'delete', name: 'Delete', danger: true },
   ];
 
@@ -38,7 +39,7 @@ const ActionMenu = (props: IProps) => {
   );
 
   const contextMenuClick = (handler: any, row: IUser) => {
-    if (handler === 'userImpersonate') {
+    if (handler === 'impersonate') {
       userImpersonateHandler(row._id);
     }
     if (handler === 'delete') {
@@ -46,18 +47,8 @@ const ActionMenu = (props: IProps) => {
     }
   };
 
-  // const name = get(props, 'item.name', '');
-  // const userId = get(props, 'item._id', ' ');
-  // const loading = get(props, 'loader.impersonateButton', false)}
-
-  const userImpersonateHandler = (userId: string) => {
-    props.open({
-      title: 'userImpersonate',
-      component: 'UserFormEdit',
-      place: 'UserDashboard',
-      width: 800,
-      userId,
-    });
+  const userImpersonateHandler = (user: IUser) => {
+    userImpersonate({ userId: user._id, loadId: loadId.impersonateButton });
   };
 
   const deletePrompt = (user: IUser) => {
@@ -83,57 +74,14 @@ const ActionMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  loader: state.Loader,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  userDeleteById: (payload: IUserDeleteById) => dispatch({ type: 'UserDashboard/userDeleteById', payload }),
+  userImpersonate: (payload: { userId: string; loadId: string }) =>
+    dispatch({ type: 'UsersDashboard/userImpersonate', payload }),
+  userDeleteById: (payload: IUserDeleteById) => dispatch({ type: 'UsersDashboard/userDeleteById', payload }),
 });
 
-// @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);
-
-{
-  /*     <Button*/
-}
-{
-  /*       loading={get(props, 'loader.impersonateButton', false)}*/
-}
-{
-  /*       size="small"*/
-}
-{
-  /*       type={'link'}*/
-}
-{
-  /*       onClick={() => userImpersonate({ userId, loadId: loadId.impersonateButton })}*/
-}
-{
-  /*     >*/
-}
-{
-  /*          Impersonate*/
-}
-{
-  /*        </Button>*/
-}
-{
-  /*      </div>*/
-}
-
-{
-  /*<div>*/
-}
-{
-  /*  <Button danger onClick={UserDeleteHandler}>*/
-}
-{
-  /*    Delete*/
-}
-{
-  /*  </Button>*/
-}
-{
-  /*  */
-}

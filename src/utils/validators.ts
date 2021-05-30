@@ -33,6 +33,10 @@ const validator = {
     pattern: /^\d+$/,
     message: 'Only numbers',
   },
+  minlength2: {
+    min: 2,
+    message: 'Min 2 characters',
+  },
   length4: {
     len: 4,
     message: 'Must be 4 characters',
@@ -56,6 +60,10 @@ const validator = {
   maxlength20: {
     max: 20,
     message: 'Max 20 characters',
+  },
+  maxlength30: {
+    max: 30,
+    message: 'Max 30 characters',
   },
   name: {
     pattern: /^[a-zA-Z0-9._-]+$/,
