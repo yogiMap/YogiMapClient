@@ -38,7 +38,6 @@ const TeacherAccountForm = (props: IProps) => {
 
   const [form] = useForm();
 
-  console.log(props.styleList, '*******************');
   if (!props.styleList) return null;
 
   // @ts-ignore
@@ -105,6 +104,12 @@ const TeacherAccountForm = (props: IProps) => {
           <div className="col-md-6">
             <Form.Item name="phoneNumber">
               <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
+            </Form.Item>
+          </div>
+
+          <div className="col-md-6">
+            <Form.Item name="email" label="Teacher`s Email (optional)">
+              <Input placeholder="email" className="rounded-pill" />
             </Form.Item>
           </div>
         </div>

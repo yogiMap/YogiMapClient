@@ -73,7 +73,7 @@ const StudentForm = (props: IProps) => {
               label="First Name"
               rules={[{ required: true, message: 'Please input your First Name' }]}
             >
-              <Input placeholder="Teacher`s Name" className="rounded-pill" />
+              <Input placeholder="First Name" className="rounded-pill" />
             </Form.Item>
           </div>
 
@@ -96,7 +96,7 @@ const StudentForm = (props: IProps) => {
           </div>
 
           <div className="col-md-6">
-            <Form.Item name="description" label="Tell About Yourself">
+            <Form.Item name="description" label="About Your Yoga History">
               <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
             </Form.Item>
           </div>
