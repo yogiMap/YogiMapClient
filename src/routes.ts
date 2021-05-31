@@ -38,9 +38,6 @@ export default [
           { path: '/student', component: '@/pages/student/dashboard/StudentDashboard' },
           { path: '/student/:studentId', component: '@/pages/student/view/StudentView' },
 
-          // { path: '/teacher', component: '@/pages/teacher/dashboard/TeacherDashboard' },
-          // { path: '/teacher/:teacherId', component: '@/pages/teacher/view/TeacherView' },
-
           { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
 
@@ -93,10 +90,6 @@ export default [
                 path: '/settings/security/:userId',
                 component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
               },
-              // {
-              //   path: '/settings/teacher/:userId',
-              //   component: '@/pages/teacher/form/TeacherCreateWrapper',
-              // },
               {
                 path: '/settings/classes/:userId',
                 component: '@/pages/classes/form/ClassesFormCreateWrapper',
@@ -104,6 +97,10 @@ export default [
               {
                 path: '/settings/event/:userId',
                 component: '@/pages/event/form/EventFormCreateWrapper',
+              },
+              {
+                path: '/settings/student/:userId',
+                component: '@/pages/student/form/StudentCreateWrapper',
               },
               {
                 path: '/settings/emails/:userId',

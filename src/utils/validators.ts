@@ -66,7 +66,7 @@ const validator = {
     message: 'Max 30 characters',
   },
   name: {
-    pattern: /^[a-zA-Z0-9._-]+$/,
+    pattern: /^[ a-zA-Z0-9._-]+$/,
     message: 'Special characters are not allowed',
   },
   url: {

@@ -7,6 +7,7 @@ import {
   SafetyOutlined,
   LockOutlined,
   ScheduleOutlined,
+  UserAddOutlined,
 } from '@ant-design/icons';
 import { get } from 'lodash';
 
@@ -15,11 +16,14 @@ interface IProps {}
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
   const teacherAccountId = get(props, 'Account.teacherAccount', '');
+  const studentId = get(props, 'Account.student', '');
 
   let menuItemName = '';
 
   if (history.location.pathname.split('/')[2] === 'teacherAccount') {
     menuItemName = 'Teacher account';
+  } else if (history.location.pathname.split('/')[2] === 'student') {
+    menuItemName = 'Student account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'Profile';
   } else if (history.location.pathname.split('/')[2] === 'security') {
@@ -31,6 +35,11 @@ const SettingsMenu = (props: IProps) => {
       name: 'Teacher`s Account',
       icon: <UsergroupAddOutlined />,
       link: `/settings/teacherAccount/${ownerId}`,
+    },
+    {
+      name: 'Student`s Account',
+      icon: <UserAddOutlined />,
+      link: `/settings/student/${ownerId}`,
     },
     {
       name: 'Profile',
@@ -53,8 +62,6 @@ const SettingsMenu = (props: IProps) => {
       link: `/settings/event/${ownerId}`,
     },
   ];
-
-  console.log(props);
 
   return (
     <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>

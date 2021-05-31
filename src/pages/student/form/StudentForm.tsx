@@ -61,7 +61,7 @@ const StudentForm = (props: IProps) => {
           </div>
 
           <div className="col-md-4 text-end">
-            <h6>Teacher Information</h6>
+            <h6>Student`s Information</h6>
             Account ID: {accountCode}
           </div>
         </div>
@@ -69,36 +69,37 @@ const StudentForm = (props: IProps) => {
         <div className="row">
           <div className="col">
             <Form.Item
-              name="name"
-              label="Teacher's Name"
-              rules={[{ required: true, message: 'Please input your Name' }]}
+              name="firstName"
+              label="First Name"
+              rules={[{ required: true, message: 'Please input your First Name' }]}
             >
               <Input placeholder="Teacher`s Name" className="rounded-pill" />
             </Form.Item>
           </div>
 
-          <div className="col-md-6">
-            <Form.Item name="description" label="Description">
-              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
+          <div className="col">
+            <Form.Item
+              name="lastName"
+              label="Last Name"
+              rules={[{ required: true, message: 'Please input your Last Name' }]}
+            >
+              <Input placeholder="Last Name" className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="row"></div>
+        </div>
+
+        <div className="row">
           <div className="col-md-6">
             <Form.Item label="Yoga Focus" name="focus">
               <FocusSearchInput />
             </Form.Item>
           </div>
-          {/*<div className="col-md-6">*/}
-          {/*  <Form.Item name="style" label="Yoga Style">*/}
-          {/*    <Select className="rounded-circle">*/}
-          {/*      {props.styleList.map((el) => (*/}
-          {/*        <Option key={el._id} value={el._id}>*/}
-          {/*          {el.name}*/}
-          {/*        </Option>*/}
-          {/*      ))}*/}
-          {/*    </Select>*/}
-          {/*  </Form.Item>*/}
-          {/*</div>*/}
+
+          <div className="col-md-6">
+            <Form.Item name="description" label="Tell About Yourself">
+              <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} className="rounded-pill" />
+            </Form.Item>
+          </div>
         </div>
 
         <div className="row">
@@ -111,25 +112,7 @@ const StudentForm = (props: IProps) => {
 
         <div className="row">
           <div className="col-md-12 mt-3">
-            <h6>Teacher Location</h6>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-10">
-            {isLoaded ? (
-              <Form.Item label="Address Search">
-                <Autocomplete onChange={onChange} />
-              </Form.Item>
-            ) : (
-              loadError
-            )}
-          </div>
-
-          <div className="col-md-2 pt-4">
-            <Button type="primary" shape="round" className="mt-2">
-              Search
-            </Button>
+            <h6>Your Address</h6>
           </div>
         </div>
 
