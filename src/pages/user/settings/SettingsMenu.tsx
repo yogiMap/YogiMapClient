@@ -21,11 +21,11 @@ const SettingsMenu = (props: IProps) => {
   let menuItemName = '';
 
   if (history.location.pathname.split('/')[2] === 'teacherAccount') {
-    menuItemName = 'Teacher account';
+    menuItemName = 'Teacher`s Account';
   } else if (history.location.pathname.split('/')[2] === 'student') {
-    menuItemName = 'Student account';
+    menuItemName = 'Student`s Account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
-    menuItemName = 'Profile';
+    menuItemName = 'User`s Profile';
   } else if (history.location.pathname.split('/')[2] === 'security') {
     menuItemName = 'Password';
   }
@@ -79,7 +79,7 @@ const SettingsMenu = (props: IProps) => {
       </Menu>
       <Menu mode="inline" defaultSelectedKeys={[menuItemName]} className="mt-4 border-top">
         {menuTeacher.map((el) => (
-          <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
+          <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher`s Account'}>
             {el.icon}
             {el.name}
             <Link to={el.link} />
