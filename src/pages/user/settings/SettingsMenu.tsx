@@ -30,17 +30,7 @@ const SettingsMenu = (props: IProps) => {
     menuItemName = 'Password';
   }
 
-  const menuTeacher = [
-    {
-      name: 'Teacher`s Account',
-      icon: <UsergroupAddOutlined />,
-      link: `/settings/teacherAccount/${ownerId}`,
-    },
-    {
-      name: 'Student`s Account',
-      icon: <UserAddOutlined />,
-      link: `/settings/student/${ownerId}`,
-    },
+  const menu = [
     {
       name: 'User`s Profile',
       icon: <IdcardOutlined />,
@@ -50,6 +40,19 @@ const SettingsMenu = (props: IProps) => {
       name: 'Password',
       icon: <SafetyOutlined />,
       link: `/settings/security/${ownerId}`,
+    },
+    {
+      name: 'Student`s Account',
+      icon: <UserAddOutlined />,
+      link: `/settings/student/${ownerId}`,
+    },
+  ];
+
+  const menuTeacher = [
+    {
+      name: 'Teacher`s Account',
+      icon: <UsergroupAddOutlined />,
+      link: `/settings/teacherAccount/${ownerId}`,
     },
     {
       name: 'Create Class',
@@ -64,15 +67,26 @@ const SettingsMenu = (props: IProps) => {
   ];
 
   return (
-    <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
-      {menuTeacher.map((el) => (
-        <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
-          {el.icon}
-          {el.name}
-          <Link to={el.link} />
-        </Menu.Item>
-      ))}
-    </Menu>
+    <>
+      <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
+        {menu.map((el) => (
+          <Menu.Item key={el.name}>
+            {el.icon}
+            {el.name}
+            <Link to={el.link} />
+          </Menu.Item>
+        ))}
+      </Menu>
+      <Menu mode="inline" defaultSelectedKeys={[menuItemName]} className="mt-4 border-top">
+        {menuTeacher.map((el) => (
+          <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher account'}>
+            {el.icon}
+            {el.name}
+            <Link to={el.link} />
+          </Menu.Item>
+        ))}
+      </Menu>
+    </>
   );
 };
 
