@@ -18,7 +18,7 @@ const TeacherAccountDashboardControls = (props: IProps) => {
   };
 
   return (
-    <Button type="primary" onClick={teacherAccountCreate}>
+    <Button type="primary" shape="round" onClick={teacherAccountCreate}>
       Create Teacher Account
     </Button>
   );

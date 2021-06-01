@@ -42,7 +42,7 @@ const SettingsMenu = (props: IProps) => {
       link: `/settings/student/${ownerId}`,
     },
     {
-      name: 'Profile',
+      name: 'User Profile',
       icon: <IdcardOutlined />,
       link: `/settings/profile/${ownerId}`,
     },

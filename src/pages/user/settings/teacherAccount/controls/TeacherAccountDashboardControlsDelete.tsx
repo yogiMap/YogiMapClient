@@ -4,7 +4,6 @@ import { Button, Modal } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import { get } from 'lodash';
-import { DeleteOutlined } from '@ant-design/icons';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface ITeacherAccountDeleteById {
@@ -35,12 +34,6 @@ const TeacherAccountDashboardControlsDelete = (props: IProps) => {
     });
   };
 
-  // const contextMenuClick = (handler: any, row: ITeacherAccount) => {
-  //   if (handler === 'delete') {
-  //     deletePrompt(row);
-  //   }
-  // };
-
   const isUserAuth = get(props, 'Account._id');
 
   return (
@@ -51,9 +44,6 @@ const TeacherAccountDashboardControlsDelete = (props: IProps) => {
         </Button>
       )}
     </div>
-    // <Button type="primary" onClick={teacherAccountCreate}>
-    //   Delete Teacher Account
-    // </Button>
   );
 };
 

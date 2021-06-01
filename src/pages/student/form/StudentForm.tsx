@@ -16,7 +16,7 @@ import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';
-import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
+import StudentDashboardControlsDelete from '@/pages/user/settings/studentAccount/controls/StudentDashboardControlsDelete';
 
 interface IProps {
   isLoading: boolean;
@@ -166,14 +166,21 @@ const StudentForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
-          <Form.Item className="mx-3">
-            <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
-              {props.submitButtonText}
-            </Button>
-          </Form.Item>
+        <div className="row my-5">
+          <div className="col">
+            <Form.Item className="mx-3">
+              <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
+                {props.submitButtonText}
+              </Button>
+            </Form.Item>
+          </div>
+
+          <div className="col">
+            <Form.Item className="mx-3">
+              <StudentDashboardControlsDelete />
+            </Form.Item>
+          </div>
         </div>
-        {/*<StudentDashboardControlsDelete/>*/}
       </Form>
     </div>
   );

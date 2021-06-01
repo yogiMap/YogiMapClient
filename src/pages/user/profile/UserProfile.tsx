@@ -7,21 +7,24 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
   teacherAccountId: string;
+  studentId: string;
   name: string;
   teacherAccountGetById: (teacherAccountId: string) => void;
+  studentGetById: (teacherAccountId: string) => void;
   Account: IUserAccount;
 }
 
 const UserProfile = (props: any) => {
-  const teacherAccountId: string = get(props, 'TeacherAccountView.teacherAccountId', '');
+  const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
+  const studentId: string = get(props, 'Account.teacherAccount', '');
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
   const userName = get(userInfo, 'name', '');
   const roles = get(userInfo, 'roles', []);
-  const about = get(userInfo, 'about', '');
   const email = get(userInfo, 'email', '');
-  const profile = get(props, 'Profile');
+
+  console.log('+++++++++++++++++++++', teacherAccountId, studentId);
   // const phoneNumber = profile.map((el: { phoneNumber: any; }) => el.phoneNumber)
   //
   // console.log(phoneNumber);
@@ -29,6 +32,7 @@ const UserProfile = (props: any) => {
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
+    props.studentGetById(studentId);
   }, []);
 
   return (
@@ -37,7 +41,7 @@ const UserProfile = (props: any) => {
       <h3 className="text-end">{userName}</h3>
       <h5 className="text-end">{email}</h5>
       {/*<h5 className="text-end">{phoneNumber}</h5>*/}
-      <div className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>
+      {/*<div className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>*/}
 
       <h3>Address</h3>
       <div>
@@ -48,16 +52,18 @@ const UserProfile = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  // TeacherAccountView: state.TeacherAccountView,
   userInfo: state.Profile.userInfo,
   Profile: state.Profile,
   Account: state.Account,
+  TeacherAccountView: state.TeacherAccountView,
+  StudentView: state.StudentView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
   teacherAccountGetById: (teacherAccountId: string) =>
     dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
+  studentGetById: (studentId: string) => dispatch({ type: 'Profile/studentGetById', payload: studentId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

@@ -40,7 +40,6 @@ const TeacherAccountForm = (props: IProps) => {
 
   if (!props.styleList) return null;
 
-  // @ts-ignore
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
@@ -154,7 +153,7 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row my-4">
           <div className="col-md-6">
             <Form.Item label="State" name="state">
               <CountryStateSearchInput />
@@ -176,7 +175,7 @@ const TeacherAccountForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row my-5">
           <div className="col">
             <Form.Item className="mx-3">
               <Button type="primary" htmlType="submit" shape="round" loading={isLoading}>
