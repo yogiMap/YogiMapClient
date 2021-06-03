@@ -6,7 +6,7 @@ const WizardAlert = () => {
     <div className="container-fluid">
       <div className="alert alert-warning text-center" role="alert">
         Please complete the{' '}
-        <Link to={'/wizard'} className="primary-link">
+        <Link to={'/welcome'} className="primary-link">
           checklist
         </Link>{' '}
         to get full access

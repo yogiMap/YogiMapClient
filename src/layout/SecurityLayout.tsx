@@ -17,8 +17,7 @@ interface IProps {
 
 const SecurityLayout = ({ children, auth, location, Account }: IProps) => {
   const roles = get(Account, 'roles', []);
-  const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard';
-  console.log(roles, '++++++++++++++++++++++++');
+  const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard' && location.pathname !== '/welcome';
   useEffect(() => {
     auth();
   }, []);

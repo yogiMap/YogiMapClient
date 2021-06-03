@@ -78,7 +78,7 @@ const Wizard = (props: IProps) => {
     setDisableSubmit(hasErrors || hasEmptyFields);
   };
 
-  const steps = ['Create Teacher`s Account', 'Email confirmation', 'Finish'];
+  const steps = ['Email confirmation', 'Create Teacher`s Account', 'Finish'];
 
   const [newEmail, setNewEmail] = useState('');
 
@@ -98,7 +98,7 @@ const Wizard = (props: IProps) => {
 
   const currentStep = () => {
     let step = steps[0];
-    if (teacherAccount) step = steps[1];
+    if (emailConfirmed) step = steps[1];
     if (emailConfirmed && teacherAccount) step = steps[2];
     return step;
   };
@@ -110,15 +110,15 @@ const Wizard = (props: IProps) => {
       <div className="row">
         <div className="col-md-4">
           <div className="mb-4">
-            <Check checked={teacherAccount} />
-            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>
-              Create Teacher`s Account
-            </span>
+            <Check checked={emailConfirmed} />
+            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>Confirm Email</span>
           </div>
 
           <div className="mb-4">
-            <Check checked={emailConfirmed} />
-            <span className={classNames('ms-2', currentStep() === steps[1] && 'fw-bold')}>Confirm Email</span>
+            <Check checked={teacherAccount} />
+            <span className={classNames('ms-2', currentStep() === steps[1] && 'fw-bold')}>
+              Create Teacher`s Account
+            </span>
           </div>
 
           <div className="mb-4">
@@ -129,6 +129,36 @@ const Wizard = (props: IProps) => {
 
         <div className="col-md-8">
           {currentStep() === steps[0] && (
+            <Form name="confirm_email" onFieldsChange={onFieldsChange} onFinish={onConfirm}>
+              {!openResend ? (
+                <>
+                  <h5>We sent you confirmation email to {email}.</h5>
+                  <p>Please check your inbox (and spam folder) and verify.</p>
+
+                  <div className="my-3">
+                    Have not received email?
+                    <Button type="link" shape={'round'} onClick={resetHandler}>
+                      Resend confirmation email
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <Form name="email">
+                  <p>Resend confirmation email {newEmail} </p>
+
+                  <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
+                    <Input placeholder="Email" defaultValue={email} onChange={onChangeEmail} value={newEmail} />
+                  </Form.Item>
+
+                  <Button type="primary" shape={'round'} onClick={sendEmailButtonHandler}>
+                    Resend
+                  </Button>
+                </Form>
+              )}
+            </Form>
+          )}
+
+          {currentStep() === steps[1] && (
             <Form
               name="normal_login"
               className="login-form"
@@ -156,36 +186,6 @@ const Wizard = (props: IProps) => {
                   Next →
                 </Button>
               </Form.Item>
-            </Form>
-          )}
-
-          {currentStep() === steps[1] && (
-            <Form name="confirm_email" onFieldsChange={onFieldsChange} onFinish={onConfirm}>
-              {!openResend ? (
-                <>
-                  <h5>We sent you confirmation email to {email}.</h5>
-                  <p>Please check your inbox (and spam folder) and verify.</p>
-
-                  <div className="my-3">
-                    Have not received email?
-                    <Button type="link" shape={'round'} onClick={resetHandler}>
-                      Resend confirmation email
-                    </Button>
-                  </div>
-                </>
-              ) : (
-                <Form name="email">
-                  <p>Resend confirmation email {newEmail} </p>
-
-                  <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
-                    <Input placeholder="Email" defaultValue={email} onChange={onChangeEmail} value={newEmail} />
-                  </Form.Item>
-
-                  <Button type="primary" shape={'round'} onClick={sendEmailButtonHandler}>
-                    Resend
-                  </Button>
-                </Form>
-              )}
             </Form>
           )}
 
