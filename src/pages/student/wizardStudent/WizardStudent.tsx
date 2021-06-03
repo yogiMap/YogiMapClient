@@ -79,7 +79,7 @@ const WizardStudentStudent = (props: IProps) => {
 
   const currentStep = () => {
     let step = steps[0];
-    if (student) step = steps[1];
+    if (emailConfirmed) step = steps[1];
     if (emailConfirmed && student) step = steps[2];
     return step;
   };
@@ -91,15 +91,15 @@ const WizardStudentStudent = (props: IProps) => {
       <div className="row">
         <div className="col-md-4">
           <div className="mb-4">
-            <Check checked={student} />
-            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>
-              Create Student`s Account
-            </span>
+            <Check checked={emailConfirmed} />
+            <span className={classNames('ms-2', currentStep() === steps[0] && 'fw-bold')}>Confirm Email</span>
           </div>
 
           <div className="mb-4">
-            <Check checked={emailConfirmed} />
-            <span className={classNames('ms-2', currentStep() === steps[1] && 'fw-bold')}>Confirm Email</span>
+            <Check checked={student} />
+            <span className={classNames('ms-2', currentStep() === steps[1] && 'fw-bold')}>
+              Create Student`s Account
+            </span>
           </div>
 
           <div className="mb-4">
@@ -110,32 +110,6 @@ const WizardStudentStudent = (props: IProps) => {
 
         <div className="col-md-8">
           {currentStep() === steps[0] && (
-            <Form
-              name="normal_login"
-              className="login-form"
-              onFieldsChange={onFieldsChange}
-              onFinish={onSubmit}
-              layout="vertical"
-              {...layout}
-            >
-              <h3 className="mb-5">Fill out your name and phone</h3>
-              <Form.Item name="name" label="Name" rules={[validator.require]}>
-                <Input placeholder="Name" />
-              </Form.Item>
-
-              <Form.Item name="phoneNumber">
-                <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
-              </Form.Item>
-
-              <Form.Item>
-                <Button type="primary" shape="round" htmlType="submit" disabled={disableSubmit}>
-                  Next →
-                </Button>
-              </Form.Item>
-            </Form>
-          )}
-
-          {currentStep() === steps[1] && (
             <Form name="confirm_email" onFieldsChange={onFieldsChange} onFinish={onConfirm}>
               {!openResend ? (
                 <>
@@ -161,6 +135,32 @@ const WizardStudentStudent = (props: IProps) => {
                   </Button>
                 </Form>
               )}
+            </Form>
+          )}
+
+          {currentStep() === steps[1] && (
+            <Form
+              name="normal_login"
+              className="login-form"
+              onFieldsChange={onFieldsChange}
+              onFinish={onSubmit}
+              layout="vertical"
+              {...layout}
+            >
+              <h3 className="mb-5">Fill out your name and phone</h3>
+              <Form.Item name="name" label="Name" rules={[validator.require]}>
+                <Input placeholder="Name" />
+              </Form.Item>
+
+              <Form.Item name="phoneNumber">
+                <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
+              </Form.Item>
+
+              <Form.Item>
+                <Button type="primary" shape="round" htmlType="submit" disabled={disableSubmit}>
+                  Next →
+                </Button>
+              </Form.Item>
             </Form>
           )}
 
