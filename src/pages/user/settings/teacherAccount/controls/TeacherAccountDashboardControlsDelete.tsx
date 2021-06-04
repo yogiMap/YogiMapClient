@@ -21,7 +21,7 @@ interface IProps {
 }
 
 const TeacherAccountDashboardControlsDelete = (props: IProps) => {
-  const { row, queryParams } = props;
+  const { queryParams } = props;
   const teacherAccountId = get(props, 'teacherAccountInfo._id', '');
 
   const deletePrompt = (teacherAccount: ITeacherAccount) => {

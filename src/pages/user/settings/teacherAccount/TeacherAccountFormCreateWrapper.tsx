@@ -39,7 +39,7 @@ const TeacherAccountFormCreateWrapper = (props: IProps) => {
   return (
     <TeacherAccountForm
       onFinish={onFinish}
-      submitButtonText="Create Teacher Account"
+      submitButtonText="Create Teacher`s Account"
       isLoading={isLoading}
       classesList={classesList}
       eventList={eventList}

@@ -35,7 +35,7 @@ const studentCreateWrapper = (props: IProps) => {
   return (
     <StudentForm
       onFinish={onFinish}
-      submitButtonText="Create"
+      submitButtonText="Create Student`s Account"
       isLoading={isLoading}
       classTypeList={classTypeList}
       classesList={classesList}

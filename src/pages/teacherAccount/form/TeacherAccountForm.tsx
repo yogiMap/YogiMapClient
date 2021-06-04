@@ -37,8 +37,7 @@ const TeacherAccountForm = (props: IProps) => {
   const email = get(props, 'Account.email', '');
 
   const [form] = useForm();
-
-  if (!props.styleList) return null;
+  // if (!props.styleList) return null;
 
   return (
     <div className="container mt-5">

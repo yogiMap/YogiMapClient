@@ -24,37 +24,38 @@ const UserProfile = (props: any) => {
 
   //teacher account info
   const teacherAccountInfo = get(props, 'teacherAccountInfo', '');
-  const teacherName = get(teacherAccountInfo, 'name');
-  const teacherPhone = get(teacherAccountInfo, 'phoneNumber.number');
-  const teacherFocus = get(teacherAccountInfo, 'focus');
-  const teacherClassType = get(teacherAccountInfo, 'classType');
-  const teacherClasses = get(teacherAccountInfo, 'classes');
-  const teacherEvent = get(teacherAccountInfo, 'event');
-  const teacherDescription = get(teacherAccountInfo, 'description');
-  const teacherAddressLine1 = get(teacherAccountInfo, 'addressLine1');
+  const teacherName = get(teacherAccountInfo, 'name', '');
+  const teacherPhone = get(teacherAccountInfo, 'phoneNumber.number', '');
+  const teacherFocus = get(teacherAccountInfo, 'focus', '');
+  const teacherClassType = get(teacherAccountInfo, 'classType', '');
+  const teacherClasses = get(teacherAccountInfo, 'classes', '');
+  const teacherEvent = get(teacherAccountInfo, 'event', '');
+  const teacherDescription = get(teacherAccountInfo, 'description', '');
+  const teacherAddressLine1 = get(teacherAccountInfo, 'addressLine1', '');
   const teacherAddressLine2 = get(teacherAccountInfo, 'addressLine2');
-  const teacherCity = get(teacherAccountInfo, 'city');
-  const teacherCountry = get(teacherAccountInfo, 'country');
-  const teacherState = get(teacherAccountInfo, 'state');
-  const teacherTimeZone = get(teacherAccountInfo, 'timeZone');
-  const teacherZipCode = get(teacherAccountInfo, 'zipCode');
+  const teacherCity = get(teacherAccountInfo, 'city', '');
+  const teacherCountry = get(teacherAccountInfo, 'country', '');
+  const teacherState = get(teacherAccountInfo, 'state', '');
+  const teacherTimeZone = get(teacherAccountInfo, 'timeZone', '');
+  const teacherZipCode = get(teacherAccountInfo, 'zipCode', '');
 
   //student account info
   const studentInfo = get(props, 'studentInfo', '');
-  const firstName = get(studentInfo, 'firstName');
-  const lastName = get(studentInfo, 'lastName');
-  const studentFocus = get(studentInfo, 'focus');
-  const studentClassType = get(studentInfo, 'classType');
-  const studentClasses = get(studentInfo, 'classes');
-  const studentEvent = get(studentInfo, 'event');
-  const studentDescription = get(studentInfo, 'description');
-  const studentAddressLine1 = get(studentInfo, 'addressLine1');
-  const studentAddressLine2 = get(studentInfo, 'addressLine2');
-  const studentCity = get(studentInfo, 'city');
-  const studentCountry = get(studentInfo, 'country');
-  const studentState = get(studentInfo, 'state');
-  const studentTimeZone = get(studentInfo, 'timeZone');
-  const studentZipCode = get(studentInfo, 'zipCode');
+  const firstName = get(studentInfo, 'firstName', '');
+  const lastName = get(studentInfo, 'lastName', '');
+  const studentPhone = get(studentInfo, 'phoneNumber.number', '');
+  const studentFocus = get(studentInfo, 'focus', '');
+  const studentClassType = get(studentInfo, 'classType', '');
+  const studentClasses = get(studentInfo, 'classes', '');
+  const studentEvent = get(studentInfo, 'event', '');
+  const studentDescription = get(studentInfo, 'description', '');
+  const studentAddressLine1 = get(studentInfo, 'addressLine1', '');
+  const studentAddressLine2 = get(studentInfo, 'addressLine2', '');
+  const studentCity = get(studentInfo, 'city', '');
+  const studentCountry = get(studentInfo, 'country', '');
+  const studentState = get(studentInfo, 'state', '');
+  const studentTimeZone = get(studentInfo, 'timeZone', '');
+  const studentZipCode = get(studentInfo, 'zipCode', '');
 
   useEffect(() => {
     props.userGetById(userId);
@@ -134,6 +135,11 @@ const UserProfile = (props: any) => {
             <div className="col-md-4 text-colored-first">
               {firstName} {lastName}
             </div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Phone</div>
+            <div className="col-md-4 text-colored-first">{studentPhone}</div>
           </div>
 
           <div className="row my-3 border-bottom">

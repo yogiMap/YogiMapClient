@@ -31,26 +31,14 @@ interface IProps {
 }
 
 const StudentForm = (props: IProps) => {
-  const { Option } = Select;
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
 
-  const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
   const [form] = useForm();
-  const opts = JsApiLoaderOpts();
-  // @ts-ignore
-  const { isLoaded, loadError } = useJsApiLoader(opts);
+  const { Option } = Select;
 
-  const [addressFields, setAddressFields] = useState();
-
-  const onChange = (center: any) => {
-    center ? setAddressFields(center[1]) : null;
-  };
-  useEffect(() => form.setFieldsValue(addressFields));
-
-  // @ts-ignore
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="student">
