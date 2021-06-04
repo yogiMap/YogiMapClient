@@ -3,8 +3,8 @@ import { connect } from 'umi';
 import { IStudent } from '@/pages/student/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import StudentCreateWrapper from '@/pages/student/form/StudentCreateWrapper';
-import StudentEditWrapper from '@/pages/student/form/StudentEditWrapper';
+import StudentFormSettingsEditWrapper from '@/pages/user/settings/studentAccount/StudentFormSettingsEditWrapper';
+import StudentFormCreateWrapper from '@/pages/user/settings/studentAccount/StudentFormCreateWrapper';
 
 interface IProps {
   create: (arg: IStudent) => void;
@@ -18,7 +18,7 @@ interface IProps {
 const StudentAccountSettingsView = (props: IProps) => {
   const hasTeacher = get(props, 'Account.student', '');
 
-  return !hasTeacher ? <StudentCreateWrapper /> : <StudentEditWrapper />;
+  return !hasTeacher ? <StudentFormCreateWrapper /> : <StudentFormSettingsEditWrapper />;
 };
 
 const mapStateToProps = (state: any) => ({

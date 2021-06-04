@@ -10,8 +10,6 @@ import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { useForm } from 'antd/es/form/Form';
 import { connect, withRouter } from 'umi';
 import { IUserAccount } from '@/pages/user/userSearch/types';
-import JsApiLoaderOpts from '@/pages/utils/googleUt/GoogleMap/JsApiLoaderOpts';
-import { useJsApiLoader } from '@react-google-maps/api';
 import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
@@ -40,11 +38,12 @@ const StudentForm = (props: IProps) => {
   const { Option } = Select;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-2">
+      <h1 className="my-3">Student`s Account</h1>
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="student">
         <div className="row mb-5">
           <div className="col-md-8">
-            <h1>{name}</h1>
+            <h5 className="text-colored-second">{name}</h5>
             <h6 className="mt-3">email: {email} </h6>
           </div>
 

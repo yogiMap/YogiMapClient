@@ -63,7 +63,7 @@ const StudentDashboard = (props: IProps) => {
     <div className="container">
       <div className="row my-5">
         <div className="col d-flex justify-content-center">
-          <h1>Find Your Teacher</h1>
+          <h1>Student`s Dashboard</h1>
         </div>
       </div>
 

@@ -40,11 +40,12 @@ const TeacherAccountForm = (props: IProps) => {
   // if (!props.styleList) return null;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-2">
+      <h1 className="my-3">Teacher`s Account</h1>
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
         <div className="row mb-5 border-bottom">
           <div className="col-md-8">
-            <h1>{name}</h1>
+            <h5 className="text-colored-second">{name}</h5>
             <h6 className="mt-3">email: {email} </h6>
           </div>
 
