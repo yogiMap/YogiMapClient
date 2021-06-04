@@ -39,6 +39,23 @@ const UserProfile = (props: any) => {
   const teacherTimeZone = get(teacherAccountInfo, 'timeZone');
   const teacherZipCode = get(teacherAccountInfo, 'zipCode');
 
+  //student account info
+  const studentInfo = get(props, 'studentInfo', '');
+  const firstName = get(studentInfo, 'firstName');
+  const lastName = get(studentInfo, 'lastName');
+  const studentFocus = get(studentInfo, 'focus');
+  const studentClassType = get(studentInfo, 'classType');
+  const studentClasses = get(studentInfo, 'classes');
+  const studentEvent = get(studentInfo, 'event');
+  const studentDescription = get(studentInfo, 'description');
+  const studentAddressLine1 = get(studentInfo, 'addressLine1');
+  const studentAddressLine2 = get(studentInfo, 'addressLine2');
+  const studentCity = get(studentInfo, 'city');
+  const studentCountry = get(studentInfo, 'country');
+  const studentState = get(studentInfo, 'state');
+  const studentTimeZone = get(studentInfo, 'timeZone');
+  const studentZipCode = get(studentInfo, 'zipCode');
+
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
@@ -48,32 +65,110 @@ const UserProfile = (props: any) => {
   return (
     <div className="container">
       <h1 className="text-center">Profile Page</h1>
-      <h3 className="text-end">{userName}</h3>
-      <p className="text-end">Email: {email}</p>
+      <h3 className="text-end text-colored-second my-3">{userName}</h3>
+      <p className="text-end text-colored-third">Email: {email}</p>
       <p className="text-end">
         User's roles:{' '}
         {roles.map((el: string) => (
-          <span className="ms-2">{el}</span>
+          <span className="ms-2 text-colored-first">{el}</span>
         ))}
       </p>
 
       {teacherAccountId && (
-        <div className="my-5">
-          <h5>{userName} Has a Teacher Account</h5>
-          <div>Teacher's Name: {teacherName}</div>
-          <div>phone: {teacherPhone}</div>
-          <ul>
-            <li>About:{teacherDescription}</li>
-            <li>focus of Yoga: {teacherFocus}</li>
-            <li>preferred classType: {teacherClassType}</li>
-            <li>classes: {teacherClasses}</li>
-            <li>events: {teacherEvent}</li>
-          </ul>
+        <div className="my-5 border-bottom">
+          <h5 className="text-colored-second my-5">{userName} Has a Teacher Account</h5>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Teacher's Name</div>
+            <div className="col-md-4 text-colored-first">{teacherName}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Phone</div>
+            <div className="col-md-4 text-colored-first">{teacherPhone}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">About</div>
+            <div className="col-md-4 text-colored-first">{teacherDescription}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Yoga focus</div>
+            <div className="col-md-4 text-colored-first">{teacherFocus}</div>
+          </div>
+
+          <div className="row my-3 border-bottom text-colored-second">
+            <div className="col-md-4 text-colored-third">TimeZone</div>
+            <div className="col-md-4 text-colored-first">{teacherTimeZone}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Preferred classType</div>
+            <div className="col-md-4 text-colored-first">{teacherClassType}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Classes</div>
+            <div className="col-md-4 text-colored-first">{teacherClasses}</div>
+          </div>
+
+          <div className="row my-3 border-bottom text-colored-second">
+            <div className="col-md-4 text-colored-third">Events</div>
+            <div className="col-md-4 text-colored-first">{teacherEvent}</div>
+          </div>
+
           <p>
             Teacher's Address:
-            <span className="ms-3">{`${teacherCountry} ${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherState}, ${teacherZipCode}`}</span>
+            <span className="ms-3 text-colored-first">{`${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherState}, ${teacherZipCode}, ${teacherCountry}`}</span>
           </p>
-          <p></p>
+        </div>
+      )}
+
+      {studentId && (
+        <div className="my-5 border-bottom">
+          <h5 className="text-colored-second my-5">{userName} Has a Student Account</h5>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Student's Name</div>
+            <div className="col-md-4 text-colored-first">
+              {firstName} {lastName}
+            </div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">About</div>
+            <div className="col-md-4 text-colored-first">{studentDescription}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Yoga focus</div>
+            <div className="col-md-4 text-colored-first">{studentFocus}</div>
+          </div>
+
+          <div className="row my-3 border-bottom text-colored-second">
+            <div className="col-md-4 text-colored-third">TimeZone</div>
+            <div className="col-md-4 text-colored-first">{studentTimeZone}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Preferred classType</div>
+            <div className="col-md-4 text-colored-first">{studentClassType}</div>
+          </div>
+
+          <div className="row my-3 border-bottom">
+            <div className="col-md-4 text-colored-third">Classes</div>
+            <div className="col-md-4 text-colored-first">{studentClasses}</div>
+          </div>
+
+          <div className="row my-3 border-bottom text-colored-second">
+            <div className="col-md-4 text-colored-third">Events:</div>
+            <div className="col-md-4 text-colored-first">{studentEvent}</div>
+          </div>
+          <p>
+            Student's Address:
+            <span className="ms-3 text-colored-first">{`${studentAddressLine1} ${studentAddressLine2} ${studentCity}, ${studentState}, ${studentZipCode}, ${studentCountry}`}</span>
+          </p>
         </div>
       )}
     </div>
@@ -86,8 +181,6 @@ const mapStateToProps = (state: any) => ({
   userInfo: state.Profile.userInfo,
   teacherAccountInfo: state.Profile.teacherAccountInfo,
   studentInfo: state.Profile.studentInfo,
-  // TeacherAccountView: state.TeacherAccountView,
-  // StudentView: state.StudentView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
