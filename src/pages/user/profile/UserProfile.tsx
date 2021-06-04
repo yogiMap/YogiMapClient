@@ -26,7 +26,7 @@ const UserProfile = (props: any) => {
   const teacherAccountInfo = get(props, 'teacherAccountInfo', '');
   const teacherName = get(teacherAccountInfo, 'name');
   const teacherPhone = get(teacherAccountInfo, 'phoneNumber.number');
-  const teacherFocus = get(teacherAccountInfo, 'phoneNumber.focus');
+  const teacherFocus = get(teacherAccountInfo, 'focus');
   const teacherClassType = get(teacherAccountInfo, 'classType');
   const teacherClasses = get(teacherAccountInfo, 'classes');
   const teacherEvent = get(teacherAccountInfo, 'event');
@@ -60,10 +60,20 @@ const UserProfile = (props: any) => {
       {teacherAccountId && (
         <div className="my-5">
           <h5>{userName} Has a Teacher Account</h5>
+          <ul>
+            <li>Teacher's Name: {teacherName}</li>
+            <li>phone: {teacherPhone}</li>
+            <li>About:{teacherDescription}</li>
+            <li>focus of Yoga: {teacherFocus}</li>
+            <li>preferred classType: {teacherClassType}</li>
+            <li>classes: {teacherClasses}</li>
+            <li>events: {teacherEvent}</li>
+          </ul>
           <p>
             Teacher's Address:
-            {`${teacherCountry} ${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, , ${teacherState}, ${teacherZipCode}`}
+            <span className="ms-3">{`${teacherCountry} ${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherState}, ${teacherZipCode}`}</span>
           </p>
+          <p></p>
         </div>
       )}
     </div>
