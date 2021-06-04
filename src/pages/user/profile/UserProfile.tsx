@@ -49,24 +49,23 @@ const UserProfile = (props: any) => {
     <div className="container">
       <h1 className="text-center">Profile Page</h1>
       <h3 className="text-end">{userName}</h3>
-      <h5 className="text-end">{email}</h5>
-      <h5 className="text-end">
+      <p className="text-end">Email: {email}</p>
+      <p className="text-end">
+        User's roles:{' '}
         {roles.map((el: string) => (
           <span className="ms-2">{el}</span>
         ))}
-      </h5>
+      </p>
 
       {teacherAccountId && (
-        <>
-          <h5>User Has a Teacher Account</h5>
+        <div className="my-5">
+          <h5>{userName} Has a Teacher Account</h5>
           <p>
             Teacher's Address:{' '}
             {`${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherCountry} ${teacherState}, ${teacherZipCode}`}
           </p>
-        </>
+        </div>
       )}
-
-      <div></div>
     </div>
   );
 };
