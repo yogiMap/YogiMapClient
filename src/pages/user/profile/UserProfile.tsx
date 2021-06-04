@@ -61,8 +61,8 @@ const UserProfile = (props: any) => {
         <div className="my-5">
           <h5>{userName} Has a Teacher Account</h5>
           <p>
-            Teacher's Address:{' '}
-            {`${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherCountry} ${teacherState}, ${teacherZipCode}`}
+            Teacher's Address:
+            {`${teacherCountry} ${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, , ${teacherState}, ${teacherZipCode}`}
           </p>
         </div>
       )}
