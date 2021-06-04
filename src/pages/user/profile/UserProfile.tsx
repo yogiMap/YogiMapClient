@@ -19,13 +19,25 @@ const UserProfile = (props: any) => {
 
   const userInfo = get(props, 'userInfo', '');
   const userName = get(userInfo, 'name', '');
-  const roles = get(userInfo, 'roles', []);
   const email = get(userInfo, 'email', '');
+  const roles = get(userInfo, 'roles', []);
 
-  console.log('+++++++++++++++++++++', teacherAccountId, studentId);
-  // const phoneNumber = profile.map((el: { phoneNumber: any; }) => el.phoneNumber)
-  //
-  // console.log(phoneNumber);
+  //teacher account info
+  const teacherAccountInfo = get(props, 'teacherAccountInfo', '');
+  const teacherName = get(teacherAccountInfo, 'name');
+  const teacherPhone = get(teacherAccountInfo, 'phoneNumber.number');
+  const teacherFocus = get(teacherAccountInfo, 'phoneNumber.focus');
+  const teacherClassType = get(teacherAccountInfo, 'classType');
+  const teacherClasses = get(teacherAccountInfo, 'classes');
+  const teacherEvent = get(teacherAccountInfo, 'event');
+  const teacherDescription = get(teacherAccountInfo, 'description');
+  const teacherAddressLine1 = get(teacherAccountInfo, 'addressLine1');
+  const teacherAddressLine2 = get(teacherAccountInfo, 'addressLine2');
+  const teacherCity = get(teacherAccountInfo, 'city');
+  const teacherCountry = get(teacherAccountInfo, 'country');
+  const teacherState = get(teacherAccountInfo, 'state');
+  const teacherTimeZone = get(teacherAccountInfo, 'timeZone');
+  const teacherZipCode = get(teacherAccountInfo, 'zipCode');
 
   useEffect(() => {
     props.userGetById(userId);
@@ -38,8 +50,21 @@ const UserProfile = (props: any) => {
       <h1 className="text-center">Profile Page</h1>
       <h3 className="text-end">{userName}</h3>
       <h5 className="text-end">{email}</h5>
-      {/*<h5 className="text-end">{phoneNumber}</h5>*/}
-      {/*<div className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>*/}
+      <h5 className="text-end">
+        {roles.map((el: string) => (
+          <span className="ms-2">{el}</span>
+        ))}
+      </h5>
+
+      {teacherAccountId && (
+        <>
+          <h5>User Has a Teacher Account</h5>
+          <p>
+            Teacher's Address:{' '}
+            {`${teacherAddressLine1} ${teacherAddressLine2} ${teacherCity}, ${teacherCountry} ${teacherState}, ${teacherZipCode}`}
+          </p>
+        </>
+      )}
 
       <div></div>
     </div>
