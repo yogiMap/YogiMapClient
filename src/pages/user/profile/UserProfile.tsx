@@ -60,9 +60,9 @@ const UserProfile = (props: any) => {
       {teacherAccountId && (
         <div className="my-5">
           <h5>{userName} Has a Teacher Account</h5>
+          <div>Teacher's Name: {teacherName}</div>
+          <div>phone: {teacherPhone}</div>
           <ul>
-            <li>Teacher's Name: {teacherName}</li>
-            <li>phone: {teacherPhone}</li>
             <li>About:{teacherDescription}</li>
             <li>focus of Yoga: {teacherFocus}</li>
             <li>preferred classType: {teacherClassType}</li>
