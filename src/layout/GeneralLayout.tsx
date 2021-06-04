@@ -11,7 +11,20 @@ interface IProps {
 }
 
 const isFooterVisible = (location: string) => {
-  const allowedPaths = ['/', '/teacherAccount', '/classes', '/event', '/classType', '/style', '/list/focus'];
+  const allowedPaths = [
+    '/',
+    '/teacherAccount',
+    '/classes',
+    '/event',
+    '/classType',
+    '/style',
+    '/list/focus',
+    '/library',
+    '/styles',
+    '/type',
+    '/faq',
+    '/contact',
+  ];
   return allowedPaths.includes(location);
 };
 
