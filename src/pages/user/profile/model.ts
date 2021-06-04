@@ -33,7 +33,6 @@ const UserModel: IUserModel = {
 
   effects: {
     *userGetById({ payload }, { call, put }) {
-      // yield put({ type: 'MobileMenu/close' });
       const response = yield call(queryUserGetById, payload);
       yield put({
         type: 'save',
@@ -42,7 +41,7 @@ const UserModel: IUserModel = {
     },
 
     *teacherAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
+      // yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
       const data = yield call(queryTeacherAccountGetById, payload);
       yield put({
         type: 'save',
@@ -51,7 +50,7 @@ const UserModel: IUserModel = {
     },
 
     *studentGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { studentInfo: [] } });
+      // yield put({ type: 'save', payload: { studentInfo: [] } });
       const data = yield call(queryStudentGetById, payload);
       yield put({
         type: 'save',
