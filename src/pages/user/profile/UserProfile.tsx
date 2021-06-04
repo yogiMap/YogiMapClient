@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
-import { get, isEmpty } from 'lodash';
-import UserRoles from '@/pages/user/profile/UserRoles';
-import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
+import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
@@ -16,7 +14,7 @@ interface IProps {
 
 const UserProfile = (props: any) => {
   const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
-  const studentId: string = get(props, 'Account.teacherAccount', '');
+  const studentId: string = get(props, 'Account.student', '');
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
@@ -43,20 +41,19 @@ const UserProfile = (props: any) => {
       {/*<h5 className="text-end">{phoneNumber}</h5>*/}
       {/*<div className="text-end">{!isEmpty(roles) ? <UserRoles roles={roles} /> : null}</div>*/}
 
-      <h3>Address</h3>
-      <div>
-        <TeacherAccountViewAddressList />
-      </div>
+      <div></div>
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.Profile.userInfo,
   Profile: state.Profile,
   Account: state.Account,
-  TeacherAccountView: state.TeacherAccountView,
-  StudentView: state.StudentView,
+  userInfo: state.Profile.userInfo,
+  teacherAccountInfo: state.Profile.teacherAccountInfo,
+  studentInfo: state.Profile.studentInfo,
+  // TeacherAccountView: state.TeacherAccountView,
+  // StudentView: state.StudentView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

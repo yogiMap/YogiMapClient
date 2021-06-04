@@ -17,7 +17,7 @@ export interface IUserModel {
   effects: {
     userGetById: Effect;
     teacherAccountGetById: Effect;
-    teacherAccountSearch: Effect;
+    // teacherAccountSearch: Effect;
     studentGetById: Effect;
     reset: Effect;
   };
@@ -33,7 +33,7 @@ const UserModel: IUserModel = {
 
   effects: {
     *userGetById({ payload }, { call, put }) {
-      yield put({ type: 'MobileMenu/close' });
+      // yield put({ type: 'MobileMenu/close' });
       const response = yield call(queryUserGetById, payload);
       yield put({
         type: 'save',
@@ -42,25 +42,21 @@ const UserModel: IUserModel = {
     },
 
     *teacherAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: {} });
+      yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
       const data = yield call(queryTeacherAccountGetById, payload);
-      yield put({ type: 'save', payload: { ...data.payload } });
-    },
-
-    *teacherAccountSearch(_, { call, put }) {
-      const data = yield call(queryTeacherAccountSearch);
       yield put({
         type: 'save',
-        payload: {
-          teacherAccountList: get(data, 'payload.items'),
-        },
+        payload: { teacherAccountInfo: data.payload },
       });
     },
 
     *studentGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: {} });
+      yield put({ type: 'save', payload: { studentInfo: [] } });
       const data = yield call(queryStudentGetById, payload);
-      yield put({ type: 'save', payload: { ...data.payload } });
+      yield put({
+        type: 'save',
+        payload: { studentInfo: data.payload },
+      });
     },
 
     *reset(_, { put }) {
