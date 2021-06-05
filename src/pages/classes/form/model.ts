@@ -3,7 +3,7 @@ import { Effect, history, Reducer } from 'umi';
 import { queryClassesCreate, queryClassesGetById, queryClassesUpdateById } from '@/pages/classes/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryStyleSearch } from '@/pages/style/queries';
-import { queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
+import { queryTeacherAccountGetById } from '@/pages/teacherAccount/queries';
 import { get } from 'lodash';
 import { queryClassTypeSearch } from '@/pages/classType/queries';
 
@@ -17,7 +17,8 @@ export interface ClassesModelType {
     getById: Effect;
     updateById: Effect;
     styleSearch: Effect;
-    teacherAccountSearch: Effect;
+    // teacherAccountSearch: Effect;
+    teacherAccountGetById: Effect;
     classTypeSearch: Effect;
     reset: Effect;
   };
@@ -63,13 +64,22 @@ const ClassesModel: ClassesModelType = {
       });
     },
 
-    *teacherAccountSearch(_, { call, put }) {
-      const data = yield call(queryTeacherAccountSearch);
+    // *teacherAccountSearch(_, { call, put }) {
+    //   const data = yield call(queryTeacherAccountSearch);
+    //   yield put({
+    //     type: 'save',
+    //     payload: {
+    //       teacherAccountList: get(data, 'payload.items'),
+    //     },
+    //   });
+    // },
+
+    *teacherAccountGetById({ payload }, { call, put }) {
+      yield put({ type: 'save', payload: { teacherAccountInfo: {} } });
+      const data = yield call(queryTeacherAccountGetById, payload);
       yield put({
         type: 'save',
-        payload: {
-          teacherAccountList: get(data, 'payload.items'),
-        },
+        payload: { teacherAccountInfo: data.payload },
       });
     },
 

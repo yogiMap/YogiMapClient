@@ -19,7 +19,7 @@ interface IProps {
   initialValues?: IClasses;
   styleList: IStyle[];
   classTypeList: IClassType[];
-  teacherAccountList: ITeacherAccount[];
+  teacherAccountInfo: ITeacherAccount[];
 }
 
 const ClassesForm = (props: IProps) => {
@@ -34,29 +34,27 @@ const ClassesForm = (props: IProps) => {
   initialValues.date = moment(initialValues.date);
   const [date, setDate] = useState(initialValues.date);
   const onDateChange = (selectedDate: any) => setDate(selectedDate);
+  const teacherName = get(props, 'teacherAccountInfo.name', '');
 
   useEffect(() => {
     form.setFieldsValue({ date: date });
   }, [date]);
 
+  console.log(teacherName);
+
   return (
-    <div className="container mt-5">
+    <div className="container mt-3">
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
         <div className="row mb-5">
           <div className="col-md-6">
-            <h1>{name}</h1>
-            <h6 className="mt-3">email: {email} </h6>
+            <h1>Create Your Classes</h1>
+            <h4 className="text-colored-second d-flex justify-content-start">{name}</h4>
+            <p className="mt-3">email: {email} </p>
           </div>
 
-          <div className="col-md-6">
-            <Form.Item name="teacherAccountList" label="Teacher`s `Account">
-              <Select>
-                {props.teacherAccountList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
-              </Select>
+          <div className="col-md-6 d-flex justify-content-end mt-4">
+            <Form.Item name="teacherAccount" label="Teacher`s Name">
+              <h5 className="text-colored-first">{teacherName}</h5>
             </Form.Item>
           </div>
         </div>
