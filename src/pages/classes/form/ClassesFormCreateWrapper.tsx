@@ -41,7 +41,7 @@ const ClassesFormCreateWrapper = (props: IProps) => {
   return (
     <ClassesForm
       onFinish={onFinish}
-      initialValues={props.teacherAccountInfo}
+      // initialValues={props.teacherAccountInfo}
       submitButtonText="Create"
       isLoading={isLoading}
       styleList={styleList}

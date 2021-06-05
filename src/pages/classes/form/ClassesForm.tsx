@@ -19,7 +19,7 @@ interface IProps {
   initialValues?: IClasses;
   styleList: IStyle[];
   classTypeList: IClassType[];
-  teacherAccountInfo: ITeacherAccount[];
+  teacherAccountInfo: ITeacherAccount;
 }
 
 const ClassesForm = (props: IProps) => {
@@ -34,11 +34,16 @@ const ClassesForm = (props: IProps) => {
   initialValues.date = moment(initialValues.date);
   const [date, setDate] = useState(initialValues.date);
   const onDateChange = (selectedDate: any) => setDate(selectedDate);
-  //const teacherName = get(props, 'teacherAccountInfo.name', '');
+  // const teacherName = get(props, 'teacherAccountInfo.name', '');
+
+  console.log(props.styleList, '+++++++++++++++++styleList----------------');
+  console.log(props.teacherAccountInfo, '++++++++++++++++teacherAccountInfo----------------');
 
   useEffect(() => {
     form.setFieldsValue({ date: date });
   }, [date]);
+
+  if (!props.teacherAccountInfo) return null;
 
   return (
     <div className="container mt-3">
@@ -51,12 +56,17 @@ const ClassesForm = (props: IProps) => {
           </div>
 
           <div className="col-md-6 d-flex justify-content-end mt-4">
-            <Form.Item name="teacherAccount" label="Teacher`s Name">
-              <h5 className="text-colored-first">
-                {props.teacherAccountInfo.map((el: any) => (
-                  <div key={el._id}>el.name</div>
-                ))}
-              </h5>
+            {/*<Form.Item name="teacherAccountList" label="Teacher`s Name">*/}
+            {/*  <h5 className="text-colored-first">*/}
+            {/*    {teacherName}*/}
+            {/*  </h5>*/}
+            {/*</Form.Item>*/}
+            <Form.Item name="teacherAccount" label="Teacher`s `Account" rules={[validator.require]}>
+              <Select>
+                <Option key={props.teacherAccountInfo._id} value={props.teacherAccountInfo._id}>
+                  {props.teacherAccountInfo.name}
+                </Option>
+              </Select>
             </Form.Item>
           </div>
         </div>
@@ -115,7 +125,7 @@ const ClassesForm = (props: IProps) => {
           </div>
           <div className="col-md-4">
             <Form.Item label="Time" name="date" initialValue={date} rules={[validator.require]}>
-              <TimePicker value={date} onChange={onDateChange} className="rounded-pill" />
+              <TimePicker value={date} onChange={onDateChange} use12Hours format="h:mm A" className="rounded-pill" />
             </Form.Item>
           </div>
           <div className="col-md-4">

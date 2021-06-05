@@ -1,22 +1,38 @@
-.fc-weekends-button .fc-button .fc-button-primary{
-  color: green;
-  background-color: red;
-}
+//.fc-weekends-button .fc-button .fc-button-primary{
+//  color: green !important;
+//  background-color: red !important;
+//}
 
-.fc-dayView-button{
-  color: green;
-  background-color: red;
-  padding: 0;
-}
+//.fc-dayView-button{
+//  color: green !important;
+//  background-color: red !important;
+//  padding: 0;
+//}
 
 .fc-button{
-  color: green;
-  background-color: red;
-  padding: 0;
+  color: #18a39e !important;
+  background-color: #f6f6fc !important;
+  border: 1px solid #375769 !important;;
+  font-family: 'Oswald', 'OpenSans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  padding: 0.2rem !important;
+  &:hover {
+    background-color: #18a38e !important;
+    color: #fafafa !important;
+  }
 }
 
-.fc-button-primary{
-  color: green;
-  background-color: red;
-  padding: 0;
+.fc-timegrid-slot {
+  background-color: white  !important;
 }
+
+.fc-toolbar-title {
+  color: #375769 !important;
+}
+
+//.fc-button-primary{
+//  color: green;
+//  background-color: red;
+//  padding: 0;
+//}

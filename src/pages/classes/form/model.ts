@@ -75,11 +75,12 @@ const ClassesModel: ClassesModelType = {
     // },
 
     *teacherAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { teacherAccountInfo: {} } });
       const data = yield call(queryTeacherAccountGetById, payload);
       yield put({
         type: 'save',
-        payload: { teacherAccountInfo: data.payload },
+        payload: {
+          teacherAccountInfo: get(data, 'payload'),
+        },
       });
     },
 
