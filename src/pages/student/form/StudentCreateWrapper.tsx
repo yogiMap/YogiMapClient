@@ -3,7 +3,7 @@ import { connect } from 'umi';
 import { IStudent } from '@/pages/student/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import StudentForm from '@/pages/student/form/studentForm';
+import StudentForm from '@/pages/student/form/StudentForm';
 
 interface IProps {
   create: (arg: IStudent) => void;
