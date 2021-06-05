@@ -108,14 +108,19 @@ const ClassesForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-4">
             <Form.Item label="Date" name="date" initialValue={date}>
               <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <Form.Item label="Time" name="date" initialValue={date}>
               <TimePicker value={date} onChange={onDateChange} className="rounded-pill" />
+            </Form.Item>
+          </div>
+          <div className="col-md-4">
+            <Form.Item label="Duration" name="duration">
+              <Input placeholder="Duration" className="rounded-pill" />
             </Form.Item>
           </div>
         </div>

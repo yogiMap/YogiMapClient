@@ -8,6 +8,7 @@ import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 import { IClasses } from '@/pages/classes/types';
 import ActionMenu from '@/pages/classes/dashboard/search/ActionMenu';
+import moment from 'moment/moment';
 
 interface IProps extends RouteComponentProps {
   items: IClasses[];
@@ -32,6 +33,7 @@ const ClassesSearchList = (props: IProps) => {
       render: (row) => {
         return formatterDateFull(row.date);
       },
+      sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
     },
     {
       title: 'Time',
@@ -39,6 +41,12 @@ const ClassesSearchList = (props: IProps) => {
       render: (row) => {
         return formatterTimeFull(row.date);
       },
+      sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
+    },
+    {
+      title: 'Duration',
+      key: 'duration',
+      dataIndex: 'duration',
     },
     {
       title: 'Yoga Focus',
