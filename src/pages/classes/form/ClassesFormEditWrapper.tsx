@@ -14,8 +14,8 @@ interface IProps {
   classesInfo: IClasses;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
-  teacherAccountSearch: () => void;
   classTypeSearch: () => void;
+  teacherAccountGetById: (teacherAccountId: string) => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -26,13 +26,22 @@ const ClassesFormEditWrapper = (props: IProps) => {
   const isLoadingGet = get(props, 'loadingEffects.ClassesForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.ClassesForm/updateById', false);
   const styleList = get(props, 'styleList', []);
-  const teacherAccountList = get(props, 'teacherAccountList', []);
   const classTypeList = get(props, 'classTypeList', []);
+  const teacherAccountInfo = get(props, 'teacherAccountInfo', []);
+  const teacherAccountId = get(props, 'TeacherAccountId', '');
+  const classesInfo = get(props, 'classesInfo', {});
+
+  if (!teacherAccountId) return null;
+  //
+  // if (!classesInfo) { // @ts-ignore
+  //   setTimeout(classesInfo, 20000)}
+
+  console.log(classesInfo, '+++++++++++**************');
 
   useEffect(() => {
     props.getById(classesId);
+    props.teacherAccountGetById(teacherAccountId);
     props.styleSearch();
-    props.teacherAccountSearch();
     props.classTypeSearch();
   }, []);
 
@@ -45,12 +54,12 @@ const ClassesFormEditWrapper = (props: IProps) => {
   return (
     <ClassesForm
       onFinish={onFinish}
-      initialValues={props.classesInfo}
+      // initialValues={classesInfo}
       submitButtonText="Update"
       isLoading={isLoadingUpdate}
       styleList={styleList}
-      teacherAccountList={teacherAccountList}
       classTypeList={classTypeList}
+      teacherAccountInfo={teacherAccountInfo}
     />
   );
 };
@@ -60,8 +69,9 @@ const mapStateToProps = (state: any) => ({
   classesInfo: state.ClassesForm.classesInfo,
   loadingEffects: state.loading.effects,
   styleList: state.ClassesForm.styleList,
-  teacherAccountList: state.ClassesForm.teacherAccountList,
   classTypeList: state.ClassesForm.classTypeList,
+  teacherAccountInfo: state.ClassesForm.teacherAccountInfo,
+  TeacherAccountId: state.Account.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -69,8 +79,9 @@ const mapDispatchToProps = (dispatch: any) => ({
   updateById: (payload: IClasses) => dispatch({ type: 'ClassesForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'ClassesForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'ClassesForm/styleSearch' }),
-  teacherAccountSearch: () => dispatch({ type: 'ClassesForm/teacherAccountSearch' }),
   classTypeSearch: () => dispatch({ type: 'ClassesForm/classTypeSearch' }),
+  teacherAccountGetById: (teacherAccountId: string) =>
+    dispatch({ type: 'ClassesForm/teacherAccountGetById', payload: teacherAccountId }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClassesFormEditWrapper));

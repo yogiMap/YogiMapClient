@@ -12,7 +12,6 @@ interface IProps {
   classTypeSearch: () => void;
   teacherAccountInfo: () => void;
   teacherAccountGetById: (teacherAccountId: string) => void;
-  // teacherAccountSearch: () => void;
 }
 
 const ClassesFormCreateWrapper = (props: IProps) => {
@@ -22,30 +21,24 @@ const ClassesFormCreateWrapper = (props: IProps) => {
 
   const isLoading = get(props, 'loadingEffects.ClassesForm/create', false);
   const styleList = get(props, 'styleList', []);
-  // const teacherAccountList = get(props, 'teacherAccountList', []);
-  const teacherAccountInfo = get(props, 'teacherAccountInfo', []);
   const classTypeList = get(props, 'classTypeList', []);
+  const teacherAccountInfo = get(props, 'teacherAccountInfo', []);
   const teacherAccountId = get(props, 'TeacherAccountId', '');
-  console.log(teacherAccountId, '___________________________');
 
   if (!teacherAccountId) return null;
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
-    // props.teacherAccountInfo();
     props.styleSearch();
     props.classTypeSearch();
-    // props.teacherAccountSearch();
   }, []);
 
   return (
     <ClassesForm
       onFinish={onFinish}
-      // initialValues={props.teacherAccountInfo}
       submitButtonText="Create"
       isLoading={isLoading}
       styleList={styleList}
-      // teacherAccountList={teacherAccountList}
       classTypeList={classTypeList}
       teacherAccountInfo={teacherAccountInfo}
     />
@@ -57,7 +50,6 @@ const mapStateToProps = (state: any) => ({
   styleList: state.ClassesForm.styleList,
   classTypeList: state.ClassesForm.classTypeList,
   teacherAccountInfo: state.ClassesForm.teacherAccountInfo,
-  // teacherAccountList: state.ClassesForm.teacherAccountList,
   TeacherAccountId: state.Account.teacherAccount,
 });
 
@@ -67,7 +59,6 @@ const mapDispatchToProps = (dispatch: any) => ({
   classTypeSearch: () => dispatch({ type: 'ClassesForm/classTypeSearch' }),
   teacherAccountGetById: (teacherAccountId: string) =>
     dispatch({ type: 'ClassesForm/teacherAccountGetById', payload: teacherAccountId }),
-  teacherAccountSearch: () => dispatch({ type: 'ClassesForm/teacherAccountSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassesFormCreateWrapper);

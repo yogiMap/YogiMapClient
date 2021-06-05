@@ -34,10 +34,6 @@ const ClassesForm = (props: IProps) => {
   initialValues.date = moment(initialValues.date);
   const [date, setDate] = useState(initialValues.date);
   const onDateChange = (selectedDate: any) => setDate(selectedDate);
-  // const teacherName = get(props, 'teacherAccountInfo.name', '');
-
-  console.log(props.styleList, '+++++++++++++++++styleList----------------');
-  console.log(props.teacherAccountInfo, '++++++++++++++++teacherAccountInfo----------------');
 
   useEffect(() => {
     form.setFieldsValue({ date: date });
@@ -56,11 +52,6 @@ const ClassesForm = (props: IProps) => {
           </div>
 
           <div className="col-md-6 d-flex justify-content-end mt-4">
-            {/*<Form.Item name="teacherAccountList" label="Teacher`s Name">*/}
-            {/*  <h5 className="text-colored-first">*/}
-            {/*    {teacherName}*/}
-            {/*  </h5>*/}
-            {/*</Form.Item>*/}
             <Form.Item name="teacherAccountId" label="Teacher`s `Account" rules={[validator.require]}>
               <Select>
                 <Option key={props.teacherAccountInfo._id} value={props.teacherAccountInfo._id}>
@@ -129,7 +120,7 @@ const ClassesForm = (props: IProps) => {
             </Form.Item>
           </div>
           <div className="col-md-4">
-            <Form.Item label="Duration" name="duration" rules={[validator.require]}>
+            <Form.Item label="Duration (min or hr)" name="duration" rules={[validator.require]}>
               <Input placeholder="Duration" className="rounded-pill" />
             </Form.Item>
           </div>

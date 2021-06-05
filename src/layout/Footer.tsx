@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, Link, withRouter } from 'umi';
+import { Link } from 'umi';
 
 const menu1 = [
   { link: '/faq', text: 'Help & FAQ' },
