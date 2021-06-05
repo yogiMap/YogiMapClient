@@ -61,7 +61,7 @@ const ClassesForm = (props: IProps) => {
             {/*    {teacherName}*/}
             {/*  </h5>*/}
             {/*</Form.Item>*/}
-            <Form.Item name="teacherAccount" label="Teacher`s `Account" rules={[validator.require]}>
+            <Form.Item name="teacherAccountId" label="Teacher`s `Account" rules={[validator.require]}>
               <Select>
                 <Option key={props.teacherAccountInfo._id} value={props.teacherAccountInfo._id}>
                   {props.teacherAccountInfo.name}
