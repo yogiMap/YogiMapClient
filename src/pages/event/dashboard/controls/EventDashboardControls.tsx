@@ -20,11 +20,16 @@ const EventDashboardControls = (props: IProps) => {
     });
   };
 
-  const isUserAuth = get(props, 'Account._id');
+  //const isUserAuth = get(props, 'Account._id');
+  const isUserHasTeacherAccount = get(props, 'Account.teacherAccount', '');
+  const roles = get(props, 'Account.roles', []);
+
+  const isAdmin = roles.includes('admin');
+  if (!isAdmin) return null;
 
   return (
     <>
-      {isUserAuth && (
+      {(isUserHasTeacherAccount || isAdmin) && (
         <Button type="primary" shape="round" onClick={eventCreate}>
           Create Event
         </Button>

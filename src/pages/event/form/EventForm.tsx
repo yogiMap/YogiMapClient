@@ -19,15 +19,12 @@ interface IProps {
   initialValues?: IEvent;
   styleList: IStyle[];
   classTypeList: IClassType[];
-  teacherAccountList: ITeacherAccount[];
+  teacherAccountInfo: ITeacherAccount;
 }
 
 const EventForm = (props: IProps) => {
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
-  // const name = get(props, 'teacherAccountList.name', '');
-  // const email = get(props, 'teacherAccountList.email', '');
-  // const teacherAccountId = get(props, 'teacherAccountList._id', '');
 
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -42,22 +39,24 @@ const EventForm = (props: IProps) => {
     form.setFieldsValue({ date: date });
   }, [date]);
 
+  if (!props.teacherAccountInfo) return null;
+
   return (
     <div className="container mt-5">
       <Form onFinish={props.onFinish} initialValues={initialValues} layout="vertical" name="event">
         <div className="row mb-5">
           <div className="col-md-6">
-            <h1>{name}</h1>
-            <h6 className="mt-3">email: {email} </h6>
+            <h1>Create Your Classes</h1>
+            <h4 className="text-colored-second d-flex justify-content-start">{name}</h4>
+            <p className="mt-3">email: {email}</p>
           </div>
-          <div className="col-md-6">
-            <Form.Item name="teacherAccountList" label="Teacher`s `Account">
+
+          <div className="col-md-6 d-flex justify-content-end mt-4">
+            <Form.Item name="teacherAccountId" label="Teacher`s `Account" rules={[validator.require]}>
               <Select>
-                {props.teacherAccountList.map((el) => (
-                  <Option key={el._id} value={el._id}>
-                    {el.name}
-                  </Option>
-                ))}
+                <Option key={props.teacherAccountInfo._id} value={props.teacherAccountInfo._id}>
+                  {props.teacherAccountInfo.name}
+                </Option>
               </Select>
             </Form.Item>
           </div>
@@ -110,14 +109,19 @@ const EventForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <div className="col-md-6">
-            <Form.Item label="Date" name="date" initialValue={date}>
+          <div className="col-md-4">
+            <Form.Item label="Date" name="date" initialValue={date} rules={[validator.require]}>
               <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
             </Form.Item>
           </div>
-          <div className="col-md-6">
-            <Form.Item label="Time" name="date" initialValue={date}>
-              <TimePicker value={date} onChange={onDateChange} className="rounded-pill" />
+          <div className="col-md-4">
+            <Form.Item label="Time" name="date" initialValue={date} rules={[validator.require]}>
+              <TimePicker value={date} onChange={onDateChange} use12Hours format="h:mm A" className="rounded-pill" />
+            </Form.Item>
+          </div>
+          <div className="col-md-4">
+            <Form.Item label="Duration (min or hr)" name="duration" rules={[validator.require]}>
+              <Input placeholder="Duration" className="rounded-pill" />
             </Form.Item>
           </div>
         </div>

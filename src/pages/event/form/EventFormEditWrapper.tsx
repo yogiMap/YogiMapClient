@@ -14,22 +14,26 @@ interface IProps {
   eventInfo: IEvent;
   loadingEffects: ILoadingEffects;
   styleSearch: () => void;
-  teacherAccountSearch: () => void;
   classTypeSearch: () => void;
+  teacherAccountGetById: (teacherAccountId: string) => void;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const EventFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const eventId: string = get(props, 'sidepanel.eventId', '');
+  const styleList = get(props, 'styleList', []);
+  const classTypeList = get(props, 'classTypeList', []);
+  const teacherAccountInfo = get(props, 'teacherAccountInfo', []);
+  const teacherAccountId = get(props, 'TeacherAccountId', '');
 
   const isLoadingGet = get(props, 'loadingEffects.EventForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.EventForm/updateById', false);
 
   useEffect(() => {
     props.getById(eventId);
+    props.teacherAccountGetById(teacherAccountId);
     props.styleSearch();
-    props.teacherAccountSearch();
     props.classTypeSearch();
   }, []);
 
@@ -38,19 +42,16 @@ const EventFormEditWrapper = (props: IProps) => {
   };
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
-  const styleList = get(props, 'styleList', []);
-  const teacherAccountList = get(props, 'teacherAccountList', []);
-  const classTypeList = get(props, 'classTypeList', []);
 
   return (
     <EventForm
       onFinish={onFinish}
-      initialValues={props.eventInfo}
+      // initialValues={props.eventInfo}
       submitButtonText="Update"
       isLoading={isLoadingUpdate}
       styleList={styleList}
-      teacherAccountList={teacherAccountList}
       classTypeList={classTypeList}
+      teacherAccountInfo={teacherAccountInfo}
     />
   );
 };
@@ -60,8 +61,9 @@ const mapStateToProps = (state: any) => ({
   eventInfo: state.EventForm.eventInfo,
   loadingEffects: state.loading.effects,
   styleList: state.EventForm.styleList,
-  teacherAccountList: state.EventForm.teacherAccountList,
   classTypeList: state.EventForm.classTypeList,
+  teacherAccountInfo: state.ClassesForm.teacherAccountInfo,
+  TeacherAccountId: state.Account.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -69,8 +71,9 @@ const mapDispatchToProps = (dispatch: any) => ({
   updateById: (payload: IEvent) => dispatch({ type: 'EventForm/updateById', payload }),
   getById: (payload: string) => dispatch({ type: 'EventForm/getById', payload }),
   styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
-  teacherAccountSearch: () => dispatch({ type: 'EventForm/teacherAccountSearch' }),
   classTypeSearch: () => dispatch({ type: 'EventForm/classTypeSearch' }),
+  teacherAccountGetById: (teacherAccountId: string) =>
+    dispatch({ type: 'ClassesForm/teacherAccountGetById', payload: teacherAccountId }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventFormEditWrapper));

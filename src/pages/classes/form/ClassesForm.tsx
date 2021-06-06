@@ -48,7 +48,7 @@ const ClassesForm = (props: IProps) => {
           <div className="col-md-6">
             <h1>Create Your Classes</h1>
             <h4 className="text-colored-second d-flex justify-content-start">{name}</h4>
-            <p className="mt-3">email: {email} </p>
+            <p className="mt-3">email: {email}</p>
           </div>
 
           <div className="col-md-6 d-flex justify-content-end mt-4">

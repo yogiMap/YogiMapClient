@@ -17,7 +17,6 @@ export interface ClassesModelType {
     getById: Effect;
     updateById: Effect;
     styleSearch: Effect;
-    // teacherAccountSearch: Effect;
     teacherAccountGetById: Effect;
     classTypeSearch: Effect;
     reset: Effect;
@@ -63,16 +62,6 @@ const ClassesModel: ClassesModelType = {
         },
       });
     },
-
-    // *teacherAccountSearch(_, { call, put }) {
-    //   const data = yield call(queryTeacherAccountSearch);
-    //   yield put({
-    //     type: 'save',
-    //     payload: {
-    //       teacherAccountList: get(data, 'payload.items'),
-    //     },
-    //   });
-    // },
 
     *teacherAccountGetById({ payload }, { call, put }) {
       const data = yield call(queryTeacherAccountGetById, payload);
