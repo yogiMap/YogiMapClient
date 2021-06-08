@@ -9,8 +9,29 @@ const usaPhone = {
   },
 };
 
+// 1. (?!.*[\s]) no spaces
+// 2. (?=.*\d) digits
+// 3. (?=.*[a-z]) lower case
+// 3. (?=.*[A-Z]) upper case
+// min 7, max 20
+const password = {
+  validator(_: any, value: string = '') {
+    if (!value.length) return Promise.resolve();
+
+    if (value.match(/[ ]/)) return Promise.reject(new Error('No spaces'));
+    if (!value.match(/[0-9]/)) return Promise.reject(new Error('Must contain digit'));
+    if (!value.match(/[a-z]/)) return Promise.reject(new Error('Must contain lower case'));
+    if (!value.match(/[A-Z]/)) return Promise.reject(new Error('Must contain upper case'));
+    if (value.length < 7) return Promise.reject(new Error('Length should be min 7 characters'));
+    if (value.length > 20) return Promise.reject(new Error('Length should be max 20 characters'));
+
+    return Promise.resolve();
+  },
+};
+
 const validator = {
   usaPhone,
+  password,
   require: {
     required: true,
     message: 'Required',

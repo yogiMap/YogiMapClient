@@ -43,7 +43,7 @@ const UserRegister = (props: IProps) => {
         <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
       </Form.Item>
 
-      <Form.Item name="password" rules={[validator.require, validator.minlength5]} hasFeedback>
+      <Form.Item name="password" rules={[validator.require, validator.password]} hasFeedback>
         <Input.Password
           type="password"
           prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
