@@ -13,8 +13,6 @@ interface IProps {
   studentInfo: IStudent;
   classTypeSearch: () => void;
   styleSearch: () => void;
-  classesSearch: () => void;
-  eventSearch: () => void;
 }
 
 const StudentFormCreateWrapper = (props: IProps) => {
@@ -24,14 +22,10 @@ const StudentFormCreateWrapper = (props: IProps) => {
 
   useEffect(() => {
     props.classTypeSearch();
-    props.classesSearch();
-    props.eventSearch();
     props.styleSearch();
   }, []);
 
   const isLoading = get(props, 'loadingEffects.StudentForm/create', false);
-  const classesList = get(props, 'classesList', []);
-  const eventList = get(props, 'eventList', []);
   const classTypeList = get(props, 'classTypeList', []);
   const styleList = get(props, 'styleList', []);
 
@@ -39,10 +33,8 @@ const StudentFormCreateWrapper = (props: IProps) => {
   return (
     <StudentForm
       onFinish={onFinish}
-      submitButtonText="Create Teacher`s Account"
+      submitButtonText="Create Student`s Account"
       isLoading={isLoading}
-      classesList={classesList}
-      eventList={eventList}
       classTypeList={classTypeList}
       styleList={styleList}
     />
@@ -51,16 +43,12 @@ const StudentFormCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  classesList: state.StudentForm.classesList,
-  eventList: state.StudentForm.eventList,
   classTypeList: state.StudentForm.classTypeList,
   styleList: state.StudentForm.styleList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IStudent) => dispatch({ type: 'StudentForm/create', payload }),
-  classesSearch: () => dispatch({ type: 'StudentForm/classesSearch' }),
-  eventSearch: () => dispatch({ type: 'StudentForm/eventSearch' }),
   classTypeSearch: () => dispatch({ type: 'StudentForm/classTypeSearch' }),
   styleSearch: () => dispatch({ type: 'StudentForm/styleSearch' }),
 });

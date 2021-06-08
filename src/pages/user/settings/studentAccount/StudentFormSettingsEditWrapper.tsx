@@ -44,8 +44,6 @@ const StudentFormSettingsEditWrapper = (props: IProps) => {
     props.studentGetById(studentId);
     props.getById(studentId);
     props.classTypeSearch();
-    props.classesSearch();
-    props.eventSearch();
     props.styleSearch();
   }, []);
 
@@ -53,8 +51,6 @@ const StudentFormSettingsEditWrapper = (props: IProps) => {
     props.updateById({ values, studentId, queryParams });
   };
   const classTypeList = get(props, 'classTypeList', []);
-  const classesList = get(props, 'classesList', []);
-  const eventList = get(props, 'eventList', []);
   const styleList = get(props, 'styleList', []);
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
@@ -67,8 +63,6 @@ const StudentFormSettingsEditWrapper = (props: IProps) => {
       submitButtonText="Update"
       isLoading={isLoadingUpdate}
       classTypeList={classTypeList}
-      classesList={classesList}
-      eventList={eventList}
       styleList={styleList}
     />
   );
@@ -80,8 +74,6 @@ const mapStateToProps = (state: any) => ({
   studentInfo: state.StudentForm.studentInfo,
   loadingEffects: state.loading.effects,
   classTypeList: state.StudentForm.classTypeList,
-  classesList: state.StudentForm.classesList,
-  eventList: state.StudentForm.eventList,
   styleList: state.StudentForm.styleList,
 });
 
@@ -90,8 +82,6 @@ const mapDispatchToProps = (dispatch: any) => ({
   getById: (studentId: string) => dispatch({ type: 'StudentForm/getById', payload: studentId }),
   updateById: (payload: IStudentUpdate) => dispatch({ type: 'StudentForm/updateById', payload }),
   classTypeSearch: () => dispatch({ type: 'StudentForm/classTypeSearch' }),
-  classesSearch: () => dispatch({ type: 'StudentForm/classesSearch' }),
-  eventSearch: () => dispatch({ type: 'StudentForm/eventSearch' }),
   styleSearch: () => dispatch({ type: 'StudentForm/styleSearch' }),
 });
 

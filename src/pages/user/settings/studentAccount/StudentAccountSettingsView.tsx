@@ -16,9 +16,9 @@ interface IProps {
 }
 
 const StudentAccountSettingsView = (props: IProps) => {
-  const hasTeacher = get(props, 'Account.student', '');
+  const hasStudent = get(props, 'Account.student', '');
 
-  return !hasTeacher ? <StudentFormCreateWrapper /> : <StudentFormSettingsEditWrapper />;
+  return !hasStudent ? <StudentFormCreateWrapper /> : <StudentFormSettingsEditWrapper />;
 };
 
 const mapStateToProps = (state: any) => ({

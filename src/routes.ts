@@ -100,7 +100,7 @@ export default [
               },
               {
                 path: '/settings/student/:userId',
-                component: '@/pages/student/form/StudentCreateWrapper',
+                component: '@/pages/user/settings/studentAccount/StudentFormCreateWrapper',
               },
               {
                 path: '/settings/emails/:userId',
