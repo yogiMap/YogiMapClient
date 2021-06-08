@@ -83,6 +83,10 @@ export default [
                 component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
               },
               {
+                path: '/settings/student/:userId',
+                component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
+              },
+              {
                 path: '/settings/profile/:userId',
                 component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
               },
@@ -97,10 +101,6 @@ export default [
               {
                 path: '/settings/event/:userId',
                 component: '@/pages/event/form/EventFormCreateWrapper',
-              },
-              {
-                path: '/settings/student/:userId',
-                component: '@/pages/user/settings/studentAccount/StudentFormCreateWrapper',
               },
               {
                 path: '/settings/emails/:userId',
