@@ -46,8 +46,6 @@ const UserProfile = (props: any) => {
   const studentPhone = get(studentInfo, 'phoneNumber.number', '');
   const studentFocus = get(studentInfo, 'focus', '');
   const studentClassType = get(studentInfo, 'classType', '');
-  const studentClasses = get(studentInfo, 'classes', '');
-  const studentEvent = get(studentInfo, 'event', '');
   const studentDescription = get(studentInfo, 'description', '');
   const studentAddressLine1 = get(studentInfo, 'addressLine1', '');
   const studentAddressLine2 = get(studentInfo, 'addressLine2', '');
@@ -168,15 +166,6 @@ const UserProfile = (props: any) => {
                 <div className="col-md-4 text-colored-first">{studentClassType}</div>
               </div>
 
-              <div className="row my-3 border-bottom">
-                <div className="col-md-4 text-colored-third">Classes</div>
-                <div className="col-md-4 text-colored-first">{studentClasses}</div>
-              </div>
-
-              <div className="row my-3 border-bottom text-colored-second">
-                <div className="col-md-4 text-colored-third">Events:</div>
-                <div className="col-md-4 text-colored-first">{studentEvent}</div>
-              </div>
               <p>
                 Student's Address:
                 <span className="ms-3 text-colored-first">{`${studentAddressLine1} ${studentAddressLine2} ${studentCity}, ${studentState}, ${studentZipCode}, ${studentCountry}`}</span>
