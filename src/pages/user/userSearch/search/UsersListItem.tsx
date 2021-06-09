@@ -45,15 +45,22 @@ const UsersListItem = (props: IProps) => {
     usersUpdateRoleById(values);
   };
   const queryParams = get(props, 'location.query', {});
+  const userTeacherAccountId = get(props, 'item.teacherAccount._id', '');
+  const userTeacherAccountName = get(props, 'item.teacherAccount.name', '');
+  const userStudentId = get(props, 'item.student._id', '');
+  const userStudentFirstName = get(props, 'item.student.firstName', '');
+  const userStudentLastName = get(props, 'item.student.lastName', '');
+  const studentName = `${userStudentFirstName} ${userStudentLastName}`;
 
+  // @ts-ignore
   return (
     <div className="row mb-3 border-bottom">
-      <div className="col-md-3">
+      <div className="col-md-2">
         <div>{moment(createdAt).format('LL HH:mm')}</div>
         <div>Last login {lastLogin}</div>
       </div>
 
-      <div className="col-md-3">
+      <div className="col-md-2">
         <div>
           <Link className="primary-link" to={`/profile/${userId}`}>
             {userName}
@@ -68,11 +75,30 @@ const UsersListItem = (props: IProps) => {
         </div>
       </div>
 
-      <div className="col-md-3">
+      <div className="col-md-4">
         <span className={userEmailConfirmed && 'text-success'}>{userEmail}</span>
         <Button type="link" className="ps-0 d-block" size="small" onClick={() => userVerifyEmailSend({ userId })}>
           Send confirm email
         </Button>
+      </div>
+
+      <div className="col-md-2">
+        {userTeacherAccountId && (
+          <>
+            <div>Teacher Account:</div>
+            <Link className="primary-link" to={`/teacherAccount/${userTeacherAccountId}`}>
+              {userTeacherAccountName}
+            </Link>
+          </>
+        )}
+        {userStudentId && (
+          <>
+            <div>Student Account:</div>
+            <Link className="primary-link" to={`/student/${userStudentId}`}>
+              {studentName}
+            </Link>
+          </>
+        )}
       </div>
 
       <div className="col-md-2">

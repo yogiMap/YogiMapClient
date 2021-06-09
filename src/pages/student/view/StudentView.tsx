@@ -22,10 +22,6 @@ const StudentView = (props: IProps) => {
   const phone: any = get(props, 'StudentView.phoneNumber.number', '');
 
   const name = get(props, 'StudentView.name', '');
-  const classesObject = get(props, 'StudentView.classes', {});
-  const classes: any = Object.values(classesObject);
-  const eventObject = get(props, 'StudentView.event', {});
-  const event: any = Object.values(eventObject);
   const classTypeObject = get(props, 'StudentView.classType', {});
   const classType = Object.values(classTypeObject);
   const focusObject = get(props, 'StudentView.focus', {});
@@ -46,25 +42,11 @@ const StudentView = (props: IProps) => {
           <RenderPhoneNumber phoneNumberAll={get(props, 'StudentView.phoneNumber', {})} />
         </h6>
 
-        {/*{classType.map((el: any) => (*/}
-        {/*  <h2>{el.name}</h2>*/}
-        {/*))}*/}
-
         <div className="py-5">
           <h3>Address</h3>
           <div>
             <StudentViewAddressList />
           </div>
-        </div>
-
-        <h3 className="mt-5">Classes</h3>
-        <div>
-          <StudentViewClassesList classes={classes} />
-        </div>
-
-        <h3 className="mt-5">Events</h3>
-        <div>
-          <StudentViewEventList event={event} />
         </div>
       </div>
     </div>
