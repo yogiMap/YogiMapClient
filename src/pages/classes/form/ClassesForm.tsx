@@ -35,6 +35,9 @@ const ClassesForm = (props: IProps) => {
   const [date, setDate] = useState(initialValues.date);
   const onDateChange = (selectedDate: any) => setDate(selectedDate);
 
+  const minDate = moment().format('YYYY-MM-DD');
+  const maxDate = moment().add(3, 'months').format('YYYY-MM-DD');
+
   useEffect(() => {
     form.setFieldsValue({ date: date });
   }, [date]);
@@ -111,7 +114,12 @@ const ClassesForm = (props: IProps) => {
         <div className="row">
           <div className="col-md-4">
             <Form.Item label="Date" name="date" initialValue={date} rules={[validator.require]}>
-              <DatePicker value={date} onChange={onDateChange} className="rounded-pill" />
+              <DatePicker
+                value={date}
+                onChange={onDateChange}
+                className="rounded-pill"
+                disabledDate={(d) => !d || d.isBefore(minDate) || d.isAfter(maxDate)}
+              />
             </Form.Item>
           </div>
           <div className="col-md-4">
