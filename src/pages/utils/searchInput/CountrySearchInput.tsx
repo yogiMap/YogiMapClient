@@ -16,11 +16,8 @@ interface IProps {
 
 const CountrySearchInput = (props: IProps) => {
   let value = get(props, 'value', '');
-
   const [selectedName, setSelectedName] = useState('United States');
-
   const isLoading = get(props, 'loadingEffects.SearchInput/countrySearch', false);
-
   const countryList: [string] = get(props, 'SearchInput.countryList', []);
 
   useEffect(() => {

@@ -76,7 +76,7 @@ const ActionMenu = (props: IProps) => {
         {/*</Button>*/}
 
         {isUserAuth && (
-          <Dropdown overlay={menu(row)}>
+          <Dropdown overlay={menu(row)} trigger={['click']}>
             <span className="ant-dropdown-link">
               <img src={dotsIcon} alt="" height="27" />
             </span>

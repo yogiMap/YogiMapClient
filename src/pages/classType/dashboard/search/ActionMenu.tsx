@@ -76,11 +76,11 @@ const ActionMenu = (props: IProps) => {
         {/*  <EditOutlined className="edit-pen-icon" />*/}
         {/*</Button>*/}
         {isUserAuth && (
-        <Dropdown overlay={menu(row)}>
-          <span className="ant-dropdown-link">
-            <img src={dotsIcon} alt="" height="27" />
-          </span>
-        </Dropdown>
+          <Dropdown overlay={menu(row)} trigger={['click']}>
+            <span className="ant-dropdown-link">
+              <img src={dotsIcon} alt="" height="27" />
+            </span>
+          </Dropdown>
         )}
       </div>
     </span>
@@ -93,7 +93,8 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  classTypeDeleteById: (payload: IClassTypeDeleteById) => dispatch({ type: 'ClassTypeDashboard/classTypeDeleteById', payload }),
+  classTypeDeleteById: (payload: IClassTypeDeleteById) =>
+    dispatch({ type: 'ClassTypeDashboard/classTypeDeleteById', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionMenu);

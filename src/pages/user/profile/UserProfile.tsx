@@ -65,14 +65,20 @@ const UserProfile = (props: any) => {
     <div>
       <div className="profile-header">
         <h1 className="text-center">Profile Page</h1>
-        <h3 className="text-end text-colored-second my-3">{userName}</h3>
-        <p className="text-end text-colored-third">Email: {email}</p>
-        <p className="text-end">
-          User's roles:{' '}
-          {roles.map((el: string) => (
-            <span className="ms-2 text-colored-first">{el}</span>
-          ))}
-        </p>
+        <div className="row">
+          <div className="col">
+            <h3 className="text-start text-colored-second my-3">{userName}</h3>
+            <p className="text-start text-colored-third">Email: {email}</p>
+          </div>
+          <div className="col">
+            <p className="text-end">
+              User's roles:{' '}
+              {roles.map((el: string) => (
+                <span className="ms-2 text-colored-first">{el}</span>
+              ))}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="container my-5">
