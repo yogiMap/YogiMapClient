@@ -10,7 +10,7 @@ interface IProps {
 const StudentDashboardControls = (props: IProps) => {
   const studentCreate = () => {
     props.open({
-      title: 'Create new Teacher Account',
+      title: 'Create Student Account',
       component: 'StudentFormCreate',
       place: 'StudentDashboard',
       width: '80%',
