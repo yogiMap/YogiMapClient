@@ -1,18 +1,14 @@
 import React from 'react';
 import { connect } from 'umi';
-import { IStudent } from '@/pages/student/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 import StudentFormSettingsEditWrapper from '@/pages/user/settings/studentAccount/StudentFormSettingsEditWrapper';
 import StudentFormCreateWrapper from '@/pages/user/settings/studentAccount/StudentFormCreateWrapper';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  create: (arg: IStudent) => void;
+  Account: IUserAccount;
   loadingEffects: ILoadingEffects;
-
-  studentGetById: (studentId: string) => void;
-  getById: (studentId: string) => void;
-  updateById: (payload: IStudent) => void;
 }
 
 const StudentAccountSettingsView = (props: IProps) => {
@@ -26,12 +22,4 @@ const mapStateToProps = (state: any) => ({
   Account: state.Account,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: IStudent) => dispatch({ type: 'StudentForm/create', payload }),
-  getById: (studentId: string) => dispatch({ type: 'StudentForm/getById', payload: studentId }),
-  updateById: (payload: IStudent) => dispatch({ type: 'StudentForm/updateById', payload }),
-
-  studentGetById: (studentId: string) => dispatch({ type: 'StudentView/studentGetById', payload: studentId }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(StudentAccountSettingsView);
+export default connect(mapStateToProps)(StudentAccountSettingsView);

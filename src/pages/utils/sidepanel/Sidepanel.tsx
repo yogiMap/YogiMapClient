@@ -3,11 +3,6 @@ import { connect } from 'umi';
 import { get } from 'lodash';
 import { Drawer } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import BaseFormCreateWrapper from '@/pages/base/form/BaseFormCreateWrapper';
-import BaseFormEditWrapper from '@/pages/base/form/BaseFormEditWrapper';
-import TeacherCreateWrapper from '@/pages/teacher/form/TeacherCreateWrapper';
-import TeacherEditWrapper from '@/pages/teacher/form/TeacherEditWrapper';
-import TeacherAccountEditWrapper from '@/pages/teacherAccount/form/TeacherAccountFormEditWrapper';
 import ClassTypeCreateWrapper from '@/pages/classType/form/ClassTypeCreateWrapper';
 import ClassTypeEditWrapper from '@/pages/classType/form/ClassTypeEditWrapper';
 import ClassCreateWrapper from '@/pages/classes/form/ClassesFormCreateWrapper';
@@ -29,14 +24,6 @@ const Sidepanel = (props: IProps) => {
   const width = get(props, 'Sidepanel.width', 750);
 
   const components: any = {
-    BaseFormCreate: <BaseFormCreateWrapper />,
-    BaseFormEdit: <BaseFormEditWrapper />,
-
-    TeacherFormCreate: <TeacherCreateWrapper />,
-    TeacherFormEdit: <TeacherEditWrapper />,
-
-    TeacherAccountFormEdit: <TeacherAccountEditWrapper />,
-
     ClassesFormCreate: <ClassCreateWrapper />,
     ClassesFormEdit: <ClassEditWrapper />,
 

@@ -57,7 +57,11 @@ const UserModel: UserModelType = {
         }
 
         const emailConfirmed = get(userAuthResult, 'payload.emailConfirmation.confirmed');
-        const teacherAccount = get(userAuthResult, 'payload.account');
+        const teacherAccount = get(userAuthResult, 'payload.teacherAccount');
+
+        if (!teacherAccount && !emailConfirmed) {
+          history.push('/welcome');
+        }
 
         if (userAuthResult) {
           yield put({
@@ -79,15 +83,14 @@ const UserModel: UserModelType = {
       const data = yield call(queryUserLogin, payload);
 
       const userId = get(data, 'userId', '');
-      const name = get(data, 'user.name');
-      const token = get(data, 'token');
+      const name = get(data, 'user.name', '');
+      const token = get(data, 'token', '');
       const teacherAccount = get(data, 'user.teacherAccount', '');
       const student = get(data, 'user.student', '');
 
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
-        history.push(`/teacherAccount/${userId}`);
         if (!teacherAccount && !student) history.push('/welcome');
         else history.push(`/settings/profile/${userId}`);
 
