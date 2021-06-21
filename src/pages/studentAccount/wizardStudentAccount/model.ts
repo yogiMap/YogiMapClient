@@ -1,15 +1,15 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryStudentCreate } from '@/pages/student/queries';
+import { queryStudentAccountCreate } from '@/pages/studentAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryUserVerifyEmailSend } from '@/pages/user/userSearch/queries';
 export interface IState {}
 
-export interface WizardStudentModelType {
+export interface WizardStudentAccountModelType {
   namespace: string;
   state: IState;
   effects: {
-    studentCreate: Effect;
+    studentAccountCreate: Effect;
     userVerifyEmailSend: Effect;
   };
   reducers: {
@@ -19,16 +19,16 @@ export interface WizardStudentModelType {
 
 const initialState = {};
 
-const WizardStudentModel: WizardStudentModelType = {
-  namespace: 'WizardStudentForm',
+const WizardStudentAccountModel: WizardStudentAccountModelType = {
+  namespace: 'WizardStudentAccountForm',
 
   state: initialState,
 
   effects: {
-    *studentCreate({ payload }, { call, put }) {
-      yield call(queryStudentCreate, payload);
+    *studentAccountCreate({ payload }, { call, put }) {
+      yield call(queryStudentAccountCreate, payload);
       yield put({ type: 'Account/auth' });
-      history.push('/wizardStudent');
+      history.push('/wizardStudentAccount');
     },
 
     *userVerifyEmailSend({ payload }, { call }) {
@@ -41,4 +41,4 @@ const WizardStudentModel: WizardStudentModelType = {
   },
 };
 
-export default WizardStudentModel;
+export default WizardStudentAccountModel;

@@ -86,12 +86,12 @@ const UserModel: UserModelType = {
       const name = get(data, 'user.name', '');
       const token = get(data, 'token', '');
       const teacherAccount = get(data, 'user.teacherAccount', '');
-      const student = get(data, 'user.student', '');
+      const studentAccount = get(data, 'user.studentAccount', '');
 
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
-        if (!teacherAccount && !student) history.push('/welcome');
+        if (!teacherAccount && !studentAccount) history.push('/welcome');
         else history.push(`/settings/profile/${userId}`);
 
         yield put({ type: 'auth' });

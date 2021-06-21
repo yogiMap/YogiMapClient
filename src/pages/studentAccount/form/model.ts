@@ -1,6 +1,10 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { queryStudentCreate, queryStudentGetById, queryStudentUpdateById } from '@/pages/student/queries';
+import {
+  queryStudentAccountCreate,
+  queryStudentAccountGetById,
+  queryStudentAccountUpdateById,
+} from '@/pages/studentAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryClassTypeSearch } from '@/pages/classType/queries';
 import { queryClassesSearch } from '@/pages/classes/queries';
@@ -11,7 +15,7 @@ import { queryUserLogin } from '@/pages/user/queries';
 
 export interface IState {}
 
-export interface StudentModelType {
+export interface StudentAccountModelType {
   namespace: string;
   state: IState;
   effects: {
@@ -31,8 +35,8 @@ export interface StudentModelType {
 
 const initialState = {};
 
-const StudentModel: StudentModelType = {
-  namespace: 'StudentForm',
+const StudentAccountModel: StudentAccountModelType = {
+  namespace: 'StudentAccountForm',
 
   state: initialState,
 
@@ -41,31 +45,31 @@ const StudentModel: StudentModelType = {
       const data = yield call(queryUserLogin, payload);
       const userId = get(data, 'userId', '');
 
-      const createResult = yield call(queryStudentCreate, payload);
+      const createResult = yield call(queryStudentAccountCreate, payload);
 
       if (!(createResult instanceof Error)) {
-        yield put({ type: 'StudentDashboard/studentSearch' });
+        yield put({ type: 'StudentAccountDashboard/studentAccountSearch' });
         yield put({ type: 'Sidepanel/close' });
         yield put({ type: 'Account/auth' });
-        history.push(`/settings/student/${userId}`);
+        history.push(`/settings/studentAccount/${userId}`);
       }
     },
 
     *getById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { studentInfo: [] } });
-      const data = yield call(queryStudentGetById, payload);
+      yield put({ type: 'save', payload: { studentAccountInfo: [] } });
+      const data = yield call(queryStudentAccountGetById, payload);
       yield put({
         type: 'save',
-        payload: { studentInfo: data.payload },
+        payload: { studentAccountInfo: data.payload },
       });
     },
 
     *updateById({ payload }, { call, put }) {
-      const updateResult = yield call(queryStudentUpdateById, payload);
+      const updateResult = yield call(queryStudentAccountUpdateById, payload);
       if (!(updateResult instanceof Error)) {
         yield put({ type: 'Sidepanel/close' });
         yield put({
-          type: 'StudentDashboard/studentSearch',
+          type: 'StudentAccountDashboard/studentAccountSearch',
           payload: payload.queryParams,
         });
       }
@@ -121,4 +125,4 @@ const StudentModel: StudentModelType = {
   },
 };
 
-export default StudentModel;
+export default StudentAccountModel;

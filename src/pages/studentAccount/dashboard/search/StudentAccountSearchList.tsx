@@ -5,24 +5,24 @@ import { ColumnProps } from 'antd/es/table';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
-import { IStudent, IStudentQueryParams } from '@/pages/student/types';
+import { IStudentAccount, IStudentAccountQueryParams } from '@/pages/studentAccount/types';
 
-interface IStudentDeleteById {
-  studentId: string;
-  queryParams: IStudentQueryParams;
+interface IStudentAccountDeleteById {
+  studentAccountId: string;
+  queryParams: IStudentAccountQueryParams;
 }
 
 interface IProps extends RouteComponentProps {
-  items: IStudent[];
+  items: IStudentAccount[];
   open: (arg: ISidepanel) => void;
-  studentDeleteById: (arg: IStudentDeleteById) => void;
+  studentAccountDeleteById: (arg: IStudentAccountDeleteById) => void;
 }
 
-const StudentSearchList = (props: IProps) => {
+const StudentAccountSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<IStudent>[] = [
+  const columns: ColumnProps<IStudentAccount>[] = [
     {
       title: 'Name',
       key: 'name',
@@ -82,7 +82,8 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  studentDeleteById: (payload: IStudentDeleteById) => dispatch({ type: 'StudentDashboard/studentDeleteById', payload }),
+  studentAccountDeleteById: (payload: IStudentAccountDeleteById) =>
+    dispatch({ type: 'StudentAccountDashboard/studentAccountDeleteById', payload }),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentSearchList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentAccountSearchList));

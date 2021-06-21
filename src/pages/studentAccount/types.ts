@@ -1,6 +1,6 @@
 import { IPhone } from '@/pages/user/types';
 
-export interface IStudent {
+export interface IStudentAccount {
   _id: string;
   firstName: string;
   lastName: string;
@@ -18,16 +18,16 @@ export interface IStudent {
   updatedAt?: string;
 }
 
-export interface IStudentQueryParams {
+export interface IStudentAccountQueryParams {
   limit?: number | string;
   page?: number | string;
-  studentSearchParam1?: string;
-  studentSearchParam2?: string;
+  studentAccountSearchParam1?: string;
+  studentAccountSearchParam2?: string;
 }
 
-export interface IStudentStats {
-  totalStudent: number;
-  todayStudent: number;
-  monthStudent: number;
-  averageStudent: number;
+export interface IStudentAccountStats {
+  totalStudentAccount: number;
+  todayStudentAccount: number;
+  monthStudentAccount: number;
+  averageStudentAccount: number;
 }

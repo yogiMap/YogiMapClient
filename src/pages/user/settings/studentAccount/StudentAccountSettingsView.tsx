@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
-import StudentFormSettingsEditWrapper from '@/pages/user/settings/studentAccount/StudentFormSettingsEditWrapper';
-import StudentFormCreateWrapper from '@/pages/user/settings/studentAccount/StudentFormCreateWrapper';
+import StudentAccountFormSettingsEditWrapper from '@/pages/user/settings/studentAccount/StudentAccountFormSettingsEditWrapper';
+import StudentAccountFormCreateWrapper from '@/pages/user/settings/studentAccount/StudentAccountFormCreateWrapper';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
@@ -12,9 +12,10 @@ interface IProps {
 }
 
 const StudentAccountSettingsView = (props: IProps) => {
-  const hasStudent = get(props, 'Account.student', '');
+  const hasStudent = get(props, 'Account.studentAccount', '');
 
-  return !hasStudent ? <StudentFormCreateWrapper /> : <StudentFormSettingsEditWrapper />;
+  // @ts-ignore
+  return !hasStudent ? <StudentAccountFormCreateWrapper /> : <StudentAccountFormSettingsEditWrapper />;
 };
 
 const mapStateToProps = (state: any) => ({

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { IStudentQueryParams } from '@/pages/student/types';
+import { IStudentAccountQueryParams } from '@/pages/studentAccount/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | IStudentQueryParams) => void;
-  filters: IStudentQueryParams;
+  onChange: (values: null | IStudentAccountQueryParams) => void;
+  filters: IStudentAccountQueryParams;
 }
 
-const StudentFilterForm = (props: IProps) => {
+const StudentAccountFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -63,4 +63,4 @@ const StudentFilterForm = (props: IProps) => {
   );
 };
 
-export default StudentFilterForm;
+export default StudentAccountFilterForm;

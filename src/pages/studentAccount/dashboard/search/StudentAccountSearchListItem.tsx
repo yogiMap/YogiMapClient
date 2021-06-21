@@ -3,17 +3,17 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { IStudent } from '@/pages/student/types';
+import { IStudentAccount } from '@/pages/studentAccount/types';
 
-interface IProps extends IStudent {
-  studentDeleteById: (id: String) => void;
+interface IProps extends IStudentAccount {
+  studentAccountDeleteById: (id: String) => void;
 }
 
-const StudentSearchListItem = (props: IProps) => {
-  const { studentDeleteById } = props;
+const StudentAccountSearchListItem = (props: IProps) => {
+  const { studentAccountDeleteById } = props;
 
   const owner = get(props, 'item.owner', '');
-  const studentId = get(props, 'item._id', '');
+  const studentAccountId = get(props, 'item._id', '');
   const createdAt = get(props, 'item.createdAt', '');
   const description = get(props, 'item.description', '');
 
@@ -31,7 +31,7 @@ const StudentSearchListItem = (props: IProps) => {
       <Row>{description}</Row>
 
       <Row>
-        <Button danger onClick={() => studentDeleteById(studentId)}>
+        <Button danger onClick={() => studentAccountDeleteById(studentAccountId)}>
           Delete
         </Button>
       </Row>
@@ -40,9 +40,9 @@ const StudentSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  studentDeleteById: (studentId: string) =>
-    dispatch({ type: 'StudentDashboard/studentDeleteDyId', payload: studentId }),
+  studentAccountDeleteById: (studentAccountId: string) =>
+    dispatch({ type: 'StudentAccountDashboard/studentAccountDeleteDyId', payload: studentAccountId }),
 });
 
 // @ts-ignore
-export default connect(null, mapDispatchToProps)(StudentSearchListItem);
+export default connect(null, mapDispatchToProps)(StudentAccountSearchListItem);

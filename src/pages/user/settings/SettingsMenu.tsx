@@ -16,13 +16,13 @@ interface IProps {}
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
   const teacherAccountId = get(props, 'Account.teacherAccount', '');
-  const studentId = get(props, 'Account.student', '');
+  const studentId = get(props, 'Account.studentAccount', '');
 
   let menuItemName = '';
 
   if (history.location.pathname.split('/')[2] === 'teacherAccount') {
     menuItemName = 'Teacher`s Account';
-  } else if (history.location.pathname.split('/')[2] === 'student') {
+  } else if (history.location.pathname.split('/')[2] === 'studentAccount') {
     menuItemName = 'Student`s Account';
   } else if (history.location.pathname.split('/')[2] === 'profile') {
     menuItemName = 'User`s Profile';

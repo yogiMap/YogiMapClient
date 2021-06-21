@@ -25,7 +25,10 @@ export default [
           { path: '/welcome', component: '@/pages/pages/home/NewUserLanding' },
 
           { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
-          { path: '/wizardStudent', component: '@/pages/student/wizardStudent/WizardStudent' },
+          {
+            path: '/wizardStudentAccount',
+            component: '@/pages/studentAccount/wizardStudentAccount/WizardStudentAccount',
+          },
 
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
@@ -35,8 +38,8 @@ export default [
           { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
           { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
 
-          { path: '/student', component: '@/pages/student/dashboard/StudentDashboard' },
-          { path: '/student/:studentId', component: '@/pages/student/view/StudentView' },
+          { path: '/studentAccount', component: '@/pages/studentAccount/dashboard/StudentAccountDashboard' },
+          { path: '/studentAccount/:studentAccountId', component: '@/pages/studentAccount/view/StudentAccountView' },
 
           { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
@@ -83,7 +86,7 @@ export default [
                 component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
               },
               {
-                path: '/settings/student/:userId',
+                path: '/settings/studentAccount/:userId',
                 component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
               },
               {

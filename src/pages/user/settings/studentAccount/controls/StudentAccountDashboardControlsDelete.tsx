@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'umi';
 import { Button, Modal } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import { IStudent, IStudentQueryParams } from '@/pages/student/types';
+import { IStudent, IStudentQueryParams } from '@/pages/studentAccount/types';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
@@ -20,7 +20,7 @@ interface IProps {
   studentInfo: IStudent;
 }
 
-const StudentDashboardControlsDelete = (props: IProps) => {
+const StudentAccountDashboardControlsDelete = (props: IProps) => {
   const { row, queryParams } = props;
   const studentId = get(props, 'studentInfo._id', '');
 
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   studentDeleteById: (payload: IStudentDeleteById) => dispatch({ type: 'StudentDashboard/studentDeleteById', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(StudentDashboardControlsDelete);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentAccountDashboardControlsDelete);

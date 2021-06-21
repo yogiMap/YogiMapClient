@@ -47,9 +47,9 @@ const UsersListItem = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const userTeacherAccountId = get(props, 'item.teacherAccount._id', '');
   const userTeacherAccountName = get(props, 'item.teacherAccount.name', '');
-  const userStudentId = get(props, 'item.student._id', '');
-  const userStudentFirstName = get(props, 'item.student.firstName', '');
-  const userStudentLastName = get(props, 'item.student.lastName', '');
+  const userStudentId = get(props, 'item.studentAccount._id', '');
+  const userStudentFirstName = get(props, 'item.studentAccount.firstName', '');
+  const userStudentLastName = get(props, 'item.studentAccount.lastName', '');
   const studentName = `${userStudentFirstName} ${userStudentLastName}`;
 
   // @ts-ignore

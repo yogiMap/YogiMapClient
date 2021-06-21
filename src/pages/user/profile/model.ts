@@ -5,7 +5,7 @@ import { ICurrentUser } from '@/pages/user/types';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryTeacherAccountGetById, queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
 import { get } from 'lodash';
-import { queryStudentGetById } from '@/pages/student/queries';
+import { queryStudentGetById } from '@/pages/studentAccount/queries';
 
 export interface IUserModelState {
   userInfo?: ICurrentUser;

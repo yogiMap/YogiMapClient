@@ -11,7 +11,7 @@ import { history } from '@@/core/history';
 import { IPhone } from '@/pages/user/types';
 import { useForm } from 'antd/es/form/Form';
 
-export interface IStudent {
+export interface IStudentAccount {
   teacherName: string;
   phoneNumber: IPhone;
   email: string;
@@ -25,7 +25,7 @@ interface IProps {
   isLoading: boolean;
   submitButtonText: string;
   goToUserProfile: (userId: string) => void;
-  studentCreate: (values: IStudent) => void;
+  studentAccountCreate: (values: IStudentAccount) => void;
   userVerifyEmailSend: (arg: { userId: object; email: string }) => void;
 }
 
@@ -34,7 +34,7 @@ const layout = {
   wrapperCol: { span: 14 },
 };
 
-const WizardStudentStudent = (props: IProps) => {
+const WizardStudentAccountStudentAccount = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
   const [form] = useForm();
 
@@ -42,13 +42,13 @@ const WizardStudentStudent = (props: IProps) => {
 
   const email = get(props, 'Account.email', '');
   const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const student = get(props, 'Account.student', false);
+  const studentAccount = get(props, 'Account.studentAccount', false);
   const userId = get(props, 'Account._id', '');
 
   const [openResend, setOpenResend] = useState(false);
 
   const onSubmit = (values: any) => {
-    props.studentCreate({ ...values, email });
+    props.studentAccountCreate({ ...values, email });
   };
 
   const onFinish = () => {
@@ -69,7 +69,7 @@ const WizardStudentStudent = (props: IProps) => {
     setDisableSubmit(hasErrors || hasEmptyFields);
   };
 
-  const steps = ['Create Student`s Account', 'Email confirmation', 'Finish'];
+  const steps = ['Create StudentAccount`s Account', 'Email confirmation', 'Finish'];
 
   const [newEmail, setNewEmail] = useState('');
 
@@ -80,7 +80,7 @@ const WizardStudentStudent = (props: IProps) => {
   const currentStep = () => {
     let step = steps[0];
     if (emailConfirmed) step = steps[1];
-    if (emailConfirmed && student) step = steps[2];
+    if (emailConfirmed && studentAccount) step = steps[2];
     return step;
   };
 
@@ -96,14 +96,14 @@ const WizardStudentStudent = (props: IProps) => {
           </div>
 
           <div className="mb-4">
-            <Check checked={student} />
+            <Check checked={studentAccount} />
             <span className={classNames('ms-2', currentStep() === steps[1] && 'fw-bold')}>
-              Create Student`s Account
+              Create StudentAccount`s Account
             </span>
           </div>
 
           <div className="mb-4">
-            <Check checked={emailConfirmed && student} />
+            <Check checked={emailConfirmed && studentAccount} />
             <span className={classNames('ms-2', currentStep() === steps[2] && 'fw-bold')}>All set</span>
           </div>
         </div>
@@ -190,10 +190,11 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  studentCreate: (payload: IStudent) => dispatch({ type: 'WizardStudentForm/studentCreate', payload }),
+  studentAccountCreate: (payload: IStudentAccount) =>
+    dispatch({ type: 'WizardStudentAccountForm/studentAccountCreate', payload }),
   userVerifyEmailSend: (payload: IVerifyEmailArg) =>
-    dispatch({ type: 'WizardStudentForm/userVerifyEmailSend', payload }),
+    dispatch({ type: 'WizardStudentAccountForm/userVerifyEmailSend', payload }),
 });
 
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(WizardStudentStudent);
+export default connect(mapStateToProps, mapDispatchToProps)(WizardStudentAccountStudentAccount);

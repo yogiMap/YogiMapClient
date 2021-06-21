@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
-import { IStudent } from '@/pages/student/types';
+import { IStudentAccount } from '@/pages/studentAccount/types';
 import { get } from 'lodash';
 import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
@@ -14,13 +14,13 @@ import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
 import { IStyle } from '@/pages/style/types';
-import StudentDashboardControlsDelete from '@/pages/user/settings/studentAccount/controls/StudentDashboardControlsDelete';
+import StudentAccountDashboardControlsDelete from '@/pages/user/settings/studentAccount/controls/StudentAccountDashboardControlsDelete';
 
 interface IProps {
   isLoading: boolean;
-  onFinish: (values: IStudent) => void;
+  onFinish: (values: IStudentAccount) => void;
   submitButtonText: string;
-  initialValues?: IStudent;
+  initialValues?: IStudentAccount;
   Account: IUserAccount;
   classTypeList: IClassType[];
   classesList: IClasses[];
@@ -28,7 +28,7 @@ interface IProps {
   styleList: IStyle[];
 }
 
-const StudentForm = (props: IProps) => {
+const StudentAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
   const name = get(props, 'Account.name', '');
@@ -39,8 +39,8 @@ const StudentForm = (props: IProps) => {
 
   return (
     <div className="container mt-2">
-      <h1 className="my-3">Student`s Account</h1>
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="student">
+      <h1 className="my-3">StudentAccount`s Account</h1>
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="studentAccount">
         <div className="row mb-5">
           <div className="col-md-8">
             <h5 className="text-colored-second">{name}</h5>
@@ -48,7 +48,7 @@ const StudentForm = (props: IProps) => {
           </div>
 
           <div className="col-md-4 text-end">
-            <h6>Student`s Information</h6>
+            <h6>StudentAccount`s Information</h6>
             Account ID: {accountCode}
           </div>
         </div>
@@ -164,7 +164,7 @@ const StudentForm = (props: IProps) => {
 
           <div className="col">
             <Form.Item className="mx-3">
-              <StudentDashboardControlsDelete />
+              <StudentAccountDashboardControlsDelete />
             </Form.Item>
           </div>
         </div>
@@ -178,4 +178,4 @@ const mapStateToProps = (state: any) => ({
 });
 
 // @ts-ignore
-export default withRouter(connect(mapStateToProps)(StudentForm));
+export default withRouter(connect(mapStateToProps)(StudentAccountForm));

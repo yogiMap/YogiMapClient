@@ -8,16 +8,16 @@ interface IProps extends RouteComponentProps {
   address: IAddress[];
 }
 
-const StudentViewAddressList = (props: IProps) => {
+const StudentAccountViewAddressList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const address = get(props, 'StudentView.address', '');
-  const addressLine1 = get(props, 'StudentView.addressLine1', '');
-  const addressLine2 = get(props, 'StudentView.addressLine2', '');
-  const city = get(props, 'StudentView.city', '');
-  const state = get(props, 'StudentView.state', '');
-  const country = get(props, 'StudentView.country', '');
-  const zipCode = get(props, 'StudentView.zipCode', '');
-  const timeZone = get(props, 'StudentView.timeZone', '');
+  const address = get(props, 'StudentAccountView.address', '');
+  const addressLine1 = get(props, 'StudentAccountView.addressLine1', '');
+  const addressLine2 = get(props, 'StudentAccountView.addressLine2', '');
+  const city = get(props, 'StudentAccountView.city', '');
+  const state = get(props, 'StudentAccountView.state', '');
+  const country = get(props, 'StudentAccountView.country', '');
+  const zipCode = get(props, 'StudentAccountView.zipCode', '');
+  const timeZone = get(props, 'StudentAccountView.timeZone', '');
 
   return (
     <div>
@@ -48,11 +48,12 @@ const StudentViewAddressList = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  StudentView: state.StudentView,
+  StudentAccountView: state.StudentAccountView,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  studentGetById: (studentId: string) => dispatch({ type: 'StudentView/studentGetById', payload: studentId }),
+  studentAccountGetById: (studentAccountId: string) =>
+    dispatch({ type: 'StudentAccountView/studentAccountGetById', payload: studentAccountId }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(StudentViewAddressList);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentAccountViewAddressList);

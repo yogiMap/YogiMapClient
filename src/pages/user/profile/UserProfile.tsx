@@ -14,7 +14,7 @@ interface IProps {
 
 const UserProfile = (props: any) => {
   const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
-  const studentId: string = get(props, 'Account.student', '');
+  const studentId: string = get(props, 'Account.studentAccount', '');
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
@@ -39,7 +39,7 @@ const UserProfile = (props: any) => {
   const teacherTimeZone = get(teacherAccountInfo, 'timeZone', '');
   const teacherZipCode = get(teacherAccountInfo, 'zipCode', '');
 
-  //student account info
+  //studentAccount account info
   const studentInfo = get(props, 'studentInfo', '');
   const firstName = get(studentInfo, 'firstName', '');
   const lastName = get(studentInfo, 'lastName', '');
