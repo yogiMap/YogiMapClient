@@ -16,7 +16,7 @@ interface IProps {}
 const SettingsMenu = (props: IProps) => {
   const ownerId = get(props, 'Account._id', '');
   const teacherAccountId = get(props, 'Account.teacherAccount', '');
-  const studentId = get(props, 'Account.studentAccount', '');
+  const studentAccountId = get(props, 'Account.studentAccount', '');
 
   let menuItemName = '';
 
@@ -44,7 +44,7 @@ const SettingsMenu = (props: IProps) => {
     {
       name: 'Student`s Account',
       icon: <UserAddOutlined />,
-      link: `/settings/student/${ownerId}`,
+      link: `/settings/studentAccount/${ownerId}`,
     },
   ];
 

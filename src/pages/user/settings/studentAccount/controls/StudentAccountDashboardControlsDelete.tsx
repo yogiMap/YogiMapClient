@@ -2,35 +2,35 @@ import React from 'react';
 import { connect } from 'umi';
 import { Button, Modal } from 'antd';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import { IStudent, IStudentQueryParams } from '@/pages/studentAccount/types';
+import { IStudentAccount, IStudentAccountQueryParams } from '@/pages/studentAccount/types';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
-interface IStudentDeleteById {
+interface IStudentAccountDeleteById {
   studentId: string;
-  queryParams: IStudentQueryParams;
+  queryParams: IStudentAccountQueryParams;
 }
 
 interface IProps {
   open: (arg: ISidepanel) => void;
-  row: IStudent;
-  studentDeleteById: (arg: IStudentDeleteById) => void;
-  queryParams: IStudentQueryParams;
+  row: IStudentAccount;
+  studentDeleteById: (arg: { studentAccountId: string; queryParams: IStudentAccountQueryParams }) => void;
+  queryParams: IStudentAccountQueryParams;
   Account: IUserAccount;
-  studentInfo: IStudent;
+  studentInfo: IStudentAccount;
 }
 
 const StudentAccountDashboardControlsDelete = (props: IProps) => {
   const { row, queryParams } = props;
-  const studentId = get(props, 'studentInfo._id', '');
+  const studentAccountId = get(props, 'studentAccountInfo._id', '');
 
-  const deletePrompt = (student: IStudent) => {
-    const name = get(props, 'studentInfo.name', '');
+  const deletePrompt = (studentAccount: IStudentAccount) => {
+    const name = get(props, 'studentAccountInfo.name', '');
     Modal.confirm({
       title: `Do You Want To Delete Your Account?`,
       content: `${name}`,
       okType: 'danger',
-      onOk: () => props.studentDeleteById({ studentId: student._id, queryParams }),
+      onOk: () => props.studentDeleteById({ studentAccountId: studentAccount._id, queryParams }),
     });
   };
 
@@ -39,7 +39,7 @@ const StudentAccountDashboardControlsDelete = (props: IProps) => {
   return (
     <div role="button-delete">
       {isUserAuth && (
-        <Button className="btn btn-outline-secondary" shape="round" onClick={() => deletePrompt(studentId)}>
+        <Button className="btn btn-outline-secondary" shape="round" onClick={() => deletePrompt(studentAccountId)}>
           Delete Account
         </Button>
       )}
@@ -49,14 +49,15 @@ const StudentAccountDashboardControlsDelete = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Account: state.Account,
-  studentInfo: state.StudentForm.studentInfo,
+  studentAccountInfo: state.StudentAccountForm.studentAccountInfo,
   loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'StudentForm/reset' }),
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  studentDeleteById: (payload: IStudentDeleteById) => dispatch({ type: 'StudentDashboard/studentDeleteById', payload }),
+  studentAccountDeleteById: (payload: IStudentAccountDeleteById) =>
+    dispatch({ type: 'StudentAccountDashboard/studentAccountDeleteById', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentAccountDashboardControlsDelete);

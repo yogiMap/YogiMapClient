@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { IStudentAccount, IStudentAccountQueryParams } from '@/pages/studentAccount/types';
-import StudentAccountForm from '@/pages/studentAccount/form/StudentAcoountForm';
+import StudentAccountForm from '@/pages/studentAccount/form/StudentAccountForm';
 import { ILoadingEffects } from '@/types';
 
 export interface IStudentAccountUpdate {

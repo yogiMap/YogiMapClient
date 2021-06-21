@@ -5,16 +5,16 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
   teacherAccountId: string;
-  studentId: string;
+  studentAccountId: string;
   name: string;
   teacherAccountGetById: (teacherAccountId: string) => void;
-  studentGetById: (teacherAccountId: string) => void;
+  studentAccountGetById: (studentAccountId: string) => void;
   Account: IUserAccount;
 }
 
 const UserProfile = (props: any) => {
   const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
-  const studentId: string = get(props, 'Account.studentAccount', '');
+  const studentAccountId: string = get(props, 'Account.studentAccount', '');
   const userId = get(props, 'match.params.userId', '');
 
   const userInfo = get(props, 'userInfo', '');
@@ -40,25 +40,25 @@ const UserProfile = (props: any) => {
   const teacherZipCode = get(teacherAccountInfo, 'zipCode', '');
 
   //studentAccount account info
-  const studentInfo = get(props, 'studentInfo', '');
-  const firstName = get(studentInfo, 'firstName', '');
-  const lastName = get(studentInfo, 'lastName', '');
-  const studentPhone = get(studentInfo, 'phoneNumber.number', '');
-  const studentFocus = get(studentInfo, 'focus', '');
-  const studentClassType = get(studentInfo, 'classType', '');
-  const studentDescription = get(studentInfo, 'description', '');
-  const studentAddressLine1 = get(studentInfo, 'addressLine1', '');
-  const studentAddressLine2 = get(studentInfo, 'addressLine2', '');
-  const studentCity = get(studentInfo, 'city', '');
-  const studentCountry = get(studentInfo, 'country', '');
-  const studentState = get(studentInfo, 'state', '');
-  const studentTimeZone = get(studentInfo, 'timeZone', '');
-  const studentZipCode = get(studentInfo, 'zipCode', '');
+  const studentAccountInfo = get(props, 'studentAccountInfo', '');
+  const firstName = get(studentAccountInfo, 'firstName', '');
+  const lastName = get(studentAccountInfo, 'lastName', '');
+  const studentAccountPhone = get(studentAccountInfo, 'phoneNumber.number', '');
+  const studentAccountFocus = get(studentAccountInfo, 'focus', '');
+  const studentAccountClassType = get(studentAccountInfo, 'classType', '');
+  const studentAccountDescription = get(studentAccountInfo, 'description', '');
+  const studentAccountAddressLine1 = get(studentAccountInfo, 'addressLine1', '');
+  const studentAccountAddressLine2 = get(studentAccountInfo, 'addressLine2', '');
+  const studentAccountCity = get(studentAccountInfo, 'city', '');
+  const studentAccountCountry = get(studentAccountInfo, 'country', '');
+  const studentAccountState = get(studentAccountInfo, 'state', '');
+  const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
+  const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
-    props.studentGetById(studentId);
+    props.studentAccountGetById(studentAccountId);
   }, []);
 
   return (
@@ -135,7 +135,7 @@ const UserProfile = (props: any) => {
           </div>
         )}
 
-        {studentId && (
+        {studentAccountId && (
           <div className="student-description">
             <div className="my-5 border-bottom">
               <h5 className="text-colored-second my-5">{userName} Has a Student Account</h5>
@@ -149,32 +149,32 @@ const UserProfile = (props: any) => {
 
               <div className="row my-3 border-bottom">
                 <div className="col-md-4 text-colored-third">Phone</div>
-                <div className="col-md-4 text-colored-first">{studentPhone}</div>
+                <div className="col-md-4 text-colored-first">{studentAccountPhone}</div>
               </div>
 
               <div className="row my-3 border-bottom">
                 <div className="col-md-4 text-colored-third">About</div>
-                <div className="col-md-4 text-colored-first">{studentDescription}</div>
+                <div className="col-md-4 text-colored-first">{studentAccountDescription}</div>
               </div>
 
               <div className="row my-3 border-bottom">
                 <div className="col-md-4 text-colored-third">Yoga focus</div>
-                <div className="col-md-4 text-colored-first">{studentFocus}</div>
+                <div className="col-md-4 text-colored-first">{studentAccountFocus}</div>
               </div>
 
               <div className="row my-3 border-bottom text-colored-second">
                 <div className="col-md-4 text-colored-third">TimeZone</div>
-                <div className="col-md-4 text-colored-first">{studentTimeZone}</div>
+                <div className="col-md-4 text-colored-first">{studentAccountTimeZone}</div>
               </div>
 
               <div className="row my-3 border-bottom">
                 <div className="col-md-4 text-colored-third">Preferred classType</div>
-                <div className="col-md-4 text-colored-first">{studentClassType}</div>
+                <div className="col-md-4 text-colored-first">{studentAccountClassType}</div>
               </div>
 
               <p>
                 Student's Address:
-                <span className="ms-3 text-colored-first">{`${studentAddressLine1} ${studentAddressLine2} ${studentCity}, ${studentState}, ${studentZipCode}, ${studentCountry}`}</span>
+                <span className="ms-3 text-colored-first">{`${studentAccountAddressLine1} ${studentAccountAddressLine2} ${studentAccountCity}, ${studentAccountState}, ${studentAccountZipCode}, ${studentAccountCountry}`}</span>
               </p>
             </div>
           </div>
@@ -189,14 +189,15 @@ const mapStateToProps = (state: any) => ({
   Account: state.Account,
   userInfo: state.Profile.userInfo,
   teacherAccountInfo: state.Profile.teacherAccountInfo,
-  studentInfo: state.Profile.studentInfo,
+  studentAccountInfo: state.Profile.studentAccountInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
   teacherAccountGetById: (teacherAccountId: string) =>
     dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
-  studentGetById: (studentId: string) => dispatch({ type: 'Profile/studentGetById', payload: studentId }),
+  studentAccountGetById: (studentAccountId: string) =>
+    dispatch({ type: 'Profile/studentAccountGetById', payload: studentAccountId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

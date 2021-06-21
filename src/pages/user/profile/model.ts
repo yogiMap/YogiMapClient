@@ -5,7 +5,7 @@ import { ICurrentUser } from '@/pages/user/types';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryTeacherAccountGetById, queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
 import { get } from 'lodash';
-import { queryStudentGetById } from '@/pages/studentAccount/queries';
+import { queryStudentAccountGetById } from '@/pages/studentAccount/queries';
 
 export interface IUserModelState {
   userInfo?: ICurrentUser;
@@ -18,7 +18,7 @@ export interface IUserModel {
     userGetById: Effect;
     teacherAccountGetById: Effect;
     // teacherAccountSearch: Effect;
-    studentGetById: Effect;
+    studentAccountGetById: Effect;
     reset: Effect;
   };
   reducers: {
@@ -49,12 +49,12 @@ const UserModel: IUserModel = {
       });
     },
 
-    *studentGetById({ payload }, { call, put }) {
+    *studentAccountGetById({ payload }, { call, put }) {
       // yield put({ type: 'save', payload: { studentInfo: [] } });
-      const data = yield call(queryStudentGetById, payload);
+      const data = yield call(queryStudentAccountGetById, payload);
       yield put({
         type: 'save',
-        payload: { studentInfo: data.payload },
+        payload: { studentAccountInfo: data.payload },
       });
     },
 

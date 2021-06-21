@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
-import StudentAccountForm from '@/pages/studentAccount/form/StudentAcoountForm';
+import StudentAccountForm from '@/pages/studentAccount/form/StudentAccountForm';
 import { IStudentAccount } from '@/pages/studentAccount/types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
