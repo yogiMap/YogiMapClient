@@ -2,7 +2,7 @@ const usaPhone = {
   validator(_: any, value: string = '') {
     if (!value.length) return Promise.resolve();
 
-    if (!value.match(/[0-9]/)) return Promise.reject(new Error('Only numbers'));
+    if (!value.match(/^[0-9]*$/)) return Promise.reject(new Error('Only numbers'));
     if (value.length !== 10) return Promise.reject(new Error('Phone must be 10 digits'));
 
     return Promise.resolve();

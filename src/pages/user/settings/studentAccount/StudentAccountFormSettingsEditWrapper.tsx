@@ -35,20 +35,20 @@ interface IProps {
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const StudentAccountFormSettingsEditWrapper = (props: IProps) => {
-  const studentId = get(props, 'StudentId');
+  const studentAccountId = get(props, 'StudentAccountId');
   const queryParams = get(props, 'location.query', {});
-  const isLoadingGet = get(props, 'loadingEffects.StudentForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.StudentForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.StudentAccountForm/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.StudentAccountForm/updateById', false);
 
   useEffect(() => {
-    props.studentAccountGetById(studentId);
-    props.getById(studentId);
+    props.studentAccountGetById(studentAccountId);
+    props.getById(studentAccountId);
     props.classTypeSearch();
     props.styleSearch();
   }, []);
 
   const onFinish = (values: IStudentAccount) => {
-    props.updateById({ values, studentId, queryParams });
+    props.updateById({ values, studentAccountId, queryParams });
   };
   const classTypeList = get(props, 'classTypeList', []);
   const styleList = get(props, 'styleList', []);
