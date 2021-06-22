@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get, omitBy } from 'lodash';
 import FocusFilterForm from '@/pages/focus/dashboard/search/FocusFilterForm';
-import Pager from '@/pages/utils/pager/Pager';
 import { IFocusQueryParams } from '@/pages/focus/types';
 import FocusSearchList from '@/pages/focus/dashboard/search/FocusSearchList';
 import { IState } from '@/pages/focus/dashboard/model';
-import { IClassesQueryParams } from '@/pages/classes/types';
+import { ILoadingEffects } from '@/types';
 
 const initialSearchForm = {
   focusSearchParam1: '',
@@ -18,11 +17,12 @@ const initialSearchQuery = {
   ...initialSearchForm,
 };
 
+type IFocusSearch = { focus: string } | '';
+
 interface IProps {
-  // focusSearch: (arg: IFocusQueryParams) => void;
-  getAll: () => void;
   focusReset: () => void;
-  focusSearch: (arg: IFocusQueryParams) => void;
+  focusSearch: (arg: IFocusSearch) => void;
+  loadingEffects: ILoadingEffects;
   FocusDashboard: IState;
 }
 
@@ -36,26 +36,27 @@ const FocusDashboard = (props: IProps) => {
     return omitBy(query, (a) => !a); // удалить пустые ключи
   };
 
-  useEffect(() => {
-    return () => {
-      props.focusReset();
-    };
-  }, []);
+  const isLoading = get(props, 'loadingEffects.FocusDashboard/focusSearch', false);
+
+  // useEffect(() => {
+  //   return () => {
+  //     props.focusReset();
+  //   };
+  // }, []);
 
   // поиск в зависимости от изменения параметров
-  useEffect(() => {
-    props.getAll();
-  }, []);
-
-  useEffect(() => {
-    props.focusSearch(getSearchQuery());
-  }, [queryParams]);
+  // useEffect(() => {
+  //   props.getAll();
+  // }, []);
 
   const onFiltersChange = (values: null | IFocusQueryParams) => {
     // обнулять pager при каждом новом поиске
     const query = getSearchQuery({ ...values, page: 1 });
     history.push({ query });
   };
+  useEffect(() => {
+    props.focusSearch(getSearchQuery());
+  }, [queryParams]);
 
   // const onPagerChange = (page: number) => {
   //   const query = getSearchQuery({ page });
@@ -89,11 +90,11 @@ const FocusDashboard = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   FocusDashboard: state.FocusDashboard,
+  loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getAll: () => dispatch({ type: 'FocusDashboard/getAll' }),
-  focusSearch: (payload: IFocusQueryParams) => dispatch({ type: 'FocusDashboard/focusSearch', payload }),
+  focusSearch: (payload: IFocusSearch) => dispatch({ type: 'FocusDashboard/focusSearch', payload }),
   focusReset: () => dispatch({ type: 'FocusDashboard/reset' }),
 });
 

@@ -46,14 +46,20 @@ const TeacherAccountFilterForm = (props: IProps) => {
         </div>
 
         <div className="col-md-3 d-flex justify-content-center">
-          <Form.Item name="style">
-            <Input placeholder="style" className="rounded-pill" />
+          <Form.Item name="style.name">
+            <Input placeholder="Yoga Style" className="rounded-pill" />
           </Form.Item>
         </div>
 
         <div className="col-md-3 d-flex justify-content-center">
-          <Form.Item name="style">
+          <Form.Item name="country">
             <Input placeholder="country" className="rounded-pill" />
+          </Form.Item>
+        </div>
+
+        <div className="col-md-3 d-flex justify-content-center">
+          <Form.Item name="focus">
+            <Input placeholder="Yoga Focus" className="rounded-pill" />
           </Form.Item>
         </div>
 

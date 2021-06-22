@@ -1,7 +1,8 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryFocusGetById } from '@/pages/focus/queries';
+import { queryFocusGetAll } from '@/pages/focus/queries';
 import defaultReducers from '@/utils/defaultReducers';
+import { get } from 'lodash';
 
 export interface IState {}
 
@@ -9,7 +10,8 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    getById: Effect;
+    focusSearch: Effect;
+    // getById: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -22,10 +24,16 @@ const Model: IModel = {
   state: {},
 
   effects: {
-    *getById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: {} });
-      const data = yield call(queryFocusGetById, payload);
-      yield put({ type: 'save', payload: { ...data.payload } });
+    *focusSearch({ payload }, { call, put }) {
+      // yield put({ type: 'MobileMenu/close' });
+      const data = yield call(queryFocusGetAll, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          focusList: get(data, 'payload.items'),
+          // focusPager: get(data, 'payload.pager'),
+        },
+      });
     },
 
     // *focusDeleteById({ payload }, { call, put }) {

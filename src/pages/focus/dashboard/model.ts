@@ -16,8 +16,6 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    // focusSearch: Effect;
-    getAll: Effect;
     focusSearch: Effect;
     reset: Effect;
   };
@@ -34,21 +32,21 @@ const Model: IModel = {
 
   effects: {
     *focusSearch({ payload }, { call, put }) {
-      yield put({ type: 'MobileMenu/close' });
-      const data = yield call(queryFocusSearch, payload);
+      // yield put({ type: 'MobileMenu/close' });
+      const data = yield call(queryFocusGetAll, payload);
       yield put({
         type: 'save',
         payload: {
-          focusList: get(data, 'payload.items'),
+          focusList: get(data, 'payload'),
           // focusPager: get(data, 'payload.pager'),
         },
       });
     },
 
-    *getAll(_, { call, put }) {
-      const data = yield call(queryFocusGetAll);
-      yield put({ type: 'save', payload: { focus: data.payload } });
-    },
+    // *getAll(_, { call, put }) {
+    //   const data = yield call(queryFocusGetAll);
+    //   yield put({ type: 'save', payload: { focus: data.payload } });
+    // },
 
     *reset(_, { put }) {
       yield put({ type: 'set', payload: {} });
