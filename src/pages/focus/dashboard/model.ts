@@ -1,7 +1,7 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-import { queryFocusSearch } from '@/pages/focus/queries';
+import { queryFocusGetAll, queryFocusSearch } from '@/pages/focus/queries';
 import { IFocus, IFocusStats } from '@/pages/focus/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
@@ -16,6 +16,8 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
+    // focusSearch: Effect;
+    getAll: Effect;
     focusSearch: Effect;
     reset: Effect;
   };
@@ -38,9 +40,14 @@ const Model: IModel = {
         type: 'save',
         payload: {
           focusList: get(data, 'payload.items'),
-          focusPager: get(data, 'payload.pager'),
+          // focusPager: get(data, 'payload.pager'),
         },
       });
+    },
+
+    *getAll(_, { call, put }) {
+      const data = yield call(queryFocusGetAll);
+      yield put({ type: 'save', payload: { focus: data.payload } });
     },
 
     *reset(_, { put }) {

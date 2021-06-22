@@ -4,7 +4,7 @@ import { Button, Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
-import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
+import ActionMenu from '@/pages/teacherAccount/dashboard/search/ActionMenu';
 import { IClasses } from '@/pages/classes/types';
 import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
@@ -18,7 +18,7 @@ interface IProps extends RouteComponentProps {
 
 const TeacherViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const classes: any  = get(props, 'classes', []);
+  const classes: any = get(props, 'classes', []);
   const isUserAuth = get(props, 'Account._id');
 
   const columns: ColumnProps<IClasses>[] = [
@@ -76,7 +76,6 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-
 });
 
 export default withRouter(TeacherViewClassesList);

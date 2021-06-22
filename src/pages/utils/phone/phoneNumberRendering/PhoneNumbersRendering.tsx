@@ -12,10 +12,6 @@ function RenderPhoneNumber(props: any) {
     const phonePartTwo = phoneNumber.slice(6);
     formattedPhone = ` +${phoneNumberCode} (${areaCode}) ${phonePartOne}-${phonePartTwo}`;
   }
-  return (
-    <>
-      {phoneNumber && <span>{formattedPhone}</span>}
-    </>
-  );
+  return <>{phoneNumber && <span>{formattedPhone}</span>}</>;
 }
 export default RenderPhoneNumber;

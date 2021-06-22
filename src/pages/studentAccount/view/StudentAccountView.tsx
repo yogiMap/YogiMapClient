@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import RenderPhoneNumber from '@/pages/phoneNumberRendering/PhoneNumbersRendering';
+import RenderPhoneNumber from '@/pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
 import { Tag } from 'antd';
 import StudentAccountViewClassesList from '@/pages/studentAccount/view/StudentAccountViewClassesList';
 import StudentAccountViewEventList from '@/pages/studentAccount/view/StudentAccountViewEventList';

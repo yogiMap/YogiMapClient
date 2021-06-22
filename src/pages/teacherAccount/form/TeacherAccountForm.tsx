@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import TimeZoneSearchInput from '@/pages/utils/searchInput/TimeZoneSearchInput';
 import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSearchInput';
 import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
-import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
+import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { useForm } from 'antd/es/form/Form';
 import { connect, withRouter } from 'umi';

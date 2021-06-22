@@ -4,7 +4,7 @@ import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
-import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
+import ActionMenu from '@/pages/teacherAccount/dashboard/search/ActionMenu';
 import { IEvent } from '@/pages/event/types';
 import EventDashboardControls from '@/pages/event/dashboard/controls/EventDashboardControls';
 

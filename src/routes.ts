@@ -58,6 +58,27 @@ export default [
 
           { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
 
+          // CLIENT ====================================
+
+          {
+            path: '/client/:clientId/messages',
+            component: '@/layout/ClientMessagesLayout',
+            routes: [
+              {
+                path: '/client/:clientId/messages',
+                redirect: '/client/:clientId/messages/phone',
+              },
+              {
+                path: '/client/:clientId/messages/phone',
+                component: '@/pages/client/messages/ClientMessagesPhone',
+              },
+              {
+                path: '/client/:clientId/messages/viber',
+                component: '@/pages/client/messages/ClientMessagesViber',
+              },
+            ],
+          },
+
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
           { path: '/contact', component: '@/pages/pages/ContactUsPage' },

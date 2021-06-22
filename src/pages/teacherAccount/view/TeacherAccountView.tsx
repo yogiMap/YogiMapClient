@@ -5,7 +5,6 @@ import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAc
 import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAccountViewEventList';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
-import { IEventQueryParams } from '@/pages/event/types';
 
 interface IProps {
   teacherAccountId: string;

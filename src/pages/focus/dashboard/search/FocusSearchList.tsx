@@ -30,7 +30,7 @@ const FocusSearchList = (props: IProps) => {
     {
       title: 'Teacher',
       key: 'teacher',
-      render: (row) => <Link to={`/focus/${row._id}`}>{row.teacher}</Link>,
+      render: (row) => <Link to={`list/focus/${row._id}`}>{row.teacher}</Link>,
     },
   ];
 

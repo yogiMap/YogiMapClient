@@ -6,6 +6,7 @@ import Pager from '@/pages/utils/pager/Pager';
 import { IFocusQueryParams } from '@/pages/focus/types';
 import FocusSearchList from '@/pages/focus/dashboard/search/FocusSearchList';
 import { IState } from '@/pages/focus/dashboard/model';
+import { IClassesQueryParams } from '@/pages/classes/types';
 
 const initialSearchForm = {
   focusSearchParam1: '',
@@ -18,8 +19,10 @@ const initialSearchQuery = {
 };
 
 interface IProps {
-  focusSearch: (arg: IFocusQueryParams) => void;
+  // focusSearch: (arg: IFocusQueryParams) => void;
+  getAll: () => void;
   focusReset: () => void;
+  focusSearch: (arg: IFocusQueryParams) => void;
   FocusDashboard: IState;
 }
 
@@ -41,6 +44,10 @@ const FocusDashboard = (props: IProps) => {
 
   // поиск в зависимости от изменения параметров
   useEffect(() => {
+    props.getAll();
+  }, []);
+
+  useEffect(() => {
     props.focusSearch(getSearchQuery());
   }, [queryParams]);
 
@@ -50,11 +57,13 @@ const FocusDashboard = (props: IProps) => {
     history.push({ query });
   };
 
-  const onPagerChange = (page: number) => {
-    const query = getSearchQuery({ page });
-    history.push({ query });
-  };
+  // const onPagerChange = (page: number) => {
+  //   const query = getSearchQuery({ page });
+  //   history.push({ query });
+  // };
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div className="container">
       <div className="row my-5">
@@ -69,14 +78,11 @@ const FocusDashboard = (props: IProps) => {
         </div>
       </div>
 
-
       <div className="row my-3">
         <div className="col-flex justify-content-center">
           <FocusSearchList items={focusList} />
-          <Pager pager={focusPager} onChange={onPagerChange} />
         </div>
       </div>
-
     </div>
   );
 };
@@ -86,8 +92,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  focusSearch: (payload: IFocusQueryParams) =>
-    dispatch({ type: 'FocusDashboard/focusSearch', payload }),
+  getAll: () => dispatch({ type: 'FocusDashboard/getAll' }),
+  focusSearch: (payload: IFocusQueryParams) => dispatch({ type: 'FocusDashboard/focusSearch', payload }),
   focusReset: () => dispatch({ type: 'FocusDashboard/reset' }),
 });
 

@@ -9,7 +9,7 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    focusGetById: Effect;
+    getById: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -22,7 +22,7 @@ const Model: IModel = {
   state: {},
 
   effects: {
-    *focusGetById({ payload }, { call, put }) {
+    *getById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
       const data = yield call(queryFocusGetById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
