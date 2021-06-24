@@ -8,6 +8,8 @@ import { IClassesQueryParams } from '@/pages/classes/types';
 import ClassesSearchList from '@/pages/classes/dashboard/search/ClassesSearchList';
 import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
 import { IState } from '@/pages/classes/dashboard/model';
+import Loader from '@/pages/utils/Loader';
+import { ILoadingEffects } from '@/types';
 
 const initialSearchForm = {
   classesSearchParam1: '',
@@ -25,6 +27,7 @@ interface IProps {
   classesSearch: (arg: IClassesQueryParams) => void;
   classesReset: () => void;
   ClassesDashboard: IState;
+  loadingEffects: ILoadingEffects;
 }
 
 const ClassesDashboard = (props: IProps) => {
@@ -32,6 +35,7 @@ const ClassesDashboard = (props: IProps) => {
   const classesList = get(props, 'ClassesDashboard.classesList', []);
   const classesPager = get(props, 'ClassesDashboard.classesPager', {});
   const queryParams = get(props, 'location.query', {});
+  const isLoadingGet = get(props, 'loadingEffects.ClientDashboard/search', true);
 
   const getSearchQuery = (mixin = {}) => {
     const query = { ...initialSearchQuery, ...queryParams, ...mixin };
@@ -63,7 +67,7 @@ const ClassesDashboard = (props: IProps) => {
   };
 
   return (
-    <div className="container">
+    <div className="container my-5">
       <div className="row my-5">
         <div className="col d-flex justify-content-center">
           <h1>Find Your Classes</h1>
@@ -87,7 +91,9 @@ const ClassesDashboard = (props: IProps) => {
 
       <div className="row my-3">
         <div className="col d-flex justify-content-end">
+          {/*{isLoadingGet ? <Loader /> : */}
           <ClassesDashboardControls />
+          {/*}*/}
         </div>
       </div>
     </div>
@@ -96,6 +102,7 @@ const ClassesDashboard = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   ClassesDashboard: state.ClassesDashboard,
+  loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

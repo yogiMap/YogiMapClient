@@ -12,28 +12,58 @@ interface IProps {
 const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
   const acl = get(props, 'Account.acl', []);
+  const teacherAccountId = get(props, 'Account.teacherAccount', '');
+  const isUserConfirmedEmail = get(props, 'Account.emailConfirmation.confirmed', false);
 
   const mainMenu = [
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
     { path: '/', name: 'HOME' },
-    { path: '/list/focus', name: 'FOCUS', perm: 'focus.get.own' },
     { path: '/style', name: 'STYLE', perm: 'style.get.own' },
     { path: '/teacherAccount', name: 'TEACHER', perm: 'teacherAccount.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
     { path: '/classType', name: 'TYPE', perm: 'classType.get.own' },
+    { path: '/list/focus', name: 'FOCUS', perm: 'focus.get.own' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
   }));
 
+  const teacherMenu = [
+    { path: '/', name: 'HOME' },
+    { path: '/teacherAccount', name: 'TEACHER', perm: 'teacherAccount.get.own' },
+    { path: '/client', name: 'CLIENTS', perm: 'client.get.own' },
+    { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
+    { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
+    { path: '/style', name: 'STYLE', perm: 'style.get.own' },
+    { path: '/classType', name: 'TYPE', perm: 'classType.get.own' },
+    { path: '/list/focus', name: 'FOCUS', perm: 'focus.get.own' },
+  ].map((el) => ({
+    ...el,
+    isActive: location.startsWith(el.path),
+    isVisible: acl.includes(el.perm),
+  }));
+
   return (
     <div id="top-menu" role="menu">
-      {mainMenu.map((el) => (
-        <div className="item" key={el.path}>
-          <Link to={el.path}>{el.name}</Link>
-        </div>
-      ))}
+      {teacherAccountId && isUserConfirmedEmail ? (
+        <>
+          {teacherMenu.map(
+            (el) =>
+              el.isVisible && (
+                <div className={classNames('item', { active: el.isActive })} key={el.path}>
+                  <Link to={el.path}>{el.name}</Link>
+                </div>
+              ),
+          )}
+        </>
+      ) : (
+        mainMenu.map((el) => (
+          <div className="item" key={el.path}>
+            <Link to={el.path}>{el.name}</Link>
+          </div>
+        ))
+      )}
     </div>
   );
 };
@@ -48,4 +78,4 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 // @ts-ignore
-export default withRouter(connect(mapStateToProps)(TopMenu));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TopMenu));

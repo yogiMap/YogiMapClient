@@ -45,9 +45,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  close: () => dispatch({ type: 'MobileMenu/close' }),
-
   open: () => dispatch({ type: 'MobileMenu/open' }),
+  close: () => dispatch({ type: 'MobileMenu/close' }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

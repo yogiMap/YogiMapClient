@@ -63,7 +63,7 @@ const EventDashboard = (props: IProps) => {
   };
 
   return (
-    <div className="container">
+    <div className="container my-5">
       <div className="row my-5">
         <div className="col d-flex justify-content-center">
           <h1>Find Event</h1>

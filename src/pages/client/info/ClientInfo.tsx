@@ -1,0 +1,85 @@
+import React from 'react';
+import { connect } from 'umi';
+import { IClient } from '@/pages/client/types';
+import { ILoadingEffects } from '@/types';
+import { get } from 'lodash';
+import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+
+interface IProps {
+  ClientInfo: IClient;
+  loadingEffects: ILoadingEffects;
+}
+
+const ClientInfo = (props: IProps) => {
+  const name = get(props, 'ClientInfo.name', '');
+  const email = get(props, 'ClientInfo.email', '');
+  const phone = get(props, 'ClientInfo.phoneNumber', {});
+  const teacherAccount = get(props, 'ClientInfo.teacherAccount', '');
+  const clientId = get(props, 'match.params.clientId', '');
+  const totalPaid = get(props, 'ClientInfo.totalPaid', 0);
+
+  if (!props.ClientInfo) return null;
+  return (
+    <>
+      <div className="anchorTop" />
+
+      <h5 id="clientDetails" className="anchor">
+        Client Details
+      </h5>
+
+      <div className="row">
+        <div className="col-6">
+          <div className="d-flex justify-content-end-">
+            <span className="text-muted me-1">Name</span>
+            <span className="me-1">{name} </span>
+          </div>
+
+          <div className="d-flex justify-content-end-">
+            <span className="text-muted me-1">Email</span>
+            <a href={'mailto:' + email}>{email}</a>
+          </div>
+
+          <div className="d-flex justify-content-end-">
+            <span className="text-muted me-1">Phone</span>
+            <RenderPhoneNumber phoneNumberAll={phone} />{' '}
+          </div>
+        </div>
+
+        <div className="col-6">
+          <div className="d-flex justify-content-end-">
+            <span className="text-muted me-1">TeacherAccount</span>
+            <span className="me-1">{teacherAccount}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
+        <h5 id="schedule" className="anchor">
+          Schedule
+        </h5>
+        <p>coming soon....</p>
+      </div>
+
+      <div className="row">
+        <h5 id="messages" className="anchor">
+          Messages
+        </h5>
+        <p>coming soon....</p>
+        {/*<ClientMessagesPhone clientId={clientId} />*/}
+      </div>
+
+      <div className="row">
+        <h5 id="calls" className="anchor">
+          Calls
+        </h5>
+        <p>coming soon....</p>
+      </div>
+    </>
+  );
+};
+
+const mapStateToProps = (state: any) => ({
+  ClientInfo: state.ClientInfo,
+});
+
+export default connect(mapStateToProps)(ClientInfo);

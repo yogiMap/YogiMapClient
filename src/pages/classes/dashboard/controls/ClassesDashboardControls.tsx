@@ -24,7 +24,6 @@ const ClassesDashboardControls = (props: IProps) => {
   const roles = get(props, 'Account.roles', []);
 
   const isAdmin = roles.includes('admin');
-  if (!isAdmin) return null;
 
   return (
     <>
