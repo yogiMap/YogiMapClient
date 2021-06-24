@@ -11,6 +11,8 @@ import EventCreateWrapper from '@/pages/event/form/EventFormCreateWrapper';
 import EventEditWrapper from '@/pages/event/form/EventFormEditWrapper';
 import StyleCreateWrapper from '@/pages/style/form/StyleFormCreateWrapper';
 import StyleEditWrapper from '@/pages/style/form/StyleFormEditWrapper';
+import ClientFormCreateWrapper from '@/pages/client/form/ClientFormCreateWrapper';
+import ClientFormEditWrapper from '@/pages/client/form/ClientFormEditWrapper';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -35,6 +37,9 @@ const Sidepanel = (props: IProps) => {
 
     StyleFormCreate: <StyleCreateWrapper />,
     StyleFormEdit: <StyleEditWrapper />,
+
+    ClientFormCreate: <ClientFormCreateWrapper />,
+    ClientFormEdit: <ClientFormEditWrapper />,
   };
 
   const mapping = (c: string): any => {

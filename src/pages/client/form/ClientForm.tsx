@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { IClient } from '@/pages/client/types';
 import { get } from 'lodash';
-import PhoneInput from '@/pages/utils/phoneInput/PhoneInput';
+import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import { useForm } from 'antd/es/form/Form';
-import AddressForm from '@/pages/utils/addressForm/AddressForm';
+import { connect, withRouter } from 'umi';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
+  Account: IUserAccount;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
@@ -15,44 +17,48 @@ interface IProps {
 
 const ClientForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
-  const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
   const [form] = useForm();
   const address = get(props, 'initialValues.address', {});
-  const phone1 = get(props, 'initialValues.phoneNumber1', {});
-  const phone2 = get(props, 'initialValues.phoneNumber2', {});
+  const phone = get(props, 'initialValues.phoneNumber', {});
+  const name = get(props, 'Account.name', '');
+  const email = get(props, 'Account.email', '');
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" form={form}>
-      <div className="row">
+      <div className="row mb-5">
         <div className="col-md-6">
-          <h5>Client Details</h5>
+          <h1>Client Details</h1>
+        </div>
+        <div className="col-md-6">
+          <h4 className="text-colored-second d-flex justify-content-start">{name}</h4>
+          <p className="mt-3">email: {email}</p>
+        </div>
+      </div>
 
-          <div className="row">
-            <div className="col">
-              <Form.Item
-                label="First Name"
-                name="firstName"
-                rules={[{ required: true, message: 'Please input your First Name' }]}
-              >
-                <Input placeholder="First Name" />
-              </Form.Item>
-            </div>
-
-            <div className="col">
-              <Form.Item
-                label="Last Name"
-                name="lastName"
-                rules={[{ required: true, message: 'Please input your Last Name' }]}
-              >
-                <Input placeholder="Last Name" />
-              </Form.Item>
-            </div>
-          </div>
-
-          <Form.Item label="Company" name="company">
-            <Input placeholder="Company" />
+      <div className="row">
+        <div className="col">
+          <Form.Item
+            label="First Name"
+            name="firstName"
+            rules={[{ required: true, message: 'Please input client`s First Name' }]}
+          >
+            <Input placeholder="First Name" />
           </Form.Item>
+        </div>
 
+        <div className="col">
+          <Form.Item
+            label="Last Name"
+            name="lastName"
+            rules={[{ required: true, message: 'Please input client`s Last Name' }]}
+          >
+            <Input placeholder="Last Name" />
+          </Form.Item>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col">
           <Form.Item
             label="Email"
             name="email"
@@ -60,35 +66,30 @@ const ClientForm = (props: IProps) => {
           >
             <Input placeholder="Email" />
           </Form.Item>
-
-          <Form.Item>
-            <PhoneInput label="Phone 1" name="phoneNumber1" required={true} value={phone1} />
-
-            {!addAdditionalPhoneMode && (
-              <Button type="link" size="small" onClick={() => setAddAdditionalPhoneMode(!addAdditionalPhoneMode)}>
-                + Add Additional Phone Number
-              </Button>
-            )}
-
-            {addAdditionalPhoneMode && (
-              <PhoneInput label="Phone 2" name="phoneNumber2" required={false} value={phone2} />
-            )}
-          </Form.Item>
         </div>
 
-        <div className="col-md-6">
-          <h5>Service Address</h5>
-          <AddressForm address={address} />
+        <div className="col">
+          <Form.Item>
+            <PhoneInput label="Phone" name="phoneNumber" required={true} value={phone} />
+          </Form.Item>
         </div>
       </div>
 
-      <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
-          {props.submitButtonText}
-        </Button>
-      </Form.Item>
+      <div className="row">
+        <div className="col">
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={isLoading} shape="round">
+              {props.submitButtonText}
+            </Button>
+          </Form.Item>
+        </div>
+      </div>
     </Form>
   );
 };
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
 
-export default ClientForm;
+// @ts-ignore
+export default withRouter(connect(mapStateToProps)(ClientForm));

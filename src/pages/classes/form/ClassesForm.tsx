@@ -46,7 +46,7 @@ const ClassesForm = (props: IProps) => {
 
   return (
     <div className="container mt-3">
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes">
+      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="classes" form={form}>
         <div className="row mb-5">
           <div className="col-md-6">
             <h1>Create Your Classes</h1>

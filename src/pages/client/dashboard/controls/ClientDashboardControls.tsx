@@ -16,7 +16,7 @@ const ClientDashboardControls = (props: IProps) => {
       title: 'Create new Client',
       component: 'ClientFormCreate',
       place: 'ClientDashboard',
-      width: '95%',
+      width: '80%',
     });
   };
 
