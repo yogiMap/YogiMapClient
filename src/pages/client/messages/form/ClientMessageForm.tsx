@@ -10,7 +10,7 @@ interface IProps {
 
 function ClientMessageForm(props: IProps) {
   const isLoading = get(props, 'isLoading', false);
-  const phoneNumber = get(props, 'phoneNumber', {});
+  const phoneNumber = get(props, 'phoneNumber', '');
 
   return (
     <Form onFinish={props.onFinish} layout="inline">

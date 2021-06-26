@@ -14,7 +14,6 @@ export interface IModel {
   effects: {
     getInfoById: Effect;
     updateById: Effect;
-    getDefaultAddressByClientId: Effect;
     reset: Effect;
   };
   reducers: {
@@ -33,12 +32,6 @@ const Model: IModel = {
       yield put({ type: 'save', payload: {} });
       const data = yield call(queryClientGetInfoById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
-    },
-
-    *getDefaultAddressByClientId({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: {} });
-      const data = yield call(queryClientGetDefaultAddress, payload);
-      yield put({ type: 'save', payload: { defaultAddress: data.payload } });
     },
 
     *updateById({ payload }, { call, put }) {
