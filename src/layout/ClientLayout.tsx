@@ -58,7 +58,7 @@ const ClientLayout = (props: IProps) => {
           </h5>
         </div>
         <div className="col-lg-10 col-md-10 col-10">
-          <Button className="mt-1 float-end" htmlType="submit" onClick={clientEdit}>
+          <Button className="float-end mt-2 mx-5" shape="round" htmlType="submit" onClick={clientEdit}>
             Edit
           </Button>
         </div>

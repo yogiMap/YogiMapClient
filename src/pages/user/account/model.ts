@@ -92,7 +92,7 @@ const UserModel: UserModelType = {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
         if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else history.push(`/settings/profile/${userId}`);
+        else history.push(`/profile/${userId}`);
 
         yield put({ type: 'auth' });
       }
