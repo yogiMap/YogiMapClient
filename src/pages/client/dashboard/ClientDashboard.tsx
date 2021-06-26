@@ -36,6 +36,7 @@ const ClientDashboard = (props: IProps) => {
   const clientPager = get(props, 'ClientDashboard.clientPager', {});
   const queryParams = get(props, 'location.query', {});
 
+  console.log(queryParams, '_________________________________');
   const isLoadingGet = get(props, 'loadingEffects.ClientDashboard/search', true);
 
   const getSearchQuery = (mixin = {}) => {

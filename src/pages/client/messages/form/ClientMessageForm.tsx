@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 import { get } from 'lodash';
-import { useParams } from 'umi';
 
 interface IProps {
   isLoading: boolean;
@@ -11,15 +10,16 @@ interface IProps {
 
 function ClientMessageForm(props: IProps) {
   const isLoading = get(props, 'isLoading', false);
-  const phoneNumber = get(props, 'phoneNumber', '');
+  const phoneNumber = get(props, 'phoneNumber', {});
 
   return (
     <Form onFinish={props.onFinish} layout="inline">
-      <Form.Item name="body" label={`${phoneNumber}`} style={{ width: '80%' }}>
+      <Form.Item name="messageBody" label={`${phoneNumber}`} style={{ width: '80%' }}>
         <Input placeholder="Enter an sms message" />
       </Form.Item>
+
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" shape="round" htmlType="submit" loading={isLoading}>
           Send
         </Button>
       </Form.Item>

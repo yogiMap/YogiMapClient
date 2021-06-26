@@ -29,6 +29,7 @@ const ClientSearchList = (props: IProps) => {
     {
       title: 'Name',
       key: 'name',
+      render: (row) => <Link to={`/client/${row._id}`}>{row.name}</Link>,
       sorter: {
         compare: (a: any, b: any) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1),
       },
@@ -36,10 +37,9 @@ const ClientSearchList = (props: IProps) => {
     },
     {
       title: 'Teacher',
-      dataIndex: 'teacherAccount',
       key: 'teacherAccount',
-      sorter: {
-        compare: (a: any, b: any) => (a.company.toLowerCase() > b.company.toLowerCase() ? 1 : -1),
+      render: (row) => {
+        return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
       },
     },
     {

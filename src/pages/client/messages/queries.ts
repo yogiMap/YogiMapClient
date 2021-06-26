@@ -5,6 +5,5 @@ export async function queryClientMessageSend(payload: any): Promise<any> {
 }
 
 export async function queryClientMessageSearch(payload: any): Promise<any> {
-  console.log('MESSAGES SEARCH PAYLOAD: ', payload);
   return post({ url: '/telephony/message/search', data: payload });
 }

@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'umi';
+import { connect, Link } from 'umi';
 import { IClient } from '@/pages/client/types';
 import { ILoadingEffects } from '@/types';
 import { get } from 'lodash';
 import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+import logo from '@/icons/logo_yogimap.svg';
 
 interface IProps {
   ClientInfo: IClient;
@@ -16,7 +17,6 @@ const ClientInfo = (props: IProps) => {
   const phone = get(props, 'ClientInfo.phoneNumber', {});
   const teacherAccount = get(props, 'ClientInfo.teacherAccount', '');
   const clientId = get(props, 'match.params.clientId', '');
-  const totalPaid = get(props, 'ClientInfo.totalPaid', 0);
 
   if (!props.ClientInfo) return null;
   return (
@@ -31,7 +31,7 @@ const ClientInfo = (props: IProps) => {
         <div className="col-6">
           <div className="d-flex justify-content-end-">
             <span className="text-muted me-1">Name</span>
-            <span className="me-1">{name} </span>
+            <span className="text-colored-first">{name} </span>
           </div>
 
           <div className="d-flex justify-content-end-">
@@ -62,7 +62,9 @@ const ClientInfo = (props: IProps) => {
 
       <div className="row">
         <h5 id="messages" className="anchor">
-          Messages
+          <Link to={`/client/${clientId}/messages`} className="text-colored-first">
+            Messages
+          </Link>
         </h5>
         <p>coming soon....</p>
         {/*<ClientMessagesPhone clientId={clientId} />*/}

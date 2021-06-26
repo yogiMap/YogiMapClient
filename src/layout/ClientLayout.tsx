@@ -26,6 +26,9 @@ const ClientLayout = (props: IProps) => {
   const tab = get(props, 'location.pathname', '').split('/').pop();
   const clientName = get(props, 'ClientInfo.name');
 
+  const messagesCount = get(props, 'ClientInfo.messages.length');
+  const callsCount = get(props, 'ClientInfo.calls.length', '');
+
   useEffect(() => {
     props.clientGetInfoById(clientId);
 
@@ -39,7 +42,7 @@ const ClientLayout = (props: IProps) => {
       title: 'Edit Client',
       component: 'ClientInfoDetailsFormEdit',
       place: '',
-      width: '95%',
+      width: '80%',
       clientId,
     });
   };
@@ -68,6 +71,16 @@ const ClientLayout = (props: IProps) => {
               <Menu selectedKeys={[tab]} mode="vertical" className="no-padding-tabs position-fixed ms-3 border-0">
                 <div key="info">
                   <Anchor.Link href="#clientDetails" title="Client Details" />
+                </div>
+
+                <div key="messages" className="d-flex align-items-center">
+                  <Anchor.Link href="#messages" title="Messages" />
+                  <Badge count={messagesCount} />
+                </div>
+
+                <div key="calls" className="d-flex align-items-center">
+                  <Anchor.Link href="#calls" title="Calls" />
+                  <Badge count={callsCount} />
                 </div>
               </Menu>
             </Anchor>

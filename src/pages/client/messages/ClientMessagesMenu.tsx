@@ -9,7 +9,7 @@ interface IProps {}
 const ClientMessagesMenu = (props: IProps) => {
   const menu = [
     {
-      name: 'Phone Number',
+      name: 'Phone Number - sms',
       link: `phone`,
     },
     {

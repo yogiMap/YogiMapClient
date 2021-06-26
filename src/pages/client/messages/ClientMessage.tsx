@@ -1,20 +1,20 @@
 import React from 'react';
-import { Comment, Tooltip, Avatar } from 'antd';
-import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import { Avatar, Comment, Tooltip } from 'antd';
 import moment from 'moment';
+import { get } from 'lodash';
 
 interface Props {}
 
 const ClientMessage = (props: any) => {
-  const { body, direction } = props.item;
-  const author = direction === 'inbound-api' ? props.item.client.name : 'You';
+  const { messageBody, direction } = props.item;
+  const author = direction === 'inbound-api' ? get(props, 'item.client.name') : 'You';
   const justifyContent = direction === 'inbound-api' ? 'flex-end' : 'flex-start';
   return (
-    <div style={{ display: 'flex', justifyContent }}>
+    <div>
       <Comment
         author={author}
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-        content={<p>{body}</p>}
+        content={<p>{messageBody}</p>}
         datetime={
           <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
             <span>{moment().fromNow()}</span>

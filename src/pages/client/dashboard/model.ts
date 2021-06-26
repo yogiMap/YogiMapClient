@@ -26,8 +26,8 @@ export interface IModel {
     getStats: Effect;
     deleteById: Effect;
     reset: Effect;
-    callUser: Effect;
-    hangUpPhone: Effect;
+    // callUser: Effect;
+    // hangUpPhone: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -41,45 +41,45 @@ const Model: IModel = {
   state: {},
 
   effects: {
-    *callUser({ payload }, { call, put }) {
-      const userId = get(payload, 'userId', '');
-      const userPhone = get(payload, 'userPhone', '');
-      const data = yield call(generateTwilioToken, userPhone);
-      // Начинаем настройку клиента Twilio
-      Device.setup(data.payload);
-      // Аналог Then для функции setup
-      yield put({
-        type: 'save',
-        payload: { currentCall: { userId } },
-      });
-      // @ts-ignore
-      Device.ready(function (device) {
-        // Twilio клиент настроен успешно
-        const params = { phoneNumber: payload };
-        // Начинаем звонить
-        // @ts-ignore
-        Device.connect(params);
-        // Аналог Then для функции connect
-        // @ts-ignore
-        Device.connect(function (connection) {
-          // Пошли гудки
-        });
-      });
-      // Аналог Catch для функции setup
-      // @ts-ignore
-      Device.error(function (error) {
-        // Ошибка функции setup
-      });
-    },
+    // *callUser({ payload }, { call, put }) {
+    //   const userId = get(payload, 'userId', '');
+    //   const userPhone = get(payload, 'userPhone', '');
+    //   const data = yield call(generateTwilioToken, userPhone);
+    //   // Начинаем настройку клиента Twilio
+    //   Device.setup(data.payload);
+    //   // Аналог Then для функции setup
+    //   yield put({
+    //     type: 'save',
+    //     payload: { currentCall: { userId } },
+    //   });
+    //   // @ts-ignore
+    //   Device.ready(function (device) {
+    //     // Twilio клиент настроен успешно
+    //     const params = { phoneNumber: payload };
+    //     // Начинаем звонить
+    //     // @ts-ignore
+    //     Device.connect(params);
+    //     // Аналог Then для функции connect
+    //     // @ts-ignore
+    //     Device.connect(function (connection) {
+    //       // Пошли гудки
+    //     });
+    //   });
+    //   // Аналог Catch для функции setup
+    //   // @ts-ignore
+    //   Device.error(function (error) {
+    //     // Ошибка функции setup
+    //   });
+    // },
 
-    *hangUpPhone(_: any, { call, put }) {
-      // @ts-ignore
-      Device.disconnectAll();
-      yield put({
-        type: 'deleteCurrentCall',
-        payload: {},
-      });
-    },
+    // *hangUpPhone(_: any, { call, put }) {
+    //   // @ts-ignore
+    //   Device.disconnectAll();
+    //   yield put({
+    //     type: 'deleteCurrentCall',
+    //     payload: {},
+    //   });
+    // },
 
     *search({ payload }, { call, put }) {
       const data = yield call(queryClientSearch, payload);
