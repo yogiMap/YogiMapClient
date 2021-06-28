@@ -62,7 +62,7 @@ const ClientInfo = (props: IProps) => {
 
       <div className="row">
         <h5 id="messages" className="anchor">
-          <Link to={`/client/${clientId}/messages`} className="text-colored-first">
+          <Link to={`/client/${clientId}/messages`} className="text-colored-second">
             Messages
           </Link>
         </h5>

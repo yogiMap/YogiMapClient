@@ -56,21 +56,7 @@ const UserModel: UserModelType = {
           yield put({ type: 'logout' });
         }
 
-        const emailConfirmed = get(userAuthResult, 'payload.emailConfirmation.confirmed');
-        const teacherAccount = get(userAuthResult, 'payload.teacherAccount');
-
-        if (!teacherAccount && !emailConfirmed) {
-          history.push('/welcome');
-        }
-
-        if (userAuthResult) {
-          yield put({
-            type: 'save',
-            payload: userAuthResult.payload,
-          });
-        } else {
-          yield put({ type: 'logout' });
-        }
+        yield put({ type: 'save', payload: userAuthResult.payload });
       }
     },
 
@@ -81,20 +67,20 @@ const UserModel: UserModelType = {
 
     *login({ payload }, { call, put }) {
       const data = yield call(queryUserLogin, payload);
-
       const userId = get(data, 'userId', '');
       const name = get(data, 'user.name', '');
       const token = get(data, 'token', '');
       const teacherAccount = get(data, 'user.teacherAccount', '');
       const studentAccount = get(data, 'user.studentAccount', '');
 
+      yield put({ type: 'auth' });
+
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
-        if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else history.push(`/profile/${userId}`);
 
-        yield put({ type: 'auth' });
+        if (!teacherAccount && !studentAccount) history.push('/welcome');
+        else history.push(`/settings/teacherAccount/${userId}`);
       }
     },
 
