@@ -5,8 +5,16 @@ export async function queryClientCreate(payload: any): Promise<any> {
   return post({ url: '/client', data: payload });
 }
 
-export async function queryClientGetInfoById(id: string): Promise<any> {
-  return get({ url: `/client/info/${id}` });
+export async function queryClientGetInfoById(clientId: string): Promise<any> {
+  return get({ url: `/client/info/${clientId}` });
+}
+
+export async function queryClientCreateAddresses(clientId: string): Promise<any> {
+  return post({ url: `/client/address/${clientId}` });
+}
+
+export async function queryClientGetDefaultAddress(clientId: string): Promise<any> {
+  return get({ url: `/address/default/${clientId}` });
 }
 
 export async function queryClientUpdateById(payload: { clientId: string; values: IClient }): Promise<any> {
