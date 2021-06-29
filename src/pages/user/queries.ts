@@ -2,7 +2,7 @@ import { get, post, patch } from '@/utils/httpMethods';
 import { IUser } from '@/pages/user/userSearch/types';
 import { IResetPasswordArg, IValidResetPasswordLink } from '@/pages/user/types';
 import { IVerifyEmail } from '@/pages/user/account/UserEmailVerify';
-import { ISupportEmail } from '@/pages/pages/supportPage/types';
+import { ISupportEmail } from '@/pages/infoPages/supportPage/types';
 
 export async function queryUserAuth(): Promise<any> {
   return get({ url: '/user/auth' });

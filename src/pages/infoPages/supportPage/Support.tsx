@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import imgSupport from '@/pages/pages/supportPage/images/Support.png';
+import imgSupport from '@/pages/infoPages/supportPage/images/Support.png';
 import SupportUserTypes from '@/utils/SupportUserTypes';
 import { connect } from 'umi';
-import { ISupportEmail } from '@/pages/pages/supportPage/types';
+import { ISupportEmail } from '@/pages/infoPages/supportPage/types';
 const { Dragger } = Upload;
 const { Option } = Select;
 

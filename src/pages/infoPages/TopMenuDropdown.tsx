@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Dropdown, Menu } from 'antd';
 import menuIcon from '@/icons/burger.svg';
-import AdminMenu from '@/pages/pages/AdminMenu';
+import AdminMenu from '@/pages/infoPages/AdminMenu';
 
 interface IProps {
   Account: IUserAccount;

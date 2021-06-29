@@ -22,7 +22,7 @@ export default [
         path: '/',
         component: '@/layout/GeneralLayout',
         routes: [
-          { path: '/welcome', component: '@/pages/pages/home/NewUserLanding' },
+          { path: '/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
 
           { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
           {
@@ -61,6 +61,26 @@ export default [
           { path: '/sipPhone', component: '@/pages/sipPhone/dashboard/SipPhoneDashboard' },
           { path: '/sipPhone/:sipPhoneId', component: '@/pages/sipPhone/view/SipPhoneView' },
 
+          // TEACHER ACCOUNT ====================================
+
+          {
+            path: '/teacherAccount/:teacherAccountId',
+            component: '@/layout/TeacherAccountLayout',
+            routes: [
+              {
+                path: '/teacherAccount/:teacherAccountId/sipPhone',
+                component: '@/pages/teacherAccount/sipPhone/TeacherAccountSipPhone',
+              },
+              {
+                path: '/teacherAccount/:teacherAccountId',
+                component: '@/pages/teacherAccount/view/TeacherAccountView',
+              },
+              {
+                path: '/client/:clientId',
+                redirect: '/client/:clientId/info',
+              },
+            ],
+          },
           // CLIENT ====================================
           { path: '/client', component: '@/pages/client/dashboard/ClientDashboard' },
           {
@@ -98,14 +118,14 @@ export default [
 
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
-          { path: '/contact', component: '@/pages/pages/ContactUsPage' },
-          { path: '/styles', component: '@/pages/pages/YogaStylesGuide' },
-          { path: '/type', component: '@/pages/pages/ClassTypeGuide' },
-          { path: '/library', component: '@/pages/pages/Library' },
-          { path: '/faq', component: '@/pages/pages/Faq' },
-          { path: '/contact', component: '@/pages/pages/ContactUsPage' },
-          { path: '/sitemap', component: '@/pages/pages/SiteMap' },
-          { path: '/subscribe', component: '@/pages/pages/Subscribe' },
+          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/styles', component: '@/pages/infoPages/YogaStylesGuide' },
+          { path: '/type', component: '@/pages/infoPages/ClassTypeGuide' },
+          { path: '/library', component: '@/pages/infoPages/Library' },
+          { path: '/faq', component: '@/pages/infoPages/Faq' },
+          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/sitemap', component: '@/pages/infoPages/SiteMap' },
+          { path: '/subscribe', component: '@/pages/infoPages/Subscribe' },
 
           {
             path: '/settings/:userId',
@@ -154,7 +174,7 @@ export default [
             ],
           },
 
-          { path: '/', component: '@/pages/pages/home/Home' },
+          { path: '/', component: '@/pages/infoPages/home/Home' },
         ],
       },
     ],

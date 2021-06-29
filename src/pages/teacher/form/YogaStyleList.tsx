@@ -1,6 +1,6 @@
 // import React from 'react';
-// import TeacherForm from '@/pages/teacher/form/TeacherForm';
-// import { ITeacher } from '@/pages/teacher/types';
+// import TeacherForm from '@/infoPages/teacher/form/TeacherForm';
+// import { ITeacher } from '@/infoPages/teacher/types';
 //
 // interface IProps {
 //   yogaStyleList: () => void;

@@ -10,7 +10,7 @@ import {
   queryClassesSearch,
   queryClassesUpdateById,
 } from '@/pages/classes/queries';
-// import { queryOrderUpdateById } from '@/pages/order/queries';
+// import { queryOrderUpdateById } from '@/infoPages/order/queries';
 
 export interface IState {
   classesList?: IClasses[];

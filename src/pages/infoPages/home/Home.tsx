@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
-import body from '@/pages/pages/home/images/yogigirl.png';
+import body from '@/pages/infoPages/home/images/yogigirl.png';
 // @ts-ignore
-import mind from '@/pages/pages/home/images/crystals.jpeg';
+import mind from '@/pages/infoPages/home/images/crystals.jpeg';
 // @ts-ignore
-import soul from '@/pages/pages/home/images/monks.jpg';
+import soul from '@/pages/infoPages/home/images/monks.jpg';
 
 interface IProps {
   Account: IUserAccount;
