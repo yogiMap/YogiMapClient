@@ -13,22 +13,32 @@ interface IProps {
 
 const TeacherAccountSipPhone = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
-  const teacherAccountSipPhones: ISipPhone[] = get(props, 'TeacherAccountSipPhone.companySipPhone', []);
+  const teacherAccountSipPhones: ISipPhone[] = get(props, 'TeacherAccountSipPhone.teacherSipPhone', []);
 
   useEffect(() => {
     props.teacherAccountGetSipPhone(teacherAccountId);
   }, []);
 
   return (
-    <div>
-      <h2>SIP Phones</h2>
+    <div className="container">
+      <div className="row my-5">
+        <div className="col d-flex justify-content-center">
+          <h1>SIP Phones</h1>
+        </div>
+      </div>
 
-      <SipPhoneControls />
+      <div className="row my-3">
+        <div className="col">
+          {teacherAccountSipPhones.map((el) => (
+            <SipPhoneListItem key={el._id} item={el} />
+          ))}
+        </div>
+      </div>
 
-      <div>
-        {teacherAccountSipPhones.map((el) => (
-          <SipPhoneListItem key={el._id} item={el} />
-        ))}
+      <div className="row my-3">
+        <div className="col d-flex justify-content-end">
+          <SipPhoneControls />
+        </div>
       </div>
     </div>
   );

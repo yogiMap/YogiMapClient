@@ -80,7 +80,8 @@ const UserModel: UserModelType = {
         localStorage.setItem('userId', userId);
 
         if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else history.push(`/teacherAccount/${teacherAccount}`);
+        else if (teacherAccount) history.push(`/settings/teacherAccount/${userId}`);
+        else if (studentAccount) history.push(`/settings/studentAccount/${userId}`);
       }
     },
 
@@ -88,8 +89,8 @@ const UserModel: UserModelType = {
       const createResult = yield call(queryUserRegister, payload);
       if (!(createResult instanceof Error)) {
         notification.destroy();
+
         yield put({ type: 'login', payload });
-        history.push('/welcome');
       }
     },
 

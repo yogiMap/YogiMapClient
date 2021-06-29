@@ -22,7 +22,7 @@ const TeacherAccountLayout = (props: IProps) => {
 
   const menuItems = [
     {
-      title: 'TeacherAccount Info',
+      title: 'Teacher`s Account Info',
       link: `/teacherAccount/${teacherAccountId}`,
     },
     {
@@ -43,7 +43,7 @@ const TeacherAccountLayout = (props: IProps) => {
     <>
       <div className="row">
         <div className="col-lg-3 col-md-3">
-          <h5 className="text-colored-first mt-5">{teacherName}</h5>
+          <h5 className="text-colored-first mt-5 ms-3 text-start">{teacherName}</h5>
 
           <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode={'vertical'}>
             {menuItems.map((item) => (

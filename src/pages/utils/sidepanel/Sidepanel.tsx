@@ -13,6 +13,8 @@ import StyleCreateWrapper from '@/pages/style/form/StyleFormCreateWrapper';
 import StyleEditWrapper from '@/pages/style/form/StyleFormEditWrapper';
 import ClientFormCreateWrapper from '@/pages/client/form/ClientFormCreateWrapper';
 import ClientFormEditWrapper from '@/pages/client/form/ClientFormEditWrapper';
+import SipPhoneFormCreateWrapper from '@/pages/teacherAccount/sipPhone/form/SipPhoneFormCreateWrapper';
+import SipPhoneFormEditWrapper from '@/pages/teacherAccount/sipPhone/form/SipPhoneFormEditWrapper';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -40,6 +42,9 @@ const Sidepanel = (props: IProps) => {
 
     ClientFormCreate: <ClientFormCreateWrapper />,
     ClientFormEdit: <ClientFormEditWrapper />,
+
+    SipPhoneFormCreate: <SipPhoneFormCreateWrapper />,
+    SipPhoneFormEdit: <SipPhoneFormEditWrapper />,
   };
 
   const mapping = (c: string): any => {

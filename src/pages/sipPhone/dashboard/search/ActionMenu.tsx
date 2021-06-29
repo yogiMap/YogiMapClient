@@ -58,7 +58,7 @@ const ActionMenu = (props: IProps) => {
   const deletePrompt = (sipPhone: ISipPhone) => {
     Modal.confirm({
       title: `Do you want to delete?`,
-      content: `${sipPhone.name}`,
+      content: `${sipPhone.phoneNumber}`,
       okType: 'danger',
       onOk: () => props.sipPhoneDeleteById({ sipPhoneId: sipPhone._id, queryParams }),
     });

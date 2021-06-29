@@ -18,7 +18,7 @@ const SipPhoneDashboardControls = (props: IProps) => {
   };
 
   return (
-    <Button type="primary" onClick={sipPhoneCreate}>
+    <Button type="primary" shape="round" onClick={sipPhoneCreate}>
       Create SipPhone
     </Button>
   );

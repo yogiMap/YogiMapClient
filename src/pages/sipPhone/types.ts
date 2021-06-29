@@ -1,10 +1,10 @@
-import { ICompanyAccount } from '@/pages/companyAccount/types';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 export interface ISipPhone {
   _id: string;
   description: string;
   phoneNumber: string;
-  companyAccount: ICompanyAccount | string;
+  companyAccount: ITeacherAccount | string;
   owner: {
     name: string;
     _id: string;

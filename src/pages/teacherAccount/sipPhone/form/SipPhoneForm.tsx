@@ -25,7 +25,7 @@ const SipPhoneForm = (props: IProps) => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" loading={isLoading}>
+        <Button type="primary" shape="round" htmlType="submit" loading={isLoading}>
           {props.submitButtonText}
         </Button>
       </Form.Item>
