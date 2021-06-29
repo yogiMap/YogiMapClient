@@ -22,7 +22,7 @@ const TeacherAccountLayout = (props: IProps) => {
 
   const menuItems = [
     {
-      title: 'Teacher`s Account Info',
+      title: 'Teacher`s Dashboard',
       link: `/teacherAccount/${teacherAccountId}`,
     },
     {

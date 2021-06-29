@@ -39,7 +39,11 @@ const ClientSearchList = (props: IProps) => {
       title: 'Teacher',
       key: 'teacherAccount',
       render: (row) => {
-        return <Link to={`/teacherAccount/${get(row, 'teacherAccount._id')}`}>{get(row, 'teacherAccount.name')}</Link>;
+        return (
+          <Link to={`/teacherAccount/${get(row, 'teacherAccount._id', '')}`}>
+            {get(row, 'teacherAccount.name', '')}
+          </Link>
+        );
       },
     },
     {
