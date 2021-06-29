@@ -72,12 +72,14 @@ const ClientLayout = (props: IProps) => {
                 <div key="info">
                   <Anchor.Link href={`/client/${clientId}/info#clientDetails`} title="Client Details" />
                 </div>
+
                 <div key="messages" className="d-flex align-items-center">
                   <div className="ant-anchor-link">
                     <Link to={`/client/${clientId}/messages`}>Messages</Link>
                     <Badge count={messagesCount} />
                   </div>
                 </div>
+
                 <div key="calls" className="d-flex align-items-center">
                   <div className="ant-anchor-link">
                     <Link to={`/client/${clientId}/calls`}>Calls</Link>

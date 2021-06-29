@@ -36,7 +36,6 @@ export default [
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
 
           { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
-          { path: '/teacherAccount/:teacherAccountId', component: '@/pages/teacherAccount/view/TeacherAccountView' },
 
           { path: '/studentAccount', component: '@/pages/studentAccount/dashboard/StudentAccountDashboard' },
           { path: '/studentAccount/:studentAccountId', component: '@/pages/studentAccount/view/StudentAccountView' },
@@ -74,6 +73,10 @@ export default [
               {
                 path: '/teacherAccount/:teacherAccountId',
                 component: '@/pages/teacherAccount/view/TeacherAccountView',
+              },
+              {
+                path: '/teacherAccount/:teacherAccountId/classes',
+                component: '@/pages/classes/view/ClassesView',
               },
               {
                 path: '/client/:clientId',

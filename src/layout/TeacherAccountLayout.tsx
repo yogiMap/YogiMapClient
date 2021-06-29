@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Menu } from 'antd';
+import { Anchor, Menu } from 'antd';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
@@ -25,6 +25,10 @@ const TeacherAccountLayout = (props: IProps) => {
 
   const menuItems = [
     {
+      title: 'TeacherAccount Info',
+      link: `/teacherAccount/${teacherAccountId}`,
+    },
+    {
       title: 'SIP Phones',
       link: `/teacherAccount/${teacherAccountId}/sipPhone`,
     },
@@ -41,7 +45,7 @@ const TeacherAccountLayout = (props: IProps) => {
   return (
     <>
       <div className="row">
-        <div className="col-lg-2 col-md-2">
+        <div className="col-lg-3 col-md-3">
           <h5>{teacherName}</h5>
 
           <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode={'vertical'}>
@@ -53,7 +57,7 @@ const TeacherAccountLayout = (props: IProps) => {
           </Menu>
         </div>
 
-        <div className="col-lg-10 col-md-10">{props.children}</div>
+        <div className="col-lg-9 col-md-9">{props.children}</div>
       </div>
     </>
   );
