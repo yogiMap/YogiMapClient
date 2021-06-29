@@ -58,6 +58,9 @@ export default [
 
           { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
 
+          { path: '/sipPhone', component: '@/pages/sipPhone/dashboard/SipPhoneDashboard' },
+          { path: '/sipPhone/:sipPhoneId', component: '@/pages/sipPhone/view/SipPhoneView' },
+
           // CLIENT ====================================
           { path: '/client', component: '@/pages/client/dashboard/ClientDashboard' },
           {

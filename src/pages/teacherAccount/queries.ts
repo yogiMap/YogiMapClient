@@ -47,3 +47,7 @@ export async function queryTeacherAccountGetTimeZoneList(payload: string): Promi
 export async function queryTeacherAccountGetFocusList(payload: string): Promise<any> {
   return get({ url: `/list/focus`, data: payload });
 }
+
+export async function queryTeacherAccountSipPhone(teacherAccountId: string): Promise<any> {
+  return get({ url: `/teacherAccount/${teacherAccountId}/sipPhone` });
+}

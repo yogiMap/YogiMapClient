@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { debounce } from 'lodash';
-import { ISidPhoneQueryParams } from '@/pages/sidPhone/types';
+import { ISipPhoneQueryParams } from '@/pages/sipPhone/types';
 import { get } from 'lodash';
 
 interface IProps {
-  onChange: (values: null | ISidPhoneQueryParams) => void;
-  filters: ISidPhoneQueryParams;
+  onChange: (values: null | ISipPhoneQueryParams) => void;
+  filters: ISipPhoneQueryParams;
 }
 
-const SidPhoneFilterForm = (props: IProps) => {
+const SipPhoneFilterForm = (props: IProps) => {
   const { onChange, filters } = props;
   const [form] = Form.useForm();
   const formValues = form.getFieldsValue();
@@ -38,12 +38,12 @@ const SidPhoneFilterForm = (props: IProps) => {
 
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="sidPhoneSearchParam1">
-        <Input placeholder="sidPhoneSearchParam1" />
+      <Form.Item name="sipPhoneSearchParam1">
+        <Input placeholder="sipPhoneSearchParam1" />
       </Form.Item>
 
-      <Form.Item name="sidPhoneSearchParam2">
-        <Input placeholder="sidPhoneSearchParam2" />
+      <Form.Item name="sipPhoneSearchParam2">
+        <Input placeholder="sipPhoneSearchParam2" />
       </Form.Item>
 
       <Form.Item>
@@ -53,4 +53,4 @@ const SidPhoneFilterForm = (props: IProps) => {
   );
 };
 
-export default SidPhoneFilterForm;
+export default SipPhoneFilterForm;

@@ -3,17 +3,17 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { ISidPhone } from '@/pages/sidPhone/types';
+import { ISipPhone } from '@/pages/sipPhone/types';
 
-interface IProps extends ISidPhone {
-  sidPhoneDelete: (id: String) => void;
+interface IProps extends ISipPhone {
+  sipPhoneDelete: (id: String) => void;
 }
 
-const SidPhoneSearchListItem = (props: IProps) => {
-  const { sidPhoneDelete } = props;
+const SipPhoneSearchListItem = (props: IProps) => {
+  const { sipPhoneDelete } = props;
 
   const owner = get(props, 'item.owner', '');
-  const sidPhoneId = get(props, 'item._id', '');
+  const sipPhoneId = get(props, 'item._id', '');
   const createdAt = get(props, 'item.createdAt', '');
   const description = get(props, 'item.description', '');
 
@@ -31,7 +31,7 @@ const SidPhoneSearchListItem = (props: IProps) => {
       <Row>{description}</Row>
 
       <Row>
-        <Button danger onClick={() => sidPhoneDelete(sidPhoneId)}>
+        <Button danger onClick={() => sipPhoneDelete(sipPhoneId)}>
           Delete
         </Button>
       </Row>
@@ -40,7 +40,7 @@ const SidPhoneSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  sidPhoneDelete: (payload: any) => dispatch({ type: 'SidPhoneDashboard/sidPhoneDelete', payload }),
+  sipPhoneDelete: (payload: any) => dispatch({ type: 'SipPhoneDashboard/sipPhoneDelete', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(SidPhoneSearchListItem);
+export default connect(null, mapDispatchToProps)(SipPhoneSearchListItem);

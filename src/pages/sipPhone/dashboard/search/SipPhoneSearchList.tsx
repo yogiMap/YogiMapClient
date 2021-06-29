@@ -5,22 +5,22 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { ISidPhone } from '@/pages/sidPhone/types';
-import ActionMenu from '@/pages/sidPhone/dashboard/search/ActionMenu';
+import { ISipPhone } from '@/pages/sipPhone/types';
+import ActionMenu from '@/pages/sipPhone/dashboard/search/ActionMenu';
 
 interface IProps extends RouteComponentProps {
-  items: ISidPhone[];
+  items: ISipPhone[];
 }
 
-const SidPhoneSearchList = (props: IProps) => {
+const SipPhoneSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
-  const columns: ColumnProps<ISidPhone>[] = [
+  const columns: ColumnProps<ISipPhone>[] = [
     {
       title: 'Name',
       key: 'name',
-      render: (row) => <Link to={`/sidPhone/${row._id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`/sipPhone/${row._id}`}>{row.name}</Link>,
     },
     {
       title: 'Description',
@@ -54,4 +54,4 @@ const mapStateToProps = () => ({});
 //dispatch: any
 const mapDispatchToProps = () => ({});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidPhoneSearchList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SipPhoneSearchList));

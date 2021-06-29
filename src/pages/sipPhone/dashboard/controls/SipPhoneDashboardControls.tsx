@@ -7,19 +7,19 @@ interface IProps {
   open: (arg: ISidepanel) => void;
 }
 
-const SidPhoneDashboardControls = (props: IProps) => {
-  const sidPhoneCreate = () => {
+const SipPhoneDashboardControls = (props: IProps) => {
+  const sipPhoneCreate = () => {
     props.open({
-      title: 'Create new SidPhone',
-      component: 'SidPhoneFormCreate',
-      place: 'SidPhoneDashboard',
+      title: 'Create new SipPhone',
+      component: 'SipPhoneFormCreate',
+      place: 'SipPhoneDashboard',
       width: 800,
     });
   };
 
   return (
-    <Button type="primary" onClick={sidPhoneCreate}>
-      Create SidPhone
+    <Button type="primary" onClick={sipPhoneCreate}>
+      Create SipPhone
     </Button>
   );
 };
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(null, mapDispatchToProps)(SidPhoneDashboardControls);
+export default connect(null, mapDispatchToProps)(SipPhoneDashboardControls);

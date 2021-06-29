@@ -1,4 +1,4 @@
-import { ISidPhone, ISidPhoneQueryParams } from '@/pages/sidPhone/types';
+import { ISipPhone, ISipPhoneQueryParams } from '@/pages/sipPhone/types';
 import { Button, Dropdown, Menu, Modal } from 'antd';
 import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
@@ -6,16 +6,16 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
 import { EditOutlined } from '@ant-design/icons';
 
-interface ISidPhoneDeleteById {
-  sidPhoneId: string;
-  queryParams: ISidPhoneQueryParams;
+interface ISipPhoneDeleteById {
+  sipPhoneId: string;
+  queryParams: ISipPhoneQueryParams;
 }
 
 interface IProps {
-  row: ISidPhone;
+  row: ISipPhone;
   open: (arg: ISidepanel) => void;
-  sidPhoneDeleteById: (arg: ISidPhoneDeleteById) => void;
-  queryParams: ISidPhoneQueryParams;
+  sipPhoneDeleteById: (arg: ISipPhoneDeleteById) => void;
+  queryParams: ISipPhoneQueryParams;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -26,7 +26,7 @@ const ActionMenu = (props: IProps) => {
     { key: 'delete', handler: 'delete', name: 'Delete', danger: true },
   ];
 
-  const menu = (row: ISidPhone) => (
+  const menu = (row: ISipPhone) => (
     <Menu>
       {menuItems.map((el) => (
         <Menu.Item key={el.key} danger={el.danger} onClick={() => contextMenuClick(el.handler, row)}>
@@ -36,7 +36,7 @@ const ActionMenu = (props: IProps) => {
     </Menu>
   );
 
-  const contextMenuClick = (handler: any, row: ISidPhone) => {
+  const contextMenuClick = (handler: any, row: ISipPhone) => {
     if (handler === 'edit') {
       editHandler(row._id);
     }
@@ -45,22 +45,22 @@ const ActionMenu = (props: IProps) => {
     }
   };
 
-  const editHandler = (sidPhoneId: string) => {
+  const editHandler = (sipPhoneId: string) => {
     props.open({
-      title: 'Edit SidPhone',
-      component: 'SidPhoneFormEdit',
-      place: 'SidPhoneDashboard',
+      title: 'Edit SipPhone',
+      component: 'SipPhoneFormEdit',
+      place: 'SipPhoneDashboard',
       width: 800,
-      sidPhoneId,
+      sipPhoneId,
     });
   };
 
-  const deletePrompt = (sidPhone: ISidPhone) => {
+  const deletePrompt = (sipPhone: ISipPhone) => {
     Modal.confirm({
       title: `Do you want to delete?`,
-      content: `${sidPhone.name}`,
+      content: `${sipPhone.name}`,
       okType: 'danger',
-      onOk: () => props.sidPhoneDeleteById({ sidPhoneId: sidPhone._id, queryParams }),
+      onOk: () => props.sipPhoneDeleteById({ sipPhoneId: sipPhone._id, queryParams }),
     });
   };
 
@@ -83,8 +83,8 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  sidPhoneDeleteById: (payload: ISidPhoneDeleteById) =>
-    dispatch({ type: 'SidPhoneDashboard/sidPhoneDeleteById', payload }),
+  sipPhoneDeleteById: (payload: ISipPhoneDeleteById) =>
+    dispatch({ type: 'SipPhoneDashboard/sipPhoneDeleteById', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

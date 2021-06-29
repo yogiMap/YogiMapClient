@@ -1,21 +1,21 @@
 import React from 'react';
 import { get, isEmpty } from 'lodash';
 import { Col, Row, Statistic, Card } from 'antd';
-import { ISidPhoneStats } from '@/pages/sidPhone/types';
+import { ISipPhoneStats } from '@/pages/sipPhone/types';
 
 interface IProps {
-  stats: ISidPhoneStats;
+  stats: ISipPhoneStats;
 }
 
-const SidPhoneStats = (props: IProps) => {
-  const sidPhoneStats = get(props, 'stats', '');
+const SipPhoneStats = (props: IProps) => {
+  const sipPhoneStats = get(props, 'stats', '');
 
-  // if (isEmpty(sidPhoneStats)) return null;
+  // if (isEmpty(sipPhoneStats)) return null;
 
-  const totalCount = get(sidPhoneStats, 'totalCount', '...');
-  const totalCountDouble = get(sidPhoneStats, 'totalCountDouble', '...');
-  const totalCountTriple = get(sidPhoneStats, 'totalCountTriple', '...');
-  const totalCountTen = get(sidPhoneStats, 'totalCountTen', '...');
+  const totalCount = get(sipPhoneStats, 'totalCount', '...');
+  const totalCountDouble = get(sipPhoneStats, 'totalCountDouble', '...');
+  const totalCountTriple = get(sipPhoneStats, 'totalCountTriple', '...');
+  const totalCountTen = get(sipPhoneStats, 'totalCountTen', '...');
 
   return (
     <Row gutter={16}>
@@ -38,4 +38,4 @@ const SidPhoneStats = (props: IProps) => {
   );
 };
 
-export default SidPhoneStats;
+export default SipPhoneStats;

@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { querySidPhoneGetById } from '@/pages/sidPhone/queries';
+import { querySipPhoneGetById } from '@/pages/sipPhone/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
@@ -9,7 +9,7 @@ export interface IModel {
   namespace: string;
   state: IState;
   effects: {
-    sidPhoneGetById: Effect;
+    sipPhoneGetById: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -17,21 +17,21 @@ export interface IModel {
 }
 
 const Model: IModel = {
-  namespace: 'SidPhoneView',
+  namespace: 'SipPhoneView',
 
   state: {},
 
   effects: {
-    *sidPhoneGetById({ payload }, { call, put }) {
+    *sipPhoneGetById({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
-      const data = yield call(querySidPhoneGetById, payload);
+      const data = yield call(querySipPhoneGetById, payload);
       yield put({ type: 'save', payload: { ...data.payload } });
     },
 
-    // *sidPhoneDeleteById({ payload }, { call, put }) {
+    // *sipPhoneDeleteById({ payload }, { call, put }) {
     //   console.log(payload);
-    //   yield call(querySidPhoneDeleteById, payload.sidPhoneId);
-    //   yield put({ type: 'sidPhoneSearch', payload: payload.queryParams });
+    //   yield call(querySipPhoneDeleteById, payload.sipPhoneId);
+    //   yield put({ type: 'sipPhoneSearch', payload: payload.queryParams });
     // },
   },
 

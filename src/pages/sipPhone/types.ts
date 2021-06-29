@@ -1,6 +1,6 @@
 import { ICompanyAccount } from '@/pages/companyAccount/types';
 
-export interface ISidPhone {
+export interface ISipPhone {
   _id: string;
   description: string;
   phoneNumber: string;
@@ -13,16 +13,16 @@ export interface ISidPhone {
   updatedAt: string;
 }
 
-export interface ISidPhoneStats {
-  totalSidPhone: number;
-  todaySidPhone: number;
-  monthSidPhone: number;
-  averageSidPhone: number;
+export interface ISipPhoneStats {
+  totalSipPhone: number;
+  todaySipPhone: number;
+  monthSipPhone: number;
+  averageSipPhone: number;
 }
 
-export interface ISidPhoneQueryParams {
+export interface ISipPhoneQueryParams {
   limit?: number | string;
   page?: number | string;
-  sidPhoneSearchParam1?: string;
-  sidPhoneSearchParam2?: string;
+  sipPhoneSearchParam1?: string;
+  sipPhoneSearchParam2?: string;
 }
