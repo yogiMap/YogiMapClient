@@ -19,7 +19,7 @@ const TopMenu = (props: IProps) => {
     // { path: '/base', name: 'Base', perm: 'base.get.own' },
     { path: '/', name: 'HOME' },
     { path: '/style', name: 'STYLE', perm: 'style.get.own' },
-    { path: '/teacherAccount', name: 'TEACHER', perm: 'teacherAccount.get.own' },
+    { path: '/teacherAccount', name: 'TEACHERS', perm: 'teacherAccount.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
     { path: '/classType', name: 'TYPE', perm: 'classType.get.own' },
@@ -30,9 +30,9 @@ const TopMenu = (props: IProps) => {
   }));
 
   const teacherMenu = [
-    { path: '/', name: 'HOME' },
-    { path: '/teacherAccount', name: 'TEACHER', perm: 'teacherAccount.get.own' },
+    { path: `/teacherAccount/${teacherAccountId}`, name: 'HOME', perm: 'teacherAccount.get.own' },
     { path: '/client', name: 'CLIENTS', perm: 'client.get.own' },
+    { path: '/teacherAccount', name: 'TEACHERS', perm: 'teacherAccount.get.own' },
     { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
     { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
     { path: '/style', name: 'STYLE', perm: 'style.get.own' },

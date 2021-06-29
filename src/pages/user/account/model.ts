@@ -80,7 +80,7 @@ const UserModel: UserModelType = {
         localStorage.setItem('userId', userId);
 
         if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else history.push(`/settings/teacherAccount/${userId}`);
+        else history.push(`/teacherAccount/${teacherAccount}`);
       }
     },
 
