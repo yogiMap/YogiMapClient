@@ -7,7 +7,7 @@ import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 interface IProps {
   classesId: string;
   name: string;
-  classesGetById: (id: string) => void;
+  classesGetById: (classesId: string) => void;
   Account: IUserAccount;
 }
 

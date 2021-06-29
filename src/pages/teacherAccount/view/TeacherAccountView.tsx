@@ -29,10 +29,6 @@ const TeacherAccountView = (props: IProps) => {
     .map((el: any) => el.name)
     .toString();
 
-  useEffect(() => {
-    props.teacherAccountGetById(teacherAccountId);
-  }, []);
-
   return (
     <div className="container">
       <h1 className="text-center">{name}</h1>

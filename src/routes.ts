@@ -67,16 +67,20 @@ export default [
             component: '@/layout/TeacherAccountLayout',
             routes: [
               {
-                path: '/teacherAccount/:teacherAccountId/sipPhone',
-                component: '@/pages/teacherAccount/sipPhone/TeacherAccountSipPhone',
-              },
-              {
                 path: '/teacherAccount/:teacherAccountId',
                 component: '@/pages/teacherAccount/view/TeacherAccountView',
               },
               {
+                path: '/teacherAccount/:teacherAccountId/sipPhone',
+                component: '@/pages/teacherAccount/sipPhone/TeacherAccountSipPhone',
+              },
+              {
                 path: '/teacherAccount/:teacherAccountId/classes',
-                component: '@/pages/classes/view/ClassesView',
+                component: '@/pages/classes/dashboard/ClassesDashboard',
+              },
+              {
+                path: '/teacherAccount/:teacherAccountId/event',
+                component: '@/pages/event/dashboard/EventDashboard',
               },
               {
                 path: '/client/:clientId',
@@ -84,6 +88,7 @@ export default [
               },
             ],
           },
+
           // CLIENT ====================================
           { path: '/client', component: '@/pages/client/dashboard/ClientDashboard' },
           {

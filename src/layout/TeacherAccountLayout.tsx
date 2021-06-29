@@ -12,14 +12,11 @@ interface IProps {
 
 const TeacherAccountLayout = (props: IProps) => {
   const tab = get(props, 'location.pathname', '').split('/').pop();
-
   const teacherName = get(props, 'TeacherAccountView.name', '');
-
-  const teacherAccountId = get(props, 'match.params.teacherAccountId');
+  const teacherAccountId = get(props, 'match.params.teacherAccountId', '');
 
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
-
     return () => {};
   }, []);
 
@@ -38,7 +35,7 @@ const TeacherAccountLayout = (props: IProps) => {
     },
     {
       title: 'Events',
-      link: `/teacherAccount/${teacherAccountId}/events`,
+      link: `/teacherAccount/${teacherAccountId}/event`,
     },
   ];
 
@@ -46,7 +43,7 @@ const TeacherAccountLayout = (props: IProps) => {
     <>
       <div className="row">
         <div className="col-lg-3 col-md-3">
-          <h5>{teacherName}</h5>
+          <h5 className="text-colored-first mt-5">{teacherName}</h5>
 
           <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode={'vertical'}>
             {menuItems.map((item) => (
