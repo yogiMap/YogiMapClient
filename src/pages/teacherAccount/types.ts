@@ -24,8 +24,11 @@ export interface ITeacherAccount {
 export interface ITeacherAccountQueryParams {
   limit?: number | string;
   page?: number | string;
-  teacherAccountSearchParam1?: string;
-  teacherAccountSearchParam2?: string;
+  name?: string;
+  focus?: string;
+  style?: string;
+  country?: string;
+  city?: string;
 }
 
 export interface ITeacherAccountStats {

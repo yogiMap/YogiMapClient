@@ -36,18 +36,22 @@ const ClientFilterForm = (props: IProps) => {
   };
 
   return (
-    <Form form={form} onValuesChange={debounceInput} initialValues={filters} layout="inline">
-      <Form.Item name="name">
-        <Input placeholder="Client Name" />
-      </Form.Item>
+    <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
+      <div className="row d-flex justify-content-center">
+        <div className="col-md-6 d-flex justify-content-center">
+          <Form.Item name="Name">
+            <Input placeholder="Client Name" className="rounded-pill" />
+          </Form.Item>
+        </div>
 
-      <Form.Item name="teacherAccount">
-        <Input placeholder="teacherAccount" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button onClick={reset}>Reset</Button>
-      </Form.Item>
+        <div className="col-md-6 d-flex justify-content-center">
+          <Form.Item>
+            <Button onClick={reset} shape="round">
+              Reset
+            </Button>
+          </Form.Item>
+        </div>
+      </div>
     </Form>
   );
 };

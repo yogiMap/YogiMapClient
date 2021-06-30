@@ -39,37 +39,37 @@ const TeacherAccountFilterForm = (props: IProps) => {
   return (
     <Form form={form} onValuesChange={debounceInput} initialValues={filters}>
       <div className="row d-flex justify-content-center">
-        <div className="col-md-3 d-flex justify-content-center">
+        <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="name">
             <Input placeholder="Name" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-md-3 d-flex justify-content-center">
-          <Form.Item name="style.name">
+        <div className="col-md-2 d-flex justify-content-center">
+          <Form.Item name="style">
             <Input placeholder="Yoga Style" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-md-3 d-flex justify-content-center">
+        <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="country">
             <Input placeholder="country" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-md-3 d-flex justify-content-center">
+        <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="focus">
             <Input placeholder="Yoga Focus" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-md-3 d-flex justify-content-center">
+        <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="city">
             <Input placeholder="city" className="rounded-pill" />
           </Form.Item>
         </div>
 
-        <div className="col-md-3 d-flex justify-content-center">
+        <div className="col-md-2 d-flex justify-content-center">
           <Form.Item>
             <Button onClick={reset} shape="round">
               Reset
