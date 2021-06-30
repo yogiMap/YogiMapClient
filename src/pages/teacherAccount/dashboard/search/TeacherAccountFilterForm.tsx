@@ -41,7 +41,13 @@ const TeacherAccountFilterForm = (props: IProps) => {
       <div className="row d-flex justify-content-center">
         <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="name">
-            <Input placeholder="Name" className="rounded-pill" />
+            <Input placeholder="Teacher Name" className="rounded-pill" />
+          </Form.Item>
+        </div>
+
+        <div className="col-md-2 d-flex justify-content-center">
+          <Form.Item name="focus">
+            <Input placeholder="Yoga Focus" className="rounded-pill" />
           </Form.Item>
         </div>
 
@@ -53,19 +59,13 @@ const TeacherAccountFilterForm = (props: IProps) => {
 
         <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="country">
-            <Input placeholder="country" className="rounded-pill" />
-          </Form.Item>
-        </div>
-
-        <div className="col-md-2 d-flex justify-content-center">
-          <Form.Item name="focus">
-            <Input placeholder="Yoga Focus" className="rounded-pill" />
+            <Input placeholder="Country" className="rounded-pill" />
           </Form.Item>
         </div>
 
         <div className="col-md-2 d-flex justify-content-center">
           <Form.Item name="city">
-            <Input placeholder="city" className="rounded-pill" />
+            <Input placeholder="City" className="rounded-pill" />
           </Form.Item>
         </div>
 
