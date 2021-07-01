@@ -19,5 +19,5 @@ export interface IFocusStats {
 export interface IFocusQueryParams {
   limit?: number | string;
   page?: number | string;
-  focusSearchParam1?: string;
+  focus?: string;
 }

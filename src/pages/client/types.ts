@@ -35,5 +35,5 @@ export interface IClientQueryParams {
   limit?: number | string;
   page?: number | string;
   name?: string;
-  company?: string;
+  teacherAccount?: string;
 }

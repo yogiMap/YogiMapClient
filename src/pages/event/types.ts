@@ -25,6 +25,5 @@ export interface IEventStats {
 export interface IEventQueryParams {
   limit?: number | string;
   page?: number | string;
-  eventSearchParam1?: string;
-  eventSearchParam2?: string;
+  name?: string;
 }

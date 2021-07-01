@@ -29,6 +29,5 @@ export interface IClassesStats {
 export interface IClassesQueryParams {
   limit?: number | string;
   page?: number | string;
-  classesSearchParam1?: string;
-  classesSearchParam2?: string;
+  name?: string;
 }

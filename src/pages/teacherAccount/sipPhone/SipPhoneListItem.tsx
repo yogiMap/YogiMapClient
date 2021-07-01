@@ -18,14 +18,14 @@ const SipPhoneListItem = (props: IProps) => {
 
   return (
     <div className="row mb-2 border-bottom">
-      <div className="col-md-2">
+      <div className="col-md-3">
         <div>{moment(createdAt).format('LL HH:mm')}</div>
       </div>
 
       <div className="col-md-3">{phoneNumber}</div>
       <div className="col-md-3">{description}</div>
 
-      <div className="col-md-2">
+      <div className="col-md-3">
         <ActionMenu row={props.item} />
       </div>
     </div>

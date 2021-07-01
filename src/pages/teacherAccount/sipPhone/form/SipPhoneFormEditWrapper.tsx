@@ -23,12 +23,14 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
   const isLoadingGet = get(props, 'loadingEffects.SipPhoneForm/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.SipPhoneForm/updateById', false);
 
+  const teacherAccountID = get(props, 'sipPhoneInfo.teacherAccount', '');
+
   useEffect(() => {
     props.getById(sipPhoneId);
   }, []);
 
   const onFinish = (values: ISipPhone) => {
-    props.updateById({ values, sipPhoneId, queryParams });
+    props.updateById({ values, sipPhoneId, queryParams, teacherAccountID });
   };
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;

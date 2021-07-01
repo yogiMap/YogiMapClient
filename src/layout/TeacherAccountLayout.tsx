@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const TeacherAccountLayout = (props: IProps) => {
-  const tab = get(props, 'location.pathname', '').split('/').pop();
+  let tab = get(props, 'location.pathname', '').split('/').pop();
   const teacherName = get(props, 'TeacherAccountView.name', '');
   const teacherAccountId = get(props, 'match.params.teacherAccountId', '');
 
@@ -39,13 +39,17 @@ const TeacherAccountLayout = (props: IProps) => {
     },
   ];
 
+  menuItems.map((item) => {
+    if (item.link.split('/').pop() === tab) tab = item.title;
+  });
+
   return (
     <>
       <div className="row">
-        <div className="col-lg-3 col-md-3">
-          <h5 className="text-colored-first mt-5 ms-3 text-start">{teacherName}</h5>
+        <div className="col-lg-2 col-md-2">
+          <h5>{teacherName}</h5>
 
-          <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode={'vertical'}>
+          <Menu selectedKeys={[tab]} mode={'vertical'}>
             {menuItems.map((item) => (
               <Menu.Item key={item.title}>
                 <Link to={item.link}>{item.title}</Link>
