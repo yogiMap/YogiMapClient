@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import { get } from 'lodash';
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
+// @ts-ignore
 import { get, omitBy } from 'lodash';
 import Pager from '@/pages/utils/pager/Pager';
 import { IClient, IClientQueryParams } from '@/pages/client/types';
@@ -28,6 +29,7 @@ interface IProps {
   clientResetDashboard: () => void;
   ClientDashboard: IState;
   loadingEffects: ILoadingEffects;
+  items: IClient[];
 }
 
 const ClientDashboard = (props: IProps) => {
@@ -41,7 +43,7 @@ const ClientDashboard = (props: IProps) => {
 
   const getSearchQuery = (mixin = {}) => {
     const query = { ...initialSearchQuery, ...queryParams, ...mixin };
-    return omitBy(query, (a) => !a); // удалить пустые ключи
+    return omitBy(query, (a: any) => !a); // удалить пустые ключи
   };
 
   useEffect(() => {

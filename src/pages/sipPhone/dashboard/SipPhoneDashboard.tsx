@@ -4,7 +4,7 @@ import { get, omitBy } from 'lodash';
 import SipPhoneStats from '@/pages/sipPhone/dashboard/stats/SipPhoneStats';
 import SipPhoneFilterForm from '@/pages/sipPhone/dashboard/search/SipPhoneFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
-import { ISipPhoneQueryParams } from '@/pages/sipPhone/types';
+import { ISipPhone, ISipPhoneQueryParams } from '@/pages/sipPhone/types';
 import SipPhoneSearchList from '@/pages/sipPhone/dashboard/search/SipPhoneSearchList';
 import SipPhoneDashboardControls from '@/pages/sipPhone/dashboard/controls/SipPhoneDashboardControls';
 import { IState } from '@/pages/sipPhone/dashboard/model';
@@ -25,6 +25,7 @@ interface IProps {
   sipPhoneSearch: (arg: ISipPhoneQueryParams) => void;
   sipPhoneReset: () => void;
   SipPhoneDashboard: IState;
+  sipPhoneList: ISipPhone;
 }
 
 const SipPhoneDashboard = (props: IProps) => {
