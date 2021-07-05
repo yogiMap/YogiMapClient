@@ -6,7 +6,7 @@ import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { ISipPhone } from '@/pages/sipPhone/types';
-import ActionMenu from '@/pages/sipPhone/dashboard/search/ActionMenu';
+import ActionMenu from '@/pages/teacherAccount/sipPhone/ActionMenu';
 
 interface IProps extends RouteComponentProps {
   items: ISipPhone[];

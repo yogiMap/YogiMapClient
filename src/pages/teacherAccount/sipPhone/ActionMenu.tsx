@@ -15,6 +15,7 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   sipPhoneDeleteById: (arg: ISipPhoneDeleteById) => void;
   queryParams: ISipPhoneQueryParams;
+  teacherAccountId: string;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -51,6 +52,7 @@ const ActionMenu = (props: IProps) => {
       place: 'SipPhoneDashboard',
       width: 800,
       sipPhoneId,
+      teacherAccountId: props.teacherAccountId,
     });
   };
 

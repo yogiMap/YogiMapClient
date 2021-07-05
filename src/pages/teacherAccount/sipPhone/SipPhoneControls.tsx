@@ -5,6 +5,7 @@ import { ISidepanel } from '@/pages/utils/sidepanel/types';
 
 interface IProps {
   open: (arg: ISidepanel) => void;
+  teacherAccountId: string;
 }
 
 const SipPhoneControls = (props: IProps) => {
@@ -14,6 +15,7 @@ const SipPhoneControls = (props: IProps) => {
       component: 'SipPhoneFormCreate',
       place: 'TeacherAccountSipPhones',
       width: '80%',
+      teacherAccountId: props.teacherAccountId,
     });
   };
 

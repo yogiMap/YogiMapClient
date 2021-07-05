@@ -30,14 +30,14 @@ const TeacherAccountSipPhone = (props: IProps) => {
       <div className="row my-3">
         <div className="col">
           {teacherAccountSipPhones.map((el) => (
-            <SipPhoneListItem key={el._id} item={el} />
+            <SipPhoneListItem key={el._id} item={el} teacherAccountId={teacherAccountId} />
           ))}
         </div>
       </div>
 
       <div className="row my-3">
         <div className="col d-flex justify-content-end">
-          <SipPhoneControls />
+          <SipPhoneControls teacherAccountId={teacherAccountId} />
         </div>
       </div>
     </div>
