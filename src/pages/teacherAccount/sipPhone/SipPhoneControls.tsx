@@ -14,7 +14,7 @@ const SipPhoneControls = (props: IProps) => {
       title: 'Create SIP Phone',
       component: 'SipPhoneFormCreate',
       place: 'TeacherAccountSipPhones',
-      width: '80%',
+      width: '450',
       teacherAccountId: props.teacherAccountId,
     });
   };

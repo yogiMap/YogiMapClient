@@ -6,21 +6,32 @@ import { get } from 'lodash';
 interface Props {}
 
 const ClientMessage = (props: any) => {
-  const { messageBody, direction } = props.item;
-  const author = direction === 'inbound-api' ? get(props, 'item.client.name') : 'You';
-  const justifyContent = direction === 'inbound-api' ? 'flex-end' : 'flex-start';
+  const { messageBody, direction, createdAt } = props.item;
+  const author = direction === 'inbound-api' ? get(props, 'item.client.name') : get(props, 'item.owner.name');
+
+  const backgroundColor = direction === 'inbound-api' ? { backgroundColor: '#87d068' } : { backgroundColor: '#cfe2ff' };
+
+  const nameArray = author.split(' ');
+  const initials = `${nameArray[0][0]}${nameArray[1][0]}`.toUpperCase();
+
   return (
-    <div>
-      <Comment
-        author={author}
-        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-        content={<p>{messageBody}</p>}
-        datetime={
-          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-            <span>{moment().fromNow()}</span>
-          </Tooltip>
-        }
-      />
+    <div className="mb-4 d-flex">
+      <div className="me-2">
+        <Avatar style={backgroundColor}>{initials}</Avatar>
+      </div>
+
+      <div className="d-flex align-items-start flex-column">
+        <div className="lh-1 mb-1">
+          <span className="small me-3 text-colored-first">{author}</span>
+          <span className="small text-secondary">
+            <Tooltip title={moment(createdAt).format('YYYY-MM-DD HH:mm:ss')}>
+              <span>{moment(createdAt).fromNow()}</span>
+            </Tooltip>
+          </span>
+        </div>
+
+        <div>{messageBody}</div>
+      </div>
     </div>
   );
 };

@@ -25,6 +25,7 @@ const Model: IModel = {
     *teacherAccountGetSipPhone({ payload }, { call, put }) {
       yield put({ type: 'save', payload: {} });
       const data = yield call(queryTeacherAccountSipPhone, payload);
+      console.log(payload);
       yield put({ type: 'save', payload: { teacherSipPhone: data.payload } });
     },
   },

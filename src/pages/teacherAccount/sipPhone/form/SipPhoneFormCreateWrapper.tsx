@@ -11,17 +11,19 @@ interface IProps {
 }
 
 const SipPhoneFormCreateWrapper = (props: IProps) => {
+  const isLoading = get(props, 'loadingEffects.SipPhoneForm/create', false);
+
   const onFinish = (values: ISipPhone) => {
     props.create(values);
   };
-
-  const isLoading = get(props, 'loadingEffects.SipPhoneForm/create', false);
 
   return <SipPhoneForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
 };
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
+  Sidepanel: state.Sidepanel,
+  SipPhoneForm: state.SipPhoneForm,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

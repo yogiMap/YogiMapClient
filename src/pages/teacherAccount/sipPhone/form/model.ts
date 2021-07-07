@@ -14,7 +14,6 @@ export interface SipPhoneModelType {
     getById: Effect;
     updateById: Effect;
     reset: Effect;
-    teacherAccountGetSipPhone: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -29,15 +28,9 @@ const SipPhoneModel: SipPhoneModelType = {
   state: initialState,
 
   effects: {
-    *teacherAccountGetSipPhone({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: {} });
-      const data = yield call(queryTeacherAccountSipPhone, payload);
-      yield put({ type: 'save', payload: { teacherSipPhone: data.payload } });
-    },
-
     *create({ payload }, { call, put }) {
       yield call(querySipPhoneCreate, payload);
-      yield put({ type: 'SipPhoneDashboard/sipPhoneSearch' });
+      //yield put({ type: 'SipPhoneDashboard/sipPhoneSearch' });
       yield put({ type: 'Sidepanel/close' });
     },
 
@@ -50,9 +43,7 @@ const SipPhoneModel: SipPhoneModelType = {
     *updateById({ payload }, { call, put }) {
       yield call(querySipPhoneUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
-      // yield put({ type: 'SipPhoneDashboard/sipPhoneSearch', payload: payload.queryParams });
-      yield put({ type: 'teacherAccountGetSipPhone', payload: payload.teacherAccountID });
-      history.push(`/teacherAccount/${payload.teacherAccountID}/sipPhone`);
+      yield put({ type: 'TeacherAccountSipPhone/teacherAccountGetSipPhone', payload: payload.teacherAccountId });
     },
 
     *reset(_, { put }) {
