@@ -10,14 +10,13 @@ interface IMessage {
 }
 
 interface IProps {
-  // isLoading: boolean;
   send: (arg: IMessage) => void;
   items: any;
   clientId: string;
 }
 
 const ClientMessagesPhoneList = (props: IProps) => {
-  const isLoading = get(props, 'loadingEffects.ClientForm/create', false);
+  const isLoading = get(props, 'loadingEffects.ClientMessageForm/send', false);
   const phoneNumber: string = get(props, 'clientInfo.phoneNumber', '');
   const clientId = get(props, 'clientInfo._id', '');
   const items = get(props, 'items');
@@ -28,7 +27,7 @@ const ClientMessagesPhoneList = (props: IProps) => {
 
   return (
     <div>
-      <div>
+      <div className="overflow-scroll">
         {items.map((item: any) => (
           <ClientMessage key={item._id} item={item} />
         ))}
