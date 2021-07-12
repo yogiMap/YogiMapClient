@@ -59,16 +59,13 @@ const ClientInfo = (props: IProps) => {
             <RenderPhoneNumber phoneNumberAll={phone} />
           </div>
 
-          <div>
-            <Button type="primary" htmlType="submit" shape="round" onClick={callUser}>
-              Call
-            </Button>
-          </div>
-          <div>
-            <Button type="primary" danger shape="round" onClick={hangUpCall}>
-              Hang Up
-            </Button>
-          </div>
+          <Button type="primary" htmlType="submit" shape="round" onClick={callUser}>
+            Call
+          </Button>
+
+          <Button type="primary" danger shape="round" onClick={hangUpCall}>
+            Hang Up
+          </Button>
         </div>
 
         <div className="col-6">
