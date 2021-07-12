@@ -4,10 +4,18 @@ import { IClient } from '@/pages/client/types';
 import { ILoadingEffects } from '@/types';
 import { get } from 'lodash';
 import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+import { Button } from 'antd';
 
 interface IProps {
   ClientInfo: IClient;
   loadingEffects: ILoadingEffects;
+  callClient: (arg: ICallClient) => void;
+  hangUpCall: () => void;
+}
+
+interface ICallClient {
+  phoneNumber: string;
+  userId: string;
 }
 
 const ClientInfo = (props: IProps) => {
@@ -16,6 +24,14 @@ const ClientInfo = (props: IProps) => {
   const phone = get(props, 'ClientInfo.phoneNumber', {});
   const teacherAccount = get(props, 'ClientInfo.teacherAccount', '');
   const clientId = get(props, 'match.params.clientId', '');
+
+  const callUser = () => {
+    props.callClient({ phoneNumber: phone, userId: clientId });
+  };
+
+  const hangUpCall = () => {
+    props.hangUpCall;
+  };
 
   if (!props.ClientInfo) return null;
   return (
@@ -41,6 +57,17 @@ const ClientInfo = (props: IProps) => {
           <div className="d-flex justify-content-end-">
             <span className="text-muted me-1">Phone</span>
             <RenderPhoneNumber phoneNumberAll={phone} />
+          </div>
+
+          <div>
+            <Button type="primary" htmlType="submit" shape="round" onClick={callUser}>
+              Call
+            </Button>
+          </div>
+          <div>
+            <Button type="primary" danger shape="round" onClick={hangUpCall}>
+              Hang Up
+            </Button>
           </div>
         </div>
 
@@ -83,4 +110,9 @@ const mapStateToProps = (state: any) => ({
   ClientInfo: state.ClientInfo,
 });
 
-export default connect(mapStateToProps)(ClientInfo);
+const mapDispatchToProps = (dispatch: any) => ({
+  callClient: (payload: ICallClient) => dispatch({ type: 'ClientCalls/callClient', payload }),
+  hangUpCall: () => dispatch({ type: 'ClientCalls/hangUpCall' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClientInfo);

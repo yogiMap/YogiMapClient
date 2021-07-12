@@ -11,21 +11,13 @@ interface IProps {
   clientGetInfoById: (id: string) => void;
   clientReset: () => void;
   open: (arg: ISidepanel) => void;
-  callClient: (arg: ICallClient) => void;
-  hangUpCall: () => void;
   ClientInfo: IClient;
-}
-
-interface ICallClient {
-  phoneNumber: string;
-  userId: string;
 }
 
 const ClientLayout = (props: IProps) => {
   const clientId = get(props, 'match.params.clientId');
   const tab = get(props, 'location.pathname', '').split('/').pop();
   const clientName = get(props, 'ClientInfo.name');
-  const clientPhone = get(props, 'ClientInfo.phoneNumber');
 
   const messagesCount = get(props, 'ClientInfo.messages.length');
   const callsCount = get(props, 'ClientInfo.calls.length', '');
@@ -48,14 +40,6 @@ const ClientLayout = (props: IProps) => {
     });
   };
 
-  const callUser = () => {
-    props.callClient({ phoneNumber: clientPhone, userId: clientId });
-  };
-
-  const hangUpCall = () => {
-    props.hangUpCall;
-  };
-
   if (!props.ClientInfo) return null;
 
   return (
@@ -69,17 +53,6 @@ const ClientLayout = (props: IProps) => {
         <div className="col-lg-10 col-md-10 col-10">
           <Button className="float-end mt-2 mx-5" shape="round" htmlType="submit" onClick={clientEdit}>
             Edit
-          </Button>
-        </div>
-
-        <div>
-          <Button type="primary" htmlType="submit" shape="round" onClick={callUser}>
-            Call
-          </Button>
-        </div>
-        <div>
-          <Button type="primary" danger shape="round" onClick={hangUpCall}>
-            Hang Up
           </Button>
         </div>
       </div>
@@ -125,8 +98,6 @@ const mapDispatchToProps = (dispatch: any) => ({
   clientGetInfoById: (payload: string) => dispatch({ type: 'ClientInfo/getInfoById', payload }),
   clientReset: () => dispatch({ type: 'ClientInfo/reset' }),
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  callClient: (payload: ICallClient) => dispatch({ type: 'ClientCalls/callClient', payload }),
-  hangUpCall: () => dispatch({ type: 'ClientCalls/hangUpCall' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientLayout);
