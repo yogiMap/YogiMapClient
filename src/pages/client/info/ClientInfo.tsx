@@ -4,7 +4,6 @@ import { IClient } from '@/pages/client/types';
 import { ILoadingEffects } from '@/types';
 import { get } from 'lodash';
 import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
-import logo from '@/icons/logo_yogimap.svg';
 
 interface IProps {
   ClientInfo: IClient;
@@ -41,7 +40,7 @@ const ClientInfo = (props: IProps) => {
 
           <div className="d-flex justify-content-end-">
             <span className="text-muted me-1">Phone</span>
-            <RenderPhoneNumber phoneNumberAll={phone} />{' '}
+            <RenderPhoneNumber phoneNumberAll={phone} />
           </div>
         </div>
 
