@@ -31,6 +31,7 @@ function RenderPhoneNumber(props: IProps) {
       component: 'CallsPanel',
       place: '',
       width: 380,
+      phoneNumber: `${phoneNumberCode}${phoneNumber}`,
     });
   };
 

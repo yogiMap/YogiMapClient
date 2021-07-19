@@ -98,6 +98,8 @@ const mapDispatchToProps = (dispatch: any) => ({
   clientGetInfoById: (payload: string) => dispatch({ type: 'ClientInfo/getInfoById', payload }),
   clientReset: () => dispatch({ type: 'ClientInfo/reset' }),
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
+  callClient: (payload: IClient) => dispatch({ type: 'ClientCalls/callClient', payload }),
+  hangUpCall: () => dispatch({ type: 'ClientCalls/hangUpCall' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientLayout);

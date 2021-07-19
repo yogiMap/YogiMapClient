@@ -83,10 +83,10 @@ const Model: IModel = {
       // Начинаем настройку клиента Twilio
       // Device.setup(twilioAccessToken);
       // Аналог Then для функции setup
-      yield put({
-        type: 'save',
-        payload: { currentCall: { userId } },
-      });
+      // yield put({
+      //   type: 'save',
+      //   payload: { currentCall: { userId } },
+      // });
       // @ts-ignore
       // Device.ready(function (device) {
       //   // Twilio клиент настроен успешно

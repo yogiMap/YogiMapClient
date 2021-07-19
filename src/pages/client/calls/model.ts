@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
-import { Device } from 'twilio-client';
+import { Device } from '@twilio/voice-sdk';
 
 import { generateTwilioAccessToken } from '@/pages/client/queries';
 import { IClient, IClientStats } from '@/pages/client/types';
@@ -36,31 +36,31 @@ const Model: IModel = {
       const userId = get(payload, 'userId', '');
       const userPhone = get(payload, 'userPhone', '');
       const data = yield call(generateTwilioAccessToken, userPhone);
-      // Начинаем настройку клиента Twilio
-      Device.setup(data.payload);
-      // Аналог Then для функции setup
-      yield put({
-        type: 'save',
-        payload: { currentCall: { userId } },
-      });
-      // @ts-ignore
-      Device.ready(function (device) {
-        // Twilio клиент настроен успешно
-        const params = { phoneNumber: payload };
-        // Начинаем звонить
-        // @ts-ignore
-        Device.connect(params);
-        // Аналог Then для функции connect
-        // @ts-ignore
-        Device.connect(function (connection) {
-          // Пошли гудки
-        });
-      });
-      // Аналог Catch для функции setup
-      // @ts-ignore
-      Device.error(function (error) {
-        // Ошибка функции setup
-      });
+      // // Начинаем настройку клиента Twilio
+      // Device.setup(data.payload);
+      // // Аналог Then для функции setup
+      // yield put({
+      //   type: 'save',
+      //   payload: { currentCall: { userId } },
+      // });
+      // // @ts-ignore
+      // Device.ready(function (device) {
+      //   // Twilio клиент настроен успешно
+      //   const params = { phoneNumber: payload };
+      //   // Начинаем звонить
+      //   // @ts-ignore
+      //   Device.connect(params);
+      //   // Аналог Then для функции connect
+      //   // @ts-ignore
+      //   Device.connect(function (connection) {
+      //     // Пошли гудки
+      //   });
+      // });
+      // // Аналог Catch для функции setup
+      // // @ts-ignore
+      // Device.error(function (error) {
+      //   // Ошибка функции setup
+      // });
     },
 
     *hangUpCall(_: any, { call, put }) {
