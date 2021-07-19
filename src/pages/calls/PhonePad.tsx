@@ -57,7 +57,7 @@ function PhonePad(props: IProps) {
   }, []);
 
   const makeCall = () => {
-    makeOutgoingCall(phoneNumber).then((r) => r);
+    makeOutgoingCall(phoneNumber);
   };
 
   async function twilioRegisterDevice() {
@@ -156,7 +156,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  callUser: (payload: ICallClient) => dispatch({ type: 'ClientDashboard/callUser', payload: '17075901867' }),
+  callUser: (payload: ICallClient) => dispatch({ type: 'ClientDashboard/callUser', payload: '14245213370' }),
   generateTwilioAccessToken: () => dispatch({ type: 'PhonePad/generateTwilioAccessToken' }),
 });
 

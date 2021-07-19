@@ -79,7 +79,7 @@ const CallsPanel = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  activeConnection: state.InboundCalls.activeConnection,
+  activeConnection: state.PhonePad.generateTwilioAccessToken,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
