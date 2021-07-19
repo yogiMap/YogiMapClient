@@ -37,6 +37,6 @@ export async function queryClientGetStats(): Promise<any> {
   return get({ url: `/client/stats` });
 }
 
-export async function generateTwilioToken(_: any): Promise<any> {
-  return get({ url: `/telephony/calls/generate/token` });
+export async function generateTwilioAccessToken(_: any): Promise<any> {
+  return get({ url: `/telephony/calls/generateAccessToken` });
 }

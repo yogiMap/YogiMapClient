@@ -1,7 +1,3 @@
-/*body {*/
-/*  background-color: #42a5f5;*/
-/*}*/
-
 .row-pad {
   margin: 0 auto;
   width: 280px;
@@ -27,13 +23,9 @@
 }
 
 .container-pad {
-  background-color: white;
   width: 280px;
-  padding: 20px;
-  margin: 30px auto;
   height: 480px;
   text-align: center;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .btn-circle {
@@ -57,25 +49,6 @@
   font-weight: bold;
   color: #1976d2;
 }
-
-/*#call {*/
-/*  display: inline-block;*/
-/*  background-color: #66bb6a;*/
-/*  padding: 4px 30px;*/
-/*  margin: 10px;*/
-/*  color: white;*/
-/*  border-radius: 4px;*/
-/*  float: left;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.botrow {*/
-/*  margin: 0 auto;*/
-/*  width: 280px;*/
-/*  clear: both;*/
-/*  text-align: center;*/
-/*  font-family: 'Exo';*/
-/*}*/
 
 .digit-pad:active,
 .dig-pad:active {

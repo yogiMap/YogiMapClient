@@ -15,6 +15,7 @@ import ClientFormCreateWrapper from '@/pages/client/form/ClientFormCreateWrapper
 import ClientFormEditWrapper from '@/pages/client/form/ClientFormEditWrapper';
 import SipPhoneFormCreateWrapper from '@/pages/teacherAccount/sipPhone/form/SipPhoneFormCreateWrapper';
 import SipPhoneFormEditWrapper from '@/pages/teacherAccount/sipPhone/form/SipPhoneFormEditWrapper';
+import CallsPanel from '@/pages/calls/CallsPanel';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -45,6 +46,8 @@ const Sidepanel = (props: IProps) => {
 
     SipPhoneFormCreate: <SipPhoneFormCreateWrapper />,
     SipPhoneFormEdit: <SipPhoneFormEditWrapper />,
+
+    CallsPanel: <CallsPanel />,
   };
 
   const mapping = (c: string): any => {

@@ -2,7 +2,7 @@ import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 import { Device } from 'twilio-client';
 
-import { generateTwilioToken } from '@/pages/client/queries';
+import { generateTwilioAccessToken } from '@/pages/client/queries';
 import { IClient, IClientStats } from '@/pages/client/types';
 import { IPager } from '@/pages/utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
@@ -35,7 +35,7 @@ const Model: IModel = {
     *callClient({ payload }, { call, put }) {
       const userId = get(payload, 'userId', '');
       const userPhone = get(payload, 'userPhone', '');
-      const data = yield call(generateTwilioToken, userPhone);
+      const data = yield call(generateTwilioAccessToken, userPhone);
       // Начинаем настройку клиента Twilio
       Device.setup(data.payload);
       // Аналог Then для функции setup

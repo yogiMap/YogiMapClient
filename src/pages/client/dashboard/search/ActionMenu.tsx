@@ -23,6 +23,7 @@ interface IProps {
   callUser: (arg: ICallClient) => void;
   clientDeleteById: (arg: IClientDeleteById) => void;
   queryParams: IClientQueryParams;
+  userId: string;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -54,8 +55,22 @@ const ActionMenu = (props: IProps) => {
     }
     if (handler === 'call') {
       const userId = row._id;
-      // props.callUser(userPhone, userId);
+      props.open({
+        title: 'Calls-AM',
+        component: 'CallsPanel',
+        place: '',
+        width: 380,
+        userId,
+        userPhone,
+        // row,
+      });
+      console.log(' == userPhone from ActionMenu==: ', userPhone);
+      console.log(' == userId from ActionMenu==: ', userId);
     }
+    //   const userId = row._id;
+    //   props.callUser(userPhone);
+    //   console.log(' == userPhone from ActionMenu==: ', userPhone)
+    // }
   };
 
   const editHandler = (clientId: string) => {

@@ -83,10 +83,10 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getTwilioToken: (payload: any) => dispatch({ type: 'InboundCalls/twilioWorker', payload }),
-  incomingCall: (payload: any) => dispatch({ type: 'InboundCalls/incomingCall', payload }),
+  getTwilioToken: (payload: any) => dispatch({ type: 'PhonePad/twilioWorker', payload }),
+  incomingCall: (payload: any) => dispatch({ type: 'PhonePad/incomingCall', payload }),
   closePanel: () => dispatch({ type: 'Sidepanel/close' }),
-  endCall: (payload: any) => dispatch({ type: 'InboundCalls/endCall', payload }),
+  endCall: (payload: any) => dispatch({ type: 'PhonePad/endCall', payload }),
 });
 
 // @ts-ignore
