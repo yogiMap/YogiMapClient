@@ -42,7 +42,7 @@ function RenderPhoneNumber(props: IProps) {
       {phoneNumberExt && <span>ext {phoneNumberExt}</span>}
 
       <Button type="link" onClick={onClickHandler}>
-        {<img src={callOutbound} alt="" height="20" />}
+        {<img src={callOutbound} alt="" height="20" />} <span className="ms-2 primary-link">Call</span>
       </Button>
     </>
   );
