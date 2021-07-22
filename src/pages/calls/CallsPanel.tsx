@@ -12,7 +12,7 @@ interface IProps {
 
 const CallsPanel = (props: IProps) => {
   const twilioDevice = get(props, 'twilioDevice', null);
-  const activeConnection = get(props, 'activeConnection', null);
+  const activeConnection = get(props, 'InboundCalls.activeConnection', null);
   const closePanel = get(props, 'closePanel', null);
   // const userId = get(props, 'Account._id', '');
 
@@ -48,7 +48,7 @@ const CallsPanel = (props: IProps) => {
       <div className="row">
         <div className="col text-center">
           <button type="button" className="btn btn-danger" onClick={rejectIncomingCall}>
-            Decline
+            Decline +
           </button>
         </div>
 
@@ -72,14 +72,12 @@ const CallsPanel = (props: IProps) => {
         {/*  </Button>*/}
         {/*</div>*/}
       </div>
-      {/*@ts-ignore*/}
-      <PhonePad />
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  activeConnection: state.PhonePad.generateTwilioAccessToken,
+  InboundCalls: state.InboundCalls,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -89,5 +87,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   endCall: (payload: any) => dispatch({ type: 'PhonePad/endCall', payload }),
 });
 
-// @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(CallsPanel);

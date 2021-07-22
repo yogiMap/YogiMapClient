@@ -23,7 +23,6 @@ interface ICallClient {
 }
 
 // MAKE AN OUTGOING CALL
-
 async function makeOutgoingCall(phoneNumber: string) {
   const params = {
     // get the phone number to call from the DOM
@@ -31,7 +30,7 @@ async function makeOutgoingCall(phoneNumber: string) {
   };
 
   if (device) {
-    console.log(`Attempting to call ${params.To} ...`);
+    console.log(`Attempting to call ${phoneNumber} ...`);
 
     // Twilio.Device.connect() returns a Call object
     const call = await device.connect({ params });
@@ -81,9 +80,17 @@ function PhonePad(props: IProps) {
       console.log('Twilio.Device Error: ' + error.message);
     });
 
+    device.on('incoming', () => console.log('Inc'));
+
     // Device must be registered in order to receive incoming calls
     device.register();
   }
+
+  const hangupCall = () => {
+    if (device) {
+      device.disconnectAll();
+    }
+  };
 
   return (
     <div>
@@ -141,6 +148,10 @@ function PhonePad(props: IProps) {
             <button className="btn" onClick={makeCall}>
               <img src={phoneCall} alt="" height="44" />
             </button>
+
+            <button className="btn btn-danger" onClick={hangupCall}>
+              Decline
+            </button>
           </div>
 
           <div className="col digit-pad"></div>
@@ -156,7 +167,6 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  callUser: (payload: ICallClient) => dispatch({ type: 'ClientDashboard/callUser', payload: '14245213370' }),
   generateTwilioAccessToken: () => dispatch({ type: 'PhonePad/generateTwilioAccessToken' }),
 });
 

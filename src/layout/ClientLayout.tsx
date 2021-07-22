@@ -62,23 +62,21 @@ const ClientLayout = (props: IProps) => {
           <Affix offsetTop={70}>
             <Anchor affix={false}>
               <Menu selectedKeys={[tab]} mode="vertical" className="no-padding-tabs position-fixed ms-3 border-0">
-                <div key="info">
+                <Menu.Item key="info" className="d-flex align-items-center">
                   <Anchor.Link href={`/client/${clientId}/info#clientDetails`} title="Client Details" />
-                </div>
+                </Menu.Item>
 
-                <div key="messages" className="d-flex align-items-center">
-                  <div className="ant-anchor-link">
-                    <Link to={`/client/${clientId}/messages`}>Messages</Link>
-                    <Badge count={messagesCount} />
-                  </div>
-                </div>
+                {/*<div className="ant-anchor-link">*/}
+                <Menu.Item key="messages" className="d-flex align-items-center">
+                  <Link to={`/client/${clientId}/messages`}>Messages</Link>
+                  <Badge count={messagesCount} />
+                </Menu.Item>
+                {/*</div>*/}
 
-                <div key="calls" className="d-flex align-items-center">
-                  <div className="ant-anchor-link">
-                    <Link to={`/client/${clientId}/calls`}>Calls</Link>
-                    <Badge count={callsCount} />
-                  </div>
-                </div>
+                <Menu.Item key="calls" className="d-flex align-items-center">
+                  <Link to={`/client/${clientId}/calls`}>Calls</Link>
+                  <Badge count={callsCount} />
+                </Menu.Item>
               </Menu>
             </Anchor>
           </Affix>

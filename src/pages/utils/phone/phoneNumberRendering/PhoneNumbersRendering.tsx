@@ -28,7 +28,7 @@ function RenderPhoneNumber(props: IProps) {
   const onClickHandler = () => {
     props.open({
       title: 'Calls',
-      component: 'CallsPanel',
+      component: 'PhonePad',
       place: '',
       width: 380,
       phoneNumber: `${phoneNumberCode}${phoneNumber}`,
@@ -38,7 +38,9 @@ function RenderPhoneNumber(props: IProps) {
   return (
     <>
       {phoneNumber && <span>{formattedPhone} </span>}
+
       {phoneNumberExt && <span>ext {phoneNumberExt}</span>}
+
       <Button type="link" onClick={onClickHandler}>
         {<img src={callOutbound} alt="" height="20" />}
       </Button>

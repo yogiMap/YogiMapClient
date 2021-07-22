@@ -4,7 +4,6 @@ import { IClient } from '@/pages/client/types';
 import { ILoadingEffects } from '@/types';
 import { get } from 'lodash';
 import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
-import { Button } from 'antd';
 
 interface IProps {
   ClientInfo: IClient;
@@ -58,14 +57,6 @@ const ClientInfo = (props: IProps) => {
             <span className="text-muted me-1">Phone</span>
             <RenderPhoneNumber phoneNumberAll={phone} />
           </div>
-
-          <Button type="primary" htmlType="submit" shape="round" onClick={callUser}>
-            Call
-          </Button>
-
-          <Button type="primary" danger shape="round" onClick={hangUpCall}>
-            Hang Up
-          </Button>
         </div>
 
         <div className="col-6">
@@ -107,9 +98,6 @@ const mapStateToProps = (state: any) => ({
   ClientInfo: state.ClientInfo,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  callClient: (payload: ICallClient) => dispatch({ type: 'ClientCalls/callClient', payload }),
-  hangUpCall: () => dispatch({ type: 'ClientCalls/hangUpCall' }),
-});
+const mapDispatchToProps = (dispatch: any) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientInfo);
