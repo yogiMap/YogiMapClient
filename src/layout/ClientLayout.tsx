@@ -43,14 +43,14 @@ const ClientLayout = (props: IProps) => {
   if (!props.ClientInfo) return null;
 
   return (
-    <>
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-2 col-md-2 col-2 mt-2 h4">
+        <div className="col-md-3 mt-2 h4">
           <h5>
             <Link to={`/client`}>←</Link> {`${clientName}`}
           </h5>
         </div>
-        <div className="col-lg-10 col-md-10 col-10">
+        <div className="col">
           <Button className="float-end mt-2 mx-5" shape="round" htmlType="submit" onClick={clientEdit}>
             Edit
           </Button>
@@ -58,33 +58,33 @@ const ClientLayout = (props: IProps) => {
       </div>
 
       <div className="row">
-        <div className="col-lg-2 col-md-2 col-2 border-end">
-          <Affix offsetTop={70}>
-            <Anchor affix={false}>
-              <Menu selectedKeys={[tab]} mode="vertical" className="no-padding-tabs position-fixed ms-3 border-0">
-                <Menu.Item key="info" className="d-flex align-items-center">
-                  <Anchor.Link href={`/client/${clientId}/info#clientDetails`} title="Client Details" />
-                </Menu.Item>
+        <div className="col-md-3 border-end">
+          {/*<Affix offsetTop={70}>*/}
+          <Anchor>
+            <Menu selectedKeys={[tab]} mode="vertical" className="no-padding-tabs position-fixed ms-3 border-0">
+              <Menu.Item key="info" className="d-flex align-items-center">
+                <Anchor.Link href={`/client/${clientId}/info#clientDetails`} title="Client Details" />
+              </Menu.Item>
 
-                {/*<div className="ant-anchor-link">*/}
-                <Menu.Item key="messages" className="d-flex align-items-center">
-                  <Link to={`/client/${clientId}/messages`}>Messages</Link>
-                  <Badge count={messagesCount} />
-                </Menu.Item>
-                {/*</div>*/}
+              {/*<div className="ant-anchor-link">*/}
+              <Menu.Item key="messages" className="d-flex align-items-center">
+                <Link to={`/client/${clientId}/messages`}>Messages</Link>
+                <Badge count={messagesCount} />
+              </Menu.Item>
+              {/*</div>*/}
 
-                <Menu.Item key="calls" className="d-flex align-items-center">
-                  <Link to={`/client/${clientId}/calls`}>Calls</Link>
-                  <Badge count={callsCount} />
-                </Menu.Item>
-              </Menu>
-            </Anchor>
-          </Affix>
+              <Menu.Item key="calls" className="d-flex align-items-center">
+                <Link to={`/client/${clientId}/calls`}>Calls</Link>
+                <Badge count={callsCount} />
+              </Menu.Item>
+            </Menu>
+          </Anchor>
+          {/*</Affix>*/}
         </div>
 
-        <div className="col-lg-10 col-md-10 col-2 mt-2">{props.children}</div>
+        <div className="col-md-9 mt-2 mt-sm-5">{props.children}</div>
       </div>
-    </>
+    </div>
   );
 };
 

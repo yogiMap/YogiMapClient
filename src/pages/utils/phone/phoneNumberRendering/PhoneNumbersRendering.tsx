@@ -15,7 +15,6 @@ function RenderPhoneNumber(props: IProps) {
   const phoneNumberAll = props.phoneNumberAll;
   const phoneNumberCode = get(phoneNumberAll, 'code', '1');
   const phoneNumber = get(phoneNumberAll, 'number');
-  const phoneNumberExt = get(phoneNumberAll, 'ext');
   let formattedPhone = '';
   if (phoneNumber && phoneNumber.length) {
     const areaCode = phoneNumber.slice(0, 3);
@@ -36,15 +35,13 @@ function RenderPhoneNumber(props: IProps) {
   };
 
   return (
-    <>
+    <div>
       {phoneNumber && <span>{formattedPhone} </span>}
-
-      {phoneNumberExt && <span>ext {phoneNumberExt}</span>}
 
       <Button type="link" onClick={onClickHandler}>
         {<img src={callOutbound} alt="" height="20" />} <span className="ms-2 primary-link">Call</span>
       </Button>
-    </>
+    </div>
   );
 }
 

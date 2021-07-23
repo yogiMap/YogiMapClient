@@ -21,28 +21,28 @@ const ClientInfo = (props: IProps) => {
   const name = get(props, 'ClientInfo.name', '');
   const email = get(props, 'ClientInfo.email', '');
   const phone = get(props, 'ClientInfo.phoneNumber', {});
-  const teacherAccount = get(props, 'ClientInfo.teacherAccount', '');
+  const teacherAccount = get(props, 'ClientInfo.teacherAccount.name', '');
   const clientId = get(props, 'match.params.clientId', '');
 
-  const callUser = () => {
-    props.callClient({ phoneNumber: phone, userId: clientId });
-  };
-
-  const hangUpCall = () => {
-    props.hangUpCall;
-  };
+  // const callUser = () => {
+  //   props.callClient({ phoneNumber: phone, userId: clientId });
+  // };
+  //
+  // const hangUpCall = () => {
+  //   props.hangUpCall;
+  // };
 
   if (!props.ClientInfo) return null;
   return (
     <>
-      <div className="anchorTop" />
+      <div className="container anchorTop" />
 
       <h5 id="clientDetails" className="anchor">
         Client Details
       </h5>
 
       <div className="row">
-        <div className="col-6">
+        <div className="col-md-6">
           <div className="d-flex justify-content-end-">
             <span className="text-muted me-1">Name</span>
             <span className="text-colored-first">{name} </span>
@@ -59,12 +59,14 @@ const ClientInfo = (props: IProps) => {
           </div>
         </div>
 
-        <div className="col-6">
-          <div className="d-flex justify-content-end-">
-            <span className="text-muted me-1">TeacherAccount</span>
-            <span className="me-1">{teacherAccount}</span>
+        {teacherAccount && (
+          <div className="col-md-6">
+            <div className="d-flex justify-content-end-">
+              <span className="text-muted me-1">TeacherAccount</span>
+              <span className="me-1">{teacherAccount}</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="row">
