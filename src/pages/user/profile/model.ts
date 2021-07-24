@@ -1,10 +1,9 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryUserGetById } from '@/pages/user/queries';
+import { queryUploadProfileImage, queryUserGetById } from '@/pages/user/queries';
 import { ICurrentUser } from '@/pages/user/types';
 import defaultReducers from '@/utils/defaultReducers';
-import { queryTeacherAccountGetById, queryTeacherAccountSearch } from '@/pages/teacherAccount/queries';
-import { get } from 'lodash';
+import { queryTeacherAccountGetById } from '@/pages/teacherAccount/queries';
 import { queryStudentAccountGetById } from '@/pages/studentAccount/queries';
 
 export interface IUserModelState {
@@ -16,8 +15,8 @@ export interface IUserModel {
   state: IUserModelState;
   effects: {
     userGetById: Effect;
+    userUploadImage: Effect;
     teacherAccountGetById: Effect;
-    // teacherAccountSearch: Effect;
     studentAccountGetById: Effect;
     reset: Effect;
   };
@@ -38,6 +37,11 @@ const UserModel: IUserModel = {
         type: 'save',
         payload: { userInfo: response.payload },
       });
+    },
+
+    *userUploadImage({ payload }, { call, put }) {
+      yield call(queryUploadProfileImage, payload);
+      yield put({ type: 'userGetById', payload: payload.userId });
     },
 
     *teacherAccountGetById({ payload }, { call, put }) {

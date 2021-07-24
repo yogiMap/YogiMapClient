@@ -16,7 +16,7 @@ function getHeaders(type: string) {
 }
 
 interface IHttpMethod {
-  method?: 'get' | 'post' | 'patch' | 'delete';
+  method?: 'get' | 'post' | 'patch' | 'delete' | 'put';
   url: string;
   data?: any;
   type?: string;
@@ -94,4 +94,8 @@ export function patch({ url, data, type }: IHttpMethod) {
 
 export function del({ url, data }: IHttpMethod) {
   return httpMethod({ method: 'delete', url, data });
+}
+
+export function put({ url, data, type }: IHttpMethod) {
+  return httpMethod({ method: 'put', url, data, type });
 }

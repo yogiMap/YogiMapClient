@@ -1,4 +1,4 @@
-import { get, post, patch } from '@/utils/httpMethods';
+import { get, post, patch, put } from '@/utils/httpMethods';
 import { IUser } from '@/pages/user/userSearch/types';
 import { IResetPasswordArg, IValidResetPasswordLink } from '@/pages/user/types';
 import { IVerifyEmail } from '@/pages/user/account/UserEmailVerify';
@@ -47,4 +47,12 @@ export async function queryUserUpdateById(payload: { userId: string; values: IUs
 
 export async function queryUserPasswordUpdate(payload: any): Promise<any> {
   return post({ url: `/user/password/update/`, data: payload });
+}
+
+export async function queryUploadProfileImage(payload: { userId: string; data: object }): Promise<any> {
+  return put({
+    url: `/user/${payload.userId}/image`,
+    data: payload.data,
+    type: 'multipart/form-data; boundary=<calculated when request is sent>',
+  });
 }

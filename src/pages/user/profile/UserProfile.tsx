@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
@@ -10,9 +10,11 @@ interface IProps {
   teacherAccountGetById: (teacherAccountId: string) => void;
   studentAccountGetById: (studentAccountId: string) => void;
   Account: IUserAccount;
+  userGetById: (id: string) => void;
+  uploadProfileImage: (payload: object) => void;
 }
 
-const UserProfile = (props: any) => {
+const UserProfile = (props: IProps) => {
   const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
   const studentAccountId: string = get(props, 'Account.studentAccount', '');
   const userId = get(props, 'match.params.userId', '');
@@ -55,11 +57,19 @@ const UserProfile = (props: any) => {
   const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
   const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
+  const inputFile = useRef<HTMLInputElement>('');
+
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
     props.studentAccountGetById(studentAccountId);
   }, []);
+
+  const onClickHandler = (file: any) => {
+    const data = new FormData();
+    data.append('image', file);
+    props.uploadProfileImage({ userId, data });
+  };
 
   return (
     <div>
@@ -77,6 +87,7 @@ const UserProfile = (props: any) => {
                 <span className="ms-2 text-colored-first">{el}</span>
               ))}
             </p>
+            <input type="file" ref={inputFile} onChange={(e) => onClickHandler(e.target.files![0])} />
           </div>
         </div>
       </div>
@@ -198,6 +209,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
   studentAccountGetById: (studentAccountId: string) =>
     dispatch({ type: 'Profile/studentAccountGetById', payload: studentAccountId }),
+  uploadProfileImage: (payload: object) => dispatch({ type: 'Profile/userUploadImage', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
