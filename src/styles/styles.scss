@@ -7,7 +7,7 @@
 @import 'fullcalendar';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-// you must include each plugins' css
+// you must include each plugins' <css
 // paths prefixed with ~ signify node_modules
 //@import '~@fullcalendar/core/main.css'; TODO найти правильный путь после обновления
 @import '~@fullcalendar/daygrid/main.css';
@@ -259,4 +259,14 @@ span.edit-pen-icon {
 .text-colored-third {
   color: #5c494d;
   text-align: center;
+}
+
+.client-layout__margins{
+  margin-top: 8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .client-layout__margins{
+    margin-top: 0.5rem;
+  }
 }

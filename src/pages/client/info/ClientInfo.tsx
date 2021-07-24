@@ -24,14 +24,6 @@ const ClientInfo = (props: IProps) => {
   const teacherAccount = get(props, 'ClientInfo.teacherAccount.name', '');
   const clientId = get(props, 'match.params.clientId', '');
 
-  // const callUser = () => {
-  //   props.callClient({ phoneNumber: phone, userId: clientId });
-  // };
-  //
-  // const hangUpCall = () => {
-  //   props.hangUpCall;
-  // };
-
   if (!props.ClientInfo) return null;
   return (
     <>

@@ -43,7 +43,7 @@ const ClientLayout = (props: IProps) => {
   if (!props.ClientInfo) return null;
 
   return (
-    <div className="container-fluid">
+    <>
       <div className="row">
         <div className="col-md-3 mt-2 h4">
           <h5>
@@ -82,9 +82,9 @@ const ClientLayout = (props: IProps) => {
           {/*</Affix>*/}
         </div>
 
-        <div className="col-md-9 mt-2 mt-sm-5">{props.children}</div>
+        <div className="col-md-9 client-layout__margins">{props.children}</div>
       </div>
-    </div>
+    </>
   );
 };
 
