@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { Avatar, Button, Form, Input, Select } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { IUser } from '@/pages/user/userSearch/types';
+import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
 import validator from '@/utils/validators';
-import Autocomplete from '@/pages/utils/googleUt/GoogleMap/Autocomplete';
-import { useForm } from 'antd/es/form/Form';
-import JsApiLoaderOpts from '@/pages/utils/googleUt/GoogleMap/JsApiLoaderOpts';
-import { useJsApiLoader } from '@react-google-maps/api';
 import { get } from 'lodash';
+import { connect } from 'umi';
 
 const layout = {
   labelCol: { span: 2 },
@@ -17,25 +14,22 @@ const layout = {
 interface IProps {
   initialValues?: IUser;
   onFinish: (args: IUser) => void;
+  Account: IUserAccount;
+  uploadProfileImage: (payload: object) => void;
 }
 
 const UserSettingsEditProfileForm = (props: IProps) => {
-  const { Option } = Select;
-  const [form] = useForm();
+  const userId = get(props, 'Account._id', '');
+  console.log(userId, '+++++++++++++++++_________________');
 
-  const opts = JsApiLoaderOpts();
   // @ts-ignore
-  const { isLoaded, loadError } = useJsApiLoader(opts);
+  const inputFile = useRef<HTMLInputElement>('');
 
-  const [addressFields, setAddressFields] = useState();
-
-  const isLoading = get(props, 'isLoading', false);
-
-  const onChange = (center: any) => {
-    center ? setAddressFields(center[1]) : null;
+  const onClickHandler = (file: any) => {
+    const data = new FormData();
+    data.append('image', file);
+    props.uploadProfileImage({ userId, data });
   };
-
-  useEffect(() => form.setFieldsValue(addressFields));
 
   return (
     <div className="container mt-5">
@@ -50,6 +44,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
           <div className="col">
             <Avatar shape="square" size={100} icon={<UserOutlined />} style={{ marginLeft: '100px' }} />
+            <input type="file" ref={inputFile} onChange={(e) => onClickHandler(e.target.files![0])} />
           </div>
         </div>
 
@@ -71,4 +66,13 @@ const UserSettingsEditProfileForm = (props: IProps) => {
   );
 };
 
-export default UserSettingsEditProfileForm;
+const mapStateToProps = (state: any) => ({
+  Profile: state.Profile,
+  Account: state.Account,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  uploadProfileImage: (payload: object) => dispatch({ type: 'Profile/userUploadImage', payload }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsEditProfileForm);
