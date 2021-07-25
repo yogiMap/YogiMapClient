@@ -57,6 +57,7 @@ const UserProfile = (props: IProps) => {
   const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
   const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
+  // @ts-ignore
   const inputFile = useRef<HTMLInputElement>('');
 
   useEffect(() => {
