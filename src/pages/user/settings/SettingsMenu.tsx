@@ -71,8 +71,8 @@ const SettingsMenu = (props: IProps) => {
       <Menu mode="inline" defaultSelectedKeys={[menuItemName]}>
         {menu.map((el) => (
           <Menu.Item key={el.name}>
-            {el.icon}
-            {el.name}
+            <span className="mx-2">{el.icon}</span>
+            <span>{el.name}</span>
             <Link to={el.link} />
           </Menu.Item>
         ))}
@@ -80,8 +80,8 @@ const SettingsMenu = (props: IProps) => {
       <Menu mode="inline" defaultSelectedKeys={[menuItemName]} className="mt-4 border-top">
         {menuTeacher.map((el) => (
           <Menu.Item key={el.name} disabled={!teacherAccountId && el.name !== 'Teacher`s Account'}>
-            {el.icon}
-            {el.name}
+            <span className="mx-2">{el.icon}</span>
+            <span>{el.name}</span>
             <Link to={el.link} />
           </Menu.Item>
         ))}
