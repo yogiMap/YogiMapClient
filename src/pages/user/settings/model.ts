@@ -1,5 +1,10 @@
 import { Effect, Reducer } from 'umi';
-import { queryUserAuth, queryUserUpdateById, queryUserPasswordUpdate } from '@/pages/user/queries';
+import {
+  queryUserAuth,
+  queryUserUpdateById,
+  queryUserPasswordUpdate,
+  queryUploadProfileImage,
+} from '@/pages/user/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { IUser } from '@/pages/user/userSearch/types';
 
@@ -15,6 +20,7 @@ export interface IUserModelType {
     reset: Effect;
     userUpdateById: Effect;
     updatePassword: Effect;
+    userUploadImage: Effect;
   };
   reducers: {
     save: Reducer<IUserModelState>;
@@ -46,6 +52,12 @@ const UserModel: IUserModelType = {
     *updatePassword({ payload }, { call, put }) {
       const response = yield call(queryUserPasswordUpdate, payload);
       yield put({ type: 'save', payload: response.data });
+    },
+
+    *userUploadImage({ payload }, { call, put }) {
+      yield call(queryUploadProfileImage, payload);
+      //TODO:Reload page
+      yield put({ type: 'userGetInfo' });
     },
   },
 

@@ -3,7 +3,6 @@ import { get } from 'lodash';
 import { connect } from 'umi';
 import { IUser } from '@/pages/user/userSearch/types';
 import UserSettingsEditProfileForm from '@/pages/user/settings/profile/UserSettingsEditProfileForm';
-import { Alert } from 'antd';
 
 interface IProps {
   userId: string;
@@ -26,6 +25,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
   const state = get(props, 'userInfo.personalAddress.state', '');
   const zipCode = get(props, 'userInfo.personalAddress.zipCode', '');
   const currentCountry = get(props, 'userInfo.personalAddress.countryName', '');
+  const images = get(props, 'userInfo.images', '');
 
   useEffect(() => {
     props.userGetInfo();
@@ -41,6 +41,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
     state,
     zipCode,
     countryName: currentCountry,
+    image: images[1],
   };
 
   const onFinish = (values: IUser) => {

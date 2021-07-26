@@ -39,11 +39,6 @@ const UserModel: IUserModel = {
       });
     },
 
-    *userUploadImage({ payload }, { call, put }) {
-      yield call(queryUploadProfileImage, payload);
-      yield put({ type: 'userGetById', payload: payload.userId });
-    },
-
     *teacherAccountGetById({ payload }, { call, put }) {
       // yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
       const data = yield call(queryTeacherAccountGetById, payload);
@@ -60,6 +55,11 @@ const UserModel: IUserModel = {
         type: 'save',
         payload: { studentAccountInfo: data.payload },
       });
+    },
+
+    *userUploadImage({ payload }, { call, put }) {
+      yield call(queryUploadProfileImage, payload);
+      yield put({ type: 'userGetById', payload: payload.userId });
     },
 
     *reset(_, { put }) {

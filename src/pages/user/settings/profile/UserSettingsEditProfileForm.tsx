@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Avatar, Button, Form, Input, Select } from 'antd';
+import React, { useRef, useCallback } from 'react';
+import { Avatar, Button, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
 import validator from '@/utils/validators';
@@ -16,16 +16,23 @@ interface IProps {
   onFinish: (args: IUser) => void;
   Account: IUserAccount;
   uploadProfileImage: (payload: object) => void;
+  removeProfileImage: (userId: string) => void;
 }
 
 const UserSettingsEditProfileForm = (props: IProps) => {
-  const userId = get(props, 'Account._id', '');
+  // const userId = get(props, 'Account._id', '');
+  const userId = get(props, 'initialValues.userId', '');
   console.log(userId, '+++++++++++++++++_________________');
-
   // @ts-ignore
-  const inputFile = useRef<HTMLInputElement>('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const onClickHandler = (file: any) => {
+  const handleClick = () => {
+    if (inputRef.current) {
+      inputRef.current.click();
+    }
+  };
+
+  const uploadImageHandler = (file: any) => {
     const data = new FormData();
     data.append('image', file);
     props.uploadProfileImage({ userId, data });
@@ -43,8 +50,30 @@ const UserSettingsEditProfileForm = (props: IProps) => {
           </div>
 
           <div className="col">
-            <Avatar shape="square" size={100} icon={<UserOutlined />} style={{ marginLeft: '100px' }} />
-            <input type="file" ref={inputFile} onChange={(e) => onClickHandler(e.target.files![0])} />
+            <div className={'ms-5 d-flex flex-column'}>
+              <Avatar src={props.initialValues?.image} shape="square" size={100} icon={<UserOutlined />} />
+              <div>
+                <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
+                  Upload an image
+                </Button>
+              </div>
+              <div>
+                <Button
+                  className="ps-0 pe-0"
+                  type="link"
+                  size="small"
+                  onClick={() => props.uploadProfileImage({ userId, data: {} })}
+                >
+                  Remove Photo
+                </Button>
+              </div>
+            </div>
+            <input
+              type="file"
+              className={'d-none'}
+              ref={inputRef}
+              onChange={(e) => uploadImageHandler(e.target.files![0])}
+            />
           </div>
         </div>
 

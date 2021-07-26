@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'umi';
+import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import { Avatar, Button, Row } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
   teacherAccountId: string;
@@ -12,6 +15,7 @@ interface IProps {
   Account: IUserAccount;
   userGetById: (id: string) => void;
   uploadProfileImage: (payload: object) => void;
+  userInfo: IUser;
 }
 
 const UserProfile = (props: IProps) => {
@@ -23,6 +27,8 @@ const UserProfile = (props: IProps) => {
   const userName = get(userInfo, 'name', '');
   const email = get(userInfo, 'email', '');
   const roles = get(userInfo, 'roles', []);
+  const image = get(userInfo, 'images[1]', '');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   //teacher account info
   const teacherAccountInfo = get(props, 'teacherAccountInfo', '');
@@ -57,16 +63,19 @@ const UserProfile = (props: IProps) => {
   const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
   const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
-  // @ts-ignore
-  const inputFile = useRef<HTMLInputElement>('');
-
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
     props.studentAccountGetById(studentAccountId);
   }, []);
 
-  const onClickHandler = (file: any) => {
+  const handleClick = () => {
+    if (inputRef.current) {
+      inputRef.current.click();
+    }
+  };
+
+  const uploadImageHandler = (file: any) => {
     const data = new FormData();
     data.append('image', file);
     props.uploadProfileImage({ userId, data });
@@ -76,19 +85,47 @@ const UserProfile = (props: IProps) => {
     <div>
       <div className="profile-header">
         <h1 className="text-center">Profile Page</h1>
+
         <div className="row">
           <div className="col">
             <h3 className="text-start text-colored-second my-3">{userName}</h3>
             <p className="text-start text-colored-third">Email: {email}</p>
-          </div>
-          <div className="col">
-            <p className="text-end">
-              User's roles:{' '}
+
+            {teacherAccountId && (
+              <div className=" bd-highlight">
+                <Row>
+                  Teacher`s name: <Link to={`/teacherAccount/${teacherAccountId}`}> {teacherName}</Link>
+                </Row>
+              </div>
+            )}
+
+            <div className="mt-3">
+              User's roles:
               {roles.map((el: string) => (
                 <span className="ms-2 text-colored-first">{el}</span>
               ))}
-            </p>
-            <input type="file" ref={inputFile} onChange={(e) => onClickHandler(e.target.files![0])} />
+            </div>
+          </div>
+
+          <div className="col">
+            <div className="text-end">
+              <div className="p-2">
+                <Avatar src={image} shape="square" size={150} icon={<UserOutlined />} />
+                <div>
+                  <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
+                    Upload an image
+                  </Button>
+                </div>
+                <div>
+                  <input
+                    type="file"
+                    className={'d-none'}
+                    ref={inputRef}
+                    onChange={(e) => uploadImageHandler(e.target.files![0])}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

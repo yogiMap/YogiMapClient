@@ -7,6 +7,8 @@ export interface IUser {
   lastLogin: { date: string };
   personalAddress: IPersonalAddress;
   name: string;
+  firstName: string;
+  lastName: string;
   roles: string[];
   active: boolean;
   resetPassword: { history: [] };
@@ -14,6 +16,7 @@ export interface IUser {
   phone: string;
   createdAt: string;
   updatedAt: string;
+  image: string;
 }
 
 export interface IPersonalAddress {
