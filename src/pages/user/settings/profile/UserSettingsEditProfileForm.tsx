@@ -43,21 +43,29 @@ const UserSettingsEditProfileForm = (props: IProps) => {
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="editProfile">
         <h2>Profile</h2>
         <div className="row">
-          <div className="col">
-            <Form.Item label="userName" name="name">
-              <Input />
-            </Form.Item>
+          <div className="col-md-6">
+            <div>
+              <Form.Item label="userName" name="name">
+                <Input />
+              </Form.Item>
+            </div>
+
+            <div>
+              <Form.Item label="E-mail" name="email" rules={[validator.require]}>
+                <Input />
+              </Form.Item>
+            </div>
           </div>
 
-          <div className="col">
-            <div className={'ms-5 d-flex flex-column'}>
-              <Avatar src={props.initialValues?.image} shape="square" size={100} icon={<UserOutlined />} />
-              <div>
+          <div className="col-md-6">
+            <div className="text-md-end mx-5">
+              <Avatar src={props.initialValues?.image} size={200} icon={<UserOutlined />} />
+              <div className="mx-4">
                 <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
                   Upload an image
                 </Button>
               </div>
-              <div>
+              <div className="mx-4">
                 <Button
                   className="ps-0 pe-0"
                   type="link"
@@ -77,15 +85,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <Form.Item label="E-mail" name="email" rules={[validator.require]}>
-              <Input />
-            </Form.Item>
-          </div>
-        </div>
-
-        <Form.Item wrapperCol={{ ...layout.wrapperCol }}>
+        <Form.Item wrapperCol={{ ...layout.wrapperCol }} className="my-5">
           <Button type="primary" shape="round" htmlType="submit">
             Save
           </Button>

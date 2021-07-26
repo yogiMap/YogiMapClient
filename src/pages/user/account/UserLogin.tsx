@@ -39,7 +39,11 @@ const UserLogin = (props: IProps) => {
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require]}>
-        <Input addonBefore={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
+        <Input.Password
+          addonBefore={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
       </Form.Item>
 
       <Form.Item>

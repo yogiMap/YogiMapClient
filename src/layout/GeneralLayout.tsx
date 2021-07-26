@@ -37,13 +37,13 @@ const isNavbarHidden = () => {
 export default (props: IProps) => {
   return (
     <div>
-      <SipPhoneWidget />
       {!isNavbarHidden() && <Navbar />}
 
       <div>{props.children}</div>
 
       <Sidepanel />
 
+      <SipPhoneWidget />
       {isFooterVisible(props.location.pathname) && <Footer />}
     </div>
   );
