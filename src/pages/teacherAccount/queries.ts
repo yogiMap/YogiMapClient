@@ -1,4 +1,4 @@
-import { get, patch, post, del } from '@/utils/httpMethods';
+import { get, patch, post, del, put } from '@/utils/httpMethods';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 
 export async function queryTeacherAccountCreate(payload: ITeacherAccount): Promise<any> {
@@ -50,4 +50,12 @@ export async function queryTeacherAccountGetFocusList(payload: string): Promise<
 
 export async function queryTeacherAccountSipPhone(teacherAccountId: string): Promise<any> {
   return get({ url: `/teacherAccount/${teacherAccountId}/sipPhone` });
+}
+
+export async function queryUploadTeacherLogo(payload: { teacherAccountId: string; data: object }): Promise<any> {
+  return put({
+    url: `/teacherAccount/${payload.teacherAccountId}/logo`,
+    data: payload.data,
+    type: 'multipart/form-data; boundary=<calculated when request is sent>',
+  });
 }

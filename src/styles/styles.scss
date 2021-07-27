@@ -273,8 +273,8 @@ span.edit-pen-icon {
 
 .sipPhoneWidget {
   border: 1px solid #dad9d9;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   padding: 5px 10px;
 }
