@@ -3,7 +3,7 @@ import { connect, Link } from 'umi';
 import { Avatar, Dropdown, Menu } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IGetBack {
   adminId: string;
@@ -12,6 +12,7 @@ interface IGetBack {
 
 interface IProps {
   Account: IUserAccount;
+  initialValues?: IUser;
   logout: () => void;
   userImpersonateGetBack: (arg: IGetBack) => void;
 }
@@ -19,9 +20,9 @@ interface IProps {
 const UserInfo = (props: IProps) => {
   const { logout, userImpersonateGetBack } = props;
   const authUser = get(props, 'Account', '');
-  const isAvatar = get(authUser, 'avatar', false);
+  const isAvatar = get(authUser, 'images', false);
+  const avatarImg = isAvatar[1];
 
-  const avatar = get(authUser, 'avatar', '');
   const userId = get(authUser, '_id', '');
   const name = get(authUser, 'name', '');
   const adminId = localStorage.getItem('adminId');
@@ -59,7 +60,11 @@ const UserInfo = (props: IProps) => {
       <div className="mt-3">
         <Dropdown overlay={menu} trigger={['click']}>
           <a className="ant-dropdown-link" data-qa="userInfoName" onClick={(e) => e.preventDefault()}>
-            {isAvatar ? <Avatar src={avatar} size="large" /> : <Avatar icon={<UserOutlined />} />}
+            {isAvatar ? (
+              <Avatar src={avatarImg} size="large" icon={<UserOutlined />} />
+            ) : (
+              <Avatar icon={<UserOutlined />} />
+            )}
             <span className="ms-2 mr-2">{name}</span>
             <DownOutlined />
           </a>

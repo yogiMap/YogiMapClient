@@ -1,9 +1,14 @@
 import React from 'react';
-import { Avatar, Comment, Tooltip } from 'antd';
+import { Avatar, Tooltip } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { get } from 'lodash';
+import { connect } from 'umi';
+import { IUserAccount } from '@/pages/user/userSearch/types';
 
-interface Props {}
+interface IProps {
+  Account: IUserAccount;
+}
 
 const ClientMessage = (props: any) => {
   const { messageBody, direction, createdAt } = props.item;
@@ -12,12 +17,21 @@ const ClientMessage = (props: any) => {
   const backgroundColor = direction === 'inbound-api' ? { backgroundColor: '#87d068' } : { backgroundColor: '#cfe2ff' };
 
   const nameArray = author.split(' ');
+
   const initials = `${nameArray[0][0]}${nameArray[1][0]}`.toUpperCase();
+
+  const authUser = get(props, 'Account', '');
+  const isAvatar = get(authUser, 'images', false);
+  const avatarImg = isAvatar[1];
 
   return (
     <div className="mb-4 d-flex">
       <div className="me-2">
-        <Avatar style={backgroundColor}>{initials}</Avatar>
+        {direction === 'outbound-api' ? (
+          <Avatar src={avatarImg} />
+        ) : (
+          <Avatar style={backgroundColor}>{initials}</Avatar>
+        )}
       </div>
 
       <div className="d-flex align-items-start flex-column">
@@ -36,4 +50,9 @@ const ClientMessage = (props: any) => {
   );
 };
 
-export default ClientMessage;
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+  LoadingEffects: state.loading.effects,
+});
+
+export default connect(mapStateToProps)(ClientMessage);
