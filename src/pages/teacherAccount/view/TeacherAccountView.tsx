@@ -14,14 +14,14 @@ interface IProps {
   name: string;
   teacherAccountGetById: (teacherAccountId: string) => void;
   Account: IUserAccount;
-  uploadLogo: (payload: object) => void;
+  uploadImage: (payload: object) => void;
 }
 
 const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
   const email = get(props, 'Account.email', '');
   const name = get(props, 'TeacherAccount.name', '');
-  const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
+  //const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
   const classesObject = get(props, 'TeacherAccount.classes', {});
   const classes: any = Object.values(classesObject);
   const eventObject = get(props, 'TeacherAccount.event', {});
@@ -42,10 +42,10 @@ const TeacherAccountView = (props: IProps) => {
     }
   };
 
-  const uploadLogoHandler = (file: any) => {
+  const uploadImageHandler = (file: any) => {
     const data = new FormData();
-    data.append('logo', file);
-    props.uploadLogo({ teacherAccountId, data });
+    data.append('image', file);
+    props.uploadImage({ teacherAccountId, data });
   };
 
   return (
@@ -56,10 +56,10 @@ const TeacherAccountView = (props: IProps) => {
         <div className="col-md-6 d-flex justify-content-start">
           <div>
             <div className="p-2">
-              <Avatar src={image} shape="square" size={150} icon={<UserOutlined />} />
+              <Avatar src={image} shape="square" size={250} icon={<UserOutlined />} />
               <div>
                 <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
-                  Upload logo
+                  Upload Image
                 </Button>
               </div>
             </div>
@@ -68,7 +68,7 @@ const TeacherAccountView = (props: IProps) => {
               type="file"
               className={'d-none'}
               ref={inputRef}
-              onChange={(e) => uploadLogoHandler(e.target.files![0])}
+              onChange={(e) => uploadImageHandler(e.target.files![0])}
             />
           </div>
         </div>
@@ -120,7 +120,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload }),
-  uploadLogo: (payload: object) => dispatch({ type: 'TeacherAccountView/teacherAccountUploadLogo', payload }),
+  uploadImage: (payload: object) => dispatch({ type: 'TeacherAccountView/queryTeacherAccountUploadImage', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountView);

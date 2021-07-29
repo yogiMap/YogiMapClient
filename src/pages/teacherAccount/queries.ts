@@ -52,9 +52,12 @@ export async function queryTeacherAccountSipPhone(teacherAccountId: string): Pro
   return get({ url: `/teacherAccount/${teacherAccountId}/sipPhone` });
 }
 
-export async function queryTeacherAccountUploadLogo(payload: { teacherAccountId: string; data: object }): Promise<any> {
+export async function queryTeacherAccountUploadImage(payload: {
+  teacherAccountId: string;
+  data: object;
+}): Promise<any> {
   return put({
-    url: `/teacherAccount/${payload.teacherAccountId}/logo`,
+    url: `/teacherAccount/${payload.teacherAccountId}/image`,
     data: payload.data,
     type: 'multipart/form-data; boundary=<calculated when request is sent>',
   });
