@@ -13,17 +13,20 @@ const layout = {
 
 interface IProps {
   initialValues?: IUser;
+  userInfo: IUser;
   onFinish: (args: IUser) => void;
   Account: IUserAccount;
-  uploadProfileImage: (payload: object) => void;
-  removeProfileImage: (userId: string) => void;
+  uploadAvatar: (payload: object) => void;
+  userGetById: (id: string) => void;
 }
 
 const UserSettingsEditProfileForm = (props: IProps) => {
   // const userId = get(props, 'Account._id', '');
   const userId = get(props, 'initialValues.userId', '');
   console.log(userId, '+++++++++++++++++_________________');
-  // @ts-ignore
+
+  const userInfo = get(props, 'userInfo', '');
+  const avatar = get(userInfo, 'avatar[1]', '');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -32,10 +35,10 @@ const UserSettingsEditProfileForm = (props: IProps) => {
     }
   };
 
-  const uploadImageHandler = (file: any) => {
+  const uploadAvatarHandler = (file: any) => {
     const data = new FormData();
-    data.append('image', file);
-    props.uploadProfileImage({ userId, data });
+    data.append('avatar', file);
+    props.uploadAvatar({ userId, data });
   };
 
   return (
@@ -59,20 +62,10 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
           <div className="col-md-6">
             <div className="text-md-end mx-5">
-              <Avatar src={props.initialValues?.image} size={200} icon={<UserOutlined />} />
-              <div className="mx-4">
+              <Avatar src={avatar} size={200} icon={<UserOutlined />} />
+              <div className="mx-5">
                 <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
-                  Upload an image
-                </Button>
-              </div>
-              <div className="mx-4">
-                <Button
-                  className="ps-0 pe-0"
-                  type="link"
-                  size="small"
-                  onClick={() => props.uploadProfileImage({ userId, data: {} })}
-                >
-                  Remove Photo
+                  Upload avatar
                 </Button>
               </div>
             </div>
@@ -80,7 +73,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
               type="file"
               className={'d-none'}
               ref={inputRef}
-              onChange={(e) => uploadImageHandler(e.target.files![0])}
+              onChange={(e) => uploadAvatarHandler(e.target.files![0])}
             />
           </div>
         </div>
@@ -98,10 +91,12 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   Profile: state.Profile,
   Account: state.Account,
+  userInfo: state.Profile.userInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  uploadProfileImage: (payload: object) => dispatch({ type: 'Profile/userUploadImage', payload }),
+  userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
+  uploadAvatar: (payload: object) => dispatch({ type: 'Profile/userUploadAvatar', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsEditProfileForm);

@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryUploadProfileImage, queryUserGetById } from '@/pages/user/queries';
+import { queryUserUploadAvatar, queryUserGetById } from '@/pages/user/queries';
 import { ICurrentUser } from '@/pages/user/types';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryTeacherAccountGetById } from '@/pages/teacherAccount/queries';
@@ -15,7 +15,7 @@ export interface IUserModel {
   state: IUserModelState;
   effects: {
     userGetById: Effect;
-    userUploadImage: Effect;
+    userUploadAvatar: Effect;
     teacherAccountGetById: Effect;
     studentAccountGetById: Effect;
     reset: Effect;
@@ -57,8 +57,8 @@ const UserModel: IUserModel = {
       });
     },
 
-    *userUploadImage({ payload }, { call, put }) {
-      yield call(queryUploadProfileImage, payload);
+    *userUploadAvatar({ payload }, { call, put }) {
+      yield call(queryUserUploadAvatar, payload);
       yield put({ type: 'userGetById', payload: payload.userId });
     },
 

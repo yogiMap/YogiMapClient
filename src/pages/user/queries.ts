@@ -48,9 +48,9 @@ export async function queryUserPasswordUpdate(payload: any): Promise<any> {
   return post({ url: `/user/password/update/`, data: payload });
 }
 
-export async function queryUploadProfileImage(payload: { userId: string; data: object }): Promise<any> {
+export async function queryUserUploadAvatar(payload: { userId: string; data: object }): Promise<any> {
   return put({
-    url: `/user/${payload.userId}/image`,
+    url: `/user/${payload.userId}/avatar`,
     data: payload.data,
     type: 'multipart/form-data; boundary=<calculated when request is sent>',
   });

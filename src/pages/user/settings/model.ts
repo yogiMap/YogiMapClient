@@ -3,7 +3,7 @@ import {
   queryUserAuth,
   queryUserUpdateById,
   queryUserPasswordUpdate,
-  queryUploadProfileImage,
+  queryUserUploadAvatar,
 } from '@/pages/user/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { IUser } from '@/pages/user/userSearch/types';
@@ -20,7 +20,7 @@ export interface IUserModelType {
     reset: Effect;
     userUpdateById: Effect;
     updatePassword: Effect;
-    userUploadImage: Effect;
+    userUploadAvatar: Effect;
   };
   reducers: {
     save: Reducer<IUserModelState>;
@@ -54,10 +54,10 @@ const UserModel: IUserModelType = {
       yield put({ type: 'save', payload: response.data });
     },
 
-    *userUploadImage({ payload }, { call, put }) {
-      yield call(queryUploadProfileImage, payload);
+    *userUploadAvatar({ payload }, { call, put }) {
+      yield call(queryUserUploadAvatar, payload);
       //TODO:Reload page
-      yield put({ type: 'userGetInfo' });
+      yield put({ type: 'userGetById', payload: payload.userId });
     },
   },
 

@@ -14,7 +14,7 @@ interface IProps {
   studentAccountGetById: (studentAccountId: string) => void;
   Account: IUserAccount;
   userGetById: (id: string) => void;
-  uploadProfileImage: (payload: object) => void;
+  uploadAvatar: (payload: object) => void;
   userInfo: IUser;
 }
 
@@ -27,7 +27,7 @@ const UserProfile = (props: IProps) => {
   const userName = get(userInfo, 'name', '');
   const email = get(userInfo, 'email', '');
   const roles = get(userInfo, 'roles', []);
-  const image = get(userInfo, 'images[1]', '');
+  const avatar = get(userInfo, 'avatar[1]', '');
   const inputRef = useRef<HTMLInputElement>(null);
 
   //teacher account info
@@ -75,10 +75,10 @@ const UserProfile = (props: IProps) => {
     }
   };
 
-  const uploadImageHandler = (file: any) => {
+  const uploadAvatarHandler = (file: any) => {
     const data = new FormData();
-    data.append('image', file);
-    props.uploadProfileImage({ userId, data });
+    data.append('avatar', file);
+    props.uploadAvatar({ userId, data });
   };
 
   return (
@@ -110,10 +110,10 @@ const UserProfile = (props: IProps) => {
           <div className="col">
             <div className="text-end">
               <div className="p-2">
-                <Avatar src={image} shape="square" size={150} icon={<UserOutlined />} />
+                <Avatar src={avatar} size={200} icon={<UserOutlined />} />
                 <div>
                   <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
-                    Upload an image
+                    Upload avatar
                   </Button>
                 </div>
                 <div>
@@ -121,7 +121,7 @@ const UserProfile = (props: IProps) => {
                     type="file"
                     className={'d-none'}
                     ref={inputRef}
-                    onChange={(e) => uploadImageHandler(e.target.files![0])}
+                    onChange={(e) => uploadAvatarHandler(e.target.files![0])}
                   />
                 </div>
               </div>
@@ -247,7 +247,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
   studentAccountGetById: (studentAccountId: string) =>
     dispatch({ type: 'Profile/studentAccountGetById', payload: studentAccountId }),
-  uploadProfileImage: (payload: object) => dispatch({ type: 'Profile/userUploadImage', payload }),
+  uploadAvatar: (payload: object) => dispatch({ type: 'Profile/userUploadAvatar', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

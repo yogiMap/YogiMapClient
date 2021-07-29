@@ -7,31 +7,32 @@ import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAc
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Avatar, Button } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import RenderPhoneNumber from '@/pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
 
 interface IProps {
   teacherAccountId: string;
   name: string;
-  teacherAccountGetById: (id: string) => void;
+  teacherAccountGetById: (teacherAccountId: string) => void;
   Account: IUserAccount;
-  uploadLogoHandler: (payload: object) => void;
+  uploadLogo: (payload: object) => void;
 }
 
 const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
   const email = get(props, 'Account.email', '');
-  const name = get(props, 'TeacherAccountView.name', '');
-  const phoneNumber = get(props, 'TeacherAccountView.phoneNumber.number', '');
-  const classesObject = get(props, 'TeacherAccountView.classes', {});
+  const name = get(props, 'TeacherAccount.name', '');
+  const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
+  const classesObject = get(props, 'TeacherAccount.classes', {});
   const classes: any = Object.values(classesObject);
-  const eventObject = get(props, 'TeacherAccountView.event', {});
+  const eventObject = get(props, 'TeacherAccount.event', {});
   const event: any = Object.values(eventObject);
-  const focus = get(props, 'TeacherAccountView.focus', '');
-  const style = get(props, 'TeacherAccountView.style.name', '');
-  const classTypeObject = get(props, 'TeacherAccountView.classType', {});
+  const focus = get(props, 'TeacherAccount.focus', '');
+  const style = get(props, 'TeacherAccount.style.name', '');
+  const classTypeObject = get(props, 'TeacherAccount.classType', {});
   const classType = Object.values(classTypeObject)
     .map((el: any) => el.name)
     .toString();
-  const image = get(props, 'CompanyAccountView.logo[1]', '');
+  const image = get(props, 'TeacherAccount.logo[1]', '');
   // @ts-ignore
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -44,7 +45,7 @@ const TeacherAccountView = (props: IProps) => {
   const uploadLogoHandler = (file: any) => {
     const data = new FormData();
     data.append('logo', file);
-    props.uploadLogoHandler({ teacherAccountId, data });
+    props.uploadLogo({ teacherAccountId, data });
   };
 
   return (
@@ -79,7 +80,9 @@ const TeacherAccountView = (props: IProps) => {
             {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
 
             <h6>Email: {email}</h6>
-            <h6>Phone: {phoneNumber}</h6>
+            <h6>
+              Phone: <RenderPhoneNumber phoneNumberAll={get(props, 'teacherAccount.phoneNumber', {})} />{' '}
+            </h6>
           </div>
         </div>
       </div>
@@ -111,15 +114,13 @@ const TeacherAccountView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  TeacherAccountView: state.TeacherAccountView,
+  TeacherAccount: state.TeacherAccountView,
   Account: state.Account,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // teacherAccountGetById: (teacherAccountId: string) =>
-  //   dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload: teacherAccountId }),
   teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload }),
-  uploadLogoHandler: (payload: object) => dispatch({ type: 'CompanyAccountView/companyAccountUploadLogo', payload }),
+  uploadLogo: (payload: object) => dispatch({ type: 'TeacherAccountView/teacherAccountUploadLogo', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountView);

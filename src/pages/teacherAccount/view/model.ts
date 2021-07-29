@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryTeacherAccountGetById, queryUploadTeacherLogo } from '@/pages/teacherAccount/queries';
+import { queryTeacherAccountGetById, queryTeacherAccountUploadLogo } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}
@@ -30,7 +30,7 @@ const Model: IModel = {
     },
 
     *teacherAccountUploadLogo({ payload }, { call, put }) {
-      yield call(queryUploadTeacherLogo, payload);
+      yield call(queryTeacherAccountUploadLogo, payload);
       yield put({ type: 'teacherAccountGetById', payload: payload.teacherAccountId });
     },
   },
