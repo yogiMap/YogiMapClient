@@ -21,7 +21,7 @@ const ClientMessage = (props: any) => {
   const initials = `${nameArray[0][0]}${nameArray[1][0]}`.toUpperCase();
 
   const authUser = get(props, 'Account', '');
-  const isAvatar = get(authUser, 'images', false);
+  const isAvatar = get(authUser, 'avatar', false);
   const avatarImg = isAvatar[1];
 
   return (

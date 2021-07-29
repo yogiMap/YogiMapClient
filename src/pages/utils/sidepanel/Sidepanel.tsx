@@ -17,6 +17,7 @@ import SipPhoneFormCreateWrapper from '@/pages/teacherAccount/sipPhone/form/SipP
 import SipPhoneFormEditWrapper from '@/pages/teacherAccount/sipPhone/form/SipPhoneFormEditWrapper';
 import CallsPanel from '@/pages/calls/CallsPanel';
 import PhonePad from '@/pages/calls/PhonePad';
+import TermsOfService from '@/pages/infoPages/TermsOfService';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -30,6 +31,8 @@ const Sidepanel = (props: IProps) => {
   const width = get(props, 'Sidepanel.width', 750);
 
   const components: any = {
+    TermsOfService: <TermsOfService />,
+
     ClassesFormCreate: <ClassCreateWrapper />,
     ClassesFormEdit: <ClassEditWrapper />,
 

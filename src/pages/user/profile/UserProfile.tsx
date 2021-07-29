@@ -66,7 +66,8 @@ const UserProfile = (props: IProps) => {
   useEffect(() => {
     props.userGetById(userId);
     props.teacherAccountGetById(teacherAccountId);
-    props.studentAccountGetById(studentAccountId);
+    //какая то проблема с загрузкой студента
+    // props.studentAccountGetById(studentAccountId);
   }, []);
 
   const handleClick = () => {

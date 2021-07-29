@@ -3,15 +3,20 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
+import { ISidepanel } from '@/pages/utils/sidepanel/types';
 
 export interface IRegisterForm {
   userName: string;
   email: string;
   password: string;
+  phone?: string;
+  companyAccountId?: string;
+  inviteHash?: string;
 }
 
 interface IProps {
   userRegister: (values: IRegisterForm) => void;
+  open: (arg: ISidepanel) => void;
 }
 
 const UserRegister = (props: IProps) => {
@@ -28,7 +33,13 @@ const UserRegister = (props: IProps) => {
   };
 
   const showTerms = () => {
-    console.log('showTerms');
+    props.open({
+      title: 'Terms and conditions',
+      component: 'TermsOfService',
+      place: 'UserRegister',
+      width: '50%',
+    });
+    console.log('+++++++++++++++++++++TERMS+++++++++++++++++++++++++');
   };
 
   return (
@@ -53,7 +64,10 @@ const UserRegister = (props: IProps) => {
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>
-          I have read <a onClick={showTerms}>Terms and Conditions</a>
+          I have read
+          <Button className="pl-1" size="small" type="link" onClick={showTerms} data-qa="termsBtn">
+            Terms and conditions
+          </Button>
         </Checkbox>
       </Form.Item>
 
@@ -80,6 +94,7 @@ const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
   userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/register', payload }),
+  open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserRegister);
