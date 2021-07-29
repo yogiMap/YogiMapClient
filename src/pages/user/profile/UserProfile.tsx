@@ -111,7 +111,7 @@ const UserProfile = (props: IProps) => {
             <div className="text-end">
               <div className="p-2">
                 <Avatar src={avatar} size={200} icon={<UserOutlined />} />
-                <div>
+                <div className="text-md-end mx-5">
                   <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
                     Upload avatar
                   </Button>

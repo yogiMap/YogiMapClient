@@ -16,7 +16,7 @@ export interface IUser {
   phone: string;
   createdAt: string;
   updatedAt: string;
-  image: string;
+  avatar: string;
 }
 
 export interface IPersonalAddress {

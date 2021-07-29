@@ -20,7 +20,7 @@ interface IProps {
 const UserInfo = (props: IProps) => {
   const { logout, userImpersonateGetBack } = props;
   const authUser = get(props, 'Account', '');
-  const isAvatar = get(authUser, 'images', false);
+  const isAvatar = get(authUser, 'avatar', false);
   const avatarImg = isAvatar[1];
 
   const userId = get(authUser, '_id', '');

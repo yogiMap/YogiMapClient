@@ -17,7 +17,7 @@ interface IProps {
 const UserSettingsEditProfileWrapper = (props: IProps) => {
   const userId = get(props, 'match.params.userId', '');
   const name = get(props, 'userInfo.name', '');
-  const userTeacherAccountId = get(props, 'teacherAccount', '');
+  const teacherAccountId = get(props, 'teacherAccount', '');
   const email = get(props, 'userInfo.email', '');
   const phone = get(props, 'userInfo.phone', '');
   const address = get(props, 'userInfo.personalAddress.address', '');
@@ -25,7 +25,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
   const state = get(props, 'userInfo.personalAddress.state', '');
   const zipCode = get(props, 'userInfo.personalAddress.zipCode', '');
   const currentCountry = get(props, 'userInfo.personalAddress.countryName', '');
-  const images = get(props, 'userInfo.images', '');
+  const avatar = get(props, 'userInfo.avatar', '');
 
   useEffect(() => {
     props.userGetInfo();
@@ -33,6 +33,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
 
   const initialValues = {
     userId,
+    teacherAccountId,
     email,
     name,
     phone,
@@ -41,7 +42,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
     state,
     zipCode,
     countryName: currentCountry,
-    image: images[1],
+    avatar: avatar[1],
   };
 
   const onFinish = (values: IUser) => {

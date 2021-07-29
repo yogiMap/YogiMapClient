@@ -21,12 +21,8 @@ interface IProps {
 }
 
 const UserSettingsEditProfileForm = (props: IProps) => {
-  // const userId = get(props, 'Account._id', '');
   const userId = get(props, 'initialValues.userId', '');
-  console.log(userId, '+++++++++++++++++_________________');
 
-  const userInfo = get(props, 'userInfo', '');
-  const avatar = get(userInfo, 'avatar[1]', '');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -62,7 +58,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
           <div className="col-md-6">
             <div className="text-md-end mx-5">
-              <Avatar src={avatar} size={200} icon={<UserOutlined />} />
+              <Avatar src={props.initialValues?.avatar} size={200} icon={<UserOutlined />} />
               <div className="mx-5">
                 <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
                   Upload avatar

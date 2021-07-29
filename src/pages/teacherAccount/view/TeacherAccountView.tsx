@@ -32,7 +32,7 @@ const TeacherAccountView = (props: IProps) => {
   const classType = Object.values(classTypeObject)
     .map((el: any) => el.name)
     .toString();
-  const image = get(props, 'TeacherAccount.logo[1]', '');
+  const image = get(props, 'TeacherAccount.image[1]', '');
   // @ts-ignore
   const inputRef = useRef<HTMLInputElement>(null);
 
