@@ -4,7 +4,7 @@ import { connect } from 'umi';
 import { get } from 'lodash';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
 import ActionMenu from '@/pages/teacherAccount/telephony/ActionMenu';
-import { ISipPhone } from '@/pages/sipPhone/types';
+import { ISipPhone } from '@/pages/telephony/types';
 
 interface IProps {
   item: ISipPhone;

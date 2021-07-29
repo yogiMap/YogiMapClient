@@ -2,7 +2,7 @@ import React from 'react';
 import Sidepanel from '@/pages/utils/sidepanel/Sidepanel';
 import Footer from '@/layout/Footer';
 import Navbar from '@/layout/Navbar';
-import SipPhoneWidget from '@/pages/sipPhone/widget/SipPhoneWidget';
+import PhoneWidget from '@/pages/telephony/widget/PhoneWidget';
 
 interface IProps {
   children: any;
@@ -43,7 +43,7 @@ export default (props: IProps) => {
 
       <Sidepanel />
 
-      <SipPhoneWidget />
+      <PhoneWidget />
       {isFooterVisible(props.location.pathname) && <Footer />}
     </div>
   );

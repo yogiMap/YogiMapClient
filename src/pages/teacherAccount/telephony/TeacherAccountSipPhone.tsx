@@ -3,7 +3,7 @@ import { connect } from 'umi';
 import { get } from 'lodash';
 import SipPhoneListItem from '@/pages/teacherAccount/telephony/SipPhoneListItem';
 import SipPhoneControls from '@/pages/teacherAccount/telephony/SipPhoneControls';
-import { ISipPhone } from '@/pages/sipPhone/types';
+import { ISipPhone } from '@/pages/telephony/types';
 
 interface IProps {
   teacherAccountId: string;
@@ -20,25 +20,15 @@ const TeacherAccountSipPhone = (props: IProps) => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row my-5">
-        <div className="col d-flex justify-content-center">
-          <h1>SIP Phones</h1>
-        </div>
-      </div>
+    <div>
+      <h2>SIP Phones</h2>
 
-      <div className="row my-3">
-        <div className="col">
-          {teacherAccountSipPhones.map((el) => (
-            <SipPhoneListItem key={el._id} item={el} teacherAccountId={teacherAccountId} />
-          ))}
-        </div>
-      </div>
+      <SipPhoneControls teacherAccountId={teacherAccountId} />
 
-      <div className="row my-3">
-        <div className="col d-flex justify-content-end">
-          <SipPhoneControls teacherAccountId={teacherAccountId} />
-        </div>
+      <div>
+        {teacherAccountSipPhones.map((el) => (
+          <SipPhoneListItem key={el._id} item={el} teacherAccountId={teacherAccountId} />
+        ))}
       </div>
     </div>
   );

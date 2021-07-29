@@ -1,6 +1,6 @@
 import { Effect, history, Reducer } from 'umi';
 
-import { querySipPhoneCreate, querySipPhoneGetById, querySipPhoneUpdateById } from '@/pages/sipPhone/queries';
+import { querySipPhoneCreate, querySipPhoneGetById, querySipPhoneUpdateById } from '@/pages/telephony/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryTeacherAccountSipPhone } from '@/pages/teacherAccount/queries';
 
@@ -30,8 +30,9 @@ const SipPhoneModel: SipPhoneModelType = {
   effects: {
     *create({ payload }, { call, put }) {
       yield call(querySipPhoneCreate, payload);
-      //yield put({ type: 'SipPhoneDashboard/sipPhoneSearch' });
+      // yield put({ type: 'SipPhoneDashboard/sipPhoneSearch' });
       yield put({ type: 'Sidepanel/close' });
+      //yield put({ type: 'TeacherAccountSipPhone/teacherAccountGetSipPhone', payload: payload.teacherAccountId });
     },
 
     *getById({ payload }, { call, put }) {

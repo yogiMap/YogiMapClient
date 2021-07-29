@@ -30,24 +30,24 @@ import ModelModel21 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages
 import ModelModel22 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/dashboard/model.ts';
 import ModelModel23 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/view/model.ts';
 import ModelModel24 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/schedule/model.ts';
-import ModelModel25 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/dashboard/model.ts';
-import ModelModel26 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/view/model.ts';
-import ModelModel27 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/dashboard/model.ts';
-import ModelModel28 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/form/model.ts';
-import ModelModel29 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/view/model.ts';
-import ModelModel30 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/wizardStudentAccount/model.ts';
-import ModelModel31 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/dashboard/model.ts';
-import ModelModel32 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/form/model.ts';
-import ModelModel33 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/view/model.ts';
-import ModelModel34 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/dashboard/model.ts';
-import ModelModel35 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/form/model.ts';
-import ModelModel36 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/view/model.ts';
-import ModelModel37 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/dashboard/model.ts';
-import ModelModel38 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/form/model.ts';
-import ModelModel39 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/form/model.ts';
-import ModelModel40 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/model.ts';
-import ModelModel41 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/view/model.ts';
-import ModelModel42 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/wizard/model.ts';
+import ModelModel25 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/dashboard/model.ts';
+import ModelModel26 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/form/model.ts';
+import ModelModel27 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/view/model.ts';
+import ModelModel28 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/wizardStudentAccount/model.ts';
+import ModelModel29 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/dashboard/model.ts';
+import ModelModel30 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/form/model.ts';
+import ModelModel31 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/style/view/model.ts';
+import ModelModel32 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/dashboard/model.ts';
+import ModelModel33 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/form/model.ts';
+import ModelModel34 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/view/model.ts';
+import ModelModel35 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/dashboard/model.ts';
+import ModelModel36 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/form/model.ts';
+import ModelModel37 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/form/model.ts';
+import ModelModel38 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/model.ts';
+import ModelModel39 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/view/model.ts';
+import ModelModel40 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/wizard/model.ts';
+import ModelModel41 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/dashboard/model.ts';
+import ModelModel42 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/view/model.ts';
 import ModelModel43 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/account/model.ts';
 import ModelModel44 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/profile/model.ts';
 import ModelModel45 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/settings/model.ts';
@@ -67,13 +67,13 @@ export function _onCreate(options = {}) {
   });
   app = dva({
     history,
-
+    
     ...(runtimeDva.config || {}),
     // @ts-ignore
     ...(typeof window !== 'undefined' && window.g_useSSR ? { initialState: window.g_initialProps } : {}),
     ...(options || {}),
   });
-
+  
   app.use(createLoading());
   (runtimeDva.plugins || []).forEach((plugin:any) => {
     app.use(plugin);
@@ -138,7 +138,7 @@ export function getApp() {
 
 /**
  * whether browser env
- *
+ * 
  * @returns boolean
  */
 function isBrowser(): boolean {

@@ -14,13 +14,13 @@ const SipPhoneControls = (props: IProps) => {
       title: 'Create SIP Phone',
       component: 'SipPhoneFormCreate',
       place: 'TeacherAccountSipPhones',
-      width: '450',
+      width: '800',
       teacherAccountId: props.teacherAccountId,
     });
   };
 
   return (
-    <Button type="primary" shape="round" onClick={clientCreate}>
+    <Button type="primary" onClick={clientCreate}>
       Create SIP Phone
     </Button>
   );
