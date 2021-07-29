@@ -57,8 +57,8 @@ export default [
 
           { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
 
-          { path: '/sipPhone', component: '@/pages/sipPhone/dashboard/SipPhoneDashboard' },
-          { path: '/sipPhone/:sipPhoneId', component: '@/pages/sipPhone/view/SipPhoneView' },
+          { path: '/telephony', component: '@/pages/telephony/dashboard/SipPhoneDashboard' },
+          { path: '/telephony/:sipPhoneId', component: '@/pages/telephony/view/SipPhoneView' },
 
           // TEACHER ACCOUNT ====================================
 
@@ -71,8 +71,8 @@ export default [
                 component: '@/pages/teacherAccount/view/TeacherAccountView',
               },
               {
-                path: '/teacherAccount/:teacherAccountId/sipPhone',
-                component: '@/pages/teacherAccount/sipPhone/TeacherAccountSipPhone',
+                path: '/teacherAccount/:teacherAccountId/telephony',
+                component: '@/pages/teacherAccount/telephony/TeacherAccountSipPhone',
               },
               {
                 path: '/teacherAccount/:teacherAccountId/classes',

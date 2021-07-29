@@ -3,7 +3,7 @@ import moment from 'moment';
 import { connect } from 'umi';
 import { get } from 'lodash';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
-import ActionMenu from '@/pages/teacherAccount/sipPhone/ActionMenu';
+import ActionMenu from '@/pages/teacherAccount/telephony/ActionMenu';
 import { ISipPhone } from '@/pages/sipPhone/types';
 
 interface IProps {

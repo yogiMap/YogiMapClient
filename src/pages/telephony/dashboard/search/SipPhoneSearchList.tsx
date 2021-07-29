@@ -5,7 +5,7 @@ import { ColumnProps } from 'antd/es/table';
 import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { ISipPhone } from '@/pages/sipPhone/types';
+import { ISipPhone } from '@/pages/telephony/types';
 import ActionMenu from '@/pages/teacherAccount/telephony/ActionMenu';
 
 interface IProps extends RouteComponentProps {

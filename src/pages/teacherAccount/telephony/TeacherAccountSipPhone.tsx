@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import SipPhoneListItem from '@/pages/teacherAccount/sipPhone/SipPhoneListItem';
-import SipPhoneControls from '@/pages/teacherAccount/sipPhone/SipPhoneControls';
+import SipPhoneListItem from '@/pages/teacherAccount/telephony/SipPhoneListItem';
+import SipPhoneControls from '@/pages/teacherAccount/telephony/SipPhoneControls';
 import { ISipPhone } from '@/pages/sipPhone/types';
 
 interface IProps {

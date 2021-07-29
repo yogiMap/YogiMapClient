@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'umi';
-import SipPhoneForm from '@/pages/teacherAccount/sipPhone/form/SipPhoneForm';
+import SipPhoneForm from '@/pages/teacherAccount/telephony/form/SipPhoneForm';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 import { ISipPhone } from '@/pages/sipPhone/types';

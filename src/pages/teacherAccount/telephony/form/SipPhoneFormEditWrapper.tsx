@@ -3,7 +3,7 @@ import { connect, withRouter } from 'umi';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { get } from 'lodash';
-import SipPhoneForm from '@/pages/teacherAccount/sipPhone/form/SipPhoneForm';
+import SipPhoneForm from '@/pages/teacherAccount/telephony/form/SipPhoneForm';
 import { ISipPhone, ISipPhoneQueryParams } from '@/pages/sipPhone/types';
 import { ILoadingEffects } from '@/types';
 
