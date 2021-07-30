@@ -67,17 +67,18 @@ const UserModel: UserModelType = {
 
     *login({ payload }, { call, put }) {
       const data = yield call(queryUserLogin, payload);
-      const userId = get(data, 'userId', '');
-      const name = get(data, 'user.name', '');
-      const token = get(data, 'token', '');
-      const teacherAccount = get(data, 'user.teacherAccount', '');
-      const studentAccount = get(data, 'user.studentAccount', '');
-
-      yield put({ type: 'auth' });
+      const userId = get(data, 'payload.userId', '');
+      const name = get(data, 'payload.user.name', '');
+      const token = get(data, 'payload.token', '');
+      const teacherAccount = get(data, 'payload.user.teacherAccount', '');
+      const studentAccount = get(data, 'payload.user.studentAccount', '');
+      const emailConfirmed = get(data, 'payload.user.emailConfirmation.confirmed', false);
 
       if (name && token && userId) {
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
+
+        yield put({ type: 'auth' });
 
         if (!teacherAccount && !studentAccount) history.push('/welcome');
         else if (teacherAccount) history.push(`/settings/teacherAccount/${userId}`);
@@ -89,8 +90,9 @@ const UserModel: UserModelType = {
       const createResult = yield call(queryUserRegister, payload);
       if (!(createResult instanceof Error)) {
         notification.destroy();
-
         yield put({ type: 'login', payload });
+        //conditionally redirect on wizard depending on if teacherAccountId or studentAccountId already exists or not
+        // payload.teacherAccountId ||  payload.studentAccountId ? history.push('/welcome') : history.push('/settings/profile/${userId}');
       }
     },
 

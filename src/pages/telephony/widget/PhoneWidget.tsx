@@ -34,7 +34,7 @@ const PhoneWidget = (props: IProps) => {
   async function twilioRegisterDevice() {
     const data = await props.generateTwilioAccessToken();
 
-    const twilioAccessToken = get(data, 'payload.token');
+    const twilioAccessToken = get(data, 'payload.token', '');
 
     device = new Device(twilioAccessToken, {
       debug: true,

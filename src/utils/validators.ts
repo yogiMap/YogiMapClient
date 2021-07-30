@@ -29,9 +29,21 @@ const password = {
   },
 };
 
+// [a-zA-Z0-9] only digits and letters
+const zipCode = {
+  validator(_: any, value: string = '') {
+    if (!value.length) return Promise.resolve();
+    if (!value.match(/^[a-zA-Z0-9]+$/)) return Promise.reject(new Error('Must contain only digits and letters'));
+    if (value.length > 6) return Promise.reject(new Error('Max 6 characters'));
+
+    return Promise.resolve();
+  },
+};
+
 const validator = {
   usaPhone,
   password,
+  zipCode,
   require: {
     required: true,
     message: 'Required',
