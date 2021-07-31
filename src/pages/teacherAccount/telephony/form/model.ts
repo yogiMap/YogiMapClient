@@ -32,7 +32,7 @@ const SipPhoneModel: SipPhoneModelType = {
       yield call(querySipPhoneCreate, payload);
       // yield put({ type: 'SipPhoneDashboard/sipPhoneSearch' });
       yield put({ type: 'Sidepanel/close' });
-      //yield put({ type: 'TeacherAccountSipPhone/teacherAccountGetSipPhone', payload: payload.teacherAccountId });
+      // yield put({ type: 'TeacherAccountSipPhone/teacherAccountGetSipPhone', payload: payload.teacherAccountId });
     },
 
     *getById({ payload }, { call, put }) {

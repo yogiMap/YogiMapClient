@@ -5,10 +5,10 @@ const WizardAlert = () => {
   return (
     <div className="container-fluid">
       <div className="alert alert-warning text-center" role="alert">
-        Please complete the{' '}
+        Please complete the
         <Link to={'/welcome'} className="primary-link">
           checklist
-        </Link>{' '}
+        </Link>
         to get full access
       </div>
     </div>

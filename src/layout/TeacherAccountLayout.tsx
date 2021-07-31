@@ -27,7 +27,7 @@ const TeacherAccountLayout = (props: IProps) => {
     },
     {
       title: 'SIP Phones',
-      link: `/teacherAccount/${teacherAccountId}/sipPhone`,
+      link: `/teacherAccount/${teacherAccountId}/telephony`,
     },
     {
       title: 'Classes',

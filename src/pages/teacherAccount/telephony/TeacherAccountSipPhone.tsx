@@ -20,16 +20,16 @@ const TeacherAccountSipPhone = (props: IProps) => {
   }, []);
 
   return (
-    <div>
-      <h2>SIP Phones</h2>
-
-      <SipPhoneControls teacherAccountId={teacherAccountId} />
+    <div className="container">
+      <h2 className="text-colored-second my-4">SIP Phones</h2>
 
       <div>
         {teacherAccountSipPhones.map((el) => (
           <SipPhoneListItem key={el._id} item={el} teacherAccountId={teacherAccountId} />
         ))}
       </div>
+
+      <SipPhoneControls teacherAccountId={teacherAccountId} />
     </div>
   );
 };

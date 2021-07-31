@@ -81,7 +81,7 @@ const UserModel: UserModelType = {
         yield put({ type: 'auth' });
 
         if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else if (teacherAccount) history.push(`/settings/teacherAccount/${userId}`);
+        else if (teacherAccount) history.push(`/teacherAccount/${userId}`);
         else if (studentAccount) history.push(`/settings/studentAccount/${userId}`);
       }
     },

@@ -20,7 +20,7 @@ const SipPhoneControls = (props: IProps) => {
   };
 
   return (
-    <Button type="primary" onClick={clientCreate}>
+    <Button type="primary" shape="round" className="my-5" onClick={clientCreate}>
       Create SIP Phone
     </Button>
   );
