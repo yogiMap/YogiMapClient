@@ -19,19 +19,24 @@ const SipPhoneListItem = (props: IProps) => {
   const owner = get(props, 'item.owner.name', '');
 
   return (
-    <div className="row my-5 border-bottom">
-      <div className="col-md-3">
-        <div>{moment(createdAt).format('LL HH:mm')}</div>
-      </div>
-
-      <div className="col-md-2">{phoneNumber}</div>
-      <div className="col-md-3">{description}</div>
-      <div className="col-md-3">{owner}</div>
-
-      <div className="col-md-1">
-        <ActionMenu row={props.item} teacherAccountId={props.teacherAccountId} />
-      </div>
-    </div>
+    <table>
+      <tr>
+        <th>CreatedAt</th>
+        <th>Phone Number</th>
+        <th>Description</th>
+        <th>Owner</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>{moment(createdAt).format('LL HH:mm')}</td>
+        <td>{phoneNumber}</td>
+        <td>{description}</td>
+        <td> {owner}</td>
+        <td>
+          <ActionMenu row={props.item} teacherAccountId={props.teacherAccountId} />
+        </td>
+      </tr>
+    </table>
   );
 };
 
