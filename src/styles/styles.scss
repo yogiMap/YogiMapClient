@@ -271,12 +271,15 @@ span.edit-pen-icon {
   }
 }
 
-.sipPhoneWidget {
+.phoneWidget {
   border: 1px solid #dad9d9;
+  border-radius: 10px;
+  background: white;
   position: fixed;
   bottom: 0;
   right: 0;
   padding: 5px 10px;
+  z-index:1001;
 }
 
 table {

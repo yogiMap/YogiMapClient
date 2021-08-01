@@ -44,6 +44,7 @@ export default (props: IProps) => {
       <Sidepanel />
 
       <PhoneWidget />
+
       {isFooterVisible(props.location.pathname) && <Footer />}
     </div>
   );
