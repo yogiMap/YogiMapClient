@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get } from 'lodash';
-import PhonePad from '@/pages/calls/PhonePad';
 
 interface IProps {
   getTwilioToken: (arg: String) => void;
@@ -81,10 +80,10 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getTwilioToken: (payload: any) => dispatch({ type: 'PhonePad/twilioWorker', payload }),
-  incomingCall: (payload: any) => dispatch({ type: 'PhonePad/incomingCall', payload }),
+  getTwilioToken: (payload: any) => dispatch({ type: 'PhoneWidget/twilioWorker', payload }),
+  incomingCall: (payload: any) => dispatch({ type: 'PhoneWidget/incomingCall', payload }),
   closePanel: () => dispatch({ type: 'Sidepanel/close' }),
-  endCall: (payload: any) => dispatch({ type: 'PhonePad/endCall', payload }),
+  endCall: (payload: any) => dispatch({ type: 'PhoneWidget/endCall', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CallsPanel);

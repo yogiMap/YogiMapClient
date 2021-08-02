@@ -124,9 +124,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getTwilioToken: (payload: any) => dispatch({ type: 'PhonePad/twilioWorker', payload }),
-  incomingCall: (payload: any) => dispatch({ type: 'PhonePad/incomingCall', payload }),
-  endCall: (payload: any) => dispatch({ type: 'PhonePad/endCall', payload }),
+  getTwilioToken: (payload: any) => dispatch({ type: 'PhoneWidget/twilioWorker', payload }),
+  incomingCall: (payload: any) => dispatch({ type: 'PhoneWidget/incomingCall', payload }),
+  endCall: (payload: any) => dispatch({ type: 'PhoneWidget/endCall', payload }),
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 

@@ -7,7 +7,7 @@ import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAc
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Avatar, Button } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import RenderPhoneNumber from '@/pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps {
   teacherAccountId: string;
@@ -81,7 +81,7 @@ const TeacherAccountView = (props: IProps) => {
 
             <h6>Email: {email}</h6>
             <h6>
-              Phone: <RenderPhoneNumber phoneNumberAll={get(props, 'teacherAccount.phoneNumber', {})} />{' '}
+              Phone Number: <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
             </h6>
           </div>
         </div>

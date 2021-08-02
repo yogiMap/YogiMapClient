@@ -8,7 +8,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { IClient } from '@/pages/client/types';
 import ActionMenu from '@/pages/client/dashboard/search/ActionMenu';
-import RenderPhoneNumber from '@/pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps extends RouteComponentProps {
   items: IClient[];
@@ -49,7 +49,7 @@ const ClientSearchList = (props: IProps) => {
     },
     {
       title: 'Phone',
-      render: (row) => <RenderPhoneNumber phoneNumberAll={get(row, 'phoneNumber', {})} />,
+      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber1', {})} />,
       key: 'phoneNumber',
     },
     {

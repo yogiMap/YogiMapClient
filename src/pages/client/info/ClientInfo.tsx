@@ -3,7 +3,7 @@ import { connect, Link } from 'umi';
 import { IClient } from '@/pages/client/types';
 import { ILoadingEffects } from '@/types';
 import { get } from 'lodash';
-import RenderPhoneNumber from '@//pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps {
   ClientInfo: IClient;
@@ -47,7 +47,7 @@ const ClientInfo = (props: IProps) => {
 
           <div className="d-flex justify-content-end-">
             <span className="text-muted me-1">Phone</span>
-            <RenderPhoneNumber phoneNumberAll={phone} />
+            <PhoneNumberCall phoneNumber={phone} />
           </div>
         </div>
 

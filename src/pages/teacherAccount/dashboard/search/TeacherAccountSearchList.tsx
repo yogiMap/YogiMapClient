@@ -7,6 +7,7 @@ import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import TeacherAccountHoverCard from '@/pages/utils/hoverCard/TeacherAccountHoverCard';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -68,6 +69,12 @@ const TeacherAccountSearchList = (props: IProps) => {
       dataIndex: 'city',
       // sorter: (a, b) => a.name.localeCompare(b.name),
       // sortDirections: ['descend'],
+    },
+
+    {
+      title: 'Phone Number',
+      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber', {})} />,
+      key: 'phoneNumber',
     },
 
     // {

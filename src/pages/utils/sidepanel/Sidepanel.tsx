@@ -16,7 +16,7 @@ import ClientFormEditWrapper from '@/pages/client/form/ClientFormEditWrapper';
 import SipPhoneFormCreateWrapper from '@/pages/teacherAccount/telephony/form/SipPhoneFormCreateWrapper';
 import SipPhoneFormEditWrapper from '@/pages/teacherAccount/telephony/form/SipPhoneFormEditWrapper';
 import CallsPanel from '@/pages/calls/CallsPanel';
-import PhonePad from '@/pages/calls/PhonePad';
+import PhonePad from '@/pages/telephony/widget/PhonePad';
 import TermsOfService from '@/pages/infoPages/TermsOfService';
 
 interface IProps extends ISidepanel {

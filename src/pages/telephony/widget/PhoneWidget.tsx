@@ -4,9 +4,10 @@ import { get } from 'lodash';
 import { Device } from '@twilio/voice-sdk';
 import { IClient, IClientQueryParams } from '@/pages/client/types';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
+import PhonePad from '@/pages/telephony/widget/PhonePad';
 
 let device: Device;
-let call: { reject: () => void };
+let call: any;
 
 export interface IProps {
   callClient: () => void;
@@ -14,6 +15,7 @@ export interface IProps {
   queryParams: IClientQueryParams;
   open: (arg: any) => void;
   generateTwilioAccessToken: () => void;
+  callChangeStatus: (status: string) => void;
 }
 
 interface ICallClient {
@@ -21,20 +23,65 @@ interface ICallClient {
   clientId: string;
 }
 
+// MAKE AN OUTGOING CALL
+async function makeCall(phoneNumber: string) {
+  const params = {
+    // get the phone number to call from the DOM
+    To: phoneNumber,
+  };
+
+  console.log('Before attempt');
+
+  if (device) {
+    console.log(`Attempting to call ${phoneNumber} ...`);
+    // Twilio.Device.connect() returns a Call object
+    const call = await device.connect({ params });
+
+    // add listeners to the Call
+    // "accepted" means the call has finished connecting and the state is now "open"
+    // call.addListener('accept', console.log);
+    // call.addListener('disconnect', console.log);
+
+    call.on('ringing', () => {
+      console.log('ringing');
+    });
+
+    call.on('disconnect', () => {
+      console.log('disconnect');
+    });
+
+    call.on('accept', () => {
+      console.log('accept');
+    });
+  } else {
+    console.log('Unable to make call.');
+  }
+}
+
 const PhoneWidget = (props: IProps) => {
   const closePanel = get(props, 'closePanel', null);
-
-  const [status, setStatus] = useState('');
+  const userId = get(props, 'Account._id', '');
+  const twilioAccessToken = get(props, 'PhoneWidget.token', '');
+  const callStatus = get(props, 'PhoneWidget.status', '');
+  const phoneNumber = get(props, 'PhoneWidget.phoneNumber', '');
 
   useEffect(() => {
-    twilioRegisterDevice();
-    return () => {};
-  }, []);
+    console.log('UE', userId);
+    if (userId) props.generateTwilioAccessToken();
+  }, [userId]);
 
-  async function twilioRegisterDevice() {
-    const data = await props.generateTwilioAccessToken();
+  useEffect(() => {
+    if (twilioAccessToken) twilioRegisterDevice();
+  }, [twilioAccessToken]);
 
-    const twilioAccessToken = get(data, 'payload.token', '');
+  useEffect(() => {
+    if (callStatus === 'outgoing' && phoneNumber) {
+      makeCall(phoneNumber);
+    }
+  }, [callStatus]);
+
+  function twilioRegisterDevice() {
+    console.log('Reg start');
 
     device = new Device(twilioAccessToken, {
       debug: true,
@@ -46,19 +93,30 @@ const PhoneWidget = (props: IProps) => {
     });
 
     device.on('registered', function () {
-      setStatus('registered');
+      props.callChangeStatus('registered');
       console.log('Twilio.Device Ready to make and receive calls!');
     });
 
     device.on('error', function (error) {
-      setStatus('error');
+      props.callChangeStatus('error');
+
       console.log('Twilio.Device Error: ' + error.message);
     });
 
     device.on('incoming', (currentCall) => {
-      setStatus('incoming');
+      props.callChangeStatus('incoming');
       call = currentCall;
+
+      call.on('cancel', () => {
+        console.log('cancel');
+        props.callChangeStatus('registered');
+      });
+
       console.log('Inc');
+    });
+
+    device.on('outgoing', (currentCall) => {
+      console.log('outgoing');
     });
 
     // Device must be registered in order to receive incoming calls
@@ -66,43 +124,53 @@ const PhoneWidget = (props: IProps) => {
   }
 
   const hangupCall = () => {
+    console.log(device);
+    console.log(call);
+    props.callChangeStatus('registered');
     device.disconnectAll();
   };
 
   const rejectIncomingCall = () => {
     call.reject();
-    setStatus('registered');
+    props.callChangeStatus('registered');
   };
 
-  const openPanel = () => {
-    props.open({
-      title: 'Calls',
-      component: 'PhonePad',
-      place: '',
-      width: 380,
-      phoneNumber: `+17075901867`,
-      device: device,
-    });
-  };
+  if (!userId) return null;
 
   return (
     <div className="phoneWidget">
-      {status}
+      {callStatus}
 
-      {status === 'incoming' && <button onClick={rejectIncomingCall}>Reject</button>}
+      {callStatus === 'incoming' && (
+        <button className="btn btn-warning" onClick={rejectIncomingCall}>
+          Reject
+        </button>
+      )}
+
+      {callStatus === 'outgoing' && (
+        <div>
+          <button onClick={hangupCall}>Hangup</button>
+        </div>
+      )}
+
+      {/*<PhonePad makeCall={makeCall} digitClick={console.log} />*/}
+
       {/*{checked && <button onClick={openPanel}>Call</button>}*/}
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
+  Account: state.Account,
   Sidepanel: state.Sidepanel,
+  PhoneWidget: state.PhoneWidget,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   closePanel: () => dispatch({ type: 'Sidepanel/close' }),
-  generateTwilioAccessToken: () => dispatch({ type: 'PhonePad/generateTwilioAccessToken' }),
+  generateTwilioAccessToken: () => dispatch({ type: 'PhoneWidget/generateTwilioAccessToken' }),
+  callChangeStatus: (status: string) => dispatch({ type: 'PhoneWidget/callChangeStatus', payload: status }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneWidget);
