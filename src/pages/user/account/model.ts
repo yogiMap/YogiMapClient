@@ -137,6 +137,10 @@ const UserModel: UserModelType = {
     *emailVerify({ payload }, { call }) {
       yield call(queryUserEmailVerify, payload);
     },
+
+    *reset(_, { put }) {
+      yield put({ type: 'set', payload: {} });
+    },
   },
 
   reducers: {

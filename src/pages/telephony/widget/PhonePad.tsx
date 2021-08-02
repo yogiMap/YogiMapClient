@@ -70,6 +70,7 @@ function PhonePad(props: IProps) {
 
           <div className="col text-center">
             <button className="btn" onClick={props.makeCall}>
+              {/*<img src={phoneCall} alt='' height='44' />*/}
               Call
             </button>
 

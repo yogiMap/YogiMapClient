@@ -7,6 +7,7 @@ import { queryClassesSearch } from '@/pages/classes/queries';
 import { queryEventSearch } from '@/pages/event/queries';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 export interface IState {}
 
@@ -25,6 +26,7 @@ export interface TeacherModelType {
   };
   reducers: {
     save: Reducer<IState>;
+    set: Reducer<ITeacherAccount>;
   };
 }
 
@@ -95,9 +97,8 @@ const TeacherModel: TeacherModelType = {
       });
     },
 
-
     *reset(_, { put }) {
-      yield put({ type: 'save', payload: initialState });
+      yield put({ type: 'set', payload: initialState });
     },
   },
 

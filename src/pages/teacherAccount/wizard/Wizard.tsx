@@ -103,7 +103,7 @@ const Wizard = (props: IProps) => {
     return step;
   };
 
-  if (isLoadingAuth) return null;
+  if (isLoadingAuth || !userId) return null;
 
   return (
     <div className="container mt-6rem">
