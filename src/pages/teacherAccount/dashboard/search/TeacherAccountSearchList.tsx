@@ -73,8 +73,8 @@ const TeacherAccountSearchList = (props: IProps) => {
 
     {
       title: 'Phone Number',
-      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber', {})} />,
       key: 'phoneNumber',
+      dataIndex: 'phoneNumber',
     },
 
     // {

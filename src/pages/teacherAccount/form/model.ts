@@ -12,6 +12,7 @@ import { queryEventSearch } from '@/pages/event/queries';
 import { queryStyleSearch } from '@/pages/style/queries';
 import { get } from 'lodash';
 import { queryUserLogin } from '@/pages/user/queries';
+import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 export interface IState {}
 
@@ -30,6 +31,7 @@ export interface TeacherAccountModelType {
   };
   reducers: {
     save: Reducer<IState>;
+    set: Reducer<ITeacherAccount>;
   };
 }
 
@@ -116,7 +118,7 @@ const TeacherAccountModel: TeacherAccountModelType = {
     },
 
     *reset(_, { put }) {
-      yield put({ type: 'save', payload: initialState });
+      yield put({ type: 'set', payload: initialState });
     },
   },
 

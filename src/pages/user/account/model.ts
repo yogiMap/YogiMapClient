@@ -32,9 +32,11 @@ export interface UserModelType {
     isValidResetPasswordLink: Effect;
     emailVerify: Effect;
     sendSupportEmail: Effect;
+    reset: Effect;
   };
   reducers: {
     save: Reducer<IUserAccount>;
+    set: Reducer<IUserAccount>;
   };
 }
 
@@ -98,7 +100,11 @@ const UserModel: UserModelType = {
 
     *logout(_, { put }) {
       localStorage.clear();
-      yield put({ type: 'set', payload: {} });
+      // yield put({ type: 'set', payload: {} });
+      yield put({ type: 'reset' });
+      yield put({ type: 'TeacherAccountForm/reset' });
+      yield put({ type: 'ClientInfo/reset' });
+      yield put({ type: 'ClientDashboard/reset' });
       history.push('/user/login');
     },
 

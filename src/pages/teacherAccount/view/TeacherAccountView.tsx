@@ -21,7 +21,7 @@ const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
   const email = get(props, 'Account.email', '');
   const name = get(props, 'TeacherAccount.name', '');
-  //const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
+  const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
   const classesObject = get(props, 'TeacherAccount.classes', {});
   const classes: any = Object.values(classesObject);
   const eventObject = get(props, 'TeacherAccount.event', {});
@@ -81,7 +81,8 @@ const TeacherAccountView = (props: IProps) => {
 
             <h6>Email: {email}</h6>
             <h6>
-              Phone Number: <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
+              Phone Number: +1{phoneNumber}
+              <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
             </h6>
           </div>
         </div>

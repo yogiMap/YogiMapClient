@@ -69,7 +69,7 @@ function PhonePad(props: IProps) {
           <div className="col digit-pad"></div>
 
           <div className="col text-center">
-            <button className="btn btn-secondary" onClick={props.makeCall}>
+            <button className="btn" onClick={props.makeCall}>
               Call
             </button>
 
