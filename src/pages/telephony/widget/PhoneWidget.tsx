@@ -153,7 +153,7 @@ const PhoneWidget = (props: IProps) => {
         </div>
       )}
 
-      {/*<PhonePad makeCall={makeCall} digitClick={console.log}  declineCall={rejectIncomingCall}/>*/}
+      {/*<PhonePad makeCall={makeCall} digitClick={console.log} />*/}
 
       {/*{checked && <button onClick={openPanel}>Call</button>}*/}
     </div>

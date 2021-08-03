@@ -14,7 +14,7 @@ const PhoneView = (props: IPhoneView) => {
 
   const number = get(props, 'phone.number', '');
 
-  let ext = get(props, 'phone.ext', '');
+  // let ext = get(props, 'phone.ext', '');
   //ext = ext && ` ext ${ext}`;
 
   return (

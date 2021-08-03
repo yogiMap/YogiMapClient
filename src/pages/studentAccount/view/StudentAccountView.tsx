@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import RenderPhoneNumber from '@/pages/utils/phone/phoneNumberRendering/PhoneNumbersRendering';
-import { Tag } from 'antd';
-import StudentAccountViewClassesList from '@/pages/studentAccount/view/StudentAccountViewClassesList';
-import StudentAccountViewEventList from '@/pages/studentAccount/view/StudentAccountViewEventList';
 import StudentAccountViewAddressList from '@/pages/studentAccount/view/StudentAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps {
   studentAccountId: string;
@@ -17,16 +14,15 @@ interface IProps {
 
 const StudentAccountView = (props: IProps) => {
   const studentAccountId = get(props, 'match.params.studentAccountId');
-  const teacherName = get(props, 'StudentAccountView.teacherName', '');
+  const teacherName = get(props, 'StudentAccount.teacherName', '');
   const email = get(props, 'Account.email', '');
-  const phone: any = get(props, 'StudentAccountView.phoneNumber.number', '');
+  const phone: any = get(props, 'StudentAccount.phoneNumber.number', '');
 
-  const name = get(props, 'StudentAccountView.name', '');
-  const classTypeObject = get(props, 'StudentAccountView.classType', {});
+  const name = get(props, 'StudentAccount.name', '');
+  const classTypeObject = get(props, 'StudentAccount.classType', {});
   const classType = Object.values(classTypeObject);
-  const focusObject = get(props, 'StudentAccountView.focus', {});
-  const YogaStyleObject = get(props, 'StudentAccountView.style', {});
-  console.log(event);
+  const focusObject = get(props, 'StudentAccount.focus', {});
+  const YogaStyleObject = get(props, 'StudentAccount.style', {});
 
   useEffect(() => {
     props.studentAccountGetById(studentAccountId);
@@ -39,7 +35,7 @@ const StudentAccountView = (props: IProps) => {
         <h6>Email: {email}</h6>
         <h6>
           Phone:
-          <RenderPhoneNumber phoneNumberAll={get(props, 'StudentAccountView.phoneNumber', {})} />
+          <PhoneNumberCall phoneNumber={get(props, 'StudentAccount.phoneNumber', {})} />
         </h6>
 
         <div className="py-5">
@@ -54,7 +50,7 @@ const StudentAccountView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  StudentAccountView: state.StudentAccountView,
+  StudentAccount: state.StudentAccountView,
   Account: state.Account,
 });
 
