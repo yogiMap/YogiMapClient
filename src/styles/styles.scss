@@ -201,8 +201,12 @@ span.edit-pen-icon {
   border-radius: 30px;
   outline: none;
   border: 2px solid rgba(210, 121, 30, 0.5);
-  padding: 0.5rem 2rem;
   margin: 0 2rem;
+  display: flex;
+  width: 15rem;
+  height: 3.5rem;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     color: #ffffff;
@@ -279,8 +283,12 @@ span.edit-pen-icon {
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 5px 10px;
+  //padding: 5px 10px;
   z-index:1001;
+  display: inline-block;
+  text-align: center;
+  width: 8rem;
+  height: 3rem;
 }
 
 table {
