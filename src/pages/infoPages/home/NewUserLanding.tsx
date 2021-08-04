@@ -11,7 +11,7 @@ const NewUserLanding = (props: IProps) => {
   const name = get(props, 'Account.name', '');
 
   return (
-    <div className="m-5">
+    <div className="container m-5">
       <h1 className="text-center">Hi {name}!</h1>
       <h3 className="my-5 text-center"> Welcome to the Our Yoga Space!</h3>
 
