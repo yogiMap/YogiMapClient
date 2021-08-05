@@ -2,12 +2,7 @@ import { Effect, Reducer } from 'umi';
 
 import { queryTeacherAccountSipPhone } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import {
-  querySipPhoneCreate,
-  querySipPhoneDeleteById,
-  querySipPhoneGetById,
-  querySipPhoneUpdateById,
-} from '@/pages/telephony/queries';
+import { querySipPhoneCreate, querySipPhoneGetById, querySipPhoneUpdateById } from '@/pages/telephony/queries';
 
 export interface IState {}
 
@@ -19,7 +14,6 @@ export interface IModel {
     create: Effect;
     getById: Effect;
     updateById: Effect;
-    sipPhoneDeleteById: Effect;
     reset: Effect;
   };
   reducers: {

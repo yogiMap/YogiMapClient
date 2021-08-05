@@ -54,7 +54,8 @@ const Model: IModel = {
 
     *sipPhoneDeleteById({ payload }, { call, put }) {
       yield call(querySipPhoneDeleteById, payload.sipPhoneId);
-      yield put({ type: 'sipPhoneSearch', payload: payload.queryParams });
+      //yield put({ type: 'sipPhoneSearch', payload: payload.queryParams });
+      yield put({ type: 'telephony/teacherAccountGetSipPhone', payload: payload.teacherAccount });
     },
 
     *reset(_, { put }) {
