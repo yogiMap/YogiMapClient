@@ -40,7 +40,6 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
 
   useEffect(() => {
     props.getById(sipPhoneId);
-    props.teacherAccountGetEmployee(teacherAccountId);
   }, []);
 
   const onFinish = (values: ISipPhone) => {

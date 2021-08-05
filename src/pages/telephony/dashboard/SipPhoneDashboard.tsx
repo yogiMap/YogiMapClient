@@ -63,7 +63,7 @@ const SipPhoneDashboard = (props: IProps) => {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="d-flex align-items-end justify-content-between mt-3 mb-2">
         <div>
           <div className="h4 mr-4">SipPhone dashboard</div>
@@ -79,7 +79,7 @@ const SipPhoneDashboard = (props: IProps) => {
 
       <SipPhoneSearchList items={sipPhoneList} />
       <Pager pager={sipPhonePager} onChange={onPagerChange} />
-    </>
+    </div>
   );
 };
 

@@ -29,10 +29,6 @@ export async function queryClientSearch(payload: IClientQueryParams): Promise<an
   return post({ url: '/client/search', data: payload });
 }
 
-export async function queryClientGetAll(): Promise<any> {
-  return get({ url: '/client' });
-}
-
 export async function queryClientGetStats(): Promise<any> {
   return get({ url: `/client/stats` });
 }

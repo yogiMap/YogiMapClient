@@ -49,7 +49,7 @@ const ClientSearchList = (props: IProps) => {
     },
     {
       title: 'Phone',
-      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber1', {})} />,
+      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber', {})} />,
       key: 'phoneNumber',
     },
     {

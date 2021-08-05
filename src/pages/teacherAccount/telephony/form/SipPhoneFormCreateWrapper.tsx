@@ -21,10 +21,6 @@ const SipPhoneFormCreateWrapper = (props: IProps) => {
     props.create(values);
   };
 
-  useEffect(() => {
-    props.teacherAccountGetEmployee(teacherAccountId);
-  }, []);
-
   return (
     <SipPhoneForm
       teacherEmployees={teacherEmployees}

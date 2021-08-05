@@ -42,7 +42,6 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/fo
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/form/model';
-export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/form/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/wizard/model';

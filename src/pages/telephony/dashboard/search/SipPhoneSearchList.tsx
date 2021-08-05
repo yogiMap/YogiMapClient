@@ -7,6 +7,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { ISipPhone } from '@/pages/telephony/types';
 import ActionMenu from '@/pages/teacherAccount/telephony/ActionMenu';
+import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps extends RouteComponentProps {
   items: ISipPhone[];
@@ -18,9 +19,14 @@ const SipPhoneSearchList = (props: IProps) => {
 
   const columns: ColumnProps<ISipPhone>[] = [
     {
-      title: 'Name',
-      key: 'name',
-      render: (row) => <Link to={`/sipPhone/${row._id}`}>{row.name}</Link>,
+      title: 'Phone',
+      key: 'phoneNumber',
+      dataIndex: 'phoneNumber',
+    },
+    {
+      title: 'Call',
+      key: 'phoneNumber',
+      render: (row) => <PhoneNumberCall phoneNumber={get(row, 'phoneNumber', {})} />,
     },
     {
       title: 'Description',

@@ -19,6 +19,7 @@ const TopMenu = (props: IProps) => {
   const menuItems = [
     { path: '/style', name: 'Style', perm: 'style.get.own' },
     { path: '/classType', name: 'Type', perm: 'classType.get.own' },
+    { path: '/telephony', name: 'Telephony', perm: 'user.delete.any' },
     { path: '/users', name: 'Users', perm: 'user.auth' },
   ].map((el) => ({
     ...el,

@@ -2,7 +2,12 @@ import { Effect, Reducer } from 'umi';
 
 import { queryTeacherAccountSipPhone } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import { querySipPhoneCreate, querySipPhoneGetById, querySipPhoneUpdateById } from '@/pages/telephony/queries';
+import {
+  querySipPhoneCreate,
+  querySipPhoneDeleteById,
+  querySipPhoneGetById,
+  querySipPhoneUpdateById,
+} from '@/pages/telephony/queries';
 
 export interface IState {}
 
@@ -14,6 +19,7 @@ export interface IModel {
     create: Effect;
     getById: Effect;
     updateById: Effect;
+    sipPhoneDeleteById: Effect;
     reset: Effect;
   };
   reducers: {
@@ -36,7 +42,7 @@ const Model: IModel = {
     *create({ payload }, { call, put }) {
       yield call(querySipPhoneCreate, payload);
       yield put({ type: 'Sidepanel/close' });
-      yield put({ type: 'companyAccountGetSipPhone', payload: payload.companyAccount });
+      yield put({ type: 'teacherAccountGetSipPhone', payload: payload.teacherAccount });
     },
 
     *getById({ payload }, { call, put }) {
@@ -48,7 +54,7 @@ const Model: IModel = {
     *updateById({ payload }, { call, put }) {
       yield call(querySipPhoneUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
-      yield put({ type: 'companyAccountGetSipPhone', payload: payload.companyAccountId });
+      yield put({ type: 'teacherAccountGetSipPhone', payload: payload.teacherAccountId });
     },
 
     *reset(_, { put }) {
