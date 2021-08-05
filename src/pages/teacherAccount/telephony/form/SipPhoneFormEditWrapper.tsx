@@ -30,13 +30,13 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const sipPhoneId: string = get(props, 'Sidepanel.sipPhoneId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.SipPhoneForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.SipPhoneForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.Telephony.getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.Telephony.updateById', false);
 
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
-  const teacherEmployees = get(props, 'SipPhoneForm.teacherEmployee', []);
-  const initialValues = get(props, 'SipPhoneForm.sipPhoneInfo', {});
+  const teacherEmployees = get(props, 'Telephony.teacherEmployee', []);
+  const initialValues = get(props, 'Telephony.sipPhoneInfo', {});
 
   useEffect(() => {
     props.getById(sipPhoneId);
@@ -62,16 +62,14 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Sidepanel: state.Sidepanel,
-  SipPhoneForm: state.SipPhoneForm,
+  Telephony: state.Telephony,
   loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'SipPhoneForm/reset' }),
-  updateById: (payload: ISipPhoneUpdate) => dispatch({ type: 'SipPhoneForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'SipPhoneForm/getById', payload }),
-  teacherAccountGetEmployee: (teacherAccountId: string) =>
-    dispatch({ type: 'SipPhoneForm/teacherAccountGetEmployee', payload: teacherAccountId }),
+  reset: () => dispatch({ type: 'Telephony/reset' }),
+  updateById: (payload: ISipPhoneUpdate) => dispatch({ type: 'Telephony/updateById', payload }),
+  getById: (payload: string) => dispatch({ type: 'Telephony/getById', payload }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SipPhoneFormEditWrapper));

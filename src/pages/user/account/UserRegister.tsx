@@ -43,7 +43,14 @@ const UserRegister = (props: IProps) => {
   };
 
   return (
-    <Form size="large" name="register" className="sign-up-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
+    <Form
+      size="large"
+      name="register"
+      className="sign-up-form"
+      layout="vertical"
+      onFinish={onFinish}
+      onFieldsChange={onFieldsChange}
+    >
       <h1 className="py-5">Create User`s Account</h1>
 
       <Form.Item name="name" rules={[validator.requireUsername, validator.name, validator.maxlength20]} hasFeedback>

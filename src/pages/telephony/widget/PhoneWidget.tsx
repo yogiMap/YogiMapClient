@@ -64,10 +64,11 @@ const PhoneWidget = (props: IProps) => {
   const twilioAccessToken = get(props, 'PhoneWidget.token', '');
   const callStatus = get(props, 'PhoneWidget.status', '');
   const phoneNumber = get(props, 'PhoneWidget.phoneNumber', '');
+  const userSipPhoneId = get(props, 'Account.sipPhone', '');
 
   useEffect(() => {
     console.log('UE', userId);
-    if (userId) props.generateTwilioAccessToken();
+    if (userId && userSipPhoneId) props.generateTwilioAccessToken();
   }, [userId]);
 
   useEffect(() => {
@@ -135,7 +136,7 @@ const PhoneWidget = (props: IProps) => {
     props.callChangeStatus('registered');
   };
 
-  if (!userId) return null;
+  if (!userId || !userSipPhoneId) return null;
 
   return (
     <div className="phoneWidget">

@@ -12,11 +12,12 @@ interface IProps {
 }
 
 const SipPhoneFormCreateWrapper = (props: IProps) => {
-  const isLoading = get(props, 'loadingEffects.SipPhoneForm/create', false);
-  const teacherEmployees = get(props, 'SipPhoneForm.teacherEmployee', []);
+  const isLoading = get(props, 'loadingEffects.Telephony/create', false);
+  const teacherEmployees = get(props, 'Telephony.teacherEmployee', []);
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
   const onFinish = (values: ISipPhone) => {
+    values.teacherAccount = teacherAccountId;
     props.create(values);
   };
 
@@ -37,13 +38,11 @@ const SipPhoneFormCreateWrapper = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   Sidepanel: state.Sidepanel,
-  SipPhoneForm: state.SipPhoneForm,
+  Telephony: state.Telephony,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherAccountGetEmployee: (teacherAccountId: string) =>
-    dispatch({ type: 'SipPhoneForm/teacherAccountGetEmployee', payload: teacherAccountId }),
-  create: (payload: ISipPhone) => dispatch({ type: 'SipPhoneForm/create', payload }),
+  create: (payload: ISipPhone) => dispatch({ type: 'Telephony/create', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SipPhoneFormCreateWrapper);

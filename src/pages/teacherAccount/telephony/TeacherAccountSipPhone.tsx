@@ -13,7 +13,7 @@ interface IProps {
 
 const TeacherAccountSipPhone = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
-  const teacherAccountSipPhones: ISipPhone[] = get(props, 'TeacherAccountSipPhone.teacherSipPhone', []);
+  const teacherAccountSipPhones: ISipPhone[] = get(props, 'Telephony.teacherSipPhone', []);
 
   useEffect(() => {
     props.teacherAccountGetSipPhone(teacherAccountId);
@@ -35,12 +35,12 @@ const TeacherAccountSipPhone = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  TeacherAccountSipPhone: state.TeacherAccountSipPhone,
+  Telephony: state.Telephony,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetSipPhone: (teacherAccountId: string) =>
-    dispatch({ type: 'TeacherAccountSipPhone/teacherAccountGetSipPhone', payload: teacherAccountId }),
+    dispatch({ type: 'Telephony/teacherAccountGetSipPhone', payload: teacherAccountId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountSipPhone);
