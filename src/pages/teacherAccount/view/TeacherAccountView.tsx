@@ -49,44 +49,46 @@ const TeacherAccountView = (props: IProps) => {
   };
 
   return (
-    <div className="container">
-      <h1 className="text-center">{name}</h1>
+    <>
+      <div className="teacher-account__header">
+        <h1 className="text-center">{name}</h1>
 
-      <div className="row">
-        <div className="col-md-6 mt-5 d-flex justify-content-start">
-          <div>
-            <h3 className="text-colored-second text-start">{focus}</h3>
-            {style && <h6 className="text-colored-third text-end"> Style of Yoga: {style}</h6>}
-            {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
-
-            <h6>Email: {email}</h6>
-            <h6>
-              Phone Number: +1{phoneNumber}
-              <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
-            </h6>
-          </div>
-        </div>
-
-        <div className="col-md-6 d-flex justify-content-end">
-          <div className="image-yoga-teacher__containers">
+        <div className="row">
+          <div className="col-md-6 mt-5 d-flex justify-content-start">
             <div>
-              <div className="image-yoga-teacher__container">
-                <img className="image-yoga-teacher" src={image} alt="yoga_img" />
-              </div>
+              <h3 className="text-colored-second text-start">{focus}</h3>
+              {style && <h6 className="text-colored-third text-end"> Style of Yoga: {style}</h6>}
+              {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
 
-              <div className="text-end">
-                <Button type="link" size="small" onClick={handleClick}>
-                  <DownloadOutlined />
-                </Button>
-              </div>
+              <h6>Email: {email}</h6>
+              <h6>
+                Phone Number: +1{phoneNumber}
+                <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
+              </h6>
             </div>
+          </div>
 
-            <input
-              type="file"
-              className={'d-none'}
-              ref={inputRef}
-              onChange={(e) => uploadImageHandler(e.target.files![0])}
-            />
+          <div className="col-md-6 d-flex justify-content-end">
+            <div className="image-yoga-teacher__containers">
+              <div>
+                <div className="image-yoga-teacher__container">
+                  <img className="image-yoga-teacher" src={image} alt="yoga_img" />
+                </div>
+
+                <div className="text-end">
+                  <Button type="link" size="small" onClick={handleClick}>
+                    <DownloadOutlined />
+                  </Button>
+                </div>
+              </div>
+
+              <input
+                type="file"
+                className={'d-none'}
+                ref={inputRef}
+                onChange={(e) => uploadImageHandler(e.target.files![0])}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +115,7 @@ const TeacherAccountView = (props: IProps) => {
           Back To All Teachers
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

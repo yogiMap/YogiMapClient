@@ -43,6 +43,11 @@ const TeacherAccountViewClassesList = (props: IProps) => {
         return formatterTimeFull(row.date);
       },
     },
+    {
+      title: 'Duration',
+      dataIndex: 'duration',
+      key: 'duration',
+    },
     // {
     //   title: 'YogaStyle',
     //   key: 'style',

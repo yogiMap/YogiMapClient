@@ -128,7 +128,7 @@ const ClassesForm = (props: IProps) => {
             </Form.Item>
           </div>
           <div className="col-md-4">
-            <Form.Item label="Duration (min or hr)" name="duration" rules={[validator.require]}>
+            <Form.Item label="Duration (min)" name="duration" rules={[validator.require]}>
               <Input placeholder="Duration" className="rounded-pill" />
             </Form.Item>
           </div>

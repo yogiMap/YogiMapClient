@@ -40,6 +40,11 @@ const TeacherAccountViewEventList = (props: IProps) => {
       },
     },
     {
+      title: 'Duration',
+      dataIndex: 'duration',
+      key: 'duration',
+    },
+    {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',

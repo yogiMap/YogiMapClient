@@ -7,7 +7,6 @@ import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import { ITeacherAccount, ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import TeacherAccountHoverCard from '@/pages/utils/hoverCard/TeacherAccountHoverCard';
-import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface ITeacherAccountDeleteById {
   teacherAccountId: string;
@@ -36,7 +35,6 @@ const TeacherAccountSearchList = (props: IProps) => {
         return <TeacherAccountHoverCard id={get(row, '_id')} name={get(row, 'name')} />;
       },
     },
-
     {
       title: 'Yoga Focus',
       key: 'focus',

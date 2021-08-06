@@ -84,7 +84,7 @@ const UserProfile = (props: IProps) => {
 
   return (
     <div>
-      <div className="profile-header">
+      <div className="profile__header">
         <h1 className="text-center">Profile Page</h1>
 
         <div className="row">
