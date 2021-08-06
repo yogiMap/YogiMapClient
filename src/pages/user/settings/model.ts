@@ -57,7 +57,8 @@ const UserModel: IUserModelType = {
     *userUploadAvatar({ payload }, { call, put }) {
       yield call(queryUserUploadAvatar, payload);
       //TODO:Reload page
-      yield put({ type: 'userGetById', payload: payload.userId });
+      const userId = payload.get('userId');
+      yield put({ type: 'userGetById', payload: userId });
     },
   },
 

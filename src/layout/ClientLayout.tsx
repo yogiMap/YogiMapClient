@@ -62,18 +62,18 @@ const ClientLayout = (props: IProps) => {
           {/*<Affix offsetTop={70}>*/}
           <Anchor>
             <Menu selectedKeys={[tab]} mode="vertical" className="no-padding-tabs position-fixed ms-3 border-0">
-              <Menu.Item key="info" className="d-flex align-items-center">
+              <Menu.Item key="info" className="d-flex align-items-top">
                 <Anchor.Link href={`/client/${clientId}/info#clientDetails`} title="Client Details" />
               </Menu.Item>
 
               {/*<div className="ant-anchor-link">*/}
-              <Menu.Item key="messages" className="d-flex align-items-center">
+              <Menu.Item key="messages" className="d-flex align-items-top">
                 <Link to={`/client/${clientId}/messages`}>Messages</Link>
                 <Badge count={messagesCount} />
               </Menu.Item>
               {/*</div>*/}
 
-              <Menu.Item key="calls" className="d-flex align-items-center">
+              <Menu.Item key="calls" className="d-flex align-items-buttom">
                 <Link to={`/client/${clientId}/calls`}>Calls</Link>
                 <Badge count={callsCount} />
               </Menu.Item>

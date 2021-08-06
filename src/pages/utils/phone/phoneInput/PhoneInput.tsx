@@ -49,7 +49,10 @@ const PhoneInput = (props: any) => {
   return (
     <div>
       <div className="ant-col ant-form-item-label">
-        <label htmlFor={props.name}>{props.label}</label>
+        <label htmlFor={props.name}>
+          {props.required && <span style={{ color: 'red' }}>*</span>}
+          {props.label}
+        </label>
       </div>
 
       <div className="d-flex">

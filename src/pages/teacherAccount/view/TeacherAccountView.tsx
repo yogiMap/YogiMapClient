@@ -5,8 +5,8 @@ import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAc
 import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAccountViewEventList';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
-import { Avatar, Button } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps {
@@ -53,13 +53,30 @@ const TeacherAccountView = (props: IProps) => {
       <h1 className="text-center">{name}</h1>
 
       <div className="row">
-        <div className="col-md-6 d-flex justify-content-start">
+        <div className="col-md-6 mt-5 d-flex justify-content-start">
           <div>
-            <div className="p-2">
-              <Avatar src={image} shape="square" size={250} icon={<UserOutlined />} />
-              <div>
-                <Button className="ps-0 pe-0" type="link" size="small" onClick={handleClick}>
-                  Upload Image
+            <h3 className="text-colored-second text-start">{focus}</h3>
+            {style && <h6 className="text-colored-third text-end"> Style of Yoga: {style}</h6>}
+            {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
+
+            <h6>Email: {email}</h6>
+            <h6>
+              Phone Number: +1{phoneNumber}
+              <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
+            </h6>
+          </div>
+        </div>
+
+        <div className="col-md-6 d-flex justify-content-end">
+          <div className="image-yoga-teacher__containers">
+            <div>
+              <div className="image-yoga-teacher__container">
+                <img className="image-yoga-teacher" src={image} alt="yoga_img" />
+              </div>
+
+              <div className="text-end">
+                <Button type="link" size="small" onClick={handleClick}>
+                  <DownloadOutlined />
                 </Button>
               </div>
             </div>
@@ -70,20 +87,6 @@ const TeacherAccountView = (props: IProps) => {
               ref={inputRef}
               onChange={(e) => uploadImageHandler(e.target.files![0])}
             />
-          </div>
-        </div>
-
-        <div className="col-md-6 text-end">
-          <div>
-            <h3 className="text-colored-second text-end">{focus}</h3>
-            {style && <h6 className="text-colored-third text-end"> Style of Yoga: {style}</h6>}
-            {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
-
-            <h6>Email: {email}</h6>
-            <h6>
-              Phone Number: +1{phoneNumber}
-              <PhoneNumberCall phoneNumber={get(props, 'teacherAccount.phoneNumber', {})} />
-            </h6>
           </div>
         </div>
       </div>
@@ -121,7 +124,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload }),
-  uploadImage: (payload: object) => dispatch({ type: 'TeacherAccountView/queryTeacherAccountUploadImage', payload }),
+  uploadImage: (payload: object) => dispatch({ type: 'TeacherAccountView/teacherAccountUploadLogo', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountView);
