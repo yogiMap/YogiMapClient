@@ -9,7 +9,7 @@ interface IProps {
   match: any;
   userGetInfo: () => void;
   userInfo: any;
-  userUpdateById: (user: { values: IUser; userId: any }) => void;
+  userUpdateById: (user: { values: IUser; userId: string }) => void;
   initialValues?: IUser;
   reset: () => void;
 }
@@ -19,7 +19,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
   const name = get(props, 'userInfo.name', '');
   const teacherAccountId = get(props, 'teacherAccount', '');
   const email = get(props, 'userInfo.email', '');
-  const phone = get(props, 'userInfo.phone', '');
+  const phoneNumber = get(props, 'userInfo.phoneNumber', '');
   const address = get(props, 'userInfo.personalAddress.address', '');
   const city = get(props, 'userInfo.personalAddress.city', '');
   const state = get(props, 'userInfo.personalAddress.state', '');
@@ -36,7 +36,7 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
     teacherAccountId,
     email,
     name,
-    phone,
+    phoneNumber,
     address,
     city,
     state,
@@ -72,7 +72,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   userGetInfo: () => dispatch({ type: 'Settings/userGetInfo' }),
-  userUpdateById: function (payload: IUser) {
+  userUpdateById: function (payload: any) {
     dispatch({ type: 'Settings/userUpdateById', payload });
   },
   reset: () => dispatch({ type: 'Settings/reset' }),

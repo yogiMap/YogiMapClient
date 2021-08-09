@@ -39,11 +39,11 @@ const StudentAccountForm = (props: IProps) => {
 
   return (
     <div className="container mt-2">
-      <h1 className="my-3">Student`s Account</h1>
+      <h1 className="my-5 text-center">Student`s Account</h1>
       <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="studentAccount">
-        <div className="row mb-5">
+        <div className="row my-5 border-bottom">
           <div className="col-md-8">
-            <h5 className="text-colored-second">{name}</h5>
+            <h5 className="text-colored-second text-start">{name}</h5>
             <h6 className="mt-3">email: {email} </h6>
           </div>
 

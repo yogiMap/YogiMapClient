@@ -7,13 +7,11 @@ export interface IUser {
   lastLogin: { date: string };
   personalAddress: IPersonalAddress;
   name: string;
-  firstName: string;
-  lastName: string;
   roles: string[];
   active: boolean;
   resetPassword: { history: [] };
   email: string;
-  phone: string;
+  phoneNumber: string;
   createdAt: string;
   updatedAt: string;
   avatar: string;

@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import { Avatar, Button, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
@@ -44,13 +44,23 @@ const UserSettingsEditProfileForm = (props: IProps) => {
         <div className="row">
           <div className="col-md-6">
             <div>
-              <Form.Item label="userName" name="name">
+              <Form.Item
+                label="userName"
+                name="name"
+                rules={[validator.name, validator.require, validator.maxlength20]}
+              >
                 <Input />
               </Form.Item>
             </div>
 
             <div>
               <Form.Item label="E-mail" name="email" rules={[validator.require]}>
+                <Input />
+              </Form.Item>
+            </div>
+
+            <div>
+              <Form.Item label="Phone Number" name="phoneNumber" rules={[validator.usaPhone]}>
                 <Input />
               </Form.Item>
             </div>
