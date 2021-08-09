@@ -2,6 +2,8 @@ export interface IState {}
 
 export interface IUser {
   _id: string;
+  studentAccountId: string;
+  teacherAccountId: string;
   emailConfirmation: { confirmed: boolean };
   phoneConfirmation: { confirmed: boolean };
   lastLogin: { date: string };
@@ -38,7 +40,7 @@ export interface IUserGetStats {
 export interface IUsersSearchTerms {
   name: string;
   email: string;
-  phone: string;
+  phoneNumber: string;
   role: string;
   limit: number;
   page: number;

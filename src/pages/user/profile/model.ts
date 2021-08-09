@@ -40,7 +40,7 @@ const UserModel: IUserModel = {
     },
 
     *teacherAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
+      yield put({ type: 'save', payload: { teacherAccountInfo: {} } });
       const data = yield call(queryTeacherAccountGetById, payload);
       yield put({
         type: 'save',
