@@ -33,8 +33,6 @@ const UserProfileStudent = (props: IProps) => {
   const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
   const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
-  console.log(studentAccountId, '_______________________studentAccountId_______________________');
-
   useEffect(() => {
     props.studentAccountGetById(studentAccountId);
   }, [studentAccountId]);
