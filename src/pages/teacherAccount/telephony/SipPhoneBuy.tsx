@@ -6,12 +6,11 @@ import { ISipPhone } from '@/pages/telephony/types';
 import { Button, Table, Tag } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 import { IBase } from '@/pages/base/types';
-import ActionMenu from '@/pages/base/dashboard/search/ActionMenu';
 
 interface IProps {
   create: (arg: ISipPhone) => void;
   loadingEffects: ILoadingEffects;
-  availablePhoneNumbers: (teacherAccountId: string) => void;
+  availablePhoneNumbers: (teacherAccountId: { teacherAccountId: any }) => void;
 }
 
 const SipPhoneBuy = (props: IProps) => {
@@ -46,6 +45,12 @@ const SipPhoneBuy = (props: IProps) => {
     },
 
     {
+      title: 'Region',
+      dataIndex: 'region',
+      key: 'region',
+    },
+
+    {
       title: 'Capabilities',
       dataIndex: 'capabilities',
       key: 'capabilities',
@@ -65,7 +70,11 @@ const SipPhoneBuy = (props: IProps) => {
     {
       title: 'Action',
       dataIndex: 'action',
-      render: () => <Button type="primary">Buy number</Button>,
+      render: () => (
+        <Button type="primary" shape="round">
+          Buy number
+        </Button>
+      ),
     },
   ];
 
