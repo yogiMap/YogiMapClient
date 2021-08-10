@@ -14,6 +14,7 @@ interface IProps {
   userGetById: (id: string) => void;
   uploadAvatar: (payload: object) => void;
   userInfo: IUser;
+  teacherAccountGetById: (teacherAccountId: string) => void;
 }
 
 const UserProfile = (props: IProps) => {
@@ -96,8 +97,8 @@ const UserProfile = (props: IProps) => {
         </div>
       </div>
 
-      {/*<UserProfileTeacher/>*/}
-      {/*<UserProfileStudent/>*/}
+      <UserProfileTeacher />
+      <UserProfileStudent />
     </div>
   );
 };
@@ -106,7 +107,6 @@ const mapStateToProps = (state: any) => ({
   Profile: state.Profile,
   Account: state.Account,
   userInfo: state.Profile.userInfo,
-  teacherAccountInfo: state.Profile.teacherAccountInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

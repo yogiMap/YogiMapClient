@@ -40,7 +40,7 @@ const UserModel: IUserModel = {
     },
 
     *teacherAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { teacherAccountInfo: {} } });
+      yield put({ type: 'save', payload: { teacherAccountInfo: [] } });
       const data = yield call(queryTeacherAccountGetById, payload);
       yield put({
         type: 'save',
@@ -49,7 +49,7 @@ const UserModel: IUserModel = {
     },
 
     *studentAccountGetById({ payload }, { call, put }) {
-      yield put({ type: 'save', payload: { studentInfo: [] } });
+      yield put({ type: 'save', payload: { studentAccountInfo: [] } });
       const data = yield call(queryStudentAccountGetById, payload);
       yield put({
         type: 'save',

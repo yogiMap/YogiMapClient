@@ -9,14 +9,12 @@ import { IUser } from '@/pages/user/userSearch/types';
 interface IProps {
   studentAccountId: string;
   studentAccountGetById: (studentAccountId: string) => void;
-  //Account: IUserAccount;
-  // userGetById: (id: string) => void;
+  Account: IUserAccount;
   userInfo: IUser;
 }
 
 const UserProfileStudent = (props: IProps) => {
   const studentAccountId: string = get(props, 'Account.studentAccount', '');
-  const userId = get(props, 'match.params.userId', '');
   const userInfo = get(props, 'userInfo', '');
   const userName = get(userInfo, 'name', '');
   //studentAccount account info
@@ -35,11 +33,11 @@ const UserProfileStudent = (props: IProps) => {
   const studentAccountTimeZone = get(studentAccountInfo, 'timeZone', '');
   const studentAccountZipCode = get(studentAccountInfo, 'zipCode', '');
 
+  console.log(studentAccountId, '_______________________studentAccountId_______________________');
+
   useEffect(() => {
-    //props.userGetById(userId);
-    // какая то проблема с загрузкой студента
     props.studentAccountGetById(studentAccountId);
-  }, []);
+  }, [studentAccountId]);
 
   if (!studentAccountId) return null;
   return (
@@ -93,14 +91,12 @@ const UserProfileStudent = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  //Profile: state.Profile,
-  //Account: state.Account,
   userInfo: state.Profile.userInfo,
+  Account: state.Account,
   studentAccountInfo: state.Profile.studentAccountInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  //userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
   studentAccountGetById: (studentAccountId: string) =>
     dispatch({ type: 'Profile/studentAccountGetById', payload: studentAccountId }),
 });
