@@ -28,3 +28,7 @@ export async function querySipPhoneGetAll(): Promise<any> {
 export async function querySipPhoneGetStats(): Promise<any> {
   return get({ url: `/sipPhone/stats` });
 }
+
+export async function querySipPhoneAvailablePhoneNumbers(payload: any): Promise<any> {
+  return post({ url: `/sipPhone/availablePhoneNumbers`, data: payload });
+}

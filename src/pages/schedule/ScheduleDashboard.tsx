@@ -93,7 +93,10 @@ const ScheduleDashboard = (props: IProps) => {
     };
     const classes = get(e, 'event.extendedProps', {});
     const classesId = get(classes, '_id');
-    const values: { date: string; dateDelta: undefined } = {
+    const clientId = get(classes, 'client._id');
+    const values = {
+      ...classes,
+      client: clientId,
       date: moment(classes.date)
         .add(get(e, 'startDelta.years', 0), 'years')
         .add(get(e, 'startDelta.month', 0), 'month')
@@ -115,7 +118,10 @@ const ScheduleDashboard = (props: IProps) => {
     };
     const classes = get(e, 'event.extendedProps', {});
     const classesId = get(classes, '_id');
+    const clientId = get(classes, 'client._id');
     const values = {
+      ...classes,
+      client: clientId,
       date: moment(classes.date)
         .add(get(e, 'delta.years', 0), 'years')
         .add(get(e, 'delta.month', 0), 'month')

@@ -22,7 +22,8 @@ const UserInfo = (props: IProps) => {
   const authUser = get(props, 'Account', '');
   const isAvatar = get(authUser, 'avatar', false);
   const avatarImg = isAvatar[1];
-
+  const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
+  const isTeacher = get(props, 'Account.isTeacher', false);
   const userId = get(authUser, '_id', '');
   const name = get(authUser, 'name', '');
   const adminId = localStorage.getItem('adminId');
@@ -33,15 +34,19 @@ const UserInfo = (props: IProps) => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="profile" data-qa="profile">
-        <Link to={`/profile/${userId}`}>Profile</Link>
-      </Menu.Item>
+      {emailConfirmed && (
+        <Menu.Item key="profile" data-qa="profile">
+          <Link to={`/profile/${userId}`}>Profile</Link>
+        </Menu.Item>
+      )}
 
-      <Menu.Item key="settings" data-qa="settings">
-        <Link to={`/settings/${userId}`}>Settings</Link>
-      </Menu.Item>
+      {emailConfirmed && (
+        <Menu.Item key="settings" data-qa="settings">
+          <Link to={`/settings/${userId}`}>Settings</Link>
+        </Menu.Item>
+      )}
 
-      <Menu.Divider />
+      {emailConfirmed && <Menu.Divider />}
 
       <Menu.Item key="logout" onClick={logout} data-qa="logout">
         Logout

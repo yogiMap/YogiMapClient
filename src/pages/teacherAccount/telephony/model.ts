@@ -2,7 +2,12 @@ import { Effect, Reducer } from 'umi';
 
 import { queryTeacherAccountSipPhone } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import { querySipPhoneCreate, querySipPhoneGetById, querySipPhoneUpdateById } from '@/pages/telephony/queries';
+import {
+  querySipPhoneAvailablePhoneNumbers,
+  querySipPhoneCreate,
+  querySipPhoneGetById,
+  querySipPhoneUpdateById,
+} from '@/pages/telephony/queries';
 
 export interface IState {}
 
@@ -14,6 +19,7 @@ export interface IModel {
     create: Effect;
     getById: Effect;
     updateById: Effect;
+    availablePhoneNumbers: Effect;
     reset: Effect;
   };
   reducers: {
@@ -49,6 +55,12 @@ const Model: IModel = {
       yield call(querySipPhoneUpdateById, payload);
       yield put({ type: 'Sidepanel/close' });
       yield put({ type: 'teacherAccountGetSipPhone', payload: payload.teacherAccountId });
+    },
+
+    *availablePhoneNumbers({ payload }, { call, put }) {
+      yield put({ type: 'save', payload: {} });
+      const data = yield call(querySipPhoneAvailablePhoneNumbers, payload);
+      yield put({ type: 'save', payload: { availablePhoneNumbers: data.payload } });
     },
 
     *reset(_, { put }) {

@@ -53,7 +53,7 @@ const Model: IModel = {
 
     *updateById({ payload }, { call, put }) {
       yield call(queryClassesUpdateById, payload);
-      yield put({ type: 'Sidepanel/close' });
+      // yield put({ type: 'Sidepanel/close' });
       yield put({ type: 'search', payload: payload.queryParams });
     },
 
