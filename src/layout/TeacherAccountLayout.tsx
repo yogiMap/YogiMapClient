@@ -31,7 +31,7 @@ const TeacherAccountLayout = (props: IProps) => {
     },
     {
       title: 'Classes',
-      link: `/teacherAccount/${teacherAccountId}/classes`,
+      link: `/teacherAccount/${teacherAccountId}/classes/byId`,
     },
     {
       title: 'Events',

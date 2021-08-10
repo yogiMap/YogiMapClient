@@ -79,6 +79,10 @@ export default [
                 component: '@/pages/classes/dashboard/ClassesDashboard',
               },
               {
+                path: '/teacherAccount/:teacherAccountId/classes/byId',
+                component: '@/pages/teacherAccount/view/TeacherAccountViewClassesList',
+              },
+              {
                 path: '/teacherAccount/:teacherAccountId/event',
                 component: '@/pages/event/dashboard/EventDashboard',
               },

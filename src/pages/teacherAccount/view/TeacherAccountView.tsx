@@ -94,7 +94,7 @@ const TeacherAccountView = (props: IProps) => {
       </div>
 
       <div className="py-5">
-        <h3 className="text-colored-first mt-5">Classes</h3>
+        {/*<h3 className="text-colored-first mt-5">Classes</h3>*/}
         <div>
           <TeacherAccountViewClassesList classes={classes} />
         </div>

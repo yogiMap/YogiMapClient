@@ -35,10 +35,12 @@ const ClassesModel: ClassesModelType = {
 
   effects: {
     *create({ payload }, { call, put }) {
-      yield call(queryClassesCreate, payload);
+      const data = yield call(queryClassesCreate, payload);
+      // console.log(data, '_____________data__________');
+      // const teacherAccountId = get(data, 'payload.classes.teacherAccount', '');
       yield put({ type: 'ClassesDashboard/classesSearch' });
       yield put({ type: 'Sidepanel/close' });
-      history.push('/classes');
+      // history.push(`/teacherAccount/${teacherAccountId}/classes/byId`);
     },
 
     *getById({ payload }, { call, put }) {

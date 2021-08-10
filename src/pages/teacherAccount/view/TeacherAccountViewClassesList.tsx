@@ -2,7 +2,7 @@ import React from 'react';
 import { get } from 'lodash';
 import { Button, Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
-import { Link, withRouter } from 'umi';
+import { connect, Link, withRouter } from 'umi';
 import { RouteComponentProps } from 'react-router-dom';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import { IClasses } from '@/pages/classes/types';
@@ -11,11 +11,15 @@ import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
+  teacherAccountGetById: (teacherAccountId: string) => void;
 }
 
 const TeacherAccountViewClassesList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const classes: any = get(props, 'classes', []);
+  //const classes: any = get(props, 'classes', []);
+  const classesObject = get(props, 'TeacherAccount.classes', {});
+  const classes: any = Object.values(classesObject);
+  const name = get(props, 'TeacherAccount.name', '');
 
   const columns: ColumnProps<IClasses>[] = [
     {
@@ -73,26 +77,36 @@ const TeacherAccountViewClassesList = (props: IProps) => {
   ];
 
   return (
-    <div>
-      <Table
-        rowKey="_id"
-        columns={columns}
-        dataSource={classes}
-        size="middle"
-        className="table-middle"
-        pagination={false}
-      />
-      {/*{isUserAuth && (*/}
-      <div className="d-flex justify-content-end my-5">
-        <ClassesDashboardControls />
+    <>
+      <div className="teacher-account__header">
+        <h1 className="text-colored-first">{name} Classes </h1>
       </div>
-      {/*)}*/}
-    </div>
+
+      <div className="container">
+        <Table
+          rowKey="_id"
+          columns={columns}
+          dataSource={classes}
+          size="middle"
+          className="table-middle"
+          pagination={false}
+        />
+        {/*{isUserAuth && (*/}
+        <div className="d-flex justify-content-end my-5">
+          <ClassesDashboardControls />
+        </div>
+        {/*)}*/}
+      </div>
+    </>
   );
 };
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = (state: any) => ({
+  TeacherAccount: state.TeacherAccountView,
+});
 
-const mapDispatchToProps = (dispatch: any) => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+  teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload }),
+});
 
-export default withRouter(TeacherAccountViewClassesList);
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountViewClassesList);
