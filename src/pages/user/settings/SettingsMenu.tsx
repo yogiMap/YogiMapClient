@@ -5,7 +5,6 @@ import {
   UsergroupAddOutlined,
   IdcardOutlined,
   SafetyOutlined,
-  LockOutlined,
   ScheduleOutlined,
   UserAddOutlined,
 } from '@ant-design/icons';

@@ -6,7 +6,7 @@ import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAcco
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Button } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { CameraOutlined } from '@ant-design/icons';
 import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
 
 interface IProps {
@@ -49,7 +49,7 @@ const TeacherAccountView = (props: IProps) => {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="teacher-account__header">
         <h1 className="text-center">{name}</h1>
 
@@ -77,7 +77,7 @@ const TeacherAccountView = (props: IProps) => {
 
                 <div className="text-end">
                   <Button type="link" size="small" onClick={handleClick}>
-                    <DownloadOutlined />
+                    <CameraOutlined />
                   </Button>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const TeacherAccountView = (props: IProps) => {
           Back To All Teachers
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

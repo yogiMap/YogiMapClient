@@ -7,14 +7,10 @@ import { RouteComponentProps } from 'react-router-dom';
 import ActionMenu from '@/pages/teacher/dashboard/search/ActionMenu';
 import { IClasses } from '@/pages/classes/types';
 import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
-import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import { IUserAccount } from '@/pages/user/userSearch/types';
 import { formatterDateFull, formatterTimeFull } from '@/utils/dateTime';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
-  // open: (arg: ISidepanel) => void;
-  // Account: IUserAccount;
 }
 
 const TeacherAccountViewClassesList = (props: IProps) => {
@@ -95,13 +91,8 @@ const TeacherAccountViewClassesList = (props: IProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  // Account: state.Account,
-  // sidepanel: state.Sidepanel,
-});
+const mapStateToProps = (state: any) => ({});
 
-const mapDispatchToProps = (dispatch: any) => ({
-  // open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-});
+const mapDispatchToProps = (dispatch: any) => ({});
 
 export default withRouter(TeacherAccountViewClassesList);

@@ -45,9 +45,9 @@ const TeacherAccountLayout = (props: IProps) => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-lg-2 col-md-2">
-          <h5>{teacherName}</h5>
+      <div className="row mt-4">
+        <div className="col-md-3">
+          <h5 className="text-colored-third">{teacherName}</h5>
 
           <Menu selectedKeys={[tab]} mode={'vertical'}>
             {menuItems.map((item) => (
@@ -58,7 +58,7 @@ const TeacherAccountLayout = (props: IProps) => {
           </Menu>
         </div>
 
-        <div className="col-lg-9 col-md-9">{props.children}</div>
+        <div className="col-md-9">{props.children}</div>
       </div>
     </>
   );
