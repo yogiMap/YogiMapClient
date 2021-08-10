@@ -19,17 +19,31 @@ const SipPhoneControls = (props: IProps) => {
     });
   };
 
+  const sipPhoneBuy = () => {
+    props.open({
+      title: 'Buy SIP Phone',
+      component: 'SipPhoneBuy',
+      place: 'TeacherAccountSipPhones',
+      width: '800',
+      teacherAccountId: props.teacherAccountId,
+    });
+  };
+
   return (
-    <Button type="primary" shape="round" className="my-5" onClick={clientCreate}>
-      Create SIP Phone
-    </Button>
+    <>
+      <Button type="primary" shape="round" className="my-5" onClick={clientCreate}>
+        Create SIP Phone
+      </Button>
+
+      <Button type="default" className="my-5 mx-3" shape="round" onClick={sipPhoneBuy}>
+        Buy SIP Phone
+      </Button>
+    </>
   );
 };
-
-const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SipPhoneControls);
+export default connect(null, mapDispatchToProps)(SipPhoneControls);

@@ -18,6 +18,7 @@ import SipPhoneFormEditWrapper from '@/pages/teacherAccount/telephony/form/SipPh
 import CallsPanel from '@/pages/calls/CallsPanel';
 import PhonePad from '@/pages/telephony/widget/PhonePad';
 import TermsOfService from '@/pages/infoPages/TermsOfService';
+import SipPhoneBuy from '@/pages/teacherAccount/telephony/SipPhoneBuy';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -54,6 +55,8 @@ const Sidepanel = (props: IProps) => {
     CallsPanel: <CallsPanel />,
 
     PhonePad: <PhonePad />,
+
+    SipPhoneBuy: <SipPhoneBuy />,
   };
 
   const mapping = (c: string): any => {
