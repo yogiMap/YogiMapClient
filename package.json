@@ -22,7 +22,7 @@
     "@types/classnames": "^2.3.1",
     "@types/googlemaps": "^3.43.3",
     "@umijs/preset-react": "^1.8.22",
-    "@umijs/test": "^3.5.15",
+    "@umijs/test": "^3.5.17",
     "antd": "^4.16.11",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",
@@ -39,12 +39,12 @@
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
-    "umi": "^3.5.15",
+    "umi": "^3.5.17",
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
-    "@babel/runtime-corejs3": "^7.14.9",
+    "@babel/runtime-corejs3": "^7.15.3",
     "@types/lodash": "^4.14.172",
     "@types/react-copy-to-clipboard": "^5.0.1",
     "@umijs/plugin-sass": "^1.1.1",

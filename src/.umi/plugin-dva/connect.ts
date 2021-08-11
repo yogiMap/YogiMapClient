@@ -29,6 +29,9 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/form
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/view/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/dashboard/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/form/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/schedule/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/studentAccount/form/model';

@@ -19,6 +19,8 @@ import CallsPanel from '@/pages/calls/CallsPanel';
 import PhonePad from '@/pages/telephony/widget/PhonePad';
 import TermsOfService from '@/pages/infoPages/TermsOfService';
 import SipPhoneBuy from '@/pages/teacherAccount/telephony/SipPhoneBuy';
+import PaymentFormCreateWrapper from '@/pages/payment/form/PaymentFormCreateWrapper';
+import PaymentFormEditWrapper from '@/pages/payment/form/PaymentFormEditWrapper';
 
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
@@ -48,6 +50,9 @@ const Sidepanel = (props: IProps) => {
 
     ClientFormCreate: <ClientFormCreateWrapper />,
     ClientFormEdit: <ClientFormEditWrapper />,
+
+    PaymentFormCreate: <PaymentFormCreateWrapper />,
+    PaymentFormEdit: <PaymentFormEditWrapper />,
 
     SipPhoneFormCreate: <SipPhoneFormCreateWrapper />,
     SipPhoneFormEdit: <SipPhoneFormEditWrapper />,

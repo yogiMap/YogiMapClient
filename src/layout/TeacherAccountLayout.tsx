@@ -46,7 +46,7 @@ const TeacherAccountLayout = (props: IProps) => {
   return (
     <>
       <div className="row mt-4">
-        <div className="col-md-3">
+        <div className="col-md-3 teacher-account__aside">
           <h5 className="text-colored-third">{teacherName}</h5>
 
           <Menu selectedKeys={[tab]} mode={'vertical'}>

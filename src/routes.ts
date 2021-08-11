@@ -60,6 +60,8 @@ export default [
           { path: '/telephony', component: '@/pages/telephony/dashboard/SipPhoneDashboard' },
           { path: '/telephony/:sipPhoneId', component: '@/pages/telephony/view/SipPhoneView' },
 
+          { path: '/payment', component: '@/pages/payment/dashboard/PaymentDashboard' },
+          { path: '/payment/:paymentId', component: '@/pages/payment/view/PaymentView' },
           // TEACHER ACCOUNT ====================================
 
           {
