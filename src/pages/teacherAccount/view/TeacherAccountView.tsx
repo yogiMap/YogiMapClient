@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAccountViewClassesList';
@@ -35,6 +35,10 @@ const TeacherAccountView = (props: IProps) => {
   const image = get(props, 'TeacherAccount.image[1]', '');
   // @ts-ignore
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    props.teacherAccountGetById(teacherAccountId);
+  }, []);
 
   const handleClick = () => {
     if (inputRef.current) {

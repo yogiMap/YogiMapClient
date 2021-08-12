@@ -20,22 +20,24 @@ const SipPhoneListItem = (props: IProps) => {
 
   return (
     <table>
-      <tr>
-        <th>CreatedAt</th>
-        <th>Phone Number</th>
-        <th>Description</th>
-        <th>Owner</th>
-        <th>Action</th>
-      </tr>
-      <tr>
-        <td>{moment(createdAt).format('LL HH:mm')}</td>
-        <td>{phoneNumber}</td>
-        <td>{description}</td>
-        <td> {owner}</td>
-        <td>
-          <ActionMenu row={props.item} teacherAccountId={props.teacherAccountId} />
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <th>CreatedAt</th>
+          <th>Phone Number</th>
+          <th>Description</th>
+          <th>Owner</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>{moment(createdAt).format('LL HH:mm')}</td>
+          <td>{phoneNumber}</td>
+          <td>{description}</td>
+          <td> {owner}</td>
+          <td>
+            <ActionMenu row={props.item} teacherAccountId={props.teacherAccountId} />
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 };
