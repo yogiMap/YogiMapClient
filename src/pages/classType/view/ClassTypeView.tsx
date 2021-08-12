@@ -13,8 +13,6 @@ const ClassTypeView = (props: IProps) => {
   const name = get(props, 'ClassTypeView.name', '');
   const description = get(props, 'ClassTypeView.description', '');
 
-  console.log(props);
-
   useEffect(() => {
     props.classTypeGetById(classTypeId);
   }, []);

@@ -42,7 +42,6 @@ const AddressSearchInput = (props: IProps) => {
   }, 500);
 
   const onSelect = (addressId = '') => {
-    console.log(addressId);
     if (props.onChange) props.onChange(addressId);
   };
 

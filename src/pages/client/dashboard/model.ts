@@ -42,14 +42,12 @@ const Model: IModel = {
 
   effects: {
     *callUser({ payload }, { call, put }) {
-      console.log(' == payload from Models==: ', payload);
       const userId = get(payload, 'userId', '');
       const userPhone = get(payload, 'userPhone', '');
 
       const data = yield call(generateTwilioAccessToken, userPhone);
 
       const twilioAccessToken = get(data, 'payload.token');
-      console.log(twilioAccessToken);
       return twilioAccessToken;
     },
 

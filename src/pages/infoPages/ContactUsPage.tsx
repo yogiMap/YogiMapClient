@@ -3,9 +3,7 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 
 const ContactUsPage = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
-  };
+  const onFinish = (values: any) => {};
 
   const validator = {
     require: {

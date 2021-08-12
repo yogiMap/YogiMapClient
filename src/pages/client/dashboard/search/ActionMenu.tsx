@@ -64,8 +64,6 @@ const ActionMenu = (props: IProps) => {
         userPhone,
         // row,
       });
-      console.log(' == userPhone from ActionMenu==: ', userPhone);
-      console.log(' == userId from ActionMenu==: ', userId);
     }
     //   const userId = row._id;
     //   props.callUser(userPhone);

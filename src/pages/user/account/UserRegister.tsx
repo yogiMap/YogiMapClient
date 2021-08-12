@@ -39,7 +39,6 @@ const UserRegister = (props: IProps) => {
       place: 'UserRegister',
       width: '50%',
     });
-    console.log('+++++++++++++++++++++TERMS+++++++++++++++++++++++++');
   };
 
   return (

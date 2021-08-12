@@ -12,8 +12,6 @@ const BaseView = (props: IProps) => {
   const baseId = get(props, 'match.params.baseId');
   const name = get(props, 'BaseView.name', '');
 
-  console.log(props);
-
   useEffect(() => {
     props.baseGetById(baseId);
   }, []);

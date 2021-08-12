@@ -5,39 +5,53 @@ import { ILoadingEffects } from '@/types';
 import { ISipPhone } from '@/pages/telephony/types';
 import { Button, Table, Tag } from 'antd';
 import { ColumnProps } from 'antd/es/table';
-import { IBase } from '@/pages/base/types';
+
+interface IAvailablePhone {
+  addressRequirements: string;
+  capabilities: { voice: boolean; SMS: boolean; MMS: boolean };
+  friendlyName: string;
+  isoCountry: string;
+  lata: string;
+  latitude: number;
+  locality: string;
+  longitude: number;
+  phoneNumber: string;
+  postalCode: string;
+  rateCenter: string;
+  region: string;
+}
+
+interface IAvailablePhoneNumbersRequest {
+  teacherAccountId: string;
+}
+interface IBuyPhoneNumbersRequest {
+  teacherAccountId: string;
+  phoneNumber: string;
+}
 
 interface IProps {
   create: (arg: ISipPhone) => void;
   loadingEffects: ILoadingEffects;
-  availablePhoneNumbers: (teacherAccountId: { teacherAccountId: any }) => void;
+  availablePhoneNumbers: (args: IAvailablePhoneNumbersRequest) => void;
+  buyPhoneNumber: (args: IBuyPhoneNumbersRequest) => void;
 }
 
 const SipPhoneBuy = (props: IProps) => {
   const isLoading = get(props, 'loadingEffects.Telephony/create', false);
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
+
   const availableNumbers = get(props, 'Telephony.availablePhoneNumbers', []);
-  // const onFinish = (values: ISipPhone) => {
-  //   values.teacherAccount = teacherAccountId;
-  //   props.create(values);
-  // };
 
   useEffect(() => {
     props.availablePhoneNumbers({ teacherAccountId });
   }, []);
 
-  useEffect(() => {
-    addFeeProperty();
-  }, [availableNumbers]);
-
-  const addFeeProperty = () => {
-    availableNumbers.forEach(function (item: ColumnProps<IBase>) {
-      item.fee = '$10.00';
-    });
-    return availableNumbers;
+  const buyNumber = (row: IAvailablePhone) => {
+    console.log(row.phoneNumber);
+    props.buyPhoneNumber({ phoneNumber: row.phoneNumber, teacherAccountId });
   };
 
-  const columns: ColumnProps<IBase>[] = [
+  const columns: ColumnProps<IAvailablePhone>[] = [
     {
       title: 'Number',
       dataIndex: 'friendlyName',
@@ -45,19 +59,16 @@ const SipPhoneBuy = (props: IProps) => {
     },
 
     {
-      title: 'Region',
-      dataIndex: 'region',
-      key: 'region',
-    },
-
-    {
       title: 'Capabilities',
       dataIndex: 'capabilities',
-      key: 'capabilities',
       render: (capabilities) => (
         <>
           {Object.keys(capabilities).map((key) => {
-            return capabilities[key] === true ? <Tag color={'geekblue'}>{key}</Tag> : null;
+            return capabilities[key] === true ? (
+              <Tag color={'geekblue'} key={key}>
+                {key}
+              </Tag>
+            ) : null;
           })}
         </>
       ),
@@ -65,28 +76,21 @@ const SipPhoneBuy = (props: IProps) => {
     {
       title: 'Monthly fee',
       dataIndex: 'fee',
-      key: 'fee',
+      render: () => <>$10</>,
     },
     {
       title: 'Action',
-      dataIndex: 'action',
-      render: () => (
-        <Button type="primary" shape="round">
+      render: (row) => (
+        <Button type="primary" onClick={() => buyNumber(row)}>
           Buy number
         </Button>
       ),
     },
   ];
 
-  return (
-    <Table
-      columns={columns}
-      dataSource={availableNumbers}
-      // scroll={{ x: 500 }}
-      size="middle"
-      // pagination={false}
-    />
-  );
+  if (isLoading || !availableNumbers.length) return null;
+
+  return <Table rowKey="phoneNumber" columns={columns} dataSource={availableNumbers} size="middle" />;
 };
 
 const mapStateToProps = (state: any) => ({
@@ -96,8 +100,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  availablePhoneNumbers: (teacherAccountId: string) =>
-    dispatch({ type: 'Telephony/availablePhoneNumbers', payload: teacherAccountId }),
+  availablePhoneNumbers: (payload: IAvailablePhoneNumbersRequest) =>
+    dispatch({ type: 'Telephony/availablePhoneNumbers', payload }),
+  buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'Telephony/buyPhoneNumber', payload }),
   create: (payload: ISipPhone) => dispatch({ type: 'Telephony/create', payload }),
 });
 

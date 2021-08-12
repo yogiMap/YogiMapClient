@@ -22,7 +22,6 @@ const ClassTypeDashboardControls = (props: IProps) => {
 
   const roles = get(props, 'Account.roles', '');
   const authUser = roles[0] === 'admin';
-  console.log(authUser);
 
   return (
     <>

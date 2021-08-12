@@ -11,18 +11,14 @@ interface IProps {
 }
 
 const CallDashboard = (props: IProps) => {
-  console.log(' == props from CallDashBoard==: ', props);
   const clientId = get(props, 'clientList.clientId', '');
-  console.log(' == clientId from CallDashboard==: ', clientId);
   const userId = get(props, 'Account._id', '');
   const userPhone = 'clientId';
   const twilioDevice = get(props, 'twilioDevice', null);
   const activeConnection = get(props, 'activeConnection', null);
-  console.log('activeConnection', activeConnection);
 
   useEffect(() => {
     props.getTwilioToken(userId);
-    console.log('useEffect', userId);
     return () => unsubscribeTwilioEventListener();
   }, [handleTwilioEvents()]);
 

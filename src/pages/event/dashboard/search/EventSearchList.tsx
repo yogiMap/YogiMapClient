@@ -15,7 +15,6 @@ interface IProps extends RouteComponentProps {
 const EventSearchList = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
-  console.log(items);
 
   const columns: ColumnProps<IEvent>[] = [
     {

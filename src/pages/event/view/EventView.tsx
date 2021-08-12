@@ -19,8 +19,6 @@ const EventView = (props: IProps) => {
   const date = get(props, 'EventView.date', '');
   const userName = get(props, 'Account.name', '');
 
-  console.log(props);
-
   useEffect(() => {
     props.eventGetById(eventId);
   }, []);

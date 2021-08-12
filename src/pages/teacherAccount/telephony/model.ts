@@ -4,6 +4,7 @@ import { queryTeacherAccountSipPhone } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import {
   querySipPhoneAvailablePhoneNumbers,
+  querySipPhoneBuyPhoneNumber,
   querySipPhoneCreate,
   querySipPhoneGetById,
   querySipPhoneUpdateById,
@@ -20,6 +21,7 @@ export interface IModel {
     getById: Effect;
     updateById: Effect;
     availablePhoneNumbers: Effect;
+    buyPhoneNumber: Effect;
     reset: Effect;
   };
   reducers: {
@@ -61,6 +63,12 @@ const Model: IModel = {
       yield put({ type: 'save', payload: {} });
       const data = yield call(querySipPhoneAvailablePhoneNumbers, payload);
       yield put({ type: 'save', payload: { availablePhoneNumbers: data.payload } });
+    },
+
+    *buyPhoneNumber({ payload }, { call, put }) {
+      yield put({ type: 'save', payload: {} });
+      const data = yield call(querySipPhoneBuyPhoneNumber, payload);
+      // yield put({ type: 'save', payload: { availablePhoneNumbers: data.payload } });
     },
 
     *reset(_, { put }) {

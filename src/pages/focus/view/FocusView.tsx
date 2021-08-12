@@ -12,8 +12,6 @@ const FocusView = (props: IProps) => {
   const focusId = get(props, 'match.params.focusId');
   const name = get(props, 'FocusView.name', '');
 
-  console.log(props);
-
   useEffect(() => {
     props.focusGetById(focusId);
   }, []);
