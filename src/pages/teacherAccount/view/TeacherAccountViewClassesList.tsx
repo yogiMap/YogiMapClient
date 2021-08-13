@@ -77,12 +77,12 @@ const TeacherAccountViewClassesList = (props: IProps) => {
   ];
 
   return (
-    <>
+    <div className="container">
       <div className="teacher-account__header">
         <h1 className="text-colored-first">{name} Classes </h1>
       </div>
 
-      <div className="container">
+      <div>
         <Table
           rowKey="_id"
           columns={columns}
@@ -97,7 +97,7 @@ const TeacherAccountViewClassesList = (props: IProps) => {
         </div>
         {/*)}*/}
       </div>
-    </>
+    </div>
   );
 };
 

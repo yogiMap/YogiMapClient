@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Anchor, Menu } from 'antd';
+import { Menu } from 'antd';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
@@ -18,7 +18,7 @@ const TeacherAccountLayout = (props: IProps) => {
   useEffect(() => {
     props.teacherAccountGetById(teacherAccountId);
     return () => {};
-  }, []);
+  }, [teacherAccountId]);
 
   const menuItems = [
     {
@@ -39,23 +39,29 @@ const TeacherAccountLayout = (props: IProps) => {
     },
   ];
 
-  menuItems.map((item) => {
-    if (item.link.split('/').pop() === tab) tab = item.title;
-  });
+  // menuItems.map((item) => {
+  //   if (item.link.split('/').pop() === tab) tab = item.title;
+  // });
 
   return (
     <>
       <div className="row mt-4">
-        <div className="col-md-3 teacher-account__aside">
-          <h5 className="text-colored-third">{teacherName}</h5>
+        <div className="col-md-3 border-end">
+          <div className="teacher-account__aside">
+            <h5 className="text-colored-third my-3">{teacherName}</h5>
 
-          <Menu selectedKeys={[tab]} mode={'vertical'}>
-            {menuItems.map((item) => (
-              <Menu.Item key={item.title}>
-                <Link to={item.link}>{item.title}</Link>
-              </Menu.Item>
-            ))}
-          </Menu>
+            <Menu
+              // selectedKeys={[tab]}
+              mode={'vertical'}
+              style={{ backgroundColor: 'transparent', borderRight: 'none' }}
+            >
+              {menuItems.map((item) => (
+                <Menu.Item key={item.title}>
+                  <Link to={item.link}>{item.title}</Link>
+                </Menu.Item>
+              ))}
+            </Menu>
+          </div>
         </div>
 
         <div className="col-md-9">{props.children}</div>

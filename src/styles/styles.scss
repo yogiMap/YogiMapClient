@@ -23,6 +23,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 //@primary-color:  #4c4c4c;
+
 h1 {
   color: #d2791e;
 }
@@ -319,11 +320,14 @@ th {
   overflow: hidden;
 }
 
-.teacher-account__header{
+.teacher-account__header {
   background-color: #f7fafc;
   padding: 2rem;
 }
 
 .teacher-account__aside {
-  background-color: #f7fafc;;
+  height: 100%;
+  background-color: #f8fafc;
+  padding: 1.5rem;
 }
+
