@@ -313,11 +313,18 @@ th {
 .image-yoga-teacher__container {
   height: 210px;
   width: 210px;
-  border: solid 3px #eae9e9;
+  border: solid 5px white;
+  border-radius: 15px;
   display:flex;
   justify-content: center; /*центрируем элемент по горизонтали */
   align-items: center; /* и вертикали */
   overflow: hidden;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    border: solid 3px #ebf0fa;
+  }
 }
 
 .teacher-account__header {

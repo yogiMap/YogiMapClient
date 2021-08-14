@@ -75,15 +75,15 @@ const TeacherAccountView = (props: IProps) => {
           <div className="col-md-6 d-flex justify-content-end">
             <div className="image-yoga-teacher__containers">
               <div>
-                <div className="image-yoga-teacher__container">
-                  <img className="image-yoga-teacher" src={image} alt="yoga_img" />
+                <div className="image-yoga-teacher__container" onClick={handleClick}>
+                  <img className="image-yoga-teacher" src={image} alt="upload yoga_img" />
                 </div>
 
-                <div className="text-end">
-                  <Button type="link" size="small" onClick={handleClick}>
-                    <CameraOutlined />
-                  </Button>
-                </div>
+                {/*<div className="text-end">*/}
+                {/*  <Button type="link" size="small" onClick={handleClick}>*/}
+                {/*    <CameraOutlined />*/}
+                {/*  </Button>*/}
+                {/*</div>*/}
               </div>
 
               <input
