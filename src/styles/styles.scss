@@ -293,24 +293,6 @@ span.edit-pen-icon {
   height: 3rem;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-}
-
-//tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-  background-color: #a09095;
-  color: white;
-}
-
 .image-yoga-teacher__container {
   height: 210px;
   width: 210px;
@@ -335,16 +317,30 @@ th {
 
 .teacher-account__aside--container {
   height: auto;
+  margin-bottom: 2rem;
 
   .teacher-account__aside {
     height: 100%;
+    width: 100%;
     background-color: #f8fafc;
     padding: 1.5rem;
   }
 }
 
+.teacher-account__context{
+  margin-left: 0;
+}
+
 @media screen and (min-width: 768px) {
   .teacher-account__aside--container {
     height: 100vh;
+    position: fixed;
+    z-index: 101;
+    min-width: 20rem;
+  }
+  .teacher-account__context{
+    margin-left: 20rem;
   }
 }
+
+

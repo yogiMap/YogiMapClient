@@ -64,7 +64,7 @@ const TeacherAccountLayout = (props: IProps) => {
           </div>
         </div>
 
-        <div className="col-md-9">{props.children}</div>
+        <div className="col-md-9 teacher-account__context">{props.children}</div>
       </div>
     </>
   );
