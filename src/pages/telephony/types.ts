@@ -4,6 +4,7 @@ export interface ISipPhone {
   _id: string;
   description: string;
   phoneNumber: string;
+  teacherAccountId: string;
   teacherAccount: ITeacherAccount | string;
   owner: {
     name: string;

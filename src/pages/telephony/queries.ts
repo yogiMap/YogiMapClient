@@ -33,6 +33,9 @@ export async function querySipPhoneAvailablePhoneNumbers(payload: any): Promise<
   return post({ url: `/sipPhone/availablePhoneNumbers`, data: payload });
 }
 
+export async function querySipPhoneTollFreePhoneNumbers(payload: any): Promise<any> {
+  return post({ url: `/sipPhone/tollFreePhoneNumbers`, data: payload });
+}
 export async function querySipPhoneBuyPhoneNumber(payload: any): Promise<any> {
   return post({ url: `/sipPhone/buyPhoneNumber`, data: payload });
 }

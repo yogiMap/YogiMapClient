@@ -3,7 +3,7 @@
 @import 'nprogress';
 @import 'landing';
 @import 'navbar';
-@import "profile";
+@import 'profile';
 @import 'telephony';
 @import 'fullcalendar';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
@@ -298,7 +298,8 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
 }
@@ -315,7 +316,7 @@ th {
   width: 210px;
   border: solid 5px white;
   border-radius: 15px;
-  display:flex;
+  display: flex;
   justify-content: center; /*центрируем элемент по горизонтали */
   align-items: center; /* и вертикали */
   overflow: hidden;
@@ -332,9 +333,18 @@ th {
   padding: 2rem;
 }
 
-.teacher-account__aside {
-  height: 100%;
-  background-color: #f8fafc;
-  padding: 1.5rem;
+.teacher-account__aside--container {
+  height: auto;
+
+  .teacher-account__aside {
+    height: 100%;
+    background-color: #f8fafc;
+    padding: 1.5rem;
+  }
 }
 
+@media screen and (min-width: 768px) {
+  .teacher-account__aside--container {
+    height: 100vh;
+  }
+}

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 import { ISipPhone } from '@/pages/telephony/types';
-import { Button, Table, Tag } from 'antd';
+import { Button, Table, Tag, Radio, Input } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 
 interface IAvailablePhone {
@@ -23,6 +23,7 @@ interface IAvailablePhone {
 
 interface IAvailablePhoneNumbersRequest {
   teacherAccountId: string;
+  areaCode: string;
 }
 interface IBuyPhoneNumbersRequest {
   teacherAccountId: string;
@@ -34,17 +35,36 @@ interface IProps {
   loadingEffects: ILoadingEffects;
   availablePhoneNumbers: (args: IAvailablePhoneNumbersRequest) => void;
   buyPhoneNumber: (args: IBuyPhoneNumbersRequest) => void;
+  tollFreePhoneNumbers: () => void;
 }
 
 const SipPhoneBuy = (props: IProps) => {
+  const [open, setOpen] = useState(false);
+  const [areaCode, setAreaCode] = useState('');
+  const [mode, setMode] = useState('');
+
   const isLoading = get(props, 'loadingEffects.Telephony/create', false);
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
   const availableNumbers = get(props, 'Telephony.availablePhoneNumbers', []);
+  const tollFreeNumbers = get(props, 'Telephony.tollFreePhoneNumbers', []);
 
   useEffect(() => {
     props.availablePhoneNumbers({ teacherAccountId });
   }, []);
+
+  const handleModeChange = (e) => {
+    const mode = e.target.value;
+    setMode(mode);
+  };
+  const getNumbersByCode = () => {
+    props.availablePhoneNumbers({ areaCode });
+  };
+
+  const getTollFreeNumbers = () => {
+    props.tollFreePhoneNumbers();
+    setOpen(!open);
+  };
 
   const buyNumber = (row: IAvailablePhone) => {
     console.log(row.phoneNumber);
@@ -90,7 +110,43 @@ const SipPhoneBuy = (props: IProps) => {
 
   if (isLoading || !availableNumbers.length) return null;
 
-  return <Table rowKey="phoneNumber" columns={columns} dataSource={availableNumbers} size="middle" />;
+  return (
+    <>
+      <h5>Number Type</h5>
+      <Radio.Group onChange={handleModeChange} value={mode} style={{ marginBottom: 15 }}>
+        <Radio.Button value="local" onClick={() => setOpen(!open)}>
+          Local
+        </Radio.Button>
+        <Radio.Button value="tollFree" onClick={getTollFreeNumbers}>
+          Toll-free
+        </Radio.Button>
+      </Radio.Group>
+      {open && (
+        <div className="row">
+          <div className="col-2">
+            <Input
+              value={areaCode}
+              placeholder="Area Code"
+              maxLength={3}
+              onChange={(e) => setAreaCode(e.target.value)}
+            />
+          </div>
+
+          <div className="col-8">
+            <Button type="primary" onClick={getNumbersByCode}>
+              Search
+            </Button>
+          </div>
+        </div>
+      )}
+      {mode === 'local' ? (
+        <Table rowKey="phoneNumber" columns={columns} dataSource={availableNumbers} size="middle" pagination={false} />
+      ) : (
+        <Table rowKey="phoneNumber" columns={columns} dataSource={tollFreeNumbers} size="middle" pagination={false} />
+      )}
+    </>
+  );
+  // return <Table rowKey="phoneNumber" columns={columns} dataSource={availableNumbers} size="middle" />;
 };
 
 const mapStateToProps = (state: any) => ({
@@ -103,6 +159,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   availablePhoneNumbers: (payload: IAvailablePhoneNumbersRequest) =>
     dispatch({ type: 'Telephony/availablePhoneNumbers', payload }),
   buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'Telephony/buyPhoneNumber', payload }),
+  tollFreePhoneNumbers: () => dispatch({ type: 'Telephony/tollFreePhoneNumbers' }),
   create: (payload: ISipPhone) => dispatch({ type: 'Telephony/create', payload }),
 });
 

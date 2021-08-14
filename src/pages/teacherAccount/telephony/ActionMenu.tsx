@@ -9,6 +9,7 @@ import { connect } from 'umi';
 interface ISipPhoneDeleteById {
   sipPhoneId: string;
   queryParams: ISipPhoneQueryParams;
+  teacherAccountId: string;
 }
 
 interface IProps {

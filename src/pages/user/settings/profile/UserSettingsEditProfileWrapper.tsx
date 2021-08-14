@@ -20,11 +20,11 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
   const teacherAccountId = get(props, 'teacherAccount', '');
   const email = get(props, 'userInfo.email', '');
   const phoneNumber = get(props, 'userInfo.phoneNumber', '');
-  const address = get(props, 'userInfo.address', '');
-  const city = get(props, 'userInfo.city', '');
-  const state = get(props, 'userInfo.state', '');
-  const zipCode = get(props, 'userInfo.zipCode', '');
-  const currentCountry = get(props, 'userInfo.countryName', '');
+  const address = get(props, 'userInfo.personalAddress.address', '');
+  const city = get(props, 'userInfo.personalAddress.city', '');
+  const state = get(props, 'userInfo.personalAddress.state', '');
+  const zipCode = get(props, 'userInfo.personalAddress.zipCode', '');
+  const currentCountry = get(props, 'userInfo.personalAddress.countryName', '');
   const avatar = get(props, 'userInfo.avatar', '');
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import {
   querySipPhoneCreate,
   querySipPhoneGetById,
   querySipPhoneUpdateById,
+  querySipPhoneTollFreePhoneNumbers,
 } from '@/pages/telephony/queries';
 
 export interface IState {}
@@ -22,6 +23,7 @@ export interface IModel {
     updateById: Effect;
     availablePhoneNumbers: Effect;
     buyPhoneNumber: Effect;
+    tollFreePhoneNumbers: Effect;
     reset: Effect;
   };
   reducers: {
@@ -69,6 +71,12 @@ const Model: IModel = {
       yield put({ type: 'save', payload: {} });
       const data = yield call(querySipPhoneBuyPhoneNumber, payload);
       // yield put({ type: 'save', payload: { availablePhoneNumbers: data.payload } });
+    },
+
+    *tollFreePhoneNumbers({ payload }, { call, put }) {
+      yield put({ type: 'save', payload: {} });
+      const data = yield call(querySipPhoneTollFreePhoneNumbers, payload);
+      yield put({ type: 'save', payload: { tollFreePhoneNumbers: data.payload } });
     },
 
     *reset(_, { put }) {

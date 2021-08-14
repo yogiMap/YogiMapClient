@@ -4,6 +4,7 @@ import { get } from 'lodash';
 import SipPhoneListItem from '@/pages/teacherAccount/telephony/SipPhoneListItem';
 import SipPhoneControls from '@/pages/teacherAccount/telephony/SipPhoneControls';
 import { ISipPhone } from '@/pages/telephony/types';
+import TeacherAccountSearchList from '@/pages/teacherAccount/dashboard/search/TeacherAccountSearchList';
 
 interface IProps {
   teacherAccountId: string;
@@ -21,12 +22,13 @@ const TeacherAccountSipPhone = (props: IProps) => {
 
   return (
     <div className="container">
-      <h2 className="text-colored-second my-4">SIP Phones</h2>
+      <h2 className="text-colored-second my-5">SIP Phones</h2>
 
       <div>
-        {teacherAccountSipPhones.map((el) => (
-          <SipPhoneListItem key={el._id} item={el} teacherAccountId={teacherAccountId} />
-        ))}
+        {/*{teacherAccountSipPhones.map((el) => (*/}
+        {/*  <SipPhoneListItem key={el._id} items={el} teacherAccountId={teacherAccountId} />*/}
+        {/*))}*/}
+        <SipPhoneListItem items={teacherAccountSipPhones} teacherAccountId={teacherAccountId} />
       </div>
 
       <SipPhoneControls teacherAccountId={teacherAccountId} />
