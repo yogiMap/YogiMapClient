@@ -46,7 +46,7 @@ const TeacherAccountLayout = (props: IProps) => {
   return (
     <>
       <div className="row mt-4">
-        <div className="col-md-3 border-end">
+        <div className="col-md-3 border-end min-vh-100">
           <div className="teacher-account__aside">
             <h5 className="text-colored-third my-3">{teacherName}</h5>
 
