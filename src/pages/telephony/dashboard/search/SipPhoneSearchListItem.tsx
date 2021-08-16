@@ -24,7 +24,6 @@ const SipPhoneSearchListItem = (props: IProps) => {
     <div>
       <Row>
         {moment(createdAt).format('LL HH:mm')}
-
         <Link to={`/profile/${ownerId}`}>{ownerName}</Link>
       </Row>
 

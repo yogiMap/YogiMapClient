@@ -329,6 +329,7 @@ span.edit-pen-icon {
 
 .teacher-account__context{
   margin-left: 0;
+  margin-right: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -336,10 +337,11 @@ span.edit-pen-icon {
     height: 100vh;
     position: fixed;
     z-index: 101;
-    min-width: 20rem;
+    width: 20rem;
   }
   .teacher-account__context{
-    margin-left: 20rem;
+    margin-left: 21rem;
+    margin-right: 1rem;
   }
 }
 
