@@ -75,7 +75,7 @@ const TeacherAccountModel: TeacherAccountModelType = {
           payload: payload.queryParams,
         });
       }
-      yield put({ type: 'getById', payload: payload.companyAccountId });
+      yield put({ type: 'getById', payload: payload.teacherAccountId });
     },
 
     *classesSearch(_, { call, put }) {
