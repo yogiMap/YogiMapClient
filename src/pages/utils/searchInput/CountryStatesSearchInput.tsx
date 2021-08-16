@@ -12,9 +12,12 @@ interface IProps {
   SearchInput: any;
   onChange?: (value: string) => void;
   value?: string;
+  country?: string;
 }
 
 const CountryStatesSearchInput = (props: IProps) => {
+  const { country = '' } = props;
+
   const value = get(props, 'value', '');
   const [selectedState, setSelectedState] = useState('');
   const isLoading = get(props, 'loadingEffects.SearchInput/stateSearch', false);

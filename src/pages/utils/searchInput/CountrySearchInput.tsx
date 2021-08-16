@@ -15,15 +15,10 @@ interface IProps {
 }
 
 const CountrySearchInput = (props: IProps) => {
-  let value = get(props, 'value', '');
-  const [selectedName, setSelectedName] = useState('United States');
+  let value = get(props, 'value', 'United States');
+  const [selectedName, setSelectedName] = useState(value);
   const isLoading = get(props, 'loadingEffects.SearchInput/countrySearch', false);
   const countryList: [string] = get(props, 'SearchInput.countryList', []);
-
-  useEffect(() => {
-    props.searchCountryList();
-    value ? props.searchStateList(value) : props.searchStateList('United States');
-  }, []);
 
   const onFocus = () => {
     if (!countryList.length) props.searchCountryList();
@@ -44,7 +39,7 @@ const CountrySearchInput = (props: IProps) => {
       '',
     );
     setSelectedName(country);
-    props.searchStateList(v);
+    // props.searchStateList(v);
   };
 
   const options = countryList.map((el: string) => (

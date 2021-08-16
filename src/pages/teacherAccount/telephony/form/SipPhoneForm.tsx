@@ -4,13 +4,14 @@ import validator from '@/utils/validators';
 import { get } from 'lodash';
 import { ISipPhone } from '@/pages/telephony/types';
 import { IUser } from '@/pages/user/userSearch/types';
+import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: ISipPhone;
-  teacherEmployees: IUser[];
+  companyEmployees: IUser[];
 }
 
 const SipPhoneForm = (props: IProps) => {
@@ -18,8 +19,8 @@ const SipPhoneForm = (props: IProps) => {
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
-      <Form.Item name="phoneNumber" label="Phone Number" rules={[validator.require]}>
-        <Input placeholder="Sip Phone number" />
+      <Form.Item name="phoneNumber" label="Sip Phone Number" rules={[validator.require]}>
+        <PhoneInput name="SipPhone phoneNumber" placeholder="SipPhone phoneNumber" />
       </Form.Item>
 
       <Form.Item name="description" label="Description">
@@ -28,7 +29,7 @@ const SipPhoneForm = (props: IProps) => {
 
       {/*      <Form.Item label="Employee" name="owner">
         <Select placeholder="Please select">
-          {props.teacherEmployees.map((el) => (
+          {props.companyEmployees.map((el) => (
             <Select.Option key={el._id} value={el._id}>
               {el.name}
             </Select.Option>
@@ -37,7 +38,7 @@ const SipPhoneForm = (props: IProps) => {
       </Form.Item>*/}
 
       <Form.Item>
-        <Button type="primary" shape="round" htmlType="submit" loading={isLoading}>
+        <Button type="primary" htmlType="submit" loading={isLoading}>
           {props.submitButtonText}
         </Button>
       </Form.Item>

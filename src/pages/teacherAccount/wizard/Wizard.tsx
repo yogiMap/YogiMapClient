@@ -171,7 +171,7 @@ const Wizard = (props: IProps) => {
               <Form.Item
                 name="name"
                 label="Teacher's Name"
-                rules={[validator.require, validator.minlength2, validator.maxlength30]}
+                rules={[validator.require, validator.minlength2, validator.maxlength30, validator.minletters3]}
               >
                 <Input placeholder="Your Name" />
               </Form.Item>

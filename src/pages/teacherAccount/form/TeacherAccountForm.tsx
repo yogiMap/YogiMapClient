@@ -27,6 +27,7 @@ interface IProps {
   classesList: IClasses[];
   eventList: IEvent[];
   styleList: IStyle[];
+  country?: string;
 }
 
 const TeacherAccountForm = (props: IProps) => {
@@ -39,10 +40,20 @@ const TeacherAccountForm = (props: IProps) => {
   const [form] = useForm();
   // if (!props.styleList) return null;
 
+  const onChange = (v: any) => {
+    console.log(v);
+  };
+
   return (
     <div className="container mt-2">
       <h1 className="my-5 text-center">Teacher`s Account</h1>
-      <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" name="teacherAccount">
+      <Form
+        onFinish={props.onFinish}
+        initialValues={props.initialValues}
+        layout="vertical"
+        name="teacherAccount"
+        onValuesChange={onChange}
+      >
         <div className="row my-5 border-bottom">
           <div className="col-md-8">
             <h5 className="text-colored-second text-start">{name}</h5>
@@ -60,7 +71,11 @@ const TeacherAccountForm = (props: IProps) => {
             <Form.Item
               name="name"
               label="Teacher's Name"
-              rules={[{ required: true, message: 'Please input your Name' }]}
+              rules={[
+                { required: true, message: 'Please input your Name' },
+                validator.minletters3,
+                validator.maxlength30,
+              ]}
             >
               <Input placeholder="Teacher`s Name" className="rounded-pill" />
             </Form.Item>
@@ -102,7 +117,7 @@ const TeacherAccountForm = (props: IProps) => {
         <div className="row">
           <div className="col-md-6">
             <Form.Item name="phoneNumber">
-              <PhoneInput label="Phone" name="phoneNumber" required={true} form={form} />
+              <PhoneInput label="Phone" name="phoneNumber" required={true} />
             </Form.Item>
           </div>
 
@@ -142,7 +157,7 @@ const TeacherAccountForm = (props: IProps) => {
         <div className="row">
           <div className="col-md-6">
             <Form.Item label="Country" name="country">
-              <CountrySearchInput />
+              <CountrySearchInput country={'Canada'} />
             </Form.Item>
           </div>
 

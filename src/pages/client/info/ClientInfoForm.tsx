@@ -17,7 +17,7 @@ const ClientInfoForm = (props: IProps) => {
   const [form] = useForm();
   const isLoading = get(props, 'isLoading', false);
   const initialValues = get(props, 'initialValues');
-  const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(false);
+  const [addAdditionalPhoneMode, setAddAdditionalPhoneMode] = useState(true);
   const address = get(props, 'initialValues.address', {});
   const phone1 = get(props, 'initialValues.phoneNumber1', {});
   const phone2 = get(props, 'initialValues.phoneNumber2', {});

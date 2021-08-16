@@ -20,7 +20,7 @@ interface ICallClient {
 const ClientInfo = (props: IProps) => {
   const name = get(props, 'ClientInfo.name', '');
   const email = get(props, 'ClientInfo.email', '');
-  const phone = get(props, 'ClientInfo.phoneNumber', {});
+  const phone = get(props, 'ClientInfo.phoneNumber', `$`);
   const teacherAccount = get(props, 'ClientInfo.teacherAccount.name', '');
   const clientId = get(props, 'match.params.clientId', '');
 

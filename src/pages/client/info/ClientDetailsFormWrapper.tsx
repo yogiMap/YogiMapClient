@@ -14,7 +14,7 @@ interface IProps {
 const ClientDetailsFormWrapper = (props: IProps) => {
   const clientId: string = get(props, 'ClientInfo._id', '');
 
-  const isLoadingUpdate = get(props, 'loadingEffects.ClientInfo/updateById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.ClientInfo/updateById', true);
 
   const onFinish = (values: IClient) => {
     //update name before sending to server

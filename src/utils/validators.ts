@@ -106,6 +106,14 @@ const validator = {
     type: 'url',
     message: 'This field must be a valid url.',
   },
+  minletters2: {
+    pattern: /(?=(?:.*[a-zA-Z]){2})/,
+    message: 'May contain at least 2 letters',
+  },
+  minletters3: {
+    pattern: /(?=(?:.*[a-zA-Z]){3})/,
+    message: 'May contain at least 3 letters',
+  },
 };
 
 export default validator;
