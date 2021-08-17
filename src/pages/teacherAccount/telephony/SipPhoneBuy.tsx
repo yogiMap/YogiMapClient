@@ -42,16 +42,15 @@ const SipPhoneBuy = (props: IProps) => {
   const [open, setOpen] = useState(false);
   const [areaCode, setAreaCode] = useState('');
   const [mode, setMode] = useState('');
-
   const isLoading = get(props, 'loadingEffects.Telephony/create', false);
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
   const availableNumbers = get(props, 'Telephony.availablePhoneNumbers', []);
   const tollFreeNumbers = get(props, 'Telephony.tollFreePhoneNumbers', []);
 
-  useEffect(() => {
-    props.availablePhoneNumbers({ teacherAccountId });
-  }, []);
+  // useEffect(() => {
+  //   props.availablePhoneNumbers({ teacherAccountId});
+  // }, []);
 
   const handleModeChange = (e) => {
     const mode = e.target.value;
@@ -108,7 +107,7 @@ const SipPhoneBuy = (props: IProps) => {
     },
   ];
 
-  if (isLoading || !availableNumbers.length) return null;
+  // if (isLoading || !availableNumbers.length) return null;
 
   return (
     <>
@@ -146,7 +145,6 @@ const SipPhoneBuy = (props: IProps) => {
       )}
     </>
   );
-  // return <Table rowKey="phoneNumber" columns={columns} dataSource={availableNumbers} size="middle" />;
 };
 
 const mapStateToProps = (state: any) => ({
@@ -158,8 +156,8 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   availablePhoneNumbers: (payload: IAvailablePhoneNumbersRequest) =>
     dispatch({ type: 'Telephony/availablePhoneNumbers', payload }),
-  buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'Telephony/buyPhoneNumber', payload }),
   tollFreePhoneNumbers: () => dispatch({ type: 'Telephony/tollFreePhoneNumbers' }),
+  buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'Telephony/buyPhoneNumber', payload }),
   create: (payload: ISipPhone) => dispatch({ type: 'Telephony/create', payload }),
 });
 

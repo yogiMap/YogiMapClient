@@ -1,15 +1,12 @@
 import React from 'react';
-import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
 import ActionMenu from '@/pages/teacherAccount/telephony/ActionMenu';
 import { ISipPhone } from '@/pages/telephony/types';
 import { ColumnProps } from 'antd/es/table';
-import { ITeacherAccount } from '@/pages/teacherAccount/types';
-import TeacherAccountHoverCard from '@/pages/utils/hoverCard/TeacherAccountHoverCard';
-import { Table } from 'antd';
-import { formatterDateTimeFull } from '@/utils/dateTime';
+import { Table, Tag } from 'antd';
+import { formatterDateFull } from '@/utils/dateTime';
 
 interface IProps {
   items: ISipPhone[];
@@ -18,11 +15,6 @@ interface IProps {
 }
 
 const SipPhoneListItem = (props: IProps) => {
-  // const createdAt = get(props, 'item.createdAt', '');
-  // const phoneNumber = get(props, 'item.phoneNumber', '');
-  // const description = get(props, 'item.description', '');
-  // const owner = get(props, 'item.owner.name', '');
-
   const queryParams = get(props, 'location.query', {});
   const items = get(props, 'items', []);
 
@@ -30,20 +22,18 @@ const SipPhoneListItem = (props: IProps) => {
     {
       title: 'createdAt',
       key: 'createdAt',
-      render: (row) => formatterDateTimeFull(row.date),
+      render: (row) => formatterDateFull(row.date),
+    },
+    {
+      title: 'SIP Phone Number',
+      key: 'phoneNumber',
+      dataIndex: 'phoneNumber',
     },
     {
       title: 'description',
       key: 'description',
       dataIndex: 'description',
     },
-
-    {
-      title: 'phoneNumber',
-      key: 'phoneNumber',
-      dataIndex: 'phoneNumber',
-    },
-
     {
       title: 'Owner',
       key: 'owner[name]',
@@ -51,12 +41,24 @@ const SipPhoneListItem = (props: IProps) => {
         return <Link to={`/profile/${get(row, 'owner._id')}`}>{get(row, 'owner.name')}</Link>;
       },
     },
+    {
+      title: 'Capabilities',
+      dataIndex: 'capabilities',
+      key: 'capabilities',
+      render: () => (
+        <>
+          <Tag color={'geekblue'}>voice</Tag>
+          <Tag color={'geekblue'}>sms</Tag>
+          <Tag color={'geekblue'}>mms</Tag>
+        </>
+      ),
+      width: '20%',
+    },
 
     {
       title: 'Action',
       key: 'action',
-      className: 'actions',
-      width: 80,
+      width: '5%',
       render: (row) => <ActionMenu row={row} queryParams={queryParams} />,
     },
   ];
