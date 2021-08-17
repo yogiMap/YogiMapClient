@@ -17,7 +17,17 @@ interface IProps {
 
 const SecurityLayout = ({ children, auth, location, Account }: IProps) => {
   const roles = get(Account, 'roles', []);
-  const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard' && location.pathname !== '/welcome';
+
+  const teacherAccount = get(Account, 'teacherAccount', null);
+  const userId = get(Account, '_id', null);
+
+  const isAlertVisible =
+    userId &&
+    ((roles.includes('new') && !location.pathname.includes('/wizard') && !location.pathname.includes('/welcome')) ||
+      (!teacherAccount && !location.pathname.includes('/wizard') && !location.pathname.includes('/welcome')));
+
+  // const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard' && location.pathname !== '/welcome';
+
   useEffect(() => {
     auth();
   }, []);

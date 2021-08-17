@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect, withRouter } from 'umi';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { get } from 'lodash';
+import { get, isEmpty } from 'lodash';
 import TeacherAccountForm from '@/pages/teacherAccount/form/TeacherAccountForm';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
 import { ILoadingEffects } from '@/types';
@@ -23,7 +23,7 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const TeacherAccountFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-
+  const teacherAccountInfo = get(props, 'TeacherAccountForm', {});
   const teacherAccountId: string = get(props, 'Sidepanel.teacherAccountId', '');
 
   const isLoadingGet = get(props, 'loadingEffects.TeacherAccountForm/getById', false);
@@ -47,6 +47,7 @@ const TeacherAccountFormEditWrapper = (props: IProps) => {
   const styleList = get(props, 'styleList', []);
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
+  if (isEmpty(teacherAccountInfo)) return null;
 
   return (
     <TeacherAccountForm
@@ -64,6 +65,7 @@ const TeacherAccountFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Sidepanel: state.Sidepanel,
+  TeacherAccountForm: state.TeacherAccountForm,
   teacherAccountInfo: state.TeacherAccountForm.teacherAccountInfo,
   loadingEffects: state.loading.effects,
   classTypeList: state.TeacherAccountForm.classTypeList,

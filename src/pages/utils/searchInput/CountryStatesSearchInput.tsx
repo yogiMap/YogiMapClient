@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Select } from 'antd';
 import { connect } from 'umi';
-import { debounce, get } from 'lodash';
+import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 
 const { Option } = Select;
 
 interface IProps {
-  searchStateList: (arg: string) => void;
+  searchStateList: (country: string) => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
   onChange?: (value: string) => void;
@@ -17,15 +17,15 @@ interface IProps {
 
 const CountryStatesSearchInput = (props: IProps) => {
   const { country = '' } = props;
-
   const value = get(props, 'value', '');
   const [selectedState, setSelectedState] = useState('');
   const isLoading = get(props, 'loadingEffects.SearchInput/stateSearch', false);
   const stateList: [string] = get(props, 'SearchInput.stateList', []);
 
   useEffect(() => {
-    setSelectedState('');
-  }, [stateList]);
+    // setSelectedState('');
+    props.searchStateList(country);
+  }, [country]);
 
   const onSelect = (value = '') => {
     if (props.onChange) props.onChange(value);
@@ -43,12 +43,10 @@ const CountryStatesSearchInput = (props: IProps) => {
 
   return (
     <Select
-      // @ts-ignore
-      autoComplete="dontshow"
-      value={selectedState}
+      defaultValue={selectedState}
       showSearch
-      disabled={isLoading}
-      defaultValue={value}
+      disabled={isLoading || !country}
+      value={value}
       placeholder="Select a States"
       optionFilterProp="children"
       onChange={onChange}
@@ -65,4 +63,8 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
 });
 
-export default connect(mapStateToProps)(CountryStatesSearchInput);
+const mapDispatchToProps = (dispatch: any) => ({
+  searchStateList: (payload: string) => dispatch({ type: 'SearchInput/stateSearch', payload }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryStatesSearchInput);

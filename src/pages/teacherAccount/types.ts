@@ -2,8 +2,8 @@ import { IPhone } from '@/pages/user/types';
 
 export interface ITeacherAccount {
   _id: string;
-  firstName: string;
-  lastName: string;
+  // firstName: string;
+  // lastName: string;
   name: string;
   focus: string;
   style: string;

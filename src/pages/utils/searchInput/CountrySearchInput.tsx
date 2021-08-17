@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Select } from 'antd';
 import { connect } from 'umi';
 import { debounce, get } from 'lodash';
 import { ILoadingEffects } from '@/types';
+
 const { Option } = Select;
 
 interface IProps {
@@ -16,8 +17,11 @@ interface IProps {
 
 const CountrySearchInput = (props: IProps) => {
   let value = get(props, 'value', 'United States');
+
   const [selectedName, setSelectedName] = useState(value);
+
   const isLoading = get(props, 'loadingEffects.SearchInput/countrySearch', false);
+
   const countryList: [string] = get(props, 'SearchInput.countryList', []);
 
   const onFocus = () => {
@@ -73,7 +77,6 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   searchCountryList: () => dispatch({ type: 'SearchInput/countrySearch' }),
-  searchStateList: (payload: string) => dispatch({ type: 'SearchInput/stateSearch', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountrySearchInput);

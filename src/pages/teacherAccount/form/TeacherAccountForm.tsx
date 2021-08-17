@@ -36,23 +36,24 @@ const TeacherAccountForm = (props: IProps) => {
   const accountCode = get(props, 'initialValues.code', 'n/a');
   const name = get(props, 'Account.name', '');
   const email = get(props, 'Account.email', '');
+  const country = get(props, 'initialValues.country', '');
+  const [selectedCountry, setSelectedCountry] = useState(country);
+  const [form] = Form.useForm();
 
-  const [form] = useForm();
-  // if (!props.styleList) return null;
-
-  const onChange = (v: any) => {
-    console.log(v);
+  const onValuesChange = ({ country }: { country: string }) => {
+    if (country) setSelectedCountry(country);
   };
 
   return (
     <div className="container mt-2">
       <h1 className="my-5 text-center">Teacher`s Account</h1>
       <Form
+        form={form}
         onFinish={props.onFinish}
         initialValues={props.initialValues}
         layout="vertical"
         name="teacherAccount"
-        onValuesChange={onChange}
+        onValuesChange={onValuesChange}
       >
         <div className="row my-5 border-bottom">
           <div className="col-md-8">
@@ -157,7 +158,7 @@ const TeacherAccountForm = (props: IProps) => {
         <div className="row">
           <div className="col-md-6">
             <Form.Item label="Country" name="country">
-              <CountrySearchInput country={'Canada'} />
+              <CountrySearchInput />
             </Form.Item>
           </div>
 
@@ -171,7 +172,7 @@ const TeacherAccountForm = (props: IProps) => {
         <div className="row my-4">
           <div className="col-md-6">
             <Form.Item label="State" name="state">
-              <CountryStateSearchInput />
+              <CountryStateSearchInput country={selectedCountry} />
             </Form.Item>
           </div>
 
