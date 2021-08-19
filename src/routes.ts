@@ -1,5 +1,10 @@
 export default [
   {
+    path: '/email',
+    component: '@/pages/email/dashboard/EmailDashboard',
+  },
+
+  {
     path: '/',
     component: '@/layout/SecurityLayout',
 

@@ -7,16 +7,16 @@ import validator from '@/utils/validators';
 const { Option } = Select;
 
 interface IPhoneInput {
-  onChange: any;
   label: string;
   name: string;
   required: boolean;
-  ext?: boolean;
+  // ext: boolean;
 }
 
 const PhoneInput = (props: IPhoneInput) => {
   const initialPhoneCode = get(props, 'value.code', '1');
   const initialPhoneNumber = get(props, 'value.number', '');
+  // const initialPhoneExt = get(props, 'value.ext', '');
 
   const options = codePhoneNumber.map((el: string) => (
     <Option key={el} value={el} className="font-weight-bold">
@@ -26,12 +26,14 @@ const PhoneInput = (props: IPhoneInput) => {
 
   const [phoneCode, setPhoneCode] = useState<string>(initialPhoneCode);
   const [phoneNumber, setPhoneNumber] = useState<string>(initialPhoneNumber);
+  // const [phoneExt, setPhoneExt] = useState<string>(initialPhoneExt);
 
   const onChange = (field: { [key: string]: string }) => {
     if (props.onChange) {
       props.onChange({
         code: phoneCode,
         number: phoneNumber,
+        // ext: phoneExt,
         ...field,
       });
     }
@@ -47,37 +49,44 @@ const PhoneInput = (props: IPhoneInput) => {
     onChange({ number: e.target.value });
   };
 
+  const handleChangeExt = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneExt(e.target.value);
+    onChange({ ext: e.target.value });
+  };
+
   const phoneValidator = [validator.usaPhone];
-  if (props.required) phoneValidator.push({ required: true, message: 'Required' });
+  if (props.required) phoneValidator.push({ required: true, message: 'Please input your phone number' });
+
+  const phoneCodeSelector = (
+    <Form.Item name={`${props.name}_code`} initialValue={phoneCode} noStyle>
+      <Select value={phoneCode} onChange={handleChangeCode} style={{ width: 70 }}>
+        {options}
+      </Select>
+    </Form.Item>
+  );
 
   return (
     <div>
-      <div className="ant-col ant-form-item-label">
-        <label htmlFor={props.name}>
-          {props.required && <span style={{ color: 'red' }}>*</span>}
-          {props.label}
-        </label>
-      </div>
-
       <div className="d-flex">
-        <div style={{ marginRight: 10 }}>
-          <Form.Item name={`${props.name}_code`} initialValue={phoneCode}>
-            <Select value={phoneCode} onChange={handleChangeCode}>
-              {options}
-            </Select>
-          </Form.Item>
-        </div>
-
-        <Form.Item
-          style={{ marginRight: 10, width: 300 }}
-          name={`${props.name}_number`}
-          rules={phoneValidator}
-          initialValue={phoneNumber}
-        >
-          <Input placeholder="Phone Number" value={phoneNumber} onChange={handleChangeNumber} />
+        <Form.Item name={`${props.name}_number`} label={props.label} rules={phoneValidator} initialValue={phoneNumber}>
+          <Input
+            placeholder="Phone Number"
+            value={phoneNumber}
+            onChange={handleChangeNumber}
+            addonBefore={phoneCodeSelector}
+          />
         </Form.Item>
-      </div>
 
+        {/*{(props.ext || phoneExt) && (*/}
+        {/*  <Form.Item*/}
+        {/*    name={`${props.name}_ext`}*/}
+        {/*    initialValue={phoneExt}*/}
+        {/*    style={{ width: 100 }}*/}
+        {/*    rules={[validator.maxlength6]}*/}
+        {/*  >*/}
+        {/*    <Input placeholder='Ext' value={phoneExt} onChange={handleChangeExt} />*/}
+        {/*  </Form.Item>)}*/}
+      </div>
       <div style={{ width: 90 }}></div>
     </div>
   );

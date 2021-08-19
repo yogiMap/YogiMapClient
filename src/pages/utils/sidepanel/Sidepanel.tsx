@@ -73,7 +73,7 @@ const Sidepanel = (props: IProps) => {
   };
 
   return (
-    <Drawer title={title} width={width} onClose={onCloseDrawer} visible={open}>
+    <Drawer title={title} width={width} onClose={onCloseDrawer} visible={open} keyboard={false}>
       {mapping(component)}
     </Drawer>
   );

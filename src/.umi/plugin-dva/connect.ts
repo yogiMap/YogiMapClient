@@ -24,6 +24,7 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/client/for
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/client/info/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/client/messages/form/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/client/messages/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/email/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/form/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/view/model';
