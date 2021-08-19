@@ -49,7 +49,8 @@ const EmailSearchList = (props: IProps) => {
     {
       title: 'Subject',
       key: 'subject',
-      render: (row) => (row.isRead ? <span>{row.subject}</span> : <strong>{row.subject}</strong>),
+      render: (row) =>
+        row.isRead ? <span className="text-colored-second">{row.subject}</span> : <strong>{row.subject}</strong>,
     },
   ];
 
