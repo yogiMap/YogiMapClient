@@ -61,8 +61,8 @@ const TeacherAccountView = (props: IProps) => {
           <div className="col-md-6 mt-5 d-flex justify-content-start">
             <div>
               <h3 className="text-colored-second text-start">{focus}</h3>
-              {style && <h6 className="text-colored-third text-end"> Style of Yoga: {style}</h6>}
-              {classType && <h6 className="text-colored-first text-end"> Type of Classes: {classType}</h6>}
+              {style && <h6 className="text-colored-third text-start"> Style of Yoga: {style}</h6>}
+              {classType && <h6 className="text-colored-first text-start mb-4"> Type of Classes: {classType}</h6>}
 
               <h6>Email: {email}</h6>
               <h6>
