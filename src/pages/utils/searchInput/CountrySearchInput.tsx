@@ -16,7 +16,7 @@ interface IProps {
 }
 
 const CountrySearchInput = (props: IProps) => {
-  let value = get(props, 'value', 'United States');
+  let value = get(props, 'value', '');
 
   const [selectedName, setSelectedName] = useState(value);
 

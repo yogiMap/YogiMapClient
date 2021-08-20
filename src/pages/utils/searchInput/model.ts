@@ -45,6 +45,7 @@ const Model: IModel = {
     },
 
     *stateSearch({ payload }, { call, put }) {
+      yield put({ type: 'save', payload: { stateList: [] } });
       const data = yield call(queryTeacherAccountGetCountryStatesList, payload);
       yield put({
         type: 'save',
@@ -53,7 +54,6 @@ const Model: IModel = {
         },
       });
     },
-
 
     *addressSearch({ payload }, { call, put }) {
       const data = yield call(queryAddressSearch, payload);

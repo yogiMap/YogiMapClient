@@ -12,6 +12,10 @@ export async function queryUserLogin(payload: any): Promise<any> {
   return post({ url: '/user/login', data: payload });
 }
 
+export async function queryUserLogout(): Promise<any> {
+  return get({ url: '/user/logout' });
+}
+
 export async function queryUserRegister(payload: any): Promise<any> {
   return post({ url: '/user', data: payload });
 }
