@@ -53,12 +53,20 @@ const UserRegister = (props: IProps) => {
     >
       <h1 className="py-5">Create User`s Account</h1>
 
+      {/*<Form.Item*/}
+      {/*  name="name"*/}
+      {/*  rules={[validator.requireUsername, validator.name, validator.maxlength20, validator.minletters2]}*/}
+      {/*  hasFeedback*/}
+      {/*>*/}
+      {/*  <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />*/}
+      {/*</Form.Item>*/}
+
       <Form.Item
         name="name"
-        rules={[validator.requireUsername, validator.name, validator.maxlength20, validator.minletters2]}
+        rules={[validator.requireUsername, validator.name, validator.maxlength30, validator.minletters2]}
         hasFeedback
       >
-        <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />
+        <FloatInput type="name" label="Full Name" />
       </Form.Item>
 
       <Form.Item name="email" rules={[validator.require, validator.email]} hasFeedback>
