@@ -38,13 +38,9 @@ export default (props: IProps) => {
   return (
     <div>
       {!isNavbarHidden() && <Navbar />}
-
       <div>{props.children}</div>
-
       <Sidepanel />
-
       <PhoneWidget />
-
       {isFooterVisible(props.location.pathname) && <Footer />}
     </div>
   );

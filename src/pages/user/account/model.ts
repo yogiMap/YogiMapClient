@@ -2,6 +2,7 @@ import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 import { history } from 'umi';
 import { notification } from 'antd';
+import Cookies from 'js-cookie';
 
 import defaultReducers from '@/utils/defaultReducers';
 
@@ -25,6 +26,7 @@ export interface UserModelType {
   effects: {
     login: Effect;
     register: Effect;
+    firstAuth: Effect;
     auth: Effect;
     logout: Effect;
     passwordReset: Effect;
@@ -50,12 +52,14 @@ const UserModel: UserModelType = {
   effects: {
     *auth(_, { call, put }) {
       const userAuthResult = yield call(queryUserAuth);
-      if (userAuthResult instanceof Error) {
-        yield put({ type: 'logout' });
-      } else if (userAuthResult.payload.user) {
+      if (userAuthResult.payload.user) {
         userAuthResult.payload.user.acl = userAuthResult.payload.acl;
         yield put({ type: 'save', payload: userAuthResult.payload.user });
       }
+    },
+
+    *firstAuth(_, { put }) {
+      if (Cookies.get('user_auth')) yield put({ type: 'auth' });
     },
 
     *login({ payload }, { call, put }) {
@@ -92,7 +96,7 @@ const UserModel: UserModelType = {
       yield put({ type: 'ClientDashboard/reset' });
       yield put({ type: 'Profile/reset' });
       yield call(queryUserLogout);
-      // history.push('/user/login');
+      history.push('/');
     },
 
     *passwordReset({ payload }, { call }) {

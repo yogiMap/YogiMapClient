@@ -8,14 +8,14 @@ import WizardAlert from '@/pages/utils/WizardAlert';
 
 interface IProps {
   children: any;
-  auth: () => void;
+  firstAuth: () => void;
   location: {
     pathname: string;
   };
   Account: any;
 }
 
-const SecurityLayout = ({ children, auth, location, Account }: IProps) => {
+const SecurityLayout = ({ children, firstAuth, location, Account }: IProps) => {
   const roles = get(Account, 'roles', []);
 
   const teacherAccount = get(Account, 'teacherAccount', null);
@@ -29,7 +29,7 @@ const SecurityLayout = ({ children, auth, location, Account }: IProps) => {
   // const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard' && location.pathname !== '/welcome';
 
   useEffect(() => {
-    auth();
+    firstAuth();
   }, []);
 
   return (
@@ -45,7 +45,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  auth: () => dispatch({ type: 'Account/auth' }),
+  firstAuth: () => dispatch({ type: 'Account/firstAuth' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecurityLayout);
