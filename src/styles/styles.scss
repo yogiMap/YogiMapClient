@@ -346,3 +346,34 @@ span.edit-pen-icon {
 }
 
 
+
+.ant-form-item-explain, .ant-form-item-extra {
+  min-height: 30px;
+  font-size: 13px;
+}
+
+.float-label {
+  position: relative;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 12px;
+  top: 8px;
+  transition: 0.2s ease all;
+}
+
+.as-placeholder {
+  color: gray
+}
+
+.as-label {
+  top: -8px;
+  font-size: 11px !important;
+  background: white;
+  padding: 0 4px;
+  margin-left: -4px;
+}

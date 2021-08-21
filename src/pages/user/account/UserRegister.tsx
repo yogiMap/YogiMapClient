@@ -61,17 +61,25 @@ const UserRegister = (props: IProps) => {
         <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />
       </Form.Item>
 
-      <Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>
-        <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+      <Form.Item name="email" rules={[validator.require, validator.email]} hasFeedback>
+        <FloatInput type="email" label="Email" />
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require, validator.password]} hasFeedback>
-        <Input.Password
-          type="password"
-          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-          placeholder="Password"
-        />
+        <FloatInput type="password" label="Password" />
       </Form.Item>
+
+      {/*<Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>*/}
+      {/*  <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />*/}
+      {/*</Form.Item>*/}
+
+      {/*<Form.Item name="password" rules={[validator.require, validator.password]} hasFeedback>*/}
+      {/*  <Input.Password*/}
+      {/*    type="password"*/}
+      {/*    prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}*/}
+      {/*    placeholder="Password"*/}
+      {/*  />*/}
+      {/*</Form.Item>*/}
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>

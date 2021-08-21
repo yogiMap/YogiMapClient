@@ -107,7 +107,7 @@ const validator = {
     message: 'This field must be a valid url.',
   },
   email: {
-    pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})+$/,
+    pattern: /^\S+@\S+\.\S+$/,
     message: 'Email is not a valid email.',
   },
   minletters2: {

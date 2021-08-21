@@ -27,7 +27,7 @@ const UserEmailVerify = (props: IProps) => {
           <h6 className="text-center">
             Email Verified!
             <br />
-            <a href="/wizard" className="login-link">
+            <a href="user/wizard" className="login-link">
               Please Continue...
             </a>
           </h6>

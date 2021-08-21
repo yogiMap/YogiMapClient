@@ -86,14 +86,13 @@ const UserModel: UserModelType = {
     },
 
     *logout(_, { call, put }) {
-      localStorage.clear();
       yield put({ type: 'reset' });
       yield put({ type: 'TeacherAccountForm/reset' });
       yield put({ type: 'ClientInfo/reset' });
       yield put({ type: 'ClientDashboard/reset' });
       yield put({ type: 'Profile/reset' });
       yield call(queryUserLogout);
-      history.push('/user/login');
+      // history.push('/user/login');
     },
 
     *passwordReset({ payload }, { call }) {
