@@ -46,16 +46,22 @@ const UserLogin = (props: IProps) => {
         />
       </Form.Item>
 
+      {/*<Form.Item>*/}
+      {/*  <Button*/}
+      {/*    type="primary"*/}
+      {/*    htmlType="submit"*/}
+      {/*    className="login-form-button"*/}
+      {/*    shape="round"*/}
+      {/*    disabled={disableSubmit}*/}
+      {/*    loading={isLoading}*/}
+      {/*  >*/}
+      {/*    Log in*/}
+      {/*  </Button>*/}
+      {/*</Form.Item>*/}
+
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="login-form-button"
-          shape="round"
-          disabled={disableSubmit}
-          loading={isLoading}
-        >
-          Log in
+        <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
+          Create your account
         </Button>
       </Form.Item>
 

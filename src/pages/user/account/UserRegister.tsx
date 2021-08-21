@@ -4,6 +4,7 @@ import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
+import FloatInput from '@/pages/utils/FloatInput';
 
 export interface IRegisterForm {
   userName: string;
@@ -74,16 +75,16 @@ const UserRegister = (props: IProps) => {
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>
-          I have read
+          By submitting this form you agree to{' '}
           <Button className="pl-1" size="small" type="link" onClick={showTerms} data-qa="termsBtn">
-            Terms and conditions
+            Terms and Conditions
           </Button>
         </Checkbox>
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" shape="round" htmlType="submit" disabled={disableSubmit}>
-          Register
+        <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
+          Create your account
         </Button>
       </Form.Item>
 

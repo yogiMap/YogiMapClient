@@ -1,12 +1,18 @@
-import React from 'react';
-import { Link } from 'umi';
+import React, { useEffect } from 'react';
+import { connect, Link } from 'umi';
 import Sidepanel from '@/pages/utils/sidepanel/Sidepanel';
 
 interface IProps {
   children: any;
+  auth: () => void;
+  Account: any;
 }
 
-export default ({ children }: IProps) => {
+const LoginLayout = ({ children, auth }: IProps) => {
+  useEffect(() => {
+    auth();
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -25,3 +31,13 @@ export default ({ children }: IProps) => {
     </>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  Account: state.Account,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  auth: () => dispatch({ type: 'Account/auth' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginLayout);

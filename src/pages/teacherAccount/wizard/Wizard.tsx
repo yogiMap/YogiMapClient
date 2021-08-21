@@ -6,10 +6,10 @@ import classNames from 'classnames';
 
 import validator from '@/utils/validators';
 import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
-import Check from '@/pages/utils/Check';
 import { history } from '@@/core/history';
 import { IPhone } from '@/pages/user/types';
 import { useForm } from 'antd/es/form/Form';
+import Check from '@/pages/utils/Check';
 
 export interface ITeacherAccount {
   teacherName: string;
