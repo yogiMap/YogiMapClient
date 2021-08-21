@@ -4,13 +4,13 @@ import Sidepanel from '@/pages/utils/sidepanel/Sidepanel';
 
 interface IProps {
   children: any;
-  auth: () => void;
+  firstAuth: () => void;
   Account: any;
 }
 
-const LoginLayout = ({ children, auth }: IProps) => {
+const LoginLayout = ({ children, firstAuth }: IProps) => {
   useEffect(() => {
-    auth();
+    firstAuth();
   }, []);
 
   return (
@@ -37,7 +37,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  auth: () => dispatch({ type: 'Account/auth' }),
+  firstAuth: () => dispatch({ type: 'Account/firstAuth' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginLayout);
