@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const UserProfileStudent = (props: IProps) => {
-  const studentAccountId: string = get(props, 'Account.studentAccount', '');
+  const studentAccountId: string = get(props, 'User.studentAccount', '');
   const userInfo = get(props, 'userInfo', '');
   const userName = get(userInfo, 'name', '');
   //studentAccount account info

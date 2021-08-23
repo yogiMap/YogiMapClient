@@ -15,7 +15,7 @@ const message = <strong>Permission denied</strong>;
 const Permission = (props: IProps): JSX.Element | null => {
   const { perm, children, deniedMessage = false } = props;
 
-  const acl = get(props, 'Account.acl', []);
+  const acl = get(props, 'User.acl', []);
 
   if (acl.includes(perm) || perm === '') return children;
   if (deniedMessage) return message;

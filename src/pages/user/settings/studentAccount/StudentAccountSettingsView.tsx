@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const StudentAccountSettingsView = (props: IProps) => {
-  const hasStudent = get(props, 'Account.studentAccount', '');
+  const hasStudent = get(props, 'User.studentAccount', '');
 
   // @ts-ignore
   return !hasStudent ? <StudentAccountFormCreateWrapper /> : <StudentAccountFormSettingsEditWrapper />;

@@ -20,8 +20,8 @@ const ClassesDashboardControls = (props: IProps) => {
     });
   };
 
-  const isUserHasTeacherAccount = get(props, 'Account.teacherAccount', '');
-  const roles = get(props, 'Account.roles', []);
+  const isUserHasTeacherAccount = get(props, 'User.teacherAccount', '');
+  const roles = get(props, 'User.roles', []);
 
   const isAdmin = roles.includes('admin');
 

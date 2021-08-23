@@ -14,7 +14,7 @@ interface IProps {
 }
 
 function Home(props: IProps) {
-  const isUserAuth = get(props, 'Account._id');
+  const isUserAuth = get(props, 'User._id');
 
   useEffect(() => {
     props.closeMobileMenu();

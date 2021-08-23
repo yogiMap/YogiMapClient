@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import classNames from 'classnames';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
   User: IUser;
@@ -11,9 +11,9 @@ interface IProps {
 
 const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
-  const acl = get(props, 'Account.acl', []);
-  const teacherAccountId = get(props, 'Account.teacherAccount', '');
-  const isUserConfirmedEmail = get(props, 'Account.emailConfirmation.confirmed', false);
+  const acl = get(props, 'User.acl', []);
+  const teacherAccountId = get(props, 'User.teacherAccount', '');
+  const isUserConfirmedEmail = get(props, 'User.emailConfirmation.confirmed', false);
 
   const mainMenu = [
     // { path: '/base', name: 'Base', perm: 'base.get.own' },

@@ -60,11 +60,11 @@ async function makeCall(phoneNumber: string) {
 
 const PhoneWidget = (props: IProps) => {
   const closePanel = get(props, 'closePanel', null);
-  const userId = get(props, 'Account._id', '');
+  const userId = get(props, 'User._id', '');
   const twilioAccessToken = get(props, 'PhoneWidget.token', '');
   const callStatus = get(props, 'PhoneWidget.status', '');
   const phoneNumber = get(props, 'PhoneWidget.phoneNumber', '');
-  const userSipPhoneId = get(props, 'Account.sipPhone', '');
+  const userSipPhoneId = get(props, 'User.sipPhone', '');
 
   useEffect(() => {
     console.log('UE', userId);

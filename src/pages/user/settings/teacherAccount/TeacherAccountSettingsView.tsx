@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const TeacherAccountSettingsView = (props: IProps) => {
-  const hasTeacher = get(props, 'Account.teacherAccount', '');
+  const hasTeacher = get(props, 'User.teacherAccount', '');
 
   return !hasTeacher ? <TeacherAccountFormCreateWrapper /> : <TeacherAccountFormSettingsEditWrapper />;
 };

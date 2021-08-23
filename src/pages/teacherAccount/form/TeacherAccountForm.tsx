@@ -33,8 +33,8 @@ const TeacherAccountForm = (props: IProps) => {
   const { Option } = Select;
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
-  const name = get(props, 'Account.name', '');
-  const email = get(props, 'Account.email', '');
+  const name = get(props, 'User.name', '');
+  const email = get(props, 'User.email', '');
   const country = get(props, 'initialValues.country', 'United States');
   const [selectedCountry, setSelectedCountry] = useState(country);
   const [form] = Form.useForm();

@@ -31,8 +31,8 @@ interface IProps {
 const StudentAccountForm = (props: IProps) => {
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
-  const name = get(props, 'Account.name', '');
-  const email = get(props, 'Account.email', '');
+  const name = get(props, 'User.name', '');
+  const email = get(props, 'User.email', '');
 
   const [form] = useForm();
   const { Option } = Select;

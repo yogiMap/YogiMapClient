@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { Dropdown, Menu } from 'antd';
 
 interface IProps {
@@ -10,8 +10,8 @@ interface IProps {
 
 const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
-  const acl = get(props, 'Account.acl', []);
-  const roles = get(props, 'Account.roles', []);
+  const acl = get(props, 'User.acl', []);
+  const roles = get(props, 'User.roles', []);
 
   const isAdmin = roles.includes('admin');
   if (!isAdmin) return null;

@@ -19,7 +19,7 @@ interface IProps {
 
 const TeacherAccountView = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
-  const email = get(props, 'Account.email', '');
+  const email = get(props, 'User.email', '');
   const name = get(props, 'TeacherAccount.name', '');
   const phoneNumber = get(props, 'TeacherAccount.phoneNumber.number', '');
   const classesObject = get(props, 'TeacherAccount.classes', {});

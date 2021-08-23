@@ -13,7 +13,7 @@ const CallsPanel = (props: IProps) => {
   const twilioDevice = get(props, 'twilioDevice', null);
   const activeConnection = get(props, 'InboundCalls.activeConnection', null);
   const closePanel = get(props, 'closePanel', null);
-  // const userId = get(props, 'Account._id', '');
+  // const userId = get(props, 'User._id', '');
 
   // const twilioDevice = get(props, 'twilioDevice', null);
   // const activeConnection = get(props, 'activeConnection', null);

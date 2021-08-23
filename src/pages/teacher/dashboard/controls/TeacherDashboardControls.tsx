@@ -20,7 +20,7 @@ const TeacherDashboardControls = (props: IProps) => {
     });
   };
 
-  const isUserAuth = get(props, 'Account._id');
+  const isUserAuth = get(props, 'User._id');
 
   return (
     <>

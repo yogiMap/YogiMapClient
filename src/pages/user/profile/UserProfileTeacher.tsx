@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const UserProfileTeacher = (props: IProps) => {
-  const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
+  const teacherAccountId: string = get(props, 'User.teacherAccount', '');
   const userInfo = get(props, 'userInfo', '');
   const userName = get(userInfo, 'name', '');
   const teacherAccountInfo = get(props, 'teacherAccountInfo', '');

@@ -19,7 +19,7 @@ const ClassesView = (props: IProps) => {
   const classType = get(props, 'ClassesView.classType.name', '');
   const description = get(props, 'ClassesView.description', '');
   const date = get(props, 'ClassesView.date', '');
-  const userName = get(props, 'Account.name', '');
+  const userName = get(props, 'User.name', '');
 
   useEffect(() => {
     props.classesGetById(classesId);

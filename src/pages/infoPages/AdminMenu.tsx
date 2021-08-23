@@ -10,8 +10,8 @@ interface IProps {
 
 const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
-  const acl = get(props, 'Account.acl', []);
-  const roles = get(props, 'Account.roles', []);
+  const acl = get(props, 'User.acl', []);
+  const roles = get(props, 'User.roles', []);
 
   const menuItems = [
     { path: '/base', name: 'Base', perm: 'base.get.own' },

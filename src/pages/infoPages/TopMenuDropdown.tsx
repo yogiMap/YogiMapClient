@@ -13,7 +13,7 @@ interface IProps {
 
 const TopMenuDropdown = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
-  const acl = get(props, 'Account.acl', []);
+  const acl = get(props, 'User.acl', []);
 
   const menuItems = [
     { path: '/classes', name: 'Classes', perm: null },

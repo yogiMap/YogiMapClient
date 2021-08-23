@@ -20,8 +20,8 @@ const ClientForm = (props: IProps) => {
   const [form] = useForm();
   const address = get(props, 'initialValues.address', {});
   const phone = get(props, 'initialValues.phoneNumber', {});
-  const name = get(props, 'Account.name', '');
-  const email = get(props, 'Account.email', '');
+  const name = get(props, 'User.name', '');
+  const email = get(props, 'User.email', '');
 
   return (
     <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical" form={form}>

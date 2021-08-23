@@ -13,9 +13,9 @@ import { get } from 'lodash';
 interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
-  const ownerId = get(props, 'Account._id', '');
-  const teacherAccountId = get(props, 'Account.teacherAccount', '');
-  const studentAccountId = get(props, 'Account.studentAccount', '');
+  const ownerId = get(props, 'User._id', '');
+  const teacherAccountId = get(props, 'User.teacherAccount', '');
+  const studentAccountId = get(props, 'User.studentAccount', '');
 
   let menuItemName = '';
 

@@ -23,8 +23,8 @@ interface IProps {
 }
 
 const ClassesForm = (props: IProps) => {
-  const name = get(props, 'Account.name', '');
-  const email = get(props, 'Account.email', '');
+  const name = get(props, 'User.name', '');
+  const email = get(props, 'User.email', '');
 
   const { Option } = Select;
   const [form] = Form.useForm();

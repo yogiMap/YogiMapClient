@@ -20,9 +20,9 @@ const EventDashboardControls = (props: IProps) => {
     });
   };
 
-  //const isUserAuth = get(props, 'Account._id');
-  const isUserHasTeacherAccount = get(props, 'Account.teacherAccount', '');
-  const roles = get(props, 'Account.roles', []);
+  //const isUserAuth = get(props, 'User._id');
+  const isUserHasTeacherAccount = get(props, 'User.teacherAccount', '');
+  const roles = get(props, 'User.roles', []);
 
   const isAdmin = roles.includes('admin');
 

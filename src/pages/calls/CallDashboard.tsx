@@ -12,7 +12,7 @@ interface IProps {
 
 const CallDashboard = (props: IProps) => {
   const clientId = get(props, 'clientList.clientId', '');
-  const userId = get(props, 'Account._id', '');
+  const userId = get(props, 'User._id', '');
   const userPhone = 'clientId';
   const twilioDevice = get(props, 'twilioDevice', null);
   const activeConnection = get(props, 'activeConnection', null);

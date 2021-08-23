@@ -19,12 +19,12 @@ interface IProps {
 
 const UserProfile = (props: IProps) => {
   const userId = get(props, 'match.params.userId', '');
-  const teacherAccountId: string = get(props, 'Account.teacherAccount', '');
+  const teacherAccountId: string = get(props, 'User.teacherAccount', '');
   const userInfo = get(props, 'userInfo', '');
   const teacherName = get(userInfo, 'teacherAccount.name', '');
   const userName = get(userInfo, 'name', '');
   const email = get(userInfo, 'email', '');
-  const phoneNumber = get(props, 'Account.phoneNumber', '');
+  const phoneNumber = get(props, 'User.phoneNumber', '');
   const roles = get(userInfo, 'roles', []);
   const avatar = get(userInfo, 'avatar[1]', '');
   const inputRef = useRef<HTMLInputElement>(null);

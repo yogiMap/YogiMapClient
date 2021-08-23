@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const NewUserLanding = (props: IProps) => {
-  const name = get(props, 'Account.name', '');
+  const name = get(props, 'User.name', '');
 
   return (
     <div className="container m-5">

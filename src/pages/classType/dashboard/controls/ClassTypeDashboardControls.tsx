@@ -20,7 +20,7 @@ const ClassTypeDashboardControls = (props: IProps) => {
     });
   };
 
-  const roles = get(props, 'Account.roles', '');
+  const roles = get(props, 'User.roles', '');
   const authUser = roles[0] === 'admin';
 
   return (

@@ -39,7 +39,7 @@ const TeacherForm = (props: IProps) => {
 
   const isLoading = get(props, 'isLoading', false);
   const accountCode = get(props, 'initialValues.code', 'n/a');
-  const name = get(props, 'Account.name', '');
+  const name = get(props, 'User.name', '');
 
   const onChange = (center: any) => {
     center ? setAddressFields(center[1]) : null;

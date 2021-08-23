@@ -22,8 +22,8 @@ const UserInfo = (props: IProps) => {
   const authUser = get(props, 'Account', '');
   const isAvatar = get(authUser, 'avatar', false);
   const avatarImg = isAvatar[1];
-  const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const isTeacher = get(props, 'Account.isTeacher', false);
+  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
+  const isTeacher = get(props, 'User.isTeacher', false);
   const userId = get(authUser, '_id', '');
   const name = get(authUser, 'name', '');
   const adminId = localStorage.getItem('adminId');

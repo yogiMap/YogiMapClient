@@ -40,10 +40,10 @@ const WizardStudentAccountStudentAccount = (props: IProps) => {
 
   const isLoadingAuth = get(props, 'loadingEffects.Account/auth', true);
 
-  const email = get(props, 'Account.email', '');
-  const emailConfirmed = get(props, 'Account.emailConfirmation.confirmed', false);
-  const studentAccount = get(props, 'Account.studentAccount', false);
-  const userId = get(props, 'Account._id', '');
+  const email = get(props, 'User.email', '');
+  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
+  const studentAccount = get(props, 'User.studentAccount', false);
+  const userId = get(props, 'User._id', '');
 
   const [openResend, setOpenResend] = useState(false);
 

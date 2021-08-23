@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
-import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { get } from 'lodash';
 import { IUpdatePasswordForm } from '@/pages/user/types';
 
@@ -65,7 +65,7 @@ const UserSettingsEditSecurityForm = (props: IProps) => {
       </Form.Item>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol }}>
-        <Button type="primary" shape="round"  htmlType="submit">
+        <Button type="primary" shape="round" htmlType="submit">
           Update Password
         </Button>
       </Form.Item>
