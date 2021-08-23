@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const NewUserLanding = (props: IProps) => {
@@ -46,7 +46,7 @@ const NewUserLanding = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default withRouter(connect(mapStateToProps)(NewUserLanding));

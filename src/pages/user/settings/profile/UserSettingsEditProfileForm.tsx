@@ -15,7 +15,7 @@ interface IProps {
   initialValues?: IUser;
   userInfo: IUser;
   onFinish: (args: IUser) => void;
-  Account: IUserAccount;
+  User: IUser;
   uploadAvatar: (payload: object) => void;
   userGetById: (id: string) => void;
 }
@@ -96,7 +96,7 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Profile: state.Profile,
-  Account: state.Account,
+  User: state.User,
   userInfo: state.Profile.userInfo,
 });
 

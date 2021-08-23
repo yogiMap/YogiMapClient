@@ -4,10 +4,10 @@ import { get } from 'lodash';
 import TeacherAccountFormSettingsEditWrapper from '@/pages/user/settings/teacherAccount/TeacherAccountFormSettingsEditWrapper';
 import TeacherAccountFormCreateWrapper from '@/pages/user/settings/teacherAccount/TeacherAccountFormCreateWrapper';
 import { ILoadingEffects } from '@/types';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   loadingEffects: ILoadingEffects;
 }
 
@@ -19,7 +19,7 @@ const TeacherAccountSettingsView = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  Account: state.Account,
+  User: state.User,
 });
 
 export default connect(mapStateToProps)(TeacherAccountSettingsView);

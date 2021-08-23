@@ -8,7 +8,7 @@ interface IProps {
   classesId: string;
   name: string;
   classesGetById: (classesId: string) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ClassesView = (props: IProps) => {
@@ -89,7 +89,7 @@ const ClassesView = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   ClassesView: state.ClassesView,
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

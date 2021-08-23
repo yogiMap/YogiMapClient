@@ -8,7 +8,7 @@ import menuIcon from '@/icons/burger.svg';
 import AdminMenu from '@/pages/infoPages/AdminMenu';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const TopMenuDropdown = (props: IProps) => {
@@ -48,7 +48,7 @@ const TopMenuDropdown = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default withRouter(connect(mapStateToProps)(TopMenuDropdown));

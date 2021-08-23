@@ -21,7 +21,7 @@ interface IProps {
   onFinish: (values: IStudentAccount) => void;
   submitButtonText: string;
   initialValues?: IStudentAccount;
-  Account: IUserAccount;
+  User: IUser;
   classTypeList: IClassType[];
   classesList: IClasses[];
   eventList: IEvent[];
@@ -174,7 +174,7 @@ const StudentAccountForm = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 // @ts-ignore

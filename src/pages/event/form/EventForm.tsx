@@ -12,7 +12,7 @@ import { connect, withRouter } from 'umi';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
@@ -145,7 +145,7 @@ const EventForm = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 // @ts-ignore

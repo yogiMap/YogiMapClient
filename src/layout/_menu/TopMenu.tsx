@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   close: () => void;
 }
 
@@ -70,7 +70,7 @@ const TopMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   mobileMenu: state.mobileMenu,
 });
 

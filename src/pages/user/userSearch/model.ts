@@ -98,7 +98,7 @@ const UsersModel: UsersDashboardModelType = {
       const userId = get(data, 'userId');
       const token = get(data, 'token');
 
-      yield put({ type: 'Account/setInitialState' });
+      yield put({ type: 'User/setInitialState' });
       yield put({ type: 'Profile/reset' });
       yield put({ type: 'reset' });
 
@@ -106,7 +106,7 @@ const UsersModel: UsersDashboardModelType = {
       localStorage.setItem('userId', userId);
 
       history.push(`/profile/${userId}`);
-      yield put({ type: 'Account/auth' });
+      yield put({ type: 'User/auth' });
     },
 
     *userImpersonateGetBack({ payload }, { put }) {
@@ -119,7 +119,7 @@ const UsersModel: UsersDashboardModelType = {
       localStorage.removeItem('adminId');
 
       history.push(`/profile/${adminId}`);
-      yield put({ type: 'Account/auth' });
+      yield put({ type: 'User/auth' });
       yield put({ type: 'Profile/userGetById', payload: adminId });
     },
 

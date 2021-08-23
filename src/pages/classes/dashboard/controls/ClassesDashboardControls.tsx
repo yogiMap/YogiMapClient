@@ -7,7 +7,7 @@ import { get } from 'lodash';
 
 interface IProps {
   open: (arg: ISidepanel) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ClassesDashboardControls = (props: IProps) => {
@@ -37,7 +37,7 @@ const ClassesDashboardControls = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

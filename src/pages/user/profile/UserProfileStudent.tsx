@@ -9,7 +9,7 @@ import { IUser } from '@/pages/user/userSearch/types';
 interface IProps {
   studentAccountId: string;
   studentAccountGetById: (studentAccountId: string) => void;
-  Account: IUserAccount;
+  User: IUser;
   userInfo: IUser;
 }
 
@@ -90,7 +90,7 @@ const UserProfileStudent = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   userInfo: state.Profile.userInfo,
-  Account: state.Account,
+  User: state.User,
   studentAccountInfo: state.Profile.studentAccountInfo,
 });
 

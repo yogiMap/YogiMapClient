@@ -11,7 +11,7 @@ interface IGetBack {
 }
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   initialValues?: IUser;
   logout: () => void;
   userImpersonateGetBack: (arg: IGetBack) => void;
@@ -87,12 +87,12 @@ const UserInfo = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   LoadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  logout: () => dispatch({ type: 'Account/logout' }),
+  logout: () => dispatch({ type: 'User/logout' }),
   userImpersonateGetBack: (payload: IGetBack) => dispatch({ type: 'UsersDashboard/userImpersonateGetBack', payload }),
 });
 

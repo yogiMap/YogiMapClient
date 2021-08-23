@@ -7,7 +7,7 @@ interface IProps {
   perm: string;
   children: any;
   deniedMessage?: boolean;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const message = <strong>Permission denied</strong>;
@@ -23,7 +23,7 @@ const Permission = (props: IProps): JSX.Element | null => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default connect(mapStateToProps)(Permission);

@@ -5,7 +5,7 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Dropdown, Menu } from 'antd';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const TopMenu = (props: IProps) => {
@@ -50,7 +50,7 @@ const TopMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default withRouter(connect(mapStateToProps)(TopMenu));

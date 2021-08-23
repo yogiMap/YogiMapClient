@@ -9,7 +9,7 @@ import mind from '@/pages/infoPages/home/images/crystals.jpeg';
 import soul from '@/pages/infoPages/home/images/monks.jpg';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   closeMobileMenu: () => void;
 }
 
@@ -170,7 +170,7 @@ function Home(props: IProps) {
 }
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   mobileMenu: state.mobileMenu,
 });
 

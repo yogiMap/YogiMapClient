@@ -14,7 +14,7 @@ const loadId = { impersonateButton: 'impersonateButton' };
 interface IUserDeleteById {
   userId: string;
   queryParams: IUserQueryParams;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 interface IProps {

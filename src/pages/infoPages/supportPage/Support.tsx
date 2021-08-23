@@ -155,7 +155,7 @@ const Support = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  sendSupportEmail: (payload: ISupportEmail) => dispatch({ type: 'Account/sendSupportEmail', payload }),
+  sendSupportEmail: (payload: ISupportEmail) => dispatch({ type: 'User/sendSupportEmail', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(Support);

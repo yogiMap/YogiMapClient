@@ -7,7 +7,7 @@ import { get } from 'lodash';
 
 interface IProps {
   open: (arg: ISidepanel) => void;
-  Account: IUserAccount;
+  User: IUser;
   adminId: string;
   adminToken: string;
 }
@@ -38,7 +38,7 @@ const StyleDashboardControls = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   LoadingEffects: state.loading.effects,
 });
 

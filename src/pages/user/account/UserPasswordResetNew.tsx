@@ -74,7 +74,13 @@ const UserPasswordResetNew = (props: IProps) => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" shape="round" htmlType="submit" className="login-form-button" disabled={disableSubmit}>
+            <Button
+              type="primary"
+              shape="round"
+              htmlType="submit"
+              className="login-form-button"
+              disabled={disableSubmit}
+            >
               Save new password
             </Button>
           </Form.Item>
@@ -90,9 +96,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userPasswordResetNew: (payload: IResetPasswordArg) => dispatch({ type: 'Account/passwordResetNew', payload }),
+  userPasswordResetNew: (payload: IResetPasswordArg) => dispatch({ type: 'User/passwordResetNew', payload }),
   isValidResetPasswordLink: (payload: IValidResetPasswordLink) =>
-    dispatch({ type: 'Account/isValidResetPasswordLink', payload }),
+    dispatch({ type: 'User/isValidResetPasswordLink', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPasswordResetNew);

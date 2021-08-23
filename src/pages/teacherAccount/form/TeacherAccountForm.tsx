@@ -7,9 +7,8 @@ import CountryStateSearchInput from '@/pages/utils/searchInput/CountryStatesSear
 import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
-import { useForm } from 'antd/es/form/Form';
 import { connect, withRouter } from 'umi';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
 import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
@@ -22,7 +21,7 @@ interface IProps {
   onFinish: (values: ITeacherAccount) => void;
   submitButtonText: string;
   initialValues?: ITeacherAccount;
-  Account: IUserAccount;
+  User: IUser;
   classTypeList: IClassType[];
   classesList: IClasses[];
   eventList: IEvent[];
@@ -215,7 +214,7 @@ const TeacherAccountForm = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 // @ts-ignore

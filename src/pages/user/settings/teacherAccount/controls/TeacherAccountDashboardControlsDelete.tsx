@@ -16,7 +16,7 @@ interface IProps {
   row: ITeacherAccount;
   teacherAccountDeleteById: (arg: ITeacherAccountDeleteById) => void;
   queryParams: ITeacherAccountQueryParams;
-  Account: IUserAccount;
+  User: IUser;
   teacherAccountInfo: ITeacherAccount;
 }
 
@@ -48,7 +48,7 @@ const TeacherAccountDashboardControlsDelete = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   teacherAccountInfo: state.TeacherAccountForm.teacherAccountInfo,
   loadingEffects: state.loading.effects,
 });

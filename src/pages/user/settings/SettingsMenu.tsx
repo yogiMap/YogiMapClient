@@ -90,7 +90,7 @@ const SettingsMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default withRouter(connect(mapStateToProps, null)(SettingsMenu));

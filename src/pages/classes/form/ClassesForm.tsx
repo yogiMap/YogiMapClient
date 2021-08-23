@@ -12,7 +12,7 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
@@ -147,7 +147,7 @@ const ClassesForm = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 // @ts-ignore

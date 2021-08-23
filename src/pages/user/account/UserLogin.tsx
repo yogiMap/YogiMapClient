@@ -87,7 +87,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userLogin: (payload: ILoginForm) => dispatch({ type: 'Account/login', payload }),
+  userLogin: (payload: ILoginForm) => dispatch({ type: 'User/login', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);

@@ -13,7 +13,7 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 interface IProps extends RouteComponentProps {
   classes: IClasses[];
   open: (arg: ISidepanel) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const TeacherViewClassesList = (props: IProps) => {
@@ -70,7 +70,7 @@ const TeacherViewClassesList = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   sidepanel: state.Sidepanel,
 });
 

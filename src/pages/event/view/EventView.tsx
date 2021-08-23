@@ -83,7 +83,7 @@ const EventView = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   EventView: state.EventView,
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

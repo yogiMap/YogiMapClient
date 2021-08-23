@@ -44,6 +44,10 @@ export async function queryUserGetById(userId: string): Promise<any> {
   return get({ url: `/user/${userId}` });
 }
 
+export async function queryUserUpdateSelf(payload: IUser): Promise<any> {
+  return patch({ url: `/user/`, data: payload });
+}
+
 export async function queryUserUpdateById(payload: { userId: string; values: IUser }): Promise<any> {
   return patch({ url: `/user/`, data: payload.values });
 }

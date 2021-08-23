@@ -40,7 +40,7 @@ const UserEmailVerify = (props: IProps) => {
 const mapDispatchToProps = (dispatch: any) => ({
   emailVerify: (payload: IVerifyEmail) =>
     dispatch({
-      type: 'Account/emailVerify',
+      type: 'User/emailVerify',
       payload,
     }),
 });

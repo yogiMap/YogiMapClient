@@ -13,7 +13,7 @@ interface IProps {
   teacherAccountId: string;
   name: string;
   teacherAccountGetById: (teacherAccountId: string) => void;
-  Account: IUserAccount;
+  User: IUser;
   uploadImage: (payload: object) => void;
 }
 
@@ -125,7 +125,7 @@ const TeacherAccountView = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   TeacherAccount: state.TeacherAccountView,
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

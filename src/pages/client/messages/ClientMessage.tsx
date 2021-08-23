@@ -7,7 +7,7 @@ import { connect } from 'umi';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ClientMessage = (props: any) => {
@@ -51,7 +51,7 @@ const ClientMessage = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   LoadingEffects: state.loading.effects,
 });
 

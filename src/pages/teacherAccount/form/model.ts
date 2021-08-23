@@ -52,7 +52,7 @@ const TeacherAccountModel: TeacherAccountModelType = {
       if (!(createResult instanceof Error)) {
         yield put({ type: 'TeacherAccountDashboard/teacherAccountSearch' });
         yield put({ type: 'Sidepanel/close' });
-        yield put({ type: 'Account/auth' });
+        yield put({ type: 'User/auth' });
         history.push(`/settings/teacherAccount/${userId}`);
       }
     },

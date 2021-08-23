@@ -7,7 +7,7 @@ import logoSmall from '@/icons/logo_yogymap_small.svg';
 
 interface IProps {
   open: (arg: IMobileMenu) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const BurgerControls = (props: IProps) => {
@@ -32,7 +32,7 @@ const BurgerControls = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

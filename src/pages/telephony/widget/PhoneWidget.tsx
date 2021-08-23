@@ -162,7 +162,7 @@ const PhoneWidget = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   Sidepanel: state.Sidepanel,
   PhoneWidget: state.PhoneWidget,
 });

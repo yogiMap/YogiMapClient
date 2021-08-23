@@ -100,7 +100,7 @@ const UserRegister = (props: IProps) => {
 const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userRegister: (payload: IRegisterForm) => dispatch({ type: 'Account/register', payload }),
+  userRegister: (payload: IRegisterForm) => dispatch({ type: 'User/register', payload }),
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
 });
 

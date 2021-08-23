@@ -17,7 +17,7 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   teacherAccountDeleteById: (arg: ITeacherAccountDeleteById) => void;
   queryParams: ITeacherAccountQueryParams;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -88,7 +88,7 @@ const ActionMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

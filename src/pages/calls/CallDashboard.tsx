@@ -113,7 +113,7 @@ const CallDashboard = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   twilioDevice: state.InboundCalls.twilioDevice,
   activeConnection: state.InboundCalls.activeConnection,
   clientList: state.ClientDashboard.clientList,

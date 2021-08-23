@@ -15,7 +15,7 @@ import { connect, withRouter } from 'umi';
 import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUser;
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
@@ -160,7 +160,7 @@ const TeacherForm = (props: IProps) => {
   );
 };
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 // @ts-ignore

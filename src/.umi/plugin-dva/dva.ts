@@ -51,14 +51,12 @@ import ModelModel42 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages
 import ModelModel43 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/dashboard/model.ts';
 import ModelModel44 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/view/model.ts';
 import ModelModel45 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/widget/model.ts';
-import ModelModel46 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/account/model.ts';
-import ModelModel47 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/profile/model.ts';
-import ModelModel48 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/settings/model.ts';
-import ModelModel49 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/userSearch/model.ts';
-import ModelModel50 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/hoverCard/model.ts';
-import ModelModel51 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/mobileMenu/model.ts';
-import ModelModel52 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/searchInput/model.ts';
-import ModelModel53 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/sidepanel/model.ts';
+import ModelModel46 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/model.ts';
+import ModelModel47 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/userSearch/model.ts';
+import ModelModel48 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/hoverCard/model.ts';
+import ModelModel49 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/mobileMenu/model.ts';
+import ModelModel50 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/searchInput/model.ts';
+import ModelModel51 from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/sidepanel/model.ts';
 
 let app:any = null;
 
@@ -133,8 +131,6 @@ app.model({ namespace: 'model', ...ModelModel48 });
 app.model({ namespace: 'model', ...ModelModel49 });
 app.model({ namespace: 'model', ...ModelModel50 });
 app.model({ namespace: 'model', ...ModelModel51 });
-app.model({ namespace: 'model', ...ModelModel52 });
-app.model({ namespace: 'model', ...ModelModel53 });
   return app;
 }
 

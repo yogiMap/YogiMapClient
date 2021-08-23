@@ -10,7 +10,7 @@ import UserProfileStudent from '@/pages/user/profile/UserProfileStudent';
 
 interface IProps {
   name: string;
-  Account: IUserAccount;
+  User: IUser;
   userGetById: (id: string) => void;
   uploadAvatar: (payload: object) => void;
   userInfo: IUser;
@@ -105,7 +105,7 @@ const UserProfile = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Profile: state.Profile,
-  Account: state.Account,
+  User: state.User,
   userInfo: state.Profile.userInfo,
 });
 

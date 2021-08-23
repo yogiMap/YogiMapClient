@@ -9,7 +9,7 @@ interface IProps {
   studentAccountId: string;
   name: string;
   studentAccountGetById: (studentAccountId: string) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const StudentAccountView = (props: IProps) => {
@@ -51,7 +51,7 @@ const StudentAccountView = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   StudentAccount: state.StudentAccountView,
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

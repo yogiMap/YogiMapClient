@@ -7,7 +7,7 @@ import { IUserAccount } from '@/pages/user/userSearch/types';
 
 interface IProps {
   open: (arg: ISidepanel) => void;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ClientDashboardControls = (props: IProps) => {
@@ -37,7 +37,7 @@ const ClientDashboardControls = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

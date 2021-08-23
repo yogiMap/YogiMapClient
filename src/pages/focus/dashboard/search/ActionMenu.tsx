@@ -18,7 +18,7 @@ interface IProps {
   open: (arg: ISidepanel) => void;
   focusDeleteById: (arg: IFocusDeleteById) => void;
   queryParams: IFocusQueryParams;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 const ActionMenu = (props: IProps) => {
@@ -76,11 +76,11 @@ const ActionMenu = (props: IProps) => {
         {/*  <EditOutlined className="edit-pen-icon" />*/}
         {/*</Button>*/}
         {isUserAuth && (
-        <Dropdown overlay={menu(row)}>
-          <span className="ant-dropdown-link">
-            <img src={dotsIcon} alt="" height="27" />
-          </span>
-        </Dropdown>
+          <Dropdown overlay={menu(row)}>
+            <span className="ant-dropdown-link">
+              <img src={dotsIcon} alt="" height="27" />
+            </span>
+          </Dropdown>
         )}
       </div>
     </span>
@@ -88,7 +88,7 @@ const ActionMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

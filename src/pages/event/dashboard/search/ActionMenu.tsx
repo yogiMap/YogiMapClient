@@ -10,7 +10,7 @@ import { get } from 'lodash';
 interface IEventDeleteById {
   eventId: string;
   queryParams: IEventQueryParams;
-  Account: IUserAccount;
+  User: IUser;
 }
 
 interface IProps {
@@ -88,7 +88,7 @@ const ActionMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

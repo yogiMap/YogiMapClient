@@ -27,7 +27,7 @@ const WizardModel: WizardModelType = {
   effects: {
     *teacherAccountCreate({ payload }, { call, put }) {
       yield call(queryTeacherAccountCreate, payload);
-      yield put({ type: 'Account/auth' });
+      yield put({ type: 'User/auth' });
       history.push('/wizard');
     },
 
