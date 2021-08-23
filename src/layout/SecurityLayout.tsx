@@ -5,21 +5,27 @@ import '@/styles/styles.scss';
 import '@/styles/nprogress.scss';
 import { get } from 'lodash';
 import WizardAlert from '@/pages/utils/WizardAlert';
+import HomeGuest from '@/pages/infoPages/home/Home';
 
 interface IProps {
   children: any;
-  firstAuth: () => void;
+  auth: () => void;
+  loadingEffects: () => void;
   location: {
     pathname: string;
   };
   Account: any;
 }
 
-const SecurityLayout = ({ children, firstAuth, location, Account }: IProps) => {
+const SecurityLayout = ({ children, auth, location, Account, loadingEffects }: IProps) => {
   const roles = get(Account, 'roles', []);
 
   const teacherAccount = get(Account, 'teacherAccount', null);
   const userId = get(Account, '_id', null);
+
+  const isLoadingAuth = get(loadingEffects, 'Account/auth', true);
+
+  console.log(location);
 
   const isAlertVisible =
     userId &&
@@ -29,8 +35,12 @@ const SecurityLayout = ({ children, firstAuth, location, Account }: IProps) => {
   // const isAlertVisible = roles.includes('new') && location.pathname !== '/wizard' && location.pathname !== '/welcome';
 
   useEffect(() => {
-    firstAuth();
+    auth();
   }, []);
+
+  if (location.pathname === '/' && !isLoadingAuth && !userId) {
+    return <HomeGuest />;
+  }
 
   return (
     <>
@@ -41,11 +51,12 @@ const SecurityLayout = ({ children, firstAuth, location, Account }: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
+  loadingEffects: state.loading.effects,
   Account: state.Account,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  firstAuth: () => dispatch({ type: 'Account/firstAuth' }),
+  auth: () => dispatch({ type: 'Account/auth' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecurityLayout);

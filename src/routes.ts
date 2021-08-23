@@ -20,6 +20,12 @@ export default [
           { path: '/user/login', component: '@/pages/user/account/UserLogin' },
           { path: '/user/register', component: '@/pages/user/account/UserRegister' },
           { path: '/user/verify/email/:userId/:hash', component: '@/pages/user/account/UserEmailVerify' },
+          { path: 'user/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
+          { path: 'user/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
+          {
+            path: 'user/wizardStudentAccount',
+            component: '@/pages/studentAccount/wizardStudentAccount/WizardStudentAccount',
+          },
         ],
       },
 
@@ -27,14 +33,6 @@ export default [
         path: '/',
         component: '@/layout/GeneralLayout',
         routes: [
-          { path: '/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
-
-          { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
-          {
-            path: '/wizardStudentAccount',
-            component: '@/pages/studentAccount/wizardStudentAccount/WizardStudentAccount',
-          },
-
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },

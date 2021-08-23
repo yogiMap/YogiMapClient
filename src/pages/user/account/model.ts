@@ -27,7 +27,6 @@ export interface UserModelType {
   effects: {
     login: Effect;
     register: Effect;
-    firstAuth: Effect;
     auth: Effect;
     logout: Effect;
     passwordReset: Effect;
@@ -52,28 +51,28 @@ const UserModel: UserModelType = {
 
   effects: {
     *auth(_, { call, put }) {
-      const userAuthResult = yield call(queryUserAuth);
-      if (userAuthResult.payload.user) {
-        userAuthResult.payload.user.acl = userAuthResult.payload.acl;
-        yield put({ type: 'save', payload: userAuthResult.payload.user });
+      if (Cookies.get('user_auth')) {
+        const userAuthResult = yield call(queryUserAuth);
+        const user = get(userAuthResult, 'payload.user');
+        if (user) {
+          userAuthResult.payload.user.acl = get(userAuthResult, 'payload.acl');
+          yield put({ type: 'save', payload: userAuthResult.payload.user });
+        }
       }
-    },
-
-    *firstAuth(_, { put }) {
-      if (Cookies.get('user_auth')) yield put({ type: 'auth' });
     },
 
     *login({ payload }, { call, put }) {
       const data = yield call(queryUserLogin, payload);
       if (data.payload.user) {
         yield put({ type: 'auth' });
+
         // const isTeacher = get(data, 'payload.user.isTeacher', false);
         // const emailConfirmed = get(data, 'payload.user.emailConfirmation.confirmed', false);
         const userId = get(data, 'payload.userId', '');
         const teacherAccount = get(data, 'payload.user.teacherAccount', '');
         const studentAccount = get(data, 'payload.user.studentAccount', '');
 
-        if (!teacherAccount && !studentAccount) history.push('/welcome');
+        if (!teacherAccount && !studentAccount) history.push('/user/welcome');
         else if (teacherAccount) history.push(`/teacherAccount/${userId}`);
         else if (studentAccount) history.push(`/settings/studentAccount/${userId}`);
       }
@@ -84,6 +83,7 @@ const UserModel: UserModelType = {
       if (!(createResult instanceof Error)) {
         notification.destroy();
         yield put({ type: 'login', payload });
+
         //conditionally redirect on wizard depending on if teacherAccountId or studentAccountId already exists or not
         // payload.teacherAccountId ||  payload.studentAccountId ? history.push('/welcome') : history.push('/settings/profile/${userId}');
         payload.teacherAccountId ? history.push('/user/wizard/') : history.push('/user/wizardStudentAccount');

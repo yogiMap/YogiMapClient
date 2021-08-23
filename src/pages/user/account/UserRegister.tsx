@@ -53,14 +53,6 @@ const UserRegister = (props: IProps) => {
     >
       <h1 className="py-5">Create User`s Account</h1>
 
-      {/*<Form.Item*/}
-      {/*  name="name"*/}
-      {/*  rules={[validator.requireUsername, validator.name, validator.maxlength20, validator.minletters2]}*/}
-      {/*  hasFeedback*/}
-      {/*>*/}
-      {/*  <Input prefix={<UserOutlined type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nickname" />*/}
-      {/*</Form.Item>*/}
-
       <Form.Item
         name="name"
         rules={[validator.requireUsername, validator.name, validator.maxlength30, validator.minletters2]}
@@ -77,17 +69,11 @@ const UserRegister = (props: IProps) => {
         <FloatInput type="password" label="Password" />
       </Form.Item>
 
-      {/*<Form.Item name="email" rules={[{ type: 'email' }, validator.require]} hasFeedback>*/}
-      {/*  <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />*/}
-      {/*</Form.Item>*/}
-
-      {/*<Form.Item name="password" rules={[validator.require, validator.password]} hasFeedback>*/}
-      {/*  <Input.Password*/}
-      {/*    type="password"*/}
-      {/*    prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}*/}
-      {/*    placeholder="Password"*/}
-      {/*  />*/}
-      {/*</Form.Item>*/}
+      <Form.Item>
+        <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
+          Create your account
+        </Button>
+      </Form.Item>
 
       <Form.Item name="agreement" valuePropName="checked" rules={[validator.require]}>
         <Checkbox>
@@ -96,12 +82,6 @@ const UserRegister = (props: IProps) => {
             Terms and Conditions
           </Button>
         </Checkbox>
-      </Form.Item>
-
-      <Form.Item>
-        <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
-          Create your account
-        </Button>
       </Form.Item>
 
       <Form.Item>

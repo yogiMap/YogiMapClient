@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect, Link } from 'umi';
-import { Button, Form, Input } from 'antd';
-import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Button, Form } from 'antd';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
+import FloatInput from '@/pages/utils/FloatInput';
 
 interface ILoginForm {
   email: string;
@@ -35,15 +35,11 @@ const UserLogin = (props: IProps) => {
       <h1 className="py-5">Welcome back!</h1>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
-        <Input addonBefore={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
+        <FloatInput label="Email" />
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require]}>
-        <Input.Password
-          addonBefore={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
+        <FloatInput type="password" label="Password" />
       </Form.Item>
 
       {/*<Form.Item>*/}
@@ -60,7 +56,7 @@ const UserLogin = (props: IProps) => {
       {/*</Form.Item>*/}
 
       <Form.Item>
-        <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
+        <Button type="primary" block htmlType="submit" disabled={disableSubmit} loading={isLoading}>
           Create your account
         </Button>
       </Form.Item>
