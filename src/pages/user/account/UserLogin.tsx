@@ -57,7 +57,7 @@ const UserLogin = (props: IProps) => {
 
       <Form.Item>
         <Button type="primary" block htmlType="submit" disabled={disableSubmit} loading={isLoading}>
-          Create your account
+          Log in
         </Button>
       </Form.Item>
 

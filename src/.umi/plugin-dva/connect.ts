@@ -30,6 +30,7 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/form
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/event/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/focus/view/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/homeboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/form/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/payment/view/model';
@@ -46,9 +47,9 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/fo
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacher/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/form/model';
+export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/onboarding/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/telephony/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/view/model';
-export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/teacherAccount/wizard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/dashboard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/widget/model';

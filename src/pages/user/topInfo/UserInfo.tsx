@@ -3,7 +3,7 @@ import { connect, Link } from 'umi';
 import { Avatar, Dropdown, Menu } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { get } from 'lodash';
-import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IGetBack {
   adminId: string;
@@ -19,17 +19,21 @@ interface IProps {
 
 const UserInfo = (props: IProps) => {
   const { logout, userImpersonateGetBack } = props;
-  const authUser = get(props, 'Account', '');
-  const isAvatar = get(authUser, 'avatar', false);
-  const avatarImg = isAvatar[1];
-  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
+  const authUser = get(props, 'User', '');
+
   const isTeacher = get(props, 'User.isTeacher', false);
+  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
+  const teacherAccountId = get(props, 'User.teacherAccount', '');
+
   const userId = get(authUser, '_id', '');
   const name = get(authUser, 'name', '');
   const adminId = localStorage.getItem('adminId');
   const adminToken = localStorage.getItem('adminToken');
 
-  const isAuthLoading = get(props, 'LoadingEffects.Account/auth', false);
+  const isAvatar = get(authUser, 'avatar', false);
+  const avatarImg = isAvatar[1];
+
+  const isAuthLoading = get(props, 'LoadingEffects.User/auth', false);
   if (isAuthLoading) return null;
 
   const menu = (
@@ -37,6 +41,12 @@ const UserInfo = (props: IProps) => {
       {emailConfirmed && (
         <Menu.Item key="profile" data-qa="profile">
           <Link to={`/profile/${userId}`}>Profile</Link>
+        </Menu.Item>
+      )}
+
+      {isTeacher && emailConfirmed && teacherAccountId && (
+        <Menu.Item key="teacherAccount" data-qa="settings">
+          <Link to={`/settings/teacherAccount/${teacherAccountId}`}>Teacher Account</Link>
         </Menu.Item>
       )}
 

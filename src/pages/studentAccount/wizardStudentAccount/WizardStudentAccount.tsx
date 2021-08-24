@@ -38,7 +38,7 @@ const WizardStudentAccountStudentAccount = (props: IProps) => {
   const [disableSubmit, setDisableSubmit] = useState(true);
   const [form] = useForm();
 
-  const isLoadingAuth = get(props, 'loadingEffects.Account/auth', true);
+  const isLoadingAuth = get(props, 'loadingEffects.User/auth', true);
 
   const email = get(props, 'User.email', '');
   const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);

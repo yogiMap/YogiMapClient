@@ -3,14 +3,15 @@ import { Effect, history, Reducer } from 'umi';
 import { queryTeacherAccountCreate } from '@/pages/teacherAccount/queries';
 import defaultReducers from '@/utils/defaultReducers';
 import { queryUserVerifyEmailSend } from '@/pages/user/userSearch/queries';
+import { queryUserUpdateSelf } from '@/pages/user/queries';
+
 export interface IState {}
 
-export interface WizardModelType {
+export interface OnboardingModelType {
   namespace: string;
   state: IState;
   effects: {
-    teacherAccountCreate: Effect;
-    userVerifyEmailSend: Effect;
+    [key: string]: Effect;
   };
   reducers: {
     save: Reducer<IState>;
@@ -19,8 +20,8 @@ export interface WizardModelType {
 
 const initialState = {};
 
-const WizardModel: WizardModelType = {
-  namespace: 'WizardForm',
+const OnboardingModel: OnboardingModelType = {
+  namespace: 'OnboardingForm',
 
   state: initialState,
 
@@ -28,7 +29,13 @@ const WizardModel: WizardModelType = {
     *teacherAccountCreate({ payload }, { call, put }) {
       yield call(queryTeacherAccountCreate, payload);
       yield put({ type: 'User/auth' });
-      history.push('/wizard');
+      // history.push('/onboarding/teacher');
+    },
+
+    *userStepSubmit({ payload }, { call, put }) {
+      yield call(queryUserUpdateSelf, payload);
+      yield put({ type: 'User/auth' });
+      // history.push('/onboarding/business');
     },
 
     *userVerifyEmailSend({ payload }, { call }) {
@@ -41,4 +48,4 @@ const WizardModel: WizardModelType = {
   },
 };
 
-export default WizardModel;
+export default OnboardingModel;

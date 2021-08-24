@@ -3,7 +3,7 @@ const SupportUserTypes = {
     {
       name: 'Client',
       helpWith: [
-        'Getting in touch with a company owner',
+        'Getting in touch with a teacher',
         'Unfinished Work',
         'Work done poorly',
         'Payments',
@@ -12,7 +12,7 @@ const SupportUserTypes = {
       ],
     },
     {
-      name: 'Company Owner',
+      name: 'Teacher',
       helpWith: [
         'Getting Started',
         'Clients, Teachers,Products',
@@ -24,7 +24,7 @@ const SupportUserTypes = {
     },
     {
       name: 'Teacher',
-      helpWith: ['Getting in touch with a company owner', 'Shipping', 'Orders', 'Payments', 'Scheduling', 'Other'],
+      helpWith: ['Getting in touch with a teacher', 'Shipping', 'Orders', 'Payments', 'Scheduling', 'Other'],
     },
     {
       name: 'User',

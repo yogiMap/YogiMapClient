@@ -15,21 +15,43 @@ export default [
           { path: '/user/login', component: '@/pages/user/account/UserLogin' },
           { path: '/user/register', component: '@/pages/user/account/UserRegister' },
           { path: '/user/verify/email/:userId/:hash', component: '@/pages/user/account/UserEmailVerify' },
+          //{ path: 'user/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
+          { path: '/user/onboarding/teacher', component: '@/pages/teacherAccount/onboarding/TeacherOnboarding' },
+          // {
+          //   path: '/wizardStudentAccount',
+          //   component: '@/pages/studentAccount/wizardStudentAccount/WizardStudentAccount',
+          // },
+        ],
+      },
+
+      // *****  ====================================
+
+      {
+        path: '/',
+        component: '@/pages/homeboard/HomeSwitch',
+        exact: true,
+      },
+
+      // *****  ====================================
+      {
+        path: '/',
+        component: '@/layout/LayoutGuest',
+        routes: [
+          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/styles', component: '@/pages/infoPages/YogaStylesGuide' },
+          { path: '/type', component: '@/pages/infoPages/ClassTypeGuide' },
+          { path: '/library', component: '@/pages/infoPages/Library' },
+          { path: '/faq', component: '@/pages/infoPages/Faq' },
+          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/sitemap', component: '@/pages/infoPages/SiteMap' },
+          { path: '/subscribe', component: '@/pages/infoPages/Subscribe' },
         ],
       },
 
       {
         path: '/',
-        component: '@/layout/GeneralLayout',
+        component: '@/layout/LayoutFluid',
         routes: [
-          { path: '/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
-          { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
-
-          {
-            path: '/wizardStudentAccount',
-            component: '@/pages/studentAccount/wizardStudentAccount/WizardStudentAccount',
-          },
-
           { path: '/profile/:userId', component: '@/pages/user/profile/UserProfile' },
 
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
@@ -62,8 +84,8 @@ export default [
 
           { path: '/payment', component: '@/pages/payment/dashboard/PaymentDashboard' },
           { path: '/payment/:paymentId', component: '@/pages/payment/view/PaymentView' },
-          // TEACHER ACCOUNT ====================================
 
+          // TEACHER ACCOUNT ====================================
           {
             path: '/teacherAccount/:teacherAccountId',
             component: '@/layout/TeacherAccountLayout',
@@ -127,68 +149,61 @@ export default [
                   },
                 ],
               },
-            ],
-          },
 
-          // *****  ====================================
-          { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
-          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
-          { path: '/styles', component: '@/pages/infoPages/YogaStylesGuide' },
-          { path: '/type', component: '@/pages/infoPages/ClassTypeGuide' },
-          { path: '/library', component: '@/pages/infoPages/Library' },
-          { path: '/faq', component: '@/pages/infoPages/Faq' },
-          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
-          { path: '/sitemap', component: '@/pages/infoPages/SiteMap' },
-          { path: '/subscribe', component: '@/pages/infoPages/Subscribe' },
+              // *****  ====================================
+              { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
 
-          {
-            path: '/settings/:userId',
-            component: '@/layout/UserSettingsLayout',
-            routes: [
+              // *****  ====================================
               {
                 path: '/settings/:userId',
-                redirect: '/settings/teacherAccount/:userId',
-              },
-              {
-                path: '/settings/profile/:userId',
-                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
-              },
-              {
-                path: '/settings/teacherAccount/:userId',
-                component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
-              },
-              {
-                path: '/settings/studentAccount/:userId',
-                component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
-              },
-              {
-                path: '/settings/profile/:userId',
-                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
-              },
-              {
-                path: '/settings/security/:userId',
-                component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
-              },
-              {
-                path: '/settings/classes/:userId',
-                component: '@/pages/classes/form/ClassesFormCreateWrapper',
-              },
-              {
-                path: '/settings/event/:userId',
-                component: '@/pages/event/form/EventFormCreateWrapper',
-              },
-              {
-                path: '/settings/emails/:userId',
-                component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
-              },
-              {
-                path: '/settings/links/:userId',
-                component: '@/pages/user/settings/links/UserSettingsEditLinksWrapper',
+                component: '@/layout/UserSettingsLayout',
+                routes: [
+                  {
+                    path: '/settings/:userId',
+                    redirect: '/settings/teacherAccount/:userId',
+                  },
+                  {
+                    path: '/settings/profile/:userId',
+                    component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+                  },
+                  {
+                    path: '/settings/teacherAccount/:userId',
+                    component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
+                  },
+                  {
+                    path: '/settings/studentAccount/:userId',
+                    component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
+                  },
+                  {
+                    path: '/settings/profile/:userId',
+                    component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+                  },
+                  {
+                    path: '/settings/security/:userId',
+                    component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
+                  },
+                  {
+                    path: '/settings/classes/:userId',
+                    component: '@/pages/classes/form/ClassesFormCreateWrapper',
+                  },
+                  {
+                    path: '/settings/event/:userId',
+                    component: '@/pages/event/form/EventFormCreateWrapper',
+                  },
+                  {
+                    path: '/settings/emails/:userId',
+                    component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
+                  },
+                  {
+                    path: '/settings/links/:userId',
+                    component: '@/pages/user/settings/links/UserSettingsEditLinksWrapper',
+                  },
+                ],
               },
             ],
           },
 
-          { path: '/', component: '@/pages/infoPages/home/Home' },
+          //{ path: '/', component: '@/pages/infoPages/home/Home' },
         ],
       },
     ],

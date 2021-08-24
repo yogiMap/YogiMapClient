@@ -70,15 +70,16 @@ const UserModel: UserModelType = {
       if (data.payload.user) {
         yield put({ type: 'auth' });
 
-        // const isTeacher = get(data, 'payload.user.isTeacher', false);
-        // const emailConfirmed = get(data, 'payload.user.emailConfirmation.confirmed', false);
+        const isTeacher = get(data, 'payload.user.isTeacher', false);
+        const emailConfirmed = get(data, 'payload.user.emailConfirmation.confirmed', false);
         const userId = get(data, 'payload.userId', '');
         const teacherAccount = get(data, 'payload.user.teacherAccount', '');
-        const studentAccount = get(data, 'payload.user.studentAccount', '');
+        //const studentAccount = get(data, 'payload.user.studentAccount', '');
 
-        if (!teacherAccount && !studentAccount) history.push('/welcome');
-        else if (teacherAccount) history.push(`/teacherAccount/${userId}`);
-        else if (studentAccount) history.push(`/settings/studentAccount/${userId}`);
+        // if (!teacherAccount && !studentAccount) history.push('/welcome');
+        if ((isTeacher && teacherAccount) || !emailConfirmed) history.push('/user/onboarding/teacher');
+        else if (isTeacher && !emailConfirmed) history.push('/user/onboarding/student');
+        else history.push(`/teacherAccount/${userId}`);
       }
     },
 
@@ -88,9 +89,9 @@ const UserModel: UserModelType = {
         notification.destroy();
         yield put({ type: 'login', payload });
 
-        //conditionally redirect on wizard depending on if teacherAccountId or studentAccountId already exists or not
+        //conditionally redirect on onboarding depending on if teacherAccountId or studentAccountId already exists or not
         // payload.teacherAccountId ||  payload.studentAccountId ? history.push('/welcome') : history.push('/settings/profile/${userId}');
-        payload.teacherAccountId ? history.push('/wizard') : history.push('/wizardStudentAccount');
+        payload.teacherAccountId ? history.push('/onboarding/teacher') : history.push('/onboarding/student');
       }
     },
 
