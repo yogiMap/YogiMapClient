@@ -7,25 +7,30 @@ import { ILoadingEffects } from '@/types';
 const { Option } = Select;
 
 interface IProps {
-  searchStateList: (country: string) => void;
+  searchStateList: (countryName: string) => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
   onChange?: (value: string) => void;
   value?: string;
-  country?: string;
+  countryName?: string;
 }
 
 const CountryStatesSearchInput = (props: IProps) => {
-  const { country = '' } = props;
+  const { countryName = '' } = props;
   const value = get(props, 'value', '');
   const [selectedState, setSelectedState] = useState('');
+  const [initialCountry] = useState(countryName);
+
   const isLoading = get(props, 'loadingEffects.SearchInput/stateSearch', false);
   const stateList: [string] = get(props, 'SearchInput.stateList', []);
 
   useEffect(() => {
-    // setSelectedState('');
-    props.searchStateList(country);
-  }, [country]);
+    if (initialCountry !== countryName) props.searchStateList(countryName);
+  }, [countryName]);
+
+  const onFocus = () => {
+    if (!stateList.length) props.searchStateList(countryName);
+  };
 
   const onSelect = (value = '') => {
     if (props.onChange) props.onChange(value);
@@ -45,10 +50,11 @@ const CountryStatesSearchInput = (props: IProps) => {
     <Select
       defaultValue={selectedState}
       showSearch
-      disabled={isLoading || !country}
+      disabled={!countryName}
       value={value}
       placeholder="Select a States"
       optionFilterProp="children"
+      onFocus={onFocus}
       onChange={onChange}
       onSelect={onSelect}
       loading={isLoading}

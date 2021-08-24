@@ -23,7 +23,7 @@ const FloatInput = (props: IFloatInput) => {
 
   return (
     <div className="float-label" onBlur={() => setFocus(false)} onFocus={() => setFocus(true)}>
-      <Input onChange={props.onChange} type={type} />
+      <Input onChange={props.onChange} type={type} defaultValue={value} />
       <label className={labelClass}>{isOccupied ? label : placeholder}</label>
     </div>
   );

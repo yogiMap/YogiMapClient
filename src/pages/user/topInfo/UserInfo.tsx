@@ -38,23 +38,17 @@ const UserInfo = (props: IProps) => {
 
   const menu = (
     <Menu>
-      {emailConfirmed && (
-        <Menu.Item key="profile" data-qa="profile">
-          <Link to={`/profile/${userId}`}>Profile</Link>
-        </Menu.Item>
-      )}
+      <Menu.Item key="profile" data-qa="profile">
+        <Link to={`/profile/${userId}`}>Profile</Link>
+      </Menu.Item>
 
-      {isTeacher && emailConfirmed && teacherAccountId && (
-        <Menu.Item key="teacherAccount" data-qa="settings">
-          <Link to={`/settings/teacherAccount/${teacherAccountId}`}>Teacher Account</Link>
-        </Menu.Item>
-      )}
+      <Menu.Item key="teacherAccount" data-qa="settings">
+        <Link to={`/settings/teacherAccount/${teacherAccountId}`}>Teacher Account</Link>
+      </Menu.Item>
 
-      {emailConfirmed && (
-        <Menu.Item key="settings" data-qa="settings">
-          <Link to={`/settings/${userId}`}>Settings</Link>
-        </Menu.Item>
-      )}
+      <Menu.Item key="settings" data-qa="settings">
+        <Link to={`/settings/${userId}`}>Settings</Link>
+      </Menu.Item>
 
       {emailConfirmed && <Menu.Divider />}
 

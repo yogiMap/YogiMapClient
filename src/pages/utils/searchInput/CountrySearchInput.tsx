@@ -10,7 +10,6 @@ interface IProps {
   searchCountryList: () => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
-  searchStateList: (value: string) => void;
   onChange?: (value: string) => void;
   value?: string;
 }

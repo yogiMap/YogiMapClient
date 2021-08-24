@@ -1,5 +1,10 @@
 export default [
   {
+    path: '/email',
+    component: '@/pages/email/dashboard/EmailDashboard',
+  },
+
+  {
     path: '/',
     component: '@/layout/EntryLayout',
 
@@ -208,13 +213,4 @@ export default [
       },
     ],
   },
-
-  // USER
-
-  {
-    path: '/email',
-    component: '@/pages/email/dashboard/EmailDashboard',
-  },
-
-  {},
 ];
