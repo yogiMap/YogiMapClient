@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import validator from '@/utils/validators';
 import { connect, Link } from 'umi';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import FloatInput from '@/pages/utils/FloatInput';
 
 export interface IRegisterForm {
-  userName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   phone?: string;
@@ -53,13 +53,13 @@ const UserRegister = (props: IProps) => {
     >
       <h1 className="py-5">Create User`s Account</h1>
 
-      <Form.Item
-        name="name"
-        rules={[validator.requireUsername, validator.name, validator.maxlength30, validator.minletters2]}
-        hasFeedback
-      >
-        <FloatInput type="name" label="Full Name" />
-      </Form.Item>
+      {/*<Form.Item*/}
+      {/*  name="name"*/}
+      {/*  rules={[validator.requireUsername, validator.name, validator.maxlength30, validator.minletters2]}*/}
+      {/*  hasFeedback*/}
+      {/*>*/}
+      {/*  <FloatInput type="name" label="Full Name" />*/}
+      {/*</Form.Item>*/}
 
       <Form.Item name="email" rules={[validator.require, validator.email]} hasFeedback>
         <FloatInput type="email" label="Email" />

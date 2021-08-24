@@ -1,12 +1,7 @@
 export default [
   {
-    path: '/email',
-    component: '@/pages/email/dashboard/EmailDashboard',
-  },
-
-  {
     path: '/',
-    component: '@/layout/SecurityLayout',
+    component: '@/layout/EntryLayout',
 
     routes: [
       // USER
@@ -28,7 +23,6 @@ export default [
         component: '@/layout/GeneralLayout',
         routes: [
           { path: '/welcome', component: '@/pages/infoPages/home/NewUserLanding' },
-
           { path: '/wizard', component: '@/pages/teacherAccount/wizard/Wizard' },
 
           {
@@ -199,4 +193,13 @@ export default [
       },
     ],
   },
+
+  // USER
+
+  {
+    path: '/email',
+    component: '@/pages/email/dashboard/EmailDashboard',
+  },
+
+  {},
 ];

@@ -53,7 +53,6 @@ export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/view/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/telephony/widget/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/model';
-export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/user/userSearch/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/hoverCard/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/mobileMenu/model';
 export * from '/Users/irinag/WebstormProjects/yogiMapClient/src/pages/utils/searchInput/model';

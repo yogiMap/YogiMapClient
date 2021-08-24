@@ -23,7 +23,7 @@ import {
   queryUserGetById,
 } from '@/pages/user/queries';
 
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import {
   queryUserDeleteById,
   queryUserImpersonate,
@@ -38,22 +38,20 @@ import { queryTeacherAccountCreate } from '@/pages/teacherAccount/queries';
 
 export interface UserModelType {
   namespace: string;
-  state: {} | IUserAccount;
+  state: {} | IUser;
   effects: {
     [key: string]: Effect;
   };
   reducers: {
-    save: Reducer<IUserAccount>;
-    set: Reducer<IUserAccount>;
+    save: Reducer<IUser>;
+    set: Reducer<IUser>;
   };
 }
-
-const initialState = {};
 
 const UserModel: UserModelType = {
   namespace: 'User',
 
-  state: initialState,
+  state: {},
 
   effects: {
     *auth(_, { call, put }) {
@@ -92,7 +90,7 @@ const UserModel: UserModelType = {
 
         //conditionally redirect on wizard depending on if teacherAccountId or studentAccountId already exists or not
         // payload.teacherAccountId ||  payload.studentAccountId ? history.push('/welcome') : history.push('/settings/profile/${userId}');
-        payload.teacherAccountId ? history.push('/wizard/') : history.push('/wizardStudentAccount');
+        payload.teacherAccountId ? history.push('/wizard') : history.push('/wizardStudentAccount');
       }
     },
 
