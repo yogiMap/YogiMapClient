@@ -7,29 +7,29 @@ import { ILoadingEffects } from '@/types';
 const { Option } = Select;
 
 interface IProps {
-  searchStateList: (countryName: string) => void;
+  searchStateList: (country: string) => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
   onChange?: (value: string) => void;
   value?: string;
-  countryName?: string;
+  country?: string;
 }
 
 const CountryStatesSearchInput = (props: IProps) => {
-  const { countryName = '' } = props;
+  const { country = '' } = props;
   const value = get(props, 'value', '');
   const [selectedState, setSelectedState] = useState('');
-  const [initialCountry] = useState(countryName);
+  const [initialCountry] = useState(country);
 
   const isLoading = get(props, 'loadingEffects.SearchInput/stateSearch', false);
   const stateList: [string] = get(props, 'SearchInput.stateList', []);
 
   useEffect(() => {
-    if (initialCountry !== countryName) props.searchStateList(countryName);
-  }, [countryName]);
+    if (initialCountry !== country) props.searchStateList(country);
+  }, [country]);
 
   const onFocus = () => {
-    if (!stateList.length) props.searchStateList(countryName);
+    if (!stateList.length) props.searchStateList(country);
   };
 
   const onSelect = (value = '') => {
@@ -50,7 +50,7 @@ const CountryStatesSearchInput = (props: IProps) => {
     <Select
       defaultValue={selectedState}
       showSearch
-      disabled={!countryName}
+      disabled={!country}
       value={value}
       placeholder="Select a States"
       optionFilterProp="children"

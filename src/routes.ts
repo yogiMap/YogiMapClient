@@ -165,7 +165,7 @@ export default [
                 routes: [
                   {
                     path: '/settings/:userId',
-                    redirect: '/settings/teacherAccount/:userId',
+                    redirect: '/settings/teacherAccount/:teacherAccountId',
                   },
                   {
                     path: '/settings/profile/:userId',

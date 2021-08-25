@@ -33,7 +33,7 @@ const SettingsMenu = (props: IProps) => {
     {
       name: 'User`s Profile',
       icon: <IdcardOutlined />,
-      link: `/settings/profile/${teacherAccountId}`,
+      link: `/settings/profile/${ownerId}`,
     },
     {
       name: 'Password',
@@ -51,7 +51,7 @@ const SettingsMenu = (props: IProps) => {
     {
       name: 'Teacher`s Account',
       icon: <UsergroupAddOutlined />,
-      link: `/settings/teacherAccount/${ownerId}`,
+      link: `/settings/teacherAccount/${teacherAccountId}`,
     },
     {
       name: 'Create Class',

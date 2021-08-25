@@ -7,16 +7,16 @@ import validator from '@/utils/validators';
 const { Option } = Select;
 
 interface IPhoneInput {
-  label: string;
+  label?: string;
   name: string;
   required: boolean;
-  // ext: boolean;
+  ext: boolean;
 }
 
 const PhoneInput = (props: IPhoneInput) => {
   const initialPhoneCode = get(props, 'value.code', '1');
   const initialPhoneNumber = get(props, 'value.number', '');
-  // const initialPhoneExt = get(props, 'value.ext', '');
+  const initialPhoneExt = get(props, 'value.ext', '');
 
   const options = codePhoneNumber.map((el: string) => (
     <Option key={el} value={el} className="font-weight-bold">
@@ -26,14 +26,14 @@ const PhoneInput = (props: IPhoneInput) => {
 
   const [phoneCode, setPhoneCode] = useState<string>(initialPhoneCode);
   const [phoneNumber, setPhoneNumber] = useState<string>(initialPhoneNumber);
-  // const [phoneExt, setPhoneExt] = useState<string>(initialPhoneExt);
+  const [phoneExt, setPhoneExt] = useState<string>(initialPhoneExt);
 
   const onChange = (field: { [key: string]: string }) => {
     if (props.onChange) {
       props.onChange({
         code: phoneCode,
         number: phoneNumber,
-        // ext: phoneExt,
+        ext: phoneExt,
         ...field,
       });
     }
@@ -67,26 +67,25 @@ const PhoneInput = (props: IPhoneInput) => {
 
   return (
     <div>
-      <div className="d-flex">
-        <Form.Item name={`${props.name}_number`} label={props.label} rules={phoneValidator} initialValue={phoneNumber}>
-          <Input
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={handleChangeNumber}
-            addonBefore={phoneCodeSelector}
-          />
-        </Form.Item>
+      <Form.Item name={`${props.name}_number`} label={props.label} rules={phoneValidator} initialValue={phoneNumber}>
+        <Input
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={handleChangeNumber}
+          addonBefore={phoneCodeSelector}
+        />
+      </Form.Item>
 
-        {/*{(props.ext || phoneExt) && (*/}
-        {/*  <Form.Item*/}
-        {/*    name={`${props.name}_ext`}*/}
-        {/*    initialValue={phoneExt}*/}
-        {/*    style={{ width: 100 }}*/}
-        {/*    rules={[validator.maxlength6]}*/}
-        {/*  >*/}
-        {/*    <Input placeholder='Ext' value={phoneExt} onChange={handleChangeExt} />*/}
-        {/*  </Form.Item>)}*/}
-      </div>
+      {(props.ext || phoneExt) && (
+        <Form.Item
+          name={`${props.name}_ext`}
+          initialValue={phoneExt}
+          style={{ width: 100 }}
+          rules={[validator.maxlength6]}
+        >
+          <Input placeholder="Ext" value={phoneExt} onChange={handleChangeExt} />
+        </Form.Item>
+      )}
       <div style={{ width: 90 }}></div>
     </div>
   );

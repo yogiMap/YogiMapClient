@@ -146,7 +146,7 @@ const TeacherOnboarding = (props: IProps) => {
             <FloatInput label="Full Name" />
           </Form.Item>
 
-          <PhoneInput name="phone" required={true} />
+          <PhoneInput name="phone" required={true} ext={false} />
 
           <Form.Item>
             <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
@@ -160,13 +160,15 @@ const TeacherOnboarding = (props: IProps) => {
         <Form size="large" name="user" onFieldsChange={onFieldsChange} onFinish={onSubmitTeacherStep} layout="vertical">
           <h3 className="mb-4">Set up your Teacher Account</h3>
 
-          <Form.Item name="teacherName" rules={[validator.require, validator.minletters3, validator.maxlength30]}>
-            <FloatInput label="Teacher name" />
+          <h5 className="mb-4">Your Teacher`s Name</h5>
+
+          <Form.Item name="name" rules={[validator.require, validator.minletters3, validator.maxlength30]}>
+            <FloatInput label="name" />
           </Form.Item>
 
-          <Form.Item label="Yoga Focus" name="focus">
-            <FocusSearchInput />
-          </Form.Item>
+          {/*<Form.Item label="Yoga Focus" name="focus">*/}
+          {/*  <FocusSearchInput />*/}
+          {/*</Form.Item>*/}
 
           <Form.Item>
             <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
