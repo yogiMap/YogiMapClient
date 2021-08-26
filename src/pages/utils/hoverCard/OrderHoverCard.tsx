@@ -21,8 +21,8 @@ const OrderHoverCard = (props: IProps) => {
   const orderEnd = get(props, 'HoverCard.orderEnd', '');
   const description = get(props, 'HoverCard.description', '');
   const isCompanyOwner = get(props, 'HoverCard.isCompanyOwner', false);
-  const companyAccountName = get(props, 'HoverCard.companyAccount.companyName', '');
-  const companyAccountId = get(props, 'HoverCard.companyAccount._id', '');
+  const teacherAccountName = get(props, 'HoverCard.teacherAccount.companyName', '');
+  const teacherAccountId = get(props, 'HoverCard.teacherAccount._id', '');
 
   const onVisibleChange = (isVisible: boolean) => {
     if (isVisible) {
@@ -42,7 +42,7 @@ const OrderHoverCard = (props: IProps) => {
       <div>End: {orderEnd}</div>
       <div>{description}</div>
 
-      {companyAccountName && <Link to={`/company/${companyAccountId}`}>{companyAccountName}</Link>}
+      {teacherAccountName && <Link to={`/company/${teacherAccountId}`}>{teacherAccountName}</Link>}
       {isCompanyOwner && ' owner'}
     </div>
   );

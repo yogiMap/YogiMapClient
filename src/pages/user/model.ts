@@ -2,10 +2,8 @@ import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 import { history } from 'umi';
 import { notification } from 'antd';
-// @ts-ignore
-import Cookies from 'js-cookie';
-
 import defaultReducers from '@/utils/defaultReducers';
+import Cookies from 'js-cookie';
 
 import {
   queryUserLogin,

@@ -19,12 +19,12 @@ const TopMenu = (props: IProps) => {
 
   const guestMenu = [
     { path: '/', name: 'HOME' },
-    { path: '/style', name: 'STYLE' },
-    { path: '/teacherAccount', name: 'TEACHERS' },
-    { path: '/classes', name: 'CLASSES' },
-    { path: '/event', name: 'EVENTS' },
-    { path: '/classType', name: 'TYPE' },
-    { path: '/list/focus', name: 'FOCUS' },
+    { path: '/i/style', name: 'STYLE' },
+    { path: '/i/teacherAccount', name: 'TEACHERS' },
+    { path: '/i/classes', name: 'CLASSES' },
+    { path: '/i/event', name: 'EVENTS' },
+    { path: '/i/classType', name: 'TYPE' },
+    { path: '/i/list/focus', name: 'FOCUS' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),

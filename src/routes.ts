@@ -38,23 +38,23 @@ export default [
 
       // *****  ====================================
       {
-        path: '/',
+        path: '/i',
         component: '@/layout/LayoutGuest',
         routes: [
-          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
-          { path: '/styles', component: '@/pages/infoPages/YogaStylesGuide' },
-          { path: '/type', component: '@/pages/infoPages/ClassTypeGuide' },
-          { path: '/library', component: '@/pages/infoPages/Library' },
-          { path: '/faq', component: '@/pages/infoPages/Faq' },
-          { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
-          { path: '/sitemap', component: '@/pages/infoPages/SiteMap' },
-          { path: '/subscribe', component: '@/pages/infoPages/Subscribe' },
-          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
-          { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
-          { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
-          { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
-          { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
-          { path: '/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
+          { path: '/i/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/i/styles', component: '@/pages/infoPages/YogaStylesGuide' },
+          { path: '/i/type', component: '@/pages/infoPages/ClassTypeGuide' },
+          { path: '/i/library', component: '@/pages/infoPages/Library' },
+          { path: '/i/faq', component: '@/pages/infoPages/Faq' },
+          { path: '/i/contact', component: '@/pages/infoPages/ContactUsPage' },
+          { path: '/i/sitemap', component: '@/pages/infoPages/SiteMap' },
+          { path: '/i/subscribe', component: '@/pages/infoPages/Subscribe' },
+          { path: '/i/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          { path: '/i/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
+          { path: '/i/style', component: '@/pages/style/dashboard/StyleDashboard' },
+          { path: '/i/event', component: '@/pages/event/dashboard/EventDashboard' },
+          { path: '/i/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
+          { path: '/i/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
         ],
       },
 
@@ -67,15 +67,15 @@ export default [
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
 
-          // { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
 
           { path: '/studentAccount', component: '@/pages/studentAccount/dashboard/StudentAccountDashboard' },
           { path: '/studentAccount/:studentAccountId', component: '@/pages/studentAccount/view/StudentAccountView' },
 
-          // { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
+          { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
 
-          // { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
+          { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
           { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
 
           { path: '/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
@@ -84,7 +84,7 @@ export default [
           { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
           { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },
 
-          // { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
+          { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
           { path: '/focus/:focusId', component: '@/pages/focus/view/FocusView' },
 
           { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
@@ -129,6 +129,7 @@ export default [
 
           // CLIENT ====================================
           { path: '/client', component: '@/pages/client/dashboard/ClientDashboard' },
+
           {
             path: '/client/:clientId',
             component: '@/layout/ClientLayout',
@@ -164,6 +165,7 @@ export default [
 
           // *****  ====================================
           { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
+
           // *****  ====================================
           {
             path: '/settings/:userId',

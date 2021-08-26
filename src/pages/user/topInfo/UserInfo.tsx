@@ -42,9 +42,9 @@ const UserInfo = (props: IProps) => {
         <Link to={`/profile/${userId}`}>Profile</Link>
       </Menu.Item>
 
-      <Menu.Item key="teacherAccount" data-qa="settings">
-        <Link to={`/settings/teacherAccount/${teacherAccountId}`}>Teacher Account</Link>
-      </Menu.Item>
+      {/*<Menu.Item key="teacherAccount" data-qa="settings">*/}
+      {/*  <Link to={`/settings/teacherAccount/${teacherAccountId}`}>Teacher Account</Link>*/}
+      {/*</Menu.Item>*/}
 
       <Menu.Item key="settings" data-qa="settings">
         <Link to={`/settings/${userId}`}>Settings</Link>

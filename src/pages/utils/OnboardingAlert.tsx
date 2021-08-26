@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'umi';
 
-const WizardAlert = () => {
+const OnboardingAlert = () => {
   return (
     <div className="container-fluid">
       <div className="alert alert-warning text-center" role="alert">
@@ -15,4 +15,4 @@ const WizardAlert = () => {
   );
 };
 
-export default WizardAlert;
+export default OnboardingAlert;
