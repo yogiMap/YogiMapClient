@@ -172,13 +172,28 @@ export default [
             component: '@/layout/UserSettingsLayout',
             routes: [
               {
-                path: '/settings/:userId',
-                redirect: '/settings/teacherAccount/:teacherAccountId',
+                path: '/settings/teacherAccount/:teacherAccountId',
+                component: '@/pages/user/settings/teacherAccount/TeacherAccountFormSettingsEditWrapper',
+                // component: '@/pages/user/settings/teacherAccount/TeacherAccountFormSettingsEditWrapper',
               },
               {
                 path: '/settings/profile/:userId',
                 component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
               },
+
+              {
+                path: '/settings/security/:userId',
+                component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
+              },
+              {
+                path: '/settings/emails/:userId',
+                component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
+              },
+
+              // {
+              //   path: '/settings/:userId',
+              //   redirect: '/settings/teacherAccount/:teacherAccountId',
+              // },
               {
                 path: '/settings/teacherAccount/:userId',
                 component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
@@ -188,24 +203,12 @@ export default [
                 component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
               },
               {
-                path: '/settings/profile/:userId',
-                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
-              },
-              {
-                path: '/settings/security/:userId',
-                component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
-              },
-              {
                 path: '/settings/classes/:userId',
                 component: '@/pages/classes/form/ClassesFormCreateWrapper',
               },
               {
                 path: '/settings/event/:userId',
                 component: '@/pages/event/form/EventFormCreateWrapper',
-              },
-              {
-                path: '/settings/emails/:userId',
-                component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
               },
               {
                 path: '/settings/links/:userId',
