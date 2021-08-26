@@ -10,25 +10,27 @@ interface IProps {
   userGetInfo: () => void;
   userInfo: any;
   userUpdateById: (user: { values: IUser; userId: string }) => void;
+  //userGetById: (user: { values: IUser; userId: string }) => void;
   initialValues?: IUser;
   reset: () => void;
 }
 
 const UserSettingsEditProfileWrapper = (props: IProps) => {
   const userId = get(props, 'match.params.userId', '');
-  const name = get(props, 'userInfo.name', '');
+  const name = get(props, 'User.name', '');
   const teacherAccountId = get(props, 'teacherAccount', '');
-  const email = get(props, 'userInfo.email', '');
-  const phoneNumber = get(props, 'userInfo.phoneNumber', '');
-  const address = get(props, 'userInfo.personalAddress.address', '');
-  const city = get(props, 'userInfo.personalAddress.city', '');
-  const state = get(props, 'userInfo.personalAddress.state', '');
-  const zipCode = get(props, 'userInfo.personalAddress.zipCode', '');
-  const currentCountry = get(props, 'userInfo.personalAddress.countryName', '');
-  const avatar = get(props, 'userInfo.avatar', '');
+  const email = get(props, 'User.email', '');
+  const phoneNumber = get(props, 'User.phoneNumber', '');
+  // const address = get(props, 'userInfo.personalAddress.address', '');
+  // const city = get(props, 'userInfo.personalAddress.city', '');
+  // const state = get(props, 'userInfo.personalAddress.state', '');
+  // const zipCode = get(props, 'userInfo.personalAddress.zipCode', '');
+  // const currentCountry = get(props, 'userInfo.personalAddress.countryName', '');
+  const avatar = get(props, 'User.avatar', '');
 
   useEffect(() => {
     props.userGetInfo();
+    // props.userGetById();
   }, []);
 
   const initialValues = {
@@ -37,11 +39,11 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
     email,
     name,
     phoneNumber,
-    address,
-    city,
-    state,
-    zipCode,
-    countryName: currentCountry,
+    // address,
+    // city,
+    // state,
+    // zipCode,
+    // countryName: currentCountry,
     avatar: avatar[1],
   };
 
@@ -66,12 +68,14 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.User.userInfo,
+  User: state.User,
+  // userInfo: state.User.userInfo,
   teacherAccount: state.User.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   userGetInfo: () => dispatch({ type: 'User/userGetInfo' }),
+  // userGetById: (payload: string) => dispatch({ type: 'User/userGetById', payload }),
   userUpdateById: function (payload: any) {
     dispatch({ type: 'User/userUpdateById', payload });
   },

@@ -17,7 +17,6 @@ interface IProps {
   onFinish: (args: IUser) => void;
   User: IUser;
   uploadAvatar: (payload: object) => void;
-  userGetById: (id: string) => void;
   avatar: string;
 }
 
@@ -96,13 +95,9 @@ const UserSettingsEditProfileForm = (props: IProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  User: state.User,
-  userInfo: state.User.userInfo,
-});
+const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: string) => dispatch({ type: 'User/userGetById', payload }),
   uploadAvatar: (payload: object) => dispatch({ type: 'User/userUploadAvatar', payload }),
 });
 
