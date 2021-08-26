@@ -4,10 +4,8 @@ import { get } from 'lodash';
 import TeacherAccountViewClassesList from '@/pages/teacherAccount/view/TeacherAccountViewClassesList';
 import TeacherAccountViewEventList from '@/pages/teacherAccount/view/TeacherAccountViewEventList';
 import TeacherAccountViewAddressList from '@/pages/teacherAccount/view/TeacherAccountViewAddressList';
-import { IUserAccount } from '@/pages/user/userSearch/types';
-import { Button } from 'antd';
-import { CameraOutlined } from '@ant-design/icons';
 import PhoneNumberCall from '@/pages/telephony/PhoneNumberCall';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
   teacherAccountId: string;
