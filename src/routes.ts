@@ -172,6 +172,10 @@ export default [
             component: '@/layout/UserSettingsLayout',
             routes: [
               {
+                path: '/settings/:userId',
+                redirect: '/settings/profile/:userId',
+              },
+              {
                 path: '/settings/teacherAccount/:teacherAccountId',
                 component: '@/pages/user/settings/teacherAccount/TeacherAccountFormSettingsEditWrapper',
                 // component: '@/pages/user/settings/teacherAccount/TeacherAccountFormSettingsEditWrapper',
