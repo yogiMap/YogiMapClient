@@ -180,7 +180,6 @@ export default [
                 path: '/settings/profile/:userId',
                 component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
               },
-
               {
                 path: '/settings/security/:userId',
                 component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',

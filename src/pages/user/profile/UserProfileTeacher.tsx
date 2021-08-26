@@ -84,9 +84,9 @@ const UserProfileTeacher = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.userInfo,
+  userInfo: state.User.userInfo,
   User: state.User,
-  teacherAccountInfo: state.Profile.teacherAccountInfo,
+  teacherAccountInfo: state.User.teacherAccountInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

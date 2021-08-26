@@ -18,10 +18,12 @@ interface IProps {
   User: IUser;
   uploadAvatar: (payload: object) => void;
   userGetById: (id: string) => void;
+  avatar: string;
 }
 
 const UserSettingsEditProfileForm = (props: IProps) => {
   const userId = get(props, 'initialValues.userId', '');
+  const phone = get(props, 'initialValues.phone', {});
 
   const inputRef = useRef<HTMLInputElement>(null);
 

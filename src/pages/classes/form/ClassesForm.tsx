@@ -8,7 +8,7 @@ import { IStyle } from '@/pages/style/types';
 import { IClassType } from '@/pages/classType/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { connect, withRouter } from 'umi';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
 
 interface IProps {

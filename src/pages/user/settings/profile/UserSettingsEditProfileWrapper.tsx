@@ -66,8 +66,8 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.Settings.user,
-  teacherAccount: state.Account.teacherAccount,
+  userInfo: state.User.userInfo,
+  teacherAccount: state.User.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

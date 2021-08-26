@@ -6,7 +6,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { IStyle } from '@/pages/style/types';
 import { IClassType } from '@/pages/classType/types';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { connect, withRouter } from 'umi';
 import { ITeacherAccount } from '@/pages/teacherAccount/types';
@@ -49,7 +49,7 @@ const EventForm = (props: IProps) => {
       <Form onFinish={props.onFinish} initialValues={initialValues} layout="vertical" name="event">
         <div className="row mb-5">
           <div className="col-md-6">
-            <h1>Create Your Classes</h1>
+            <h1>Create Your Event</h1>
             <h4 className="text-colored-second d-flex justify-content-start">{name}</h4>
             <p className="mt-3">email: {email}</p>
           </div>

@@ -76,7 +76,7 @@ const TeacherAccountFormSettingsEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   TeacherAccountView: state.TeacherAccountView,
-  TeacherAccountId: state.Account.teacherAccount,
+  TeacherAccountId: state.User.teacherAccount,
   teacherAccountInfo: state.TeacherAccountForm.teacherAccountInfo,
   loadingEffects: state.loading.effects,
   classTypeList: state.TeacherAccountForm.classTypeList,

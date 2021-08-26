@@ -62,8 +62,8 @@ const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   styleList: state.EventForm.styleList,
   classTypeList: state.EventForm.classTypeList,
-  teacherAccountInfo: state.ClassesForm.teacherAccountInfo,
-  TeacherAccountId: state.Account.teacherAccount,
+  teacherAccountInfo: state.EventForm.teacherAccountInfo,
+  TeacherAccountId: state.User.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -73,7 +73,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   styleSearch: () => dispatch({ type: 'EventForm/styleSearch' }),
   classTypeSearch: () => dispatch({ type: 'EventForm/classTypeSearch' }),
   teacherAccountGetById: (teacherAccountId: string) =>
-    dispatch({ type: 'ClassesForm/teacherAccountGetById', payload: teacherAccountId }),
+    dispatch({ type: 'EventForm/teacherAccountGetById', payload: teacherAccountId }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventFormEditWrapper));

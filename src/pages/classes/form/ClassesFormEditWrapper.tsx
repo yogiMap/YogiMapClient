@@ -73,7 +73,7 @@ const mapStateToProps = (state: any) => ({
   styleList: state.ClassesForm.styleList,
   classTypeList: state.ClassesForm.classTypeList,
   teacherAccountInfo: state.ClassesForm.teacherAccountInfo,
-  TeacherAccountId: state.Account.teacherAccount,
+  TeacherAccountId: state.User.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

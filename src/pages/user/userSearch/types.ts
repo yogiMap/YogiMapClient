@@ -16,6 +16,7 @@ export interface IUser {
   createdAt: string;
   updatedAt: string;
   image: string;
+  avatar: string;
 
   acl: string[];
 }

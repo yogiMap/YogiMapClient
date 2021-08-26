@@ -104,7 +104,7 @@ const UserProfile = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   User: state.User,
-  userInfo: state.userInfo,
+  userInfo: state.User.userInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
