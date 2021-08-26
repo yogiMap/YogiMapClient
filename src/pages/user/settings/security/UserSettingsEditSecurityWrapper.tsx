@@ -19,7 +19,7 @@ const UserSettingsEditSecurityWrapper = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   updateUserPasswordById: (payload: IUpdatePasswordForm) => {
-    dispatch({ type: 'Settings/updatePassword', payload });
+    dispatch({ type: 'User/updatePassword', payload });
   },
 });
 

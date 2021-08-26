@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
 import { Avatar, Button, Row } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { IUser } from '@/pages/user/userSearch/types';
@@ -104,14 +103,13 @@ const UserProfile = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Profile: state.Profile,
   User: state.User,
-  userInfo: state.Profile.userInfo,
+  userInfo: state.userInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
-  uploadAvatar: (payload: object) => dispatch({ type: 'Profile/userUploadAvatar', payload }),
+  userGetById: (payload: string) => dispatch({ type: 'User/userGetById', payload }),
+  uploadAvatar: (payload: object) => dispatch({ type: 'User/userUploadAvatar', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

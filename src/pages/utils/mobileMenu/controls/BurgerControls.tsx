@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, Link } from 'umi';
 import { Button } from 'antd';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { IMobileMenu } from '@/pages/utils/mobileMenu/types';
 import logoSmall from '@/icons/logo_yogymap_small.svg';
 

@@ -66,16 +66,16 @@ const UserSettingsEditProfileWrapper = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.Settings.userInfo,
+  userInfo: state.Settings.user,
   teacherAccount: state.Account.teacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetInfo: () => dispatch({ type: 'Settings/userGetInfo' }),
+  userGetInfo: () => dispatch({ type: 'User/userGetInfo' }),
   userUpdateById: function (payload: any) {
-    dispatch({ type: 'Settings/userUpdateById', payload });
+    dispatch({ type: 'User/userUpdateById', payload });
   },
-  reset: () => dispatch({ type: 'Settings/reset' }),
+  reset: () => dispatch({ type: 'User/reset' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsEditProfileWrapper);

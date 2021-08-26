@@ -7,7 +7,6 @@ export default [
   {
     path: '/',
     component: '@/layout/EntryLayout',
-
     routes: [
       // USER
       {
@@ -50,6 +49,12 @@ export default [
           { path: '/contact', component: '@/pages/infoPages/ContactUsPage' },
           { path: '/sitemap', component: '@/pages/infoPages/SiteMap' },
           { path: '/subscribe', component: '@/pages/infoPages/Subscribe' },
+          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
+          { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
+          { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
+          { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
+          { path: '/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
         ],
       },
 
@@ -62,15 +67,15 @@ export default [
           { path: '/base', component: '@/pages/base/dashboard/BaseDashboard' },
           { path: '/base/:baseId', component: '@/pages/base/view/BaseView' },
 
-          { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
+          // { path: '/teacherAccount', component: '@/pages/teacherAccount/dashboard/TeacherAccountDashboard' },
 
           { path: '/studentAccount', component: '@/pages/studentAccount/dashboard/StudentAccountDashboard' },
           { path: '/studentAccount/:studentAccountId', component: '@/pages/studentAccount/view/StudentAccountView' },
 
-          { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
+          // { path: '/classes', component: '@/pages/classes/dashboard/ClassesDashboard' },
           { path: '/classes/:classesId', component: '@/pages/classes/view/ClassesView' },
 
-          { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
+          // { path: '/event', component: '@/pages/event/dashboard/EventDashboard' },
           { path: '/event/:eventId', component: '@/pages/event/view/EventView' },
 
           { path: '/classType', component: '@/pages/classType/dashboard/ClassTypeDashboard' },
@@ -79,7 +84,7 @@ export default [
           { path: '/style', component: '@/pages/style/dashboard/StyleDashboard' },
           { path: '/style/:styleId', component: '@/pages/style/view/StyleView' },
 
-          { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
+          // { path: '/list/focus', component: '@/pages/focus/dashboard/FocusDashboard' },
           { path: '/focus/:focusId', component: '@/pages/focus/view/FocusView' },
 
           { path: '/schedule', component: '@/pages/schedule/ScheduleDashboard' },
@@ -154,56 +159,55 @@ export default [
                   },
                 ],
               },
+            ],
+          },
 
-              // *****  ====================================
-              { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
-
-              // *****  ====================================
+          // *****  ====================================
+          { path: '/users', component: '@/pages/user/userSearch/UsersDashboard' },
+          // *****  ====================================
+          {
+            path: '/settings/:userId',
+            component: '@/layout/UserSettingsLayout',
+            routes: [
               {
                 path: '/settings/:userId',
-                component: '@/layout/UserSettingsLayout',
-                routes: [
-                  {
-                    path: '/settings/:userId',
-                    redirect: '/settings/teacherAccount/:teacherAccountId',
-                  },
-                  {
-                    path: '/settings/profile/:userId',
-                    component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
-                  },
-                  {
-                    path: '/settings/teacherAccount/:userId',
-                    component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
-                  },
-                  {
-                    path: '/settings/studentAccount/:userId',
-                    component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
-                  },
-                  {
-                    path: '/settings/profile/:userId',
-                    component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
-                  },
-                  {
-                    path: '/settings/security/:userId',
-                    component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
-                  },
-                  {
-                    path: '/settings/classes/:userId',
-                    component: '@/pages/classes/form/ClassesFormCreateWrapper',
-                  },
-                  {
-                    path: '/settings/event/:userId',
-                    component: '@/pages/event/form/EventFormCreateWrapper',
-                  },
-                  {
-                    path: '/settings/emails/:userId',
-                    component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
-                  },
-                  {
-                    path: '/settings/links/:userId',
-                    component: '@/pages/user/settings/links/UserSettingsEditLinksWrapper',
-                  },
-                ],
+                redirect: '/settings/teacherAccount/:teacherAccountId',
+              },
+              {
+                path: '/settings/profile/:userId',
+                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+              },
+              {
+                path: '/settings/teacherAccount/:userId',
+                component: '@/pages/user/settings/teacherAccount/TeacherAccountSettingsView',
+              },
+              {
+                path: '/settings/studentAccount/:userId',
+                component: '@/pages/user/settings/studentAccount/StudentAccountSettingsView',
+              },
+              {
+                path: '/settings/profile/:userId',
+                component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+              },
+              {
+                path: '/settings/security/:userId',
+                component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
+              },
+              {
+                path: '/settings/classes/:userId',
+                component: '@/pages/classes/form/ClassesFormCreateWrapper',
+              },
+              {
+                path: '/settings/event/:userId',
+                component: '@/pages/event/form/EventFormCreateWrapper',
+              },
+              {
+                path: '/settings/emails/:userId',
+                component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
+              },
+              {
+                path: '/settings/links/:userId',
+                component: '@/pages/user/settings/links/UserSettingsEditLinksWrapper',
               },
             ],
           },

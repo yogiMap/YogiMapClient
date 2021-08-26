@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Avatar, Button, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
 import { connect } from 'umi';
@@ -95,14 +95,13 @@ const UserSettingsEditProfileForm = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Profile: state.Profile,
   User: state.User,
-  userInfo: state.Profile.userInfo,
+  userInfo: state.User.userInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: string) => dispatch({ type: 'Profile/userGetById', payload }),
-  uploadAvatar: (payload: object) => dispatch({ type: 'Profile/userUploadAvatar', payload }),
+  userGetById: (payload: string) => dispatch({ type: 'User/userGetById', payload }),
+  uploadAvatar: (payload: object) => dispatch({ type: 'User/userUploadAvatar', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsEditProfileForm);

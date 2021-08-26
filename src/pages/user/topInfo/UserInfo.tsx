@@ -97,7 +97,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   logout: () => dispatch({ type: 'User/logout' }),
-  userImpersonateGetBack: (payload: IGetBack) => dispatch({ type: 'UsersDashboard/userImpersonateGetBack', payload }),
+  userImpersonateGetBack: (payload: IGetBack) => dispatch({ type: 'User/userImpersonateGetBack', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

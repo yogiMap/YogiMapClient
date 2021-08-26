@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
 import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps {
@@ -85,14 +84,14 @@ const UserProfileTeacher = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.Profile.userInfo,
+  userInfo: state.userInfo,
   User: state.User,
   teacherAccountInfo: state.Profile.teacherAccountInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetById: (teacherAccountId: string) =>
-    dispatch({ type: 'Profile/teacherAccountGetById', payload: teacherAccountId }),
+    dispatch({ type: 'User/teacherAccountGetById', payload: teacherAccountId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileTeacher);

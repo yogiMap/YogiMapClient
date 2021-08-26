@@ -11,19 +11,20 @@ interface IProps {
 
 const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
+  const isUserAuth = get(props, 'User._id');
+
   const acl = get(props, 'User.acl', []);
   const teacherAccountId = get(props, 'User.teacherAccount', '');
   const isUserConfirmedEmail = get(props, 'User.emailConfirmation.confirmed', false);
 
-  const mainMenu = [
-    // { path: '/base', name: 'Base', perm: 'base.get.own' },
+  const guestMenu = [
     { path: '/', name: 'HOME' },
-    { path: '/style', name: 'STYLE', perm: 'style.get.own' },
-    { path: '/teacherAccount', name: 'TEACHERS', perm: 'teacherAccount.get.own' },
-    { path: '/classes', name: 'CLASSES', perm: 'classes.get.own' },
-    { path: '/event', name: 'EVENTS', perm: 'event.get.own' },
-    { path: '/classType', name: 'TYPE', perm: 'classType.get.own' },
-    { path: '/list/focus', name: 'FOCUS', perm: 'focus.get.own' },
+    { path: '/style', name: 'STYLE' },
+    { path: '/teacherAccount', name: 'TEACHERS' },
+    { path: '/classes', name: 'CLASSES' },
+    { path: '/event', name: 'EVENTS' },
+    { path: '/classType', name: 'TYPE' },
+    { path: '/list/focus', name: 'FOCUS' },
   ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
@@ -47,7 +48,7 @@ const TopMenu = (props: IProps) => {
 
   return (
     <div id="top-menu" role="menu">
-      {teacherAccountId && isUserConfirmedEmail ? (
+      {isUserAuth ? (
         <>
           {teacherMenu.map(
             (el) =>
@@ -59,8 +60,8 @@ const TopMenu = (props: IProps) => {
           )}
         </>
       ) : (
-        mainMenu.map((el) => (
-          <div className="item" key={el.path}>
+        guestMenu.map((el) => (
+          <div className={classNames('item', { active: el.isActive })} key={el.path}>
             <Link to={el.path}>{el.name}</Link>
           </div>
         ))

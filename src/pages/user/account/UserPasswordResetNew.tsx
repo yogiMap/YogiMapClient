@@ -92,7 +92,7 @@ const UserPasswordResetNew = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  isValidResetLink: state.Account.isValidResetLink,
+  isValidResetLink: state.User.isValidResetLink,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
