@@ -9,7 +9,7 @@ import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { useForm } from 'antd/es/form/Form';
 import { connect, withRouter } from 'umi';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';

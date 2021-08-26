@@ -8,7 +8,7 @@ import ActionMenu from '@/pages/teacherAccount/dashboard/search/ActionMenu';
 import { IClasses } from '@/pages/classes/types';
 import ClassesDashboardControls from '@/pages/classes/dashboard/controls/ClassesDashboardControls';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 
 interface IProps extends RouteComponentProps {
   classes: IClasses[];

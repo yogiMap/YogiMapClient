@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { Dropdown, Menu } from 'antd';
 
 interface IProps {

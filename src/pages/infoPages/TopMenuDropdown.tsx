@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import classNames from 'classnames';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { Dropdown, Menu } from 'antd';
 import menuIcon from '@/icons/burger.svg';
 import AdminMenu from '@/pages/infoPages/AdminMenu';
