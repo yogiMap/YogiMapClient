@@ -48,6 +48,7 @@ const TeacherOnboarding = (props: IProps) => {
 
   const onSubmitUserStep = (values: any) => {
     props.userStepSubmit(values);
+    setDisableSubmit(true);
   };
 
   const onSubmitTeacherStep = (values: any) => {
@@ -68,7 +69,8 @@ const TeacherOnboarding = (props: IProps) => {
 
   const onFieldsChange = (_: any, allFields: any) => {
     const hasErrors = allFields.some((el: any) => el.errors.length);
-    setDisableSubmit(hasErrors);
+    const hasEmptyFields = allFields.some((el: any) => !el.value);
+    setDisableSubmit(hasErrors || hasEmptyFields);
   };
 
   const steps = ['User', 'Teacher'];

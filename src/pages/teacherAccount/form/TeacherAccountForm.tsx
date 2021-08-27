@@ -8,7 +8,7 @@ import CountrySearchInput from '@/pages/utils/searchInput/CountrySearchInput';
 import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 import { connect, withRouter } from 'umi';
-import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/user/userSearch/types';
 import { IClassType } from '@/pages/classType/types';
 import { IClasses } from '@/pages/classes/types';
 import { IEvent } from '@/pages/event/types';
