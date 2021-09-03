@@ -3,6 +3,7 @@ import { Select } from 'antd';
 import { connect } from 'umi';
 import { debounce, get } from 'lodash';
 import { ILoadingEffects } from '@/types';
+import FloatSelect from '../FloatSelect';
 
 const { Option } = Select;
 
@@ -52,10 +53,11 @@ const CountrySearchInput = (props: IProps) => {
   ));
 
   return (
-    <Select
+    <FloatSelect
       value={value}
       showSearch
       defaultValue={selectedName}
+      label="Country"
       placeholder="Select a Country"
       optionFilterProp="children"
       onFocus={onFocus}
@@ -63,9 +65,8 @@ const CountrySearchInput = (props: IProps) => {
       onSearch={onSearch}
       onSelect={onSelect}
       loading={isLoading}
-    >
-      {options}
-    </Select>
+      options={options}
+    />
   );
 };
 

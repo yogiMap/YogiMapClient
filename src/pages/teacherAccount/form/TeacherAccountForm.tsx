@@ -118,9 +118,9 @@ const TeacherAccountForm = (props: IProps) => {
         </div>
 
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 d-flex align-items-center">
             <Form.Item name="phoneNumber">
-              <PhoneInput label="Phone" name="phoneNumber" required={true} />
+              <PhoneInput label="Phone" name="phoneNumber" required={true} ext={false} />
             </Form.Item>
           </div>
 

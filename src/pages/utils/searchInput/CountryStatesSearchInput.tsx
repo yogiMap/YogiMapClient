@@ -3,6 +3,7 @@ import { Select } from 'antd';
 import { connect } from 'umi';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
+import FloatSelect from '@/pages/utils/FloatSelect';
 
 const { Option } = Select;
 
@@ -12,24 +13,24 @@ interface IProps {
   SearchInput: any;
   onChange?: (value: string) => void;
   value?: string;
-  country?: string;
+  countryName?: string;
 }
 
 const CountryStatesSearchInput = (props: IProps) => {
-  const { country = '' } = props;
+  const { countryName = '' } = props;
   const value = get(props, 'value', '');
   const [selectedState, setSelectedState] = useState('');
-  const [initialCountry] = useState(country);
+  const [initialCountry] = useState(countryName);
 
   const isLoading = get(props, 'loadingEffects.SearchInput/stateSearch', false);
   const stateList: [string] = get(props, 'SearchInput.stateList', []);
 
   useEffect(() => {
-    if (initialCountry !== country) props.searchStateList(country);
-  }, [country]);
+    if (initialCountry !== countryName) props.searchStateList(countryName);
+  }, [countryName]);
 
   const onFocus = () => {
-    if (!stateList.length) props.searchStateList(country);
+    if (!stateList.length) props.searchStateList(countryName);
   };
 
   const onSelect = (value = '') => {
@@ -47,20 +48,21 @@ const CountryStatesSearchInput = (props: IProps) => {
   ));
 
   return (
-    <Select
-      defaultValue={selectedState}
-      showSearch
-      disabled={!country}
-      value={value}
-      placeholder="Select a States"
-      optionFilterProp="children"
-      onFocus={onFocus}
-      onChange={onChange}
-      onSelect={onSelect}
-      loading={isLoading}
-    >
-      {options}
-    </Select>
+    <>
+      <FloatSelect
+        label="State"
+        placeholder="Select a State"
+        list={['Only me', '2-10 people', '11-20 people', '20+ people']}
+        defaultValue={selectedState}
+        value={value}
+        onFocus={onFocus}
+        onChange={onChange}
+        onSelect={onSelect}
+        options={options}
+        showSearch
+        disabled={!countryName}
+      />
+    </>
   );
 };
 
