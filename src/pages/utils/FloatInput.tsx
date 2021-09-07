@@ -4,17 +4,16 @@ import { Input } from 'antd';
 interface IFloatInput {
   label: string;
   value?: string;
-  name?: string;
+  name: string;
   placeholder?: string;
   type?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
-  addonBefore?: any;
 }
 
 const FloatInput = (props: IFloatInput) => {
   const [focus, setFocus] = useState(false);
-  let { label, value, placeholder, type, required, addonBefore } = props;
+  let { label, value, placeholder, type, required, name } = props;
 
   if (!placeholder) placeholder = label;
 
@@ -26,7 +25,7 @@ const FloatInput = (props: IFloatInput) => {
 
   return (
     <div className="float-label" onBlur={() => setFocus(false)} onFocus={() => setFocus(true)}>
-      <Input onChange={props.onChange} qa-id={type} type={type} defaultValue={value} addonBefore={props.addonBefore} />
+      <Input onChange={props.onChange} qa-id={name} type={type} defaultValue={value} />
       <label className={labelClass}>
         {isOccupied ? label : placeholder} {requiredMark}
       </label>

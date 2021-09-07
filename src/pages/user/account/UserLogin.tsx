@@ -16,7 +16,7 @@ interface IProps {
 }
 
 const UserLogin = (props: IProps) => {
-  const isLoading = get(props, 'loadingEffects.Account/login', false);
+  const isLoading = get(props, 'loadingEffects.User/login', false);
 
   const [disableSubmit, setDisableSubmit] = useState(true);
 
@@ -32,28 +32,15 @@ const UserLogin = (props: IProps) => {
 
   return (
     <Form size="large" name="normal_login" className="login-form" onFieldsChange={onFieldsChange} onFinish={onFinish}>
-      <h1 className="py-5">Welcome back!</h1>
+      <h1>Welcome back!</h1>
 
-      <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
-        <FloatInput label="Email" />
+      <Form.Item name="email" data-qa="normalEmail" rules={[{ type: 'email' }, validator.require]}>
+        <FloatInput name="email" type="email" label="Email" />
       </Form.Item>
 
       <Form.Item name="password" rules={[validator.require]}>
-        <FloatInput type="password" label="Password" />
+        <FloatInput name="password" type="password" label="Password" />
       </Form.Item>
-
-      {/*<Form.Item>*/}
-      {/*  <Button*/}
-      {/*    type="primary"*/}
-      {/*    htmlType="submit"*/}
-      {/*    className="login-form-button"*/}
-      {/*    shape="round"*/}
-      {/*    disabled={disableSubmit}*/}
-      {/*    loading={isLoading}*/}
-      {/*  >*/}
-      {/*    Log in*/}
-      {/*  </Button>*/}
-      {/*</Form.Item>*/}
 
       <Form.Item>
         <Button type="primary" block htmlType="submit" disabled={disableSubmit} loading={isLoading}>

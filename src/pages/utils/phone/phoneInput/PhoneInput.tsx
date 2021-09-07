@@ -1,37 +1,96 @@
 import React, { useState } from 'react';
-import { Input } from 'antd';
+import { Form, Input, Select } from 'antd';
+import codePhoneNumber from '@/utils/codePhoneNumbers';
+import { get } from 'lodash';
+import validator from '@/utils/validators';
+import FloatInput from '@/pages/utils/FloatInput';
+import FloatSelect from '@/pages/utils/FloatSelect';
 
-interface IFloatInput {
+const { Option } = Select;
+
+interface IPhoneInput {
   label: string;
-  value?: string;
-  name?: string;
-  placeholder?: string;
-  type?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  addonBefore?: any;
+  name: string;
+  required: boolean;
+  ext: boolean;
 }
 
-const FloatInput = (props: IFloatInput) => {
-  const [focus, setFocus] = useState(false);
-  let { label, value, placeholder, type, required, addonBefore } = props;
+const PhoneInput = (props: IPhoneInput) => {
+  const initialPhoneCode = get(props, 'value.code', '1');
+  const initialPhoneNumber = get(props, 'value.number', '');
+  const initialPhoneExt = get(props, 'value.ext', '');
 
-  if (!placeholder) placeholder = label;
+  const options = codePhoneNumber.map((el: string) => (
+    <Option key={el} value={el} className="font-weight-bold">
+      +{el}
+    </Option>
+  ));
 
-  const isOccupied = focus || (value && value.length !== 0);
+  const [phoneCode, setPhoneCode] = useState<string>(initialPhoneCode);
+  const [phoneNumber, setPhoneNumber] = useState<string>(initialPhoneNumber);
+  const [phoneExt, setPhoneExt] = useState<string>(initialPhoneExt);
 
-  const labelClass = isOccupied ? 'label as-label' : 'label as-placeholder';
+  const onChange = (field: { [key: string]: string }) => {
+    if (props.onChange) {
+      props.onChange({
+        code: phoneCode,
+        number: phoneNumber,
+        ext: phoneExt,
+        ...field,
+      });
+    }
+  };
 
-  const requiredMark = required ? <span className="text-danger">*</span> : null;
+  const handleChangeCode = (code: string) => {
+    setPhoneCode(code);
+    onChange({ code });
+  };
+
+  const handleChangeNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneNumber(e.target.value);
+    onChange({ number: e.target.value });
+  };
+
+  const handleChangeExt = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneExt(e.target.value);
+    onChange({ ext: e.target.value });
+  };
+
+  const phoneValidator = [validator.usaPhone];
+  if (props.required) phoneValidator.push({ required: true, message: 'Please input phone number' });
 
   return (
-    <div className="float-label" onBlur={() => setFocus(false)} onFocus={() => setFocus(true)}>
-      <Input onChange={props.onChange} qa-id={type} type={type} defaultValue={value} addonBefore={props.addonBefore} />
-      <label className={labelClass}>
-        {isOccupied ? label : placeholder} {requiredMark}
-      </label>
+    <div className="d-flex">
+      <div>
+        <Form.Item name={`${props.name}_code`} initialValue={phoneCode}>
+          <FloatSelect value={phoneCode} style={{ width: 70 }} options={options} onChange={handleChangeCode} />
+        </Form.Item>
+      </div>
+
+      <Form.Item name={`${props.name}_number`} rules={phoneValidator} initialValue={phoneNumber}>
+        <FloatInput
+          label={props.label}
+          required={props.required}
+          placeholder="Phone Number"
+          value={phoneNumber}
+          name="phoneNumber"
+          onChange={handleChangeNumber}
+        />
+      </Form.Item>
+
+      {(props.ext || phoneExt) && (
+        <Form.Item
+          name={`${props.name}_ext`}
+          initialValue={phoneExt}
+          style={{ width: 100 }}
+          rules={[validator.maxlength6]}
+        >
+          <Input placeholder="Ext" value={phoneExt} onChange={handleChangeExt} />
+        </Form.Item>
+      )}
+      <div style={{ width: 90 }}></div>
     </div>
   );
 };
 
-export default FloatInput;
+export default PhoneInput;
