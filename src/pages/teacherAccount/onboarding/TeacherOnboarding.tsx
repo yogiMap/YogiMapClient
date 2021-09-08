@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form } from 'antd';
 import { connect } from 'umi';
 import { get } from 'lodash';
 
 import validator from '@/utils/validators';
 import PhoneInput from '@/pages/utils/phone/phoneInput/PhoneInput';
 import { history } from '@@/core/history';
-import { IUser } from '@/pages/user/userSearch/types';
 import FloatInput from '@/pages/utils/FloatInput';
+import { IUser } from '@/pages/user/userSearch/types';
 import FloatSelect from '@/pages/utils/FloatSelect';
-import FocusSearchInput from '@/pages/utils/searchInput/FocusSearchInput';
 
 export interface ITeacherAccount {
   teacherName: string;
@@ -35,11 +34,8 @@ const TeacherOnboarding = (props: IProps) => {
 
   const isLoadingAuth = get(props, 'loadingEffects.User/auth', true);
 
-  // const firstName = get(props, 'User.firstName', '');
-  // const lastName = get(props, 'User.lastName', '');
-  // const emailHashConfirmation = get(props, 'User.emailConfirmation.hash', '');
+  // const email = get(props, 'User.email', '');
   const name = get(props, 'User.name', '');
-  const email = get(props, 'User.email', '');
   //  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
   const teacherAccount = get(props, 'User.teacherAccount', false);
   const userId = get(props, 'User._id', '');
@@ -145,10 +141,10 @@ const TeacherOnboarding = (props: IProps) => {
           <h3 className="mb-4">Who are you?</h3>
 
           <Form.Item name="fullName" rules={[validator.require, validator.minletters3, validator.maxlength30]}>
-            <FloatInput label="Full Name" />
+            <FloatInput name="fullName" label="Full Name" />
           </Form.Item>
 
-          <PhoneInput name="phone" required={true} ext={false} />
+          <PhoneInput name="phone" label="Phone" required={true} ext={false} />
 
           <Form.Item>
             <Button type="primary" block htmlType="submit" disabled={disableSubmit}>
@@ -165,7 +161,7 @@ const TeacherOnboarding = (props: IProps) => {
           <h5 className="mb-4">Your Teacher`s Name</h5>
 
           <Form.Item name="name" rules={[validator.require, validator.minletters3, validator.maxlength30]}>
-            <FloatInput label="name" />
+            <FloatInput name="name" label="Teacher's name" />
           </Form.Item>
 
           {/*<Form.Item label="Yoga Focus" name="focus">*/}
