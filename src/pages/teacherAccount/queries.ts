@@ -5,6 +5,10 @@ export async function queryTeacherAccountCreate(payload: ITeacherAccount): Promi
   return post({ url: '/teacherAccount', data: payload });
 }
 
+export async function queryTeacherAccountGet(): Promise<any> {
+  return get({ url: '/teacherAccount' });
+}
+
 export async function queryTeacherAccountGetById(teacherAccountId: string): Promise<any> {
   return get({ url: `/teacherAccount/${teacherAccountId}` });
 }
@@ -22,10 +26,6 @@ export async function queryTeacherAccountDeleteById(teacherAccountId: string): P
 
 export async function queryTeacherAccountSearch(payload: ITeacherAccountQueryParams): Promise<any> {
   return post({ url: '/teacherAccount/search', data: payload });
-}
-
-export async function queryTeacherAccountGetAll(): Promise<any> {
-  return get({ url: '/teacherAccount' });
 }
 
 export async function queryTeacherAccountGetStats(): Promise<any> {

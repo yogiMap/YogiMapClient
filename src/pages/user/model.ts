@@ -4,6 +4,7 @@ import { history } from 'umi';
 import { notification } from 'antd';
 import defaultReducers from '@/utils/defaultReducers';
 import Cookies from 'js-cookie';
+import { select } from 'redux-saga/effects';
 
 import {
   queryUserLogin,
@@ -61,6 +62,9 @@ const UserModel: UserModelType = {
           yield put({ type: 'save', payload: userAuthResult.payload.user });
         }
       }
+      // TODO Teacher Account Model
+      // const state = yield select();
+      // if (!get(state, 'TeacherAccount._id')) yield put({ type: 'TeacherAccountView/teacherAccountGetById' });
     },
 
     *login({ payload }, { call, put }) {

@@ -52,8 +52,8 @@ const ClientInfoForm = (props: IProps) => {
             </div>
           </div>
 
-          <Form.Item label="Company" name="company">
-            <Input placeholder="Company" />
+          <Form.Item label="Teacher" name="teacher">
+            <Input placeholder="Teacher" />
           </Form.Item>
 
           <Form.Item

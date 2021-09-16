@@ -16,7 +16,7 @@ export interface IClient {
 
   firstName: string;
   lastName: string;
-  company: string;
+  teacher: string;
   email: string;
   phoneNumber: IPhone;
   // addresses:IAddress[];
