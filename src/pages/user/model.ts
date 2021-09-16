@@ -65,7 +65,7 @@ const UserModel: UserModelType = {
 
     *login({ payload }, { call, put }) {
       const data = yield call(queryUserLogin, payload);
-      if (data.payload.user) {
+      if (!(data instanceof Error)) {
         yield put({ type: 'auth' });
 
         const isTeacher = get(data, 'payload.user.isTeacher', false);
