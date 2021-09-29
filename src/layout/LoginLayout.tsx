@@ -1,43 +1,21 @@
-import React, { useEffect } from 'react';
-import { connect, Link } from 'umi';
-import Sidepanel from '@/pages/utils/sidepanel/Sidepanel';
+import React from 'react';
 
 interface IProps {
   children: any;
-  auth: () => void;
-  User: any;
 }
 
-const LoginLayout = ({ children, auth }: IProps) => {
-  useEffect(() => {
-    auth();
-  }, []);
-
+const LoginLayout = ({ children }: IProps) => {
   return (
     <>
       <div className="container">
-        <div className="row d-flex justify-content-center">
-          <Link to="/" className="site-name">
-            YogiMap
-          </Link>
-        </div>
+        <span className="site-name">Yogi Map</span>
 
-        <div className="row d-flex justify-content-center mt-3 ">
-          <div className="col-lg-6">{children}</div>
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-6">{children}</div>
         </div>
       </div>
-
-      <Sidepanel />
     </>
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  User: state.User,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-  auth: () => dispatch({ type: 'User/auth' }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginLayout);
+export default LoginLayout;

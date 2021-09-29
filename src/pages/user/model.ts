@@ -102,7 +102,6 @@ const UserModel: UserModelType = {
       yield put({ type: 'TeacherAccountForm/reset' });
       yield put({ type: 'ClientInfo/reset' });
       yield put({ type: 'ClientDashboard/reset' });
-      yield put({ type: 'User/reset' });
       yield call(queryUserLogout);
       history.push('/');
     },
