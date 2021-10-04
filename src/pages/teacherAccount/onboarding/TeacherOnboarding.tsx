@@ -35,12 +35,12 @@ const TeacherOnboarding = (props: IProps) => {
   const isLoadingAuth = get(props, 'loadingEffects.User/auth', true);
 
   // const email = get(props, 'User.email', '');
-  const name = get(props, 'User.name', '');
   //  const emailConfirmed = get(props, 'User.emailConfirmation.confirmed', false);
+  // const [openResend, setOpenResend] = useState(false);
+
+  const name = get(props, 'User.name', '');
   const teacherAccount = get(props, 'User.teacherAccount', false);
   const userId = get(props, 'User._id', '');
-
-  // const [openResend, setOpenResend] = useState(false);
 
   const onSubmitUserStep = (values: any) => {
     props.userStepSubmit(values);
@@ -79,10 +79,8 @@ const TeacherOnboarding = (props: IProps) => {
 
   const currentStep = () => {
     let step = steps[0];
-
     if (name && teacherAccount) history.push('/');
     else if (name) step = steps[1];
-
     return step;
   };
 
