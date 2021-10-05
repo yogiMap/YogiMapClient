@@ -7,10 +7,10 @@ import { loadProgressBar } from 'axios-progress-bar';
 const server = process.env.API_SERVER;
 
 function getHeaders(type: string) {
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
 
   return {
-    Authorization: token || '',
+    // Authorization: token || '',
     'Content-Type': type || 'application/json',
   };
 }

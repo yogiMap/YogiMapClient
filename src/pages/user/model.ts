@@ -63,9 +63,10 @@ const UserModel: UserModelType = {
         }
       }
 
-      // TODO Teacher Account Model
-      // const state = yield select();
-      // if (!get(state, 'TeacherAccount._id')) yield put({ type: 'TeacherAccountView/teacherAccountGetById' });
+      //if we have teacher ID => put teacher details in state
+      const state = yield select();
+      if (!get(state, 'TeacherAccount._id') && get(state, 'User.teacherAccount'))
+        yield put({ type: 'TeacherAccount/teacherAccountGetById' });
     },
 
     *login({ payload }, { call, put }) {
