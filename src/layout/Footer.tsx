@@ -27,7 +27,7 @@ const Footer = () => {
             <h6 className="footer-headings">YOGIMAP INFO</h6>
             <footer className="small pb-3">
               {menu1.map((el) => (
-                <div>
+                <div key={el.link}>
                   <Link key={el.link} to={el.link} className="me-2 small">
                     {el.text}
                   </Link>

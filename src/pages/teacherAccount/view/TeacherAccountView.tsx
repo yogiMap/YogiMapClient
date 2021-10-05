@@ -122,13 +122,13 @@ const TeacherAccountView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  TeacherAccount: state.TeacherAccountView,
+  TeacherAccount: state.TeacherAccount,
   User: state.User,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload }),
-  uploadImage: (payload: object) => dispatch({ type: 'TeacherAccountView/teacherAccountUploadLogo', payload }),
+  teacherAccountGetById: (payload: string) => dispatch({ type: 'TeacherAccount/teacherAccountGetById', payload }),
+  uploadImage: (payload: object) => dispatch({ type: 'TeacherAccount/teacherAccountUploadImage', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountView);

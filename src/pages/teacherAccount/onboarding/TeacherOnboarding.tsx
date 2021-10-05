@@ -193,9 +193,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userStepSubmit: (payload: ITeacherAccount) => dispatch({ type: 'OnboardingForm/userStepSubmit', payload }),
+  userStepSubmit: (payload: ITeacherAccount) => dispatch({ type: 'TeacherAccount/userStepSubmit', payload }),
   teacherAccountCreate: (payload: ITeacherAccount) =>
-    dispatch({ type: 'OnboardingForm/teacherAccountCreate', payload }),
+    dispatch({ type: 'TeacherAccount/teacherAccountCreate', payload }),
   userVerifyEmailSend: (payload: IVerifyEmailArg) => dispatch({ type: 'OnboardingForm/userVerifyEmailSend', payload }),
 });
 

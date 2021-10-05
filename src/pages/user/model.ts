@@ -62,6 +62,7 @@ const UserModel: UserModelType = {
           yield put({ type: 'save', payload: userAuthResult.payload.user });
         }
       }
+
       // TODO Teacher Account Model
       // const state = yield select();
       // if (!get(state, 'TeacherAccount._id')) yield put({ type: 'TeacherAccountView/teacherAccountGetById' });
@@ -79,8 +80,8 @@ const UserModel: UserModelType = {
         //const studentAccount = get(data, 'payload.user.studentAccount', '');
 
         // if (!teacherAccount && !studentAccount) history.push('/welcome');
-        if ((isTeacher && teacherAccount) || !emailConfirmed) history.push('/user/onboarding/teacher');
-        else if (isTeacher && !emailConfirmed) history.push('/user/onboarding/student');
+        if (isTeacher && (!teacherAccount || !emailConfirmed)) history.push('/user/onboarding/teacher');
+        // else if (isTeacher && !emailConfirmed) history.push('/user/onboarding/student');
         else history.push(`/teacherAccount/${userId}`);
       }
     },
@@ -93,7 +94,7 @@ const UserModel: UserModelType = {
 
         //conditionally redirect on onboarding depending on if teacherAccountId or studentAccountId already exists or not
         // payload.teacherAccountId ||  payload.studentAccountId ? history.push('/welcome') : history.push('/settings/profile/${userId}');
-        payload.teacherAccountId ? history.push('/onboarding/teacher') : history.push('/onboarding/student');
+        payload.teacherAccountId ? history.push('/user/onboarding/teacher') : history.push('/user/onboarding/student');
       }
     },
 

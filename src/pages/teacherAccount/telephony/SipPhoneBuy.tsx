@@ -42,11 +42,11 @@ const SipPhoneBuy = (props: IProps) => {
   const [open, setOpen] = useState(false);
   const [areaCode, setAreaCode] = useState('');
   const [mode, setMode] = useState('');
-  const isLoading = get(props, 'loadingEffects.Telephony/create', false);
+  const isLoading = get(props, 'loadingEffects.TeacherAccount/create', false);
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
-  const availableNumbers = get(props, 'Telephony.availablePhoneNumbers', []);
-  const tollFreeNumbers = get(props, 'Telephony.tollFreePhoneNumbers', []);
+  const availableNumbers = get(props, 'TeacherAccount.availablePhoneNumbers', []);
+  const tollFreeNumbers = get(props, 'TeacherAccount.tollFreePhoneNumbers', []);
 
   // useEffect(() => {
   //   props.availablePhoneNumbers({ teacherAccountId});
@@ -150,15 +150,15 @@ const SipPhoneBuy = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
   Sidepanel: state.Sidepanel,
-  Telephony: state.Telephony,
+  TeacherAccount: state.TeacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   availablePhoneNumbers: (payload: IAvailablePhoneNumbersRequest) =>
-    dispatch({ type: 'Telephony/availablePhoneNumbers', payload }),
-  tollFreePhoneNumbers: () => dispatch({ type: 'Telephony/tollFreePhoneNumbers' }),
-  buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'Telephony/buyPhoneNumber', payload }),
-  create: (payload: ISipPhone) => dispatch({ type: 'Telephony/create', payload }),
+    dispatch({ type: 'TeacherAccount/availablePhoneNumbers', payload }),
+  tollFreePhoneNumbers: () => dispatch({ type: 'TeacherAccount/tollFreePhoneNumbers' }),
+  buyPhoneNumber: (payload: IBuyPhoneNumbersRequest) => dispatch({ type: 'TeacherAccount/buyPhoneNumber', payload }),
+  create: (payload: ISipPhone) => dispatch({ type: 'TeacherAccount/create', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SipPhoneBuy);

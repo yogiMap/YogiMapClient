@@ -6,7 +6,7 @@ import TeacherAccountFilterForm from '@/pages/teacherAccount/dashboard/search/Te
 import Pager from '@/pages/utils/pager/Pager';
 import { ITeacherAccountQueryParams } from '@/pages/teacherAccount/types';
 import TeacherAccountSearchList from '@/pages/teacherAccount/dashboard/search/TeacherAccountSearchList';
-import { IState } from '@/pages/teacherAccount/dashboard/model';
+import { IState } from '@/pages/teacherAccount/model';
 
 const initialSearchForm = {
   teacherAccountSearchParam1: '',
@@ -27,9 +27,9 @@ interface IProps {
 }
 
 const TeacherAccountDashboard = (props: IProps) => {
-  const teacherAccountStats = get(props, 'TeacherAccountDashboard.teacherAccountStats', {});
-  const teacherAccountList = get(props, 'TeacherAccountDashboard.teacherAccountList', []);
-  const teacherAccountPager = get(props, 'TeacherAccountDashboard.teacherAccountPager', {});
+  const teacherAccountStats = get(props, 'TeacherAccount.teacherAccountStats', {});
+  const teacherAccountList = get(props, 'TeacherAccount.teacherAccountList', []);
+  const teacherAccountPager = get(props, 'TeacherAccount.teacherAccountPager', {});
   const queryParams = get(props, 'location.query', {});
 
   const getSearchQuery = (mixin = {}) => {
@@ -84,14 +84,14 @@ const TeacherAccountDashboard = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  TeacherAccountDashboard: state.TeacherAccountDashboard,
+  TeacherAccount: state.TeacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountSearch: (payload: ITeacherAccountQueryParams) =>
-    dispatch({ type: 'TeacherAccountDashboard/teacherAccountSearch', payload }),
-  teacherAccountGetStats: () => dispatch({ type: 'TeacherAccountDashboard/accountGetStats' }),
-  teacherAccountReset: () => dispatch({ type: 'TeacherAccountDashboard/reset' }),
+    dispatch({ type: 'TeacherAccount/teacherAccountSearch', payload }),
+  teacherAccountGetStats: () => dispatch({ type: 'TeacherAccount/teacherAccountGetStats' }),
+  teacherAccountReset: () => dispatch({ type: 'TeacherAccount/reset' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountDashboard);

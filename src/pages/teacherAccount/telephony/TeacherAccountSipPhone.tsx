@@ -4,7 +4,6 @@ import { get } from 'lodash';
 import SipPhoneListItem from '@/pages/teacherAccount/telephony/SipPhoneListItem';
 import SipPhoneControls from '@/pages/teacherAccount/telephony/SipPhoneControls';
 import { ISipPhone } from '@/pages/telephony/types';
-import TeacherAccountSearchList from '@/pages/teacherAccount/dashboard/search/TeacherAccountSearchList';
 
 interface IProps {
   teacherAccountId: string;
@@ -14,32 +13,32 @@ interface IProps {
 
 const TeacherAccountSipPhone = (props: IProps) => {
   const teacherAccountId = get(props, 'match.params.teacherAccountId');
-  const teacherAccountSipPhones: ISipPhone[] = get(props, 'Telephony.teacherSipPhone', []);
+  const teacherAccountSipPhones: ISipPhone[] = get(props, 'TeacherAccount.teacherSipPhone', []);
 
   useEffect(() => {
     props.teacherAccountGetSipPhone(teacherAccountId);
   }, []);
 
   return (
-    <div className="container">
-      <h2 className="text-colored-second my-5">SIP Phones</h2>
-
-      <div>
-        <SipPhoneListItem items={teacherAccountSipPhones} />
-      </div>
+    <div>
+      <h2>SIP Phones</h2>
 
       <SipPhoneControls teacherAccountId={teacherAccountId} />
+
+      <div>
+        <SipPhoneListItem teacherSipPhones={teacherAccountSipPhones} />
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  Telephony: state.Telephony,
+  TeacherAccount: state.TeacherAccount,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetSipPhone: (teacherAccountId: string) =>
-    dispatch({ type: 'Telephony/teacherAccountGetSipPhone', payload: teacherAccountId }),
+    dispatch({ type: 'TeacherAccount/teacherAccountGetSipPhone', payload: teacherAccountId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountSipPhone);

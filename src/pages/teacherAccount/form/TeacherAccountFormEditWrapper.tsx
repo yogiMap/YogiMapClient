@@ -23,11 +23,11 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const TeacherAccountFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const teacherAccountInfo = get(props, 'TeacherAccountForm', {});
+  const teacherAccountInfo = get(props, 'TeacherAccount', {});
   const teacherAccountId: string = get(props, 'Sidepanel.teacherAccountId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.TeacherAccountForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.TeacherAccountForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.TeacherAccount/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.TeacherAccount/updateById', false);
 
   useEffect(() => {
     props.getById(teacherAccountId);
@@ -65,23 +65,22 @@ const TeacherAccountFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Sidepanel: state.Sidepanel,
-  TeacherAccountForm: state.TeacherAccountForm,
-  teacherAccountInfo: state.TeacherAccountForm.teacherAccountInfo,
+  TeacherAccount: state.TeacherAccount,
   loadingEffects: state.loading.effects,
-  classTypeList: state.TeacherAccountForm.classTypeList,
-  classesList: state.TeacherAccountForm.classesList,
-  eventList: state.TeacherAccountForm.eventList,
-  styleList: state.TeacherAccountForm.styleList,
+  classTypeList: state.TeacherAccount.classTypeList,
+  classesList: state.TeacherAccount.classesList,
+  eventList: state.TeacherAccount.eventList,
+  styleList: state.TeacherAccount.styleList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   reset: () => dispatch({ type: 'TeacherAccountForm/reset' }),
-  updateById: (payload: ITeacherAccount) => dispatch({ type: 'TeacherAccountForm/updateById', payload }),
-  getById: (teacherAccountId: string) => dispatch({ type: 'TeacherAccountForm/getById', payload: teacherAccountId }),
-  classTypeSearch: () => dispatch({ type: 'TeacherAccountForm/classTypeSearch' }),
-  classesSearch: () => dispatch({ type: 'TeacherAccountForm/classesSearch' }),
-  eventSearch: () => dispatch({ type: 'TeacherAccountForm/eventSearch' }),
-  styleSearch: () => dispatch({ type: 'TeacherAccountForm/styleSearch' }),
+  updateById: (payload: ITeacherAccount) => dispatch({ type: 'TeacherAccount/updateById', payload }),
+  getById: (teacherAccountId: string) => dispatch({ type: 'TeacherAccount/getById', payload: teacherAccountId }),
+  classTypeSearch: () => dispatch({ type: 'TeacherAccount/classTypeSearch' }),
+  classesSearch: () => dispatch({ type: 'TeacherAccount/classesSearch' }),
+  eventSearch: () => dispatch({ type: 'TeacherAccount/eventSearch' }),
+  styleSearch: () => dispatch({ type: 'TeacherAccount/styleSearch' }),
 });
 
 // @ts-ignore

@@ -110,7 +110,7 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
   teacherAccountDeleteById: (payload: ITeacherAccountDeleteById) =>
-    dispatch({ type: 'TeacherAccountDashboard/teacherAccountDeleteById', payload }),
+    dispatch({ type: 'TeacherAccount/teacherAccountDeleteById', payload }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TeacherAccountSearchList));

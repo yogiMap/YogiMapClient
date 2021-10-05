@@ -75,7 +75,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountGetById: (teacherAccountId: string) =>
-    dispatch({ type: 'TeacherAccountView/teacherAccountGetById', payload: teacherAccountId }),
+    dispatch({ type: 'TeacherAccount/teacherAccountGetById', payload: teacherAccountId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountViewAddressList);

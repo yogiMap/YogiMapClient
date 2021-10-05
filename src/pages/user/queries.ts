@@ -3,6 +3,7 @@ import { IUser } from '@/pages/user/userSearch/types';
 import { IResetPasswordArg, IValidResetPasswordLink } from '@/pages/user/types';
 import { IVerifyEmail } from '@/pages/user/account/UserEmailVerify';
 import { ISupportEmail } from '@/pages/infoPages/supportPage/types';
+import { IRegisterForm } from '@/pages/user/account/UserRegister';
 
 export async function queryUserAuth(): Promise<any> {
   return get({ url: '/user/auth' });
@@ -16,7 +17,7 @@ export async function queryUserLogout(): Promise<any> {
   return get({ url: '/user/logout' });
 }
 
-export async function queryUserRegister(payload: any): Promise<any> {
+export async function queryUserRegister(payload: IRegisterForm): Promise<any> {
   return post({ url: '/user', data: payload });
 }
 

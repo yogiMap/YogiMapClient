@@ -50,7 +50,9 @@ const UserInfo = (props: IProps) => {
         <Link to={`/settings/${userId}`}>Settings</Link>
       </Menu.Item>
 
-      {emailConfirmed && <Menu.Divider />}
+      {/*{emailConfirmed && <Menu.Divider />}*/}
+
+      <Menu.Divider />
 
       <Menu.Item key="logout" onClick={logout} data-qa="logout">
         Logout
@@ -64,7 +66,7 @@ const UserInfo = (props: IProps) => {
     </Menu>
   );
 
-  if (name) {
+  if (userId) {
     return (
       <div className="mt-3">
         <Dropdown overlay={menu} trigger={['click']}>

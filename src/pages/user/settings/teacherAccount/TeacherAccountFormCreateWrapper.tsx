@@ -29,7 +29,7 @@ const TeacherAccountFormCreateWrapper = (props: IProps) => {
     props.styleSearch();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.TeacherAccountForm/create', false);
+  const isLoading = get(props, 'loadingEffects.TeacherAccount/create', false);
   const classesList = get(props, 'classesList', []);
   const eventList = get(props, 'eventList', []);
   const classTypeList = get(props, 'classTypeList', []);
@@ -51,18 +51,18 @@ const TeacherAccountFormCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  classesList: state.TeacherAccountForm.classesList,
-  eventList: state.TeacherAccountForm.eventList,
-  classTypeList: state.TeacherAccountForm.classTypeList,
-  styleList: state.TeacherAccountForm.styleList,
+  classesList: state.TeacherAccount.classesList,
+  eventList: state.TeacherAccount.eventList,
+  classTypeList: state.TeacherAccount.classTypeList,
+  styleList: state.TeacherAccount.styleList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: ITeacherAccount) => dispatch({ type: 'TeacherAccountForm/create', payload }),
-  classesSearch: () => dispatch({ type: 'TeacherAccountForm/classesSearch' }),
-  eventSearch: () => dispatch({ type: 'TeacherAccountForm/eventSearch' }),
-  classTypeSearch: () => dispatch({ type: 'TeacherAccountForm/classTypeSearch' }),
-  styleSearch: () => dispatch({ type: 'TeacherAccountForm/styleSearch' }),
+  create: (payload: ITeacherAccount) => dispatch({ type: 'TeacherAccount/create', payload }),
+  classesSearch: () => dispatch({ type: 'TeacherAccount/classesSearch' }),
+  eventSearch: () => dispatch({ type: 'TeacherAccount/eventSearch' }),
+  classTypeSearch: () => dispatch({ type: 'TeacherAccount/classTypeSearch' }),
+  styleSearch: () => dispatch({ type: 'TeacherAccount/styleSearch' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeacherAccountFormCreateWrapper);

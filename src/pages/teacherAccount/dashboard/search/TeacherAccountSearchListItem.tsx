@@ -41,7 +41,7 @@ const TeacherAccountSearchListItem = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   teacherAccountDeleteById: (teacherAccountId: string) =>
-    dispatch({ type: 'TeacherAccountDashboard/teacherAccountDeleteDyId', payload: teacherAccountId }),
+    dispatch({ type: 'TeacherAccount/teacherAccountDeleteDyId', payload: teacherAccountId }),
 });
 
 // @ts-ignore

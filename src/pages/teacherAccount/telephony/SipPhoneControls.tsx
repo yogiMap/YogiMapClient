@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const SipPhoneControls = (props: IProps) => {
-  const clientCreate = () => {
+  const sipPhoneCreate = () => {
     props.open({
       title: 'Create SIP Phone',
       component: 'SipPhoneFormCreate',
@@ -31,11 +31,11 @@ const SipPhoneControls = (props: IProps) => {
 
   return (
     <>
-      <Button type="primary" shape="round" className="my-5" onClick={clientCreate}>
+      <Button type="primary" onClick={sipPhoneCreate}>
         Create SIP Phone
       </Button>
 
-      <Button type="default" className="my-5 mx-3" shape="round" onClick={sipPhoneBuy}>
+      <Button type="primary" onClick={sipPhoneBuy}>
         Buy SIP Phone
       </Button>
     </>

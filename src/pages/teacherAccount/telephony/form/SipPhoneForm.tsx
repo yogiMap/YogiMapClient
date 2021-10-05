@@ -11,7 +11,6 @@ interface IProps {
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: ISipPhone;
-  companyEmployees: IUser[];
 }
 
 const SipPhoneForm = (props: IProps) => {
@@ -29,7 +28,7 @@ const SipPhoneForm = (props: IProps) => {
 
       {/*      <Form.Item label="Employee" name="owner">
         <Select placeholder="Please select">
-          {props.companyEmployees.map((el) => (
+          {props.teacherEmployees.map((el) => (
             <Select.Option key={el._id} value={el._id}>
               {el.name}
             </Select.Option>

@@ -4,12 +4,11 @@ import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';
 import { ISidepanel } from '@/pages/utils/sidepanel/types';
 import { connect } from 'umi';
-// import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 
 interface ISipPhoneDeleteById {
   sipPhoneId: string;
   queryParams: ISipPhoneQueryParams;
-  teacherAccountId: string;
 }
 
 interface IProps {
@@ -70,9 +69,9 @@ const ActionMenu = (props: IProps) => {
   return (
     <span>
       <div id="top-menu" role="menu" className="d-flex align-items-end">
-        {/*  <Button type="link" onClick={() => editHandler(row._id)}>*/}
-        {/*    <EditOutlined className="edit-pen-icon" />*/}
-        {/*  </Button>*/}
+        <Button type="link" onClick={() => editHandler(row._id)}>
+          <EditOutlined className="edit-pen-icon" />
+        </Button>
 
         <Dropdown overlay={menu(row)} trigger={['click']}>
           <span className="ant-dropdown-link">
@@ -86,8 +85,7 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  sipPhoneDeleteById: (payload: ISipPhoneDeleteById) =>
-    dispatch({ type: 'SipPhoneDashboard/sipPhoneDeleteById', payload }),
+  sipPhoneDeleteById: (payload: ISipPhoneDeleteById) => dispatch({ type: 'Telephony/sipPhoneDeleteById', payload }), //  Telephony
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

@@ -8,9 +8,9 @@ import { ISipPhone, ISipPhoneQueryParams } from '@/pages/telephony/types';
 import { ILoadingEffects } from '@/types';
 
 interface IProps {
-  getById: (sipPhoneId: string) => void;
+  telephonyGetById: (sipPhoneId: string) => void;
   reset: () => void;
-  updateById: (payload: ISipPhoneUpdate) => void;
+  TelephonyUpdateById: (payload: ISipPhoneUpdate) => void;
   teacherAccountId: string;
   sipPhoneInfo: ISipPhone;
   loadingEffects: ILoadingEffects;
@@ -30,20 +30,21 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const sipPhoneId: string = get(props, 'Sidepanel.sipPhoneId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.Telephony.getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.Telephony.updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.TeacherAccount/telephonyGetById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.TeacherAccount/TelephonyUpdateById', false);
 
   const teacherAccountId = get(props, 'Sidepanel.teacherAccountId', '');
 
-  const teacherEmployees = get(props, 'Telephony.teacherEmployee', []);
-  const initialValues = get(props, 'Telephony.sipPhoneInfo', {});
+  const teacherEmployees = get(props, 'TeacherAccount.teacherEmployee', []);
+  const initialValues = get(props, 'TeacherAccount.sipPhoneInfo', {});
 
   useEffect(() => {
-    props.getById(sipPhoneId);
+    props.telephonyGetById(sipPhoneId);
+    props.teacherAccountGetEmployee(teacherAccountId);
   }, []);
 
   const onFinish = (values: ISipPhone) => {
-    props.updateById({ values, sipPhoneId, queryParams, teacherAccountId });
+    props.TelephonyUpdateById({ values, sipPhoneId, queryParams, teacherAccountId });
   };
 
   if (isLoadingGet) return <Spin indicator={antIcon} />;
@@ -61,14 +62,16 @@ const SipPhoneFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   Sidepanel: state.Sidepanel,
-  Telephony: state.Telephony,
+  TeacherAccount: state.TeacherAccount,
   loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'Telephony/reset' }),
-  updateById: (payload: ISipPhoneUpdate) => dispatch({ type: 'Telephony/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'Telephony/getById', payload }),
+  reset: () => dispatch({ type: 'TeacherAccount/reset' }),
+  TelephonyUpdateById: (payload: ISipPhoneUpdate) => dispatch({ type: 'TeacherAccount/TelephonyUpdateById', payload }),
+  telephonyGetById: (payload: string) => dispatch({ type: 'TeacherAccount/telephonyGetById', payload }),
+  teacherAccountGetEmployee: (teacherAccountId: string) =>
+    dispatch({ type: 'TeacherAccount/teacherAccountGetEmployee', payload: teacherAccountId }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SipPhoneFormEditWrapper));
