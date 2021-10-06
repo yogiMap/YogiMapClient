@@ -249,8 +249,7 @@ const UserModel: UserModelType = {
 
     *userUploadAvatar({ payload }, { call, put }) {
       yield call(queryUserUploadAvatar, payload);
-      //TODO:Reload page
-      yield put({ type: 'userGetInfo' });
+      yield put({ type: 'userGetById', payload: payload.userId });
     },
 
     *reset(_, { put }) {
