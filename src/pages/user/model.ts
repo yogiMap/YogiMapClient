@@ -56,6 +56,11 @@ const UserModel: UserModelType = {
     *auth(_, { call, put }) {
       if (Cookies.get('user_auth')) {
         const userAuthResult = yield call(queryUserAuth);
+
+        if (userAuthResult instanceof Error) {
+          history.push('/user/login');
+        }
+
         const user = get(userAuthResult, 'payload.user');
         if (user) {
           userAuthResult.payload.user.acl = get(userAuthResult, 'payload.acl');
